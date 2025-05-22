@@ -4,8 +4,8 @@ weight: 18
 email: "leticiaf.ufsc@gmail.com"
 interests:
 - Melhoramento genético
-- Biotecnologia 
-- Bioinformática
+- Biotecnologia  
+- Bioinformática 
 - Cultura de tecidos
 organizations:
 - name: UFSC
