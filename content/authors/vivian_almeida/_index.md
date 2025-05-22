@@ -6,7 +6,7 @@ interests:
 - Pesquisa
 - Bioestatística
 - Melhoramento Genético
--
+
 organizations:
 - name: UFSC
   url: "https://ufsc.br/"
