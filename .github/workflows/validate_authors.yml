@@ -1,0 +1,53 @@
+name: Validate Authors Directory
+
+on:
+  push:
+    paths:
+      - 'content/authors/**'
+  pull_request:
+    paths:
+      - 'content/authors/**'
+
+jobs:
+  validate-authors:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Validate authors directory structure
+        run: |
+          # Caminho base
+          BASE_DIR="content/authors"
+
+          # Verificar cada diretório em content/authors
+          for dir in $(find "$BASE_DIR" -mindepth 1 -maxdepth 1 -type d); do
+            dir_name=$(basename "$dir")
+
+            # Ignorar o diretório "admin"
+            if [[ "$dir_name" == "admin" ]]; then
+              echo "Ignorando o diretório 'admin'."
+              continue
+            fi
+
+            # Verificar se o nome do diretório segue o padrão palavra_palavra
+            if [[ ! "$dir_name" =~ ^[a-z]+_[a-z]+$ ]]; then
+              echo "Erro: O diretório '$dir_name' não segue o padrão 'palavra_palavra'."
+              exit 1
+            fi
+
+            # Verificar se _index.md existe
+            if [[ ! -f "$dir/_index.md" ]]; then
+              echo "Erro: O diretório '$dir_name' não contém '_index.md'."
+              exit 1
+            fi
+
+            # Verificar se existe um avatar com extensão válida
+            if [[ ! -f "$dir/avatar.png" && ! -f "$dir/avatar.jpg" && ! -f "$dir/avatar.jpeg" ]]; then
+              echo "Erro: O diretório '$dir_name' não contém um avatar válido (.png, .jpg, .jpeg)."
+              exit 1
+            fi
+          done
+
+          echo "Validação concluída com sucesso!"
