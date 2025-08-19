@@ -78,8 +78,6 @@ Maiores informações podem ser obtidas no [edital de seleção](edital_2025_02_
 # <i class="fas fa-file-export"></i> Inscrição
 
 A inscrição deve ser realizada pelo [formulário online de
-inscrição](https://forms.gle/MyMBcAjEWsm4ksxA6), até as 23:59 do dia 22
+inscrição](https://forms.gle/Wfu5Go98c4Hys8qJ7), até as 23:59 do dia 22
 de agosto de 2025.
-
-<!--<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScCdZjjHMi5IdTE0Z931loNHOq0FSP3KNUJ0UplATTuS_T0YA/viewform?embedded=true" width="720" height="1300" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>-->
 
