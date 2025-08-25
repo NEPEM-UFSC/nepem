@@ -81,3 +81,17 @@ A inscrição deve ser realizada pelo [formulário online de
 inscrição](https://forms.gle/Wfu5Go98c4Hys8qJ7), até as 23:59 do dia 22
 de agosto de 2025.
 
+# Entrevistas
+
+Conforme edital de seleção, são divulgados os horários de entrevista das inscrições homologadas, conforme ordem de inscrição. A entrevista será realizada de maneira online, no link https://conferenciaweb.rnp.br/ufsc/nepem
+
+| CANDIDATO                             | HORÁRIO |
+|---------------------------------------|---------|
+| Marina Mattiello Crestani             |20:30    |
+| Vinícius Dequi Forcelini              |20:40    |
+| Maria Eduarda da Silva Martins        |20:50    |
+| Daniel Schmechel Affeldt              |21:00    |
+| Jéssica Katherine Lamera              |21:10    |
+| Samara Farias Cortes                  |21:20    |
+| Mateus Zunino Espindola               |21:30    |
+
