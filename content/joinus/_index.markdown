@@ -95,3 +95,20 @@ Conforme edital de seleção, são divulgados os horários de entrevista das ins
 | Samara Farias Cortes                  |21:20    |
 | Mateus Zunino Espindola               |21:30    |
 
+
+# Resultado
+
+
+O Núcleo de Estudos em Pesquisa e Melhoramento de Plantas (NEPEM/UFSC) torna público o resultado do processo seletivo, após cumpridas todas as etapas dispostas no edital. Abaixo a lista dos candidatos selecionados, por ordem de classificação:
+
+| Classificação | Candidato(a)   |
+| -- | ------------------------- |
+| 1  | Vinícius Dequi Forcelini  |
+| 2  | Marina Mattiello Crestani |
+| 3  | Samara Farias Cortes      |
+| 4  | Daniel Schmechel Affeldt  |
+| 5  | Mateus Zunino Espindola   |
+
+Os(as) aprovados(as) receberão, em breve, instruções por e-mail sobre os próximos passos para integração às atividades do grupo de pesquisa.
+
+Agradecemos também a todos(as) os(as) candidatos(as) que participaram da seleção e reforçamos o convite para continuarem acompanhando nossas atividades e oportunidades futuras.
