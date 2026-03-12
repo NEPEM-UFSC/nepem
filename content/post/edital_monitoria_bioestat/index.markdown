@@ -4,8 +4,8 @@ title: Edital de seleção de monitor FIT5306 - Bioestatística e Experimentaç�
 subtitle: ''
 summary: 'Edital de seleção de monitor para a disciplina FIT5306 – Bioestatística e Experimentação Agrícola.'
 author: Tiago Olivoto
-date: '2025-03-12'
-lastmod: '2025-03-12'
+date: '2026-03-12'
+lastmod: '2026-03-12'
 # url_source: https://github.com/TiagoOlivoto/lattes
 links:
 categories:
@@ -29,51 +29,54 @@ math: true
 
 
 
-O Professor Dr. Tiago Olivoto, matrícula SIAPE 1241962, considerando o disposto na Resolução Normativa Nº 194/CUn/2024, de 12 de julho de 2024, no Edital Nº 01/2025 de 11 de março de 2025 do Departamento de Fitotecnia e nas demais regulamentações pertinentes, torna público os critérios e cronograma para a seleção para preenchimento de uma vaga de monitoria remunerada, **reservada para estudantes contemplados pelo Programa de Ações Afirmativas**, para a disciplina FIT5306 – BIOESTATÍSTICA E EXPERIMENTAÇÃO AGRÍCOLA.
+O Professor Dr. Tiago Olivoto, matrícula SIAPE 1241962, considerando o disposto na Resolução Normativa Nº 194/CUn/2024, de 12 de julho de 2024, no Edital Nº 01/2026 de 12 de março de 2026 do Departamento de Fitotecnia e nas demais regulamentações pertinentes, torna público os critérios e cronograma para a seleção para preenchimento de uma vaga de monitoria remunerada, **reservada para estudantes contemplados pelo Programa de Ações Afirmativas**, para a disciplina FIT5306 – BIOESTATÍSTICA E EXPERIMENTAÇÃO AGRÍCOLA.
 
 <br> 
 
 # <i class="fas fa-file-pdf"></i> Edital
 
 
-<a href="https://github.com/NEPEM-UFSC/nepem/raw/master/content/post/edital_monitoria_bioestat/edital_monitor_bioestatistica_2025_assinado.pdf" target="_blank" rel="noopener"><img src="https://github.com/NEPEM-UFSC/nepem/blob/master/content/post/edital_monitoria_bioestat/image_criterios.png?raw=true" width="1000" height="273"/></a>
+<a href="https://github.com/NEPEM-UFSC/nepem/raw/master/content/post/edital_monitoria_bioestat/edital_monitor_bioestatistica_2026_assinado.pdf" target="_blank" rel="noopener"><img src="https://github.com/NEPEM-UFSC/nepem/blob/master/content/post/edital_monitoria_bioestat/image_criterios.png?raw=true" width="1000" height="273"/></a>
 
 
-<a class="btn btn-success" href="https://github.com/NEPEM-UFSC/nepem/raw/master/content/post/edital_monitoria_bioestat/edital_monitor_bioestatistica_2025_assinado.pdf" target="_blank"><i class="fa fa-save"></i> Download do edital</a>
+<a class="btn btn-success" href="https://github.com/NEPEM-UFSC/nepem/raw/master/content/post/edital_monitoria_bioestat/edital_monitor_bioestatistica_2026_assinado.pdf" target="_blank"><i class="fa fa-save"></i> Download do edital</a>
 
 <br> 
 
 
 # <i class="fas fa-file-export"></i> Inscrição
 
-A inscrição deverá ser realizada de acordo com o estabelecido no [Edital Unificado Nº 01/2025 do Departamento de Fitotecnia](https://fit.ufsc.br/2025/03/11/processo-seletivo-para-monitor-2025/)
+Para realizar a inscrição, o aluno precisará preencher o [formulário de inscrição](https://fit.paginas.ufsc.br/files/2018/05/Formul%C3%A1rio-de-Inscri%C3%A7%C3%A3o.docx) e enviar os seguintes documentos:
 
-<br> 
-<br> 
-
-# <i class="fas fa-file-export"></i> Inscrições Homologadas
-<a class="btn btn-success" href="https://github.com/NEPEM-UFSC/nepem/raw/master/content/post/edital_monitoria_bioestat/homologacao_monitor_bioestatistica_2025_assinado.pdf" target="_blank"><i class="fa fa-save"></i> Download</a>
-
-
-| **Candidato**                   | **Modalidade**           |
-|-----------------------------|----------------------|
-| Daniel Schmechel Affeldt    | Classificação geral  |
-| Lalesca Dadam Gomes         | Classificação geral  |
-| Paulo Romero Oliveira Sousa | Ações afirmativas    |
+a) Histórico Escolar Atualizado;
+b) Para candidatos(as) às vagas da Política de Ações Afirmativas, incluir o documento de validação da autodeclaração referente à categoria da Política de Ações Afirmativas a que a pessoa candidata tenha direito.
 
 
 <br> 
+<br> 
+
+<!-- # <i class="fas fa-file-export"></i> Inscrições Homologadas -->
+<!-- <a class="btn btn-success" href="https://github.com/NEPEM-UFSC/nepem/raw/master/content/post/edital_monitoria_bioestat/homologacao_monitor_bioestatistica_2025_assinado.pdf" target="_blank"><i class="fa fa-save"></i> Download</a> -->
+
+
+<!-- | **Candidato**                   | **Modalidade**           | -->
+<!-- |-----------------------------|----------------------| -->
+<!-- | Daniel Schmechel Affeldt    | Classificação geral  | -->
+<!-- | Lalesca Dadam Gomes         | Classificação geral  | -->
+<!-- | Paulo Romero Oliveira Sousa | Ações afirmativas    | -->
+
+
+<!-- <br>  -->
 
 
 # <i class="fas fa-clock"></i> Cronograma
 
 | **ATIVIDADE**                                            | **PERÍODO**                          |
 |---------------------------------------------------------|--------------------------------------|
-| Inscrição dos candidatos                                | De 11/03/2025 a 17/03/2025 (até as 18:00) |
-| Divulgação das Inscrições Homologadas                   | 18/03/2025                           |
-| Prova Prática, na sala 221 do Departamento de Fitotecnia. | 19/03/2025                           |
-|                                                         | 07:30 às 10:00                       |
-|                                                         | 13:00 às 15:00                        |
+| Inscrição dos candidatos                                | De 12/03/2026 a 14/03/2026 (até as 18:00) |
+| Prova Prática, na sala 221 do Departamento de Fitotecnia. | 16/03/2025                           |
+|                                                         | 07:30 às 11:30                       |
+|                                                         | 16:30 às 18:00                        |
 
 <br> 
 <br> 
@@ -82,6 +85,7 @@ A inscrição deverá ser realizada de acordo com o estabelecido no [Edital Unif
 # <i class="fas fa-file-export"></i> Resultado
 
 <a class="btn btn-success" href="https://github.com/NEPEM-UFSC/nepem/raw/master/content/post/edital_monitoria_bioestat/resultado_monitor_bioestatistica_2025_assinado.pdf" target="_blank"><i class="fa fa-save"></i> Download do resultado</a>
+
 
 
 <!-- O Professor Dr. Tiago Olivoto, matrícula SIAPE 1241962, considerando o Edital de Seleção para Monitor remunerado da disciplina FIT5306 – Bioestatística e Experimentação Agrícola, divulga o resultado final após finalizadas as etapas do processo seletivo. -->
