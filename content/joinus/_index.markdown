@@ -1,6 +1,6 @@
 ---
 toc: true
-title: Seleção NEPEM 2025
+title: Seleção NEPEM 2026
 subtitle: ''
 summary: 'Processo seletivo complementar para ingresso no Núcleo de Ensinos e Pesquisas em Experimentação e Melhoramento Vegetal (NEPEM).'
 author: Tiago Olivoto
@@ -71,7 +71,7 @@ processo seletivo aberto para ingresso e reingresso como membro efetivo!
 <br>
 
 # <i class="fas fa-file-pdf"></i> Informações.
-Maiores informações podem ser obtidas no [edital de seleção](edital_2026assinado.pdf). Caso tenha alguma dúvida, não hesite em enviar um email para contato@nepemufsc.com
+Maiores informações podem ser obtidas no [edital de seleção](edital_2026_assinado.pdf). Caso tenha alguma dúvida, não hesite em enviar um email para contato@nepemufsc.com
 
 <br>
 
