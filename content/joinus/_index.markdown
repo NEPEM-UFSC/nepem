@@ -5,7 +5,7 @@ subtitle: ''
 summary: 'Processo seletivo complementar para ingresso no Núcleo de Ensinos e Pesquisas em Experimentação e Melhoramento Vegetal (NEPEM).'
 author: Tiago Olivoto
 date: '2024-09-08'
-lastmod: '2025-08-19'
+lastmod: '2026-03-18'
 links:
 images:
   - /img/eSolia-Post-Slider1.png
@@ -64,51 +64,20 @@ processo seletivo aberto para ingresso e reingresso como membro efetivo!
 
 | ATIVIDADE                                                               | PERÍODO            |
 |---------------------------------------------------|---------------------|
-| Inscrições ([https://forms.gle/Wfu5Go98c4Hys8qJ7](https://forms.gle/Wfu5Go98c4Hys8qJ7)) | 19/08 a 22/08/2025 |
-| Entrevistas (caso o quantitativo de vagas seja excedido)                | 25/08/2025    |
-| Divulgação dos resultados                                              | 26/08/2025        |
+| Inscrições ([https://forms.gle/1KWzzPGVfNiFxhtx8](https://forms.gle/1KWzzPGVfNiFxhtx8)) | 18/03 a 25/03/2026 |
+| Entrevistas (caso o quantitativo de vagas seja excedido)                | 28/03 e/ou 29/03/2026    |
+| Divulgação dos resultados                                              | 01/04/2026        |
 
 <br>
 
 # <i class="fas fa-file-pdf"></i> Informações.
-Maiores informações podem ser obtidas no [edital de seleção](edital_2025_02_assinado.pdf). Caso tenha alguma dúvida, não hesite em enviar um email para contato@nepemufsc.com
+Maiores informações podem ser obtidas no [edital de seleção](edital_2026assinado.pdf). Caso tenha alguma dúvida, não hesite em enviar um email para contato@nepemufsc.com
 
 <br>
 
 # <i class="fas fa-file-export"></i> Inscrição
 
 A inscrição deve ser realizada pelo [formulário online de
-inscrição](https://forms.gle/Wfu5Go98c4Hys8qJ7), até as 23:59 do dia 22
-de agosto de 2025.
+inscrição](https://forms.gle/1KWzzPGVfNiFxhtx8), até as 23:59 do dia 25
+de março de 2026.
 
-# Entrevistas
-
-Conforme edital de seleção, são divulgados os horários de entrevista das inscrições homologadas, conforme ordem de inscrição. A entrevista será realizada de maneira online, no link https://conferenciaweb.rnp.br/ufsc/nepem
-
-| CANDIDATO                             | HORÁRIO |
-|---------------------------------------|---------|
-| Marina Mattiello Crestani             |20:30    |
-| Vinícius Dequi Forcelini              |20:40    |
-| Maria Eduarda da Silva Martins        |20:50    |
-| Daniel Schmechel Affeldt              |21:00    |
-| Jéssica Katherine Lamera              |21:10    |
-| Samara Farias Cortes                  |21:20    |
-| Mateus Zunino Espindola               |21:30    |
-
-
-# Resultado
-
-
-O Núcleo de Estudos em Pesquisa e Melhoramento de Plantas (NEPEM/UFSC) torna público o resultado do processo seletivo, após cumpridas todas as etapas dispostas no edital. Abaixo a lista dos candidatos selecionados, por ordem de classificação:
-
-| Classificação | Candidato(a)   |
-| -- | ------------------------- |
-| 1  | Vinícius Dequi Forcelini  |
-| 2  | Marina Mattiello Crestani |
-| 3  | Samara Farias Cortes      |
-| 4  | Daniel Schmechel Affeldt  |
-| 5  | Mateus Zunino Espindola   |
-
-Os(as) aprovados(as) receberão, em breve, instruções por e-mail sobre os próximos passos para integração às atividades do grupo de pesquisa.
-
-Agradecemos também a todos(as) os(as) candidatos(as) que participaram da seleção e reforçamos o convite para continuarem acompanhando nossas atividades e oportunidades futuras.
