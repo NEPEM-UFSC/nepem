@@ -77,7 +77,39 @@ Maiores informações podem ser obtidas no [edital de seleção](edital_2026_ass
 
 # <i class="fas fa-file-export"></i> Inscrição
 
-A inscrição deve ser realizada pelo [formulário online de
-inscrição](https://forms.gle/1KWzzPGVfNiFxhtx8), até as 23:59 do dia 25
-de março de 2026.
+Encerrada.
+
+<br>
+
+# <i class="fas fa-clock"></i> ronograma de Entrevistas
+
+Formato online <https://conferenciaweb.rnp.br/ufsc/nepem>, dia 28/03/2025.
+
+
+| Horário | Candidato(a) |
+| :--- | :--- |
+| 07:00 | Fausto Galhardi |
+| 07:10 | Lalesca Dadam Gomes |
+| 07:20 | Daniel Fumio Hada Júnior |
+| 07:30 | Matheus Lopes Machado |
+| 07:40 | Daniel Schmechel Affeldt |
+| 07:50 | Maria Rosa Hilário |
+| 08:00 | Isabela Buttelli Carlomagno |
+| 08:10 | Diana Carlitos da Silva |
+| 08:20 | Raiani Cristóvão |
+| 08:30 | Mateus Zunino Espindola |
+| 08:40 | Lazaro Nanque |
+| 08:50 | Emille Zingler |
+| **09:00** | **INTERVALO (5 MIN)** |
+| 09:05 | Everton Klein |
+| 09:15 | Diego Cassiano Polacchini Biason |
+| 09:25 | Luiz Paulo da Silva |
+| 09:35 | Gabriel de Oliveira Machado |
+| 09:45 | Carlos Eduardo Forcelini Assoni |
+| 09:55 | Isabella Stefani Lisboa da Costa |
+| 10:05 | Maria Laura Faustino Monteiro |
+| 10:15 | Emanuela Lamim |
+| 10:25 | Kenji Da Cruz Konno |
+| 10:35 | Marina Mattiello Crestani |
+| 10:45 | Thamara colin |
 
