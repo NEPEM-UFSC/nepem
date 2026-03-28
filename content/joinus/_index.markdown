@@ -113,3 +113,54 @@ Formato online <https://conferenciaweb.rnp.br/ufsc/nepem>, dia 28/03/2025.
 | 10:35 | Marina Mattiello Crestani |
 | 10:45 | Thamara colin |
 
+
+<br>
+
+# Resultado Final do Processo Seletivo
+
+É com satisfação que divulgamos a lista de candidatos aprovados após a conclusão de todas as etapas do nosso processo de seleção. Parabéns aos selecionados!
+
+## ✅ Candidatos Aprovados
+
+* Carlos Eduardo Forcelini Assoni
+* Daniel Fumio Hada Júnior
+* Daniel Schmechel Affeldt
+* Diana Carlitos da Silva
+* Diego Cassiano Polacchini Biason
+* Emille Zingler
+* Fausto Galhardi
+* Isabela Buttelli Carlomagno
+* Isabella Stefani Lisboa da Costa
+* Kenji Da Cruz Konno
+* Lalesca Dadam Gomes
+* Luiz Paulo da Silva
+* Maria Laura Faustino Monteiro
+* Maria Rosa Hilário
+* Marina Mattiello Crestani
+* Mateus Zunino Espindola
+* Matheus Lopes Machado
+* Thamara Colin
+
+---
+
+## ℹ️ Candidatos não classificados
+
+Informamos que, conforme as regras estabelecidas para este processo, os candidatos listados abaixo foram desclassificados por **não comparecimento à etapa de entrevistas**:
+
+* Emanuela Lamim
+* Gabriel de Oliveira Machado
+* Everton Klein
+* Lazaro Nanque
+* Raiani Cristóvão
+
+Agradecemos o interesse de todos os participantes e desejamos sucesso em suas trajetórias!
+
+## ℹ️ Orientações sobre o Regimento Interno do NEPEM
+
+Para garantir a harmonia, a organização e o bom desenvolvimento das nossas atividades de pesquisa, extensão e ensino, é fundamental que todos os alunos (graduação e pós-graduação) conheçam e sigam as diretrizes estabelecidas em nosso Regimento Interno. O regimento é o documento que norteia o funcionamento do núcleo e define os direitos e deveres de seus membros.
+
+O documento completo está disponível permanentemente para consulta no link oficial:
+🔗 https://nepemufsc.com/sobre/regimento/
+
+Caso algum ponto do regimento não esteja claro ou você tenha dúvidas sobre a aplicação de alguma norma no cotidiano das pesquisas, procure a coordenação do núcleo. Lembre-se: O conhecimento das normas evita imprevistos e fortalece a excelência acadêmica do nosso grupo.
+
