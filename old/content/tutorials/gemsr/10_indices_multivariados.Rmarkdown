@@ -1,0 +1,197 @@
+---
+title: Combinando AMMI e BLUP
+linktitle: "10. Combinando AMMI e BLUP"
+toc: true
+type: docs
+date: "2021/07/09"
+draft: false
+menu:
+  gemsr:
+    parent: GEMS-R
+    weight: 11
+weight: 11
+---
+
+
+```{r collapse = TRUE,}
+library(metan)
+library(rio)
+library(ggforce)
+
+# gerar tabelas html
+print_tbl <- function(table, digits = 3, ...){
+  knitr::kable(table, booktabs = TRUE, digits = digits, ...)
+}
+
+
+df_ge <- import("http://bit.ly/df_ge", setclass = "tbl")
+```
+
+
+
+# Índices univariados
+
+A função `waasb()` calcula o WAASB, acrônimo para **W**eighted **A**verage of the **A**bsolute **S**cores obtidos pela decomposição por valores singulares dos **B**LUPs para interação genótipo-ambiente obtidos por um Modelo Linear de Efeito Misto[^1]. O índice WAASB para um determinado genótipo \((i\\)) é dado por:
+
+$$
+WAASB_i = \sum_ {k = 1} ^ {p} | IPCA_ {ik} \times EP_k | / \sum_ {k = 1} ^ {p} EP_k
+$$
+
+
+onde \\(WAASB_i\\) é a média ponderada dos scores absolutos do \\(i\\)-ésimo genótipo; \\(IPCA_{ik}\\) são os scores do \\(i\\)-ésimo genótipo no \\(k\\)-ésimo IPCA; \\(EP_k\\) é a variância explicada no \\(k\\)-ésimo IPCA para \\(k = 1,2, .., p\\), \\(p = min (g-1; e-1)\\). O modelo é ajustado com a função `waasb()`. Tanto `waasb()` quanto `gamem_met()` ajustam o mesmo modelo.
+
+```{r collapse = TRUE,}
+model_waasb <- 
+  waasb(df_ge,
+        env = ENV,
+        gen = GEN,
+        rep = BLOCO,
+        resp = everything(), 
+        verbose = FALSE)
+
+# índice WAASB
+waasb_ind <- gmd(model_waasb, "WAASB")
+print_tbl(waasb_ind)
+```
+
+
+
+## Biplots
+Como o índice WAASB é baseado em decomposição por valores singulares, é possível obter os mesmos biplots utilizados na análise AMMI convencional
+
+```{r fig.width=8}
+p1 <- plot_scores(model_waasb, var = 9)
+p2 <- plot_scores(model_waasb, type = 2, var = 9)
+p1 + p2
+```
+
+No método WAASB, o seguinte biplot representa quatro classificações relativas à interpretação conjunta de desempenho médio e estabilidade (para genótipos) ou discriminação (ambientes).
+
+* Quadrante I. Os genótipos incluídos neste quadrante podem ser considerados genótipos instáveis e com produtividade abaixo da média geral. Ambientes neste quadrante apresentam alta capacidade de discriminação.
+
+* Quadrante II. Neste quadrante estão incluídos os genótipos instáveis, embora com produtividade acima da média geral. Os ambientes incluídos neste quadrante merecem atenção especial, pois, além de proporcionarem altas magnitudes da variável resposta, apresentam boa capacidade de discriminação.
+
+* Quadrante III. Os genótipos deste quadrante apresentam baixa produtividade, mas podem ser considerados estáveis, devido aos menores valores de WAASB. Quanto menor esse valor, mais estável o genótipo pode ser considerado. Os ambientes incluídos neste quadrante podem ser considerados pouco produtivos e com baixa capacidade de discriminação.
+
+* Quadrante IV. Os genótipos dentro deste quadrante são altamente produtivos e amplamente adaptados devido à alta magnitude da variável de resposta e baixos valores do índice WAASB.
+
+```{r fig.width=10}
+p3 <- plot_scores(model_waasb, type = 3, var = 9)
+p4 <- plot_scores(model_waasb,
+                  type = 3,
+                  var = 9,
+                  highlight = c("H1", "H6"),
+                  plot_theme = theme_metan_minimal(),
+                  title = FALSE)
+
+arrange_ggplot(p3, p4, tag_levels = "a", guides = "collect")
+
+# extendendo o plot
+
+desc <- c("Esses híbridos têm rendimento de grãos acima da média geral. \ N
+Eles são mais estáveis do que aqueles acima da linha horizontal")
+plot_scores(model_waasb,
+            type = 3,
+            var = 9, 
+            x.lab = "Massa de mil grãos (g)",
+            y.lab = "Média poderada dos escores absolutos (WAASB)",
+            col.segm.env = "transparent") +
+geom_mark_rect(aes(filter =  Code  %in% c("H13", "H4", "H6"),
+                     label = "Descrição",
+                     description = desc),
+               label.fontsize = 9,
+               show.legend = F,
+               con.cap = 0,
+               con.colour = "red",
+               color = "red",
+               expand = 0.015,
+               label.buffer = unit(2, "cm"))+
+theme_gray()+
+theme(legend.position = c(0.1, 0.9),
+      legend.background = element_blank(),
+      legend.title = element_blank(),
+      aspect.ratio = 1)
+```
+
+
+
+
+
+A seleção simultânea para desempenho médio e estabilidade é baseada no índice WAASBY[^1]. Este índice considera a estabilidade (*WAASB*) e o desempenho médio (variável dependente, *Y*) para classificação de genótipos considerando o seguinte modelo:
+
+$$
+WAASB{Y_i} = \frac {{\left ({r {G_i} \times {\theta _Y}} \right) + \left ({r {W_i} \times {\theta _S}} \right)}} {{{\theta _Y} + {\theta _S}}}
+$$
+
+onde \\(WAASBY_i\\) é o índice de seleção simultânea para o \\(i\\)-ésimo genótipo que pondera entre desempenho e estabilidade; \\(rY_i\\) e \\(rW_i\\) são os valores reescalados (0-100) para a variável dependente e WAASB, respectivamente; \\(\theta _Y\\) e \\(\theta_S\\) são os pesos da variável dependente e WAASB, respectivamente. Os valores redimensionados são usados para tornar WAASB e Y diretamente comparáveis. Os valores máximo e mínimo para redimensionar a variável dependente dependerão do objetivo da seleção. Por exemplo, assumindo que o valor mais alto para a variável dependente é melhor, digamos, para rendimento de grãos, o genótipo com a média mais alta terá \\(rY_i = 100\\) após o reescalonamento. Por outro lado, se o valor mais baixo é melhor, digamos, para altura de espiga, o genótipo com a média mais baixa terá \\(rY_i = 100\\) após o reescalonamento. O genótipo com o menor WAASB terá \\(rW_i = 100\\). De fato, o índice WAASBY já é computado com a função `waasb()`, então, agora, basta extrair-mos os valores
+
+
+
+```{r collapse = TRUE,}
+waasby_ind <- gmd(model_waasb, what = "WAASBY")
+print_tbl(waasby_ind, digits = 2)
+
+plot_waasby(model_waasb, var = "MMG")
+```
+
+
+# Índices multivariados
+## Índice de estabilidade multitrait (MTSI)
+
+A função `mtsi()` é usada para calcular o índice de estabilidade multi-trait (MTSI)[^2]. Neste caso, com o modelo calculado com os argumentos padrões, todas as variáveis analizadas são para ter ganhos positivos desejados.
+
+```{r collapse = TRUE,}
+mtsi_model <- mtsi(model_waasb, verbose = FALSE)
+
+# Autovalores e variância explicada
+print_tbl(mtsi_model$PCA)
+
+# Diferencial de seleção para estabilidade
+print_tbl(mtsi_model$sel_dif_stab)
+
+# Diferencial de seleção para performance
+print_tbl(mtsi_model$sel_dif_trait)
+
+```
+
+
+
+## Índice MGIDI
+O índice MGIDI[] pode ser visto como o índice MTSI com um peso de 100 para o desempenho médio. Este índice é calculado com a função `mgidi()`. Aqui, usaremos os dados de exemplo `df_g`. 
+
+
+```{r collapse = TRUE, message = FALSE, warning=FALSE}
+# dados
+df_g <- import("http://bit.ly/df_g", setclass = "tbl")
+
+```
+
+
+```{r collapse = TRUE,}
+gen_mod <- 
+  gamem(df_g,
+        gen = GEN,
+        rep = BLOCO,
+        resp = everything(),
+        verbose = FALSE)
+
+
+mgidi_mod <- mgidi(gen_mod)
+
+# radar plot
+plot(mgidi_mod)
+
+# pontos fortes e fracos
+plot(mgidi_mod, type = "contribution", genotypes = "all")
+print_tbl(mgidi_mod$sel_dif)
+
+```
+
+
+
+[^1]: Olivoto, T., Lúcio, A. D. C., Silva, J. A. G., Marchioro, V. S., Souza, V. Q., & Jost, E. (2019). Mean Performance and Stability in Multi‐Environment Trials I: Combining Features of AMMI and BLUP Techniques. Agronomy Journal, 111(6), 2949–2960. https://doi.org/10.2134/agronj2019.03.0220
+
+[^2]: Olivoto, T., Lúcio, A. D. C., Silva, J. A. G., Sari, B. G., & Diel, M. I. (2019). Mean Performance and Stability in Multi‐Environment Trials II: Selection Based on Multiple Traits. Agronomy Journal, 111(6), 2961–2969. https://doi.org/10.2134/agronj2019.03.0221
+
+[^3]: Olivoto, T., & Nardino, M. (2020). MGIDI: toward an effective multivariate selection in biological experiments. Bioinformatics. [doi.org/10.1093/bioinformatics/btaa981](https://academic.oup.com/bioinformatics/article/37/10/1383/5998663?guestAccessKey=79faf1a1-64a8-4ad5-bd72-0e5953e6a167)
+

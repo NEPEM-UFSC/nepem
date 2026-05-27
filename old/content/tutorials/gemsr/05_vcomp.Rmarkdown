@@ -1,0 +1,121 @@
+---
+title: Componentes de variância
+linktitle: "5. Componentes de variância"
+toc: true
+type: docs
+date: "2021/07/09"
+draft: false
+menu:
+  gemsr:
+    parent: GEMS-R
+    weight: 6
+weight: 6
+---
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" ></script>
+
+
+```{r collapse = TRUE, message = FALSE, warning=FALSE}
+library(metan)
+library(rio)
+
+# gerar tabelas html
+print_tbl <- function(table, digits = 3, ...){
+  knitr::kable(table, booktabs = TRUE, digits = digits, ...)
+}
+
+# dados
+df_g <- import("http://bit.ly/df_g", setclass = "tbl")
+inspect(df_g, verbose = FALSE) %>% print_tbl()
+
+```
+
+# Modelo misto
+A função `gamem()` pode ser usada para analisar experimentos únicos(experimentos unilaterais) usando um modelo de efeito misto de acordo com o seguinte modelo:
+
+$$
+y_{ij} = \mu + \alpha_i + \tau_j + \varepsilon_ {ij}
+$$
+
+onde \\(y_ {ij}\\) é o valor observado para o \\(i\\)-ésimo genótipo no \\(j\\)-ésimo bloco (\\(i\\) = 1, 2, ... \\(g\\); \\(j\\) = 1, 2,..., \\(r\\)); sendo \\(g\\) e \\(r\\) o número de genótipos e blocos, respectivamente; \\(\alpha_i\\) é o efeito aleatório do genótipo \\(i\\); \\(\tau_j\\) é o efeito fixo do bloco \\(j\\); e \\(\varepsilon_ {ij}\\) é o erro aleatório associado a \\(y_{ij}\\). Neste exemplo, usaremos os dados de exemplo `df_g`.
+
+```{r collapse = TRUE,}
+gen_mod <- 
+  gamem(df_g,
+        gen = GEN,
+        rep = BLOCO,
+        resp = everything())
+
+```
+
+A maneira mais fácil de obter os resultados do modelo acima é usando a função `gmd()`, ou seu *shortcut* `gmd()`.
+
+## Diagnósticos do modelo
+```{r collapse = TRUE, fig.width=10}
+plot(gen_mod, type = "res") # padrão
+plot(gen_mod, type = "re") # padrão
+
+```
+
+## Detalhes da análise
+```{r collapse = TRUE,}
+details <- gmd(gen_mod, "details")
+print_tbl(details)
+```
+
+## LRT
+```{r collapse = TRUE,}
+lrt <- gmd(gen_mod, "lrt") 
+print_tbl(lrt)
+```
+
+## Componentes de variância
+```{r collapse = TRUE, fig.width=10}
+vcomp <- gmd(gen_mod, "vcomp")
+print_tbl(vcomp)
+plot(gen_mod, type = "vcomp")
+```
+
+
+
+## Parâmetros genéticos
+```{r collapse = TRUE,}
+genpar <- gmd(gen_mod, "genpar")
+print_tbl(genpar)
+```
+
+
+
+## BLUPs preditos
+```{r collapse = TRUE,}
+blupg <- gmd(gen_mod, "blupg")
+print_tbl(blupg)
+
+# plotar os BLUPS (default)
+plot_blup(gen_mod)
+
+# Trait MGE
+plot_blup(gen_mod,
+          var = "MGE",
+          height.err.bar = 0,
+          col.shape = c("black", "gray"),
+          x.lab = "Massa de grãos por espiga (g)",
+          y.lab = "Híbridos de milho")
+```
+
+
+
+# Modelos mistos - dentro de ambientes
+
+```{r collapse = TRUE, message = FALSE, warning=FALSE}
+df_ge <- import("http://bit.ly/df_ge", setclass = "tbl")
+mod_gen_whithin <- 
+    gamem(df_ge,
+          gen = GEN,
+          rep = BLOCO,
+          resp = everything(),
+          by = ENV, verbose = FALSE)
+
+gmd(mod_gen_whithin, "lrt") %>%  print_tbl()
+gmd(mod_gen_whithin, "vcomp") %>% print_tbl()
+```

@@ -1,0 +1,78 @@
+---
+title: Anova - Individual
+linktitle: "4. Anova - Individual"
+toc: true
+type: docs
+date: "2021/07/09"
+draft: false
+menu:
+  gemsr:
+    parent: GEMS-R
+    weight: 5
+weight: 5
+---
+
+
+```{r collapse = TRUE, message = FALSE, warning=FALSE}
+library(metan)
+library(rio)
+library(emmeans)
+
+# gerar tabelas html
+print_tbl <- function(table, digits = 3, ...){
+  knitr::kable(table, booktabs = TRUE, digits = digits, ...)
+}
+
+# dados
+df <- import("http://bit.ly/df_ge", setclass = "tbl")
+print(df)
+```
+
+
+# Anova individual - anova_ind()
+
+```{r collapse = TRUE, warning=FALSE}
+ind_an <- anova_ind(df,
+                    env = ENV,
+                    gen = GEN,
+                    rep = BLOCO,
+                    resp = everything(),
+                    verbose = FALSE)
+print(ind_an)
+
+# Obter dados de todas as variáveis (Coeficiente de variação)
+gmd(ind_an, "CV") %>% print_tbl()
+
+# F-máximo
+gmd(ind_an, what = "FMAX") %>% print_tbl()
+
+```
+
+
+# Anova individual - gafem()
+```{r collapse = TRUE, warning=FALSE, fig.height=3, fig.width=10}
+ind_an2 <- gafem(df,
+                gen = GEN,
+                rep = BLOCO,
+                resp = everything(),
+                by = ENV,
+                verbose = FALSE)
+
+# Obter dados de todas as variáveis
+# P-value
+pval <- gmd(ind_an2, what = "Pr(>F)", verbose = FALSE)
+print_tbl(pval)
+
+# Comparação de médias (MGE dentro do ambiente 2)
+model_mge_a2 <- ind_an2[[2]][[2]][["MGE"]][["model"]]
+pairwise_means <- tukey_hsd(model_mge_a2, "GEN")
+print_tbl(pairwise_means)
+
+# comparações de médias com o pacote emmeans
+(means <- emmeans(model_mge_a2, "GEN"))
+plot(means,
+     comparisons = TRUE,
+     CIs = FALSE,
+     xlab = "Massa de grãos por espiga",
+     ylab = "Genótipos")
+```

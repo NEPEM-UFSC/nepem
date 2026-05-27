@@ -1,0 +1,366 @@
+---
+title: Manipulação de dados
+linktitle: "1. Manipulação de dados"
+toc: true
+type: docs
+date: "2021/07/09"
+draft: false
+df_print: paged
+code_download: true
+menu:
+  gemsr:
+    parent: GEMS-R
+    weight: 2
+weight: 1
+---
+
+# Pacotes
+```{r collapse = TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)  # manipulação de dados
+library(metan)
+library(rio)        # importação/exportação de dados
+
+# gerar tabelas html
+print_tbl <- function(table, digits = 3, n = NULL, ...){
+  if(!missing(n)){
+    knitr::kable(head(table, n = n), booktabs = TRUE, digits = digits, ...)
+  } else{
+  knitr::kable(table, booktabs = TRUE, digits = digits, ...)
+  }
+}
+```
+
+
+# Formatar strings
+
+A função `tidy_strings()` pode ser usada para organizar strings de caracteres colocando todas as palavras em maiúsculas, substituindo qualquer espaço, tabulação, caracteres de pontuação por `_` e colocando `_` entre maiúsculas e minúsculas.
+
+## Um exemplo simples
+Suponha que tenhamos uma string de caracteres, digamos, `str = c("Env1", "env 1", "env.1")`. Por definição, `str` deve representar um nível único em testes de melhoramento de plantas, por exemplo, ambiente 1, mas na verdade tem três níveis.
+```{r collapse = TRUE, }
+str <- c ("Env1", "env 1", "env.1")
+str %>% factor() %>% levels()
+```
+
+```{r collapse = TRUE, }
+tidy_strings(str)
+```
+Excelente! Agora temos o nível único que deveríamos ter antes.
+
+## Mais exemplos
+Todos os itens a seguir serão convertidos para `" ENV_1 "`.
+```{r collapse = TRUE, }
+messy_env <- c ("ENV 1", "Env 1", "Env1", "env1", "Env.1", "Env_1")
+tidy_strings(messy_env)
+```
+
+Todos os itens a seguir serão traduzidos em `" GEN _ * "`.
+```{r collapse = TRUE, }
+messy_gen <- c ("GEN1", "gen 2", "Gen.3", "gen-4", "Gen_5", "GEN_6")
+tidy_strings(messy_gen)
+```
+
+Todos os itens a seguir serão traduzidos para `" ENV_GEN "`
+```{r collapse = TRUE, }
+messy_int <- c ("EnvGen", "Env_Gen", "env gen", "Env Gen", "ENV.GEN", "ENV_GEN")
+tidy_strings(messy_int)
+```
+
+
+
+## Organize data.frames
+Também podemos organizar strings de um data.frame. Por padrão, o caractere separador é `_`. Para alterar esse padrão, use o argumento `sep`.
+```{r collapse = TRUE, }
+df <- tibble(Env = messy_env,
+             gen = messy_gen,
+             Env_Gen = interaction(Env, gen),
+             y = rnorm(6, 300, 10))
+print_tbl(df)
+
+df_tidy <- tidy_strings(df, sep = "")
+print_tbl(df_tidy)
+
+```
+
+
+
+# Conjunto de dados
+
+```{r collapse = TRUE,  message = FALSE, warning=FALSE}
+# Dados "bagunçados"
+# Apenas 40 linhas 
+df_messy <- import("http://bit.ly/df_messy", setclass = "tbl")
+df_messy %>% print_tbl(n = 40)
+
+```
+
+
+
+
+
+```{r collapse = TRUE, }
+df_tidy <- 
+  df_messy %>% 
+  tidy_colnames() %>% # formata nomes das variáveis
+  fill_na() %>%  # preenche NAs
+  tidy_strings(sep = "") # formata strings
+
+df_tidy %>% print_tbl(n = 40)
+
+# exportar os dados 'arrumados'
+# export(df_tidy, "df_tidy.xlsx")
+```
+
+
+
+# Utilitários para linhas e colunas
+## Adicionar colunas e linhas
+As funções `add_cols()` e `add_rows()` podem ser usadas para adicionar colunas e linhas, respectivamente, a um data.frame. Também é possível adicionar uma coluna com base nos dados existentes. Observe que os argumentos `.after` e` .before` são usados para selecionar a posição da(s) nova(s) coluna(s). Isso é particularmente útil para colocar variáveis da mesma categoria juntas.
+
+```{r collapse = TRUE, }
+df_tidy2 <- 
+  add_cols(df_tidy,
+           ALT_PLANT_CM = ALT_PLANT * 100,
+           .after = ALT_PLANT)
+print_tbl(df_tidy2, n = 5)
+```
+
+## Selecionar ou remover colunas e linhas
+As funções `select_cols()` e `select_rows()` podem ser usadas para selecionar colunas e linhas, respectivamente de um quadro de dados.
+
+```{r collapse = TRUE, }
+select_cols(df_tidy, ENV, GEN) %>% print_tbl(n = 5)
+select_rows(df_tidy, 1:3) %>% print_tbl(n = 5)
+```
+
+As colunas numéricas podem ser selecionadas usando a função `select_numeric_cols()`. Colunas não numéricas são selecionadas com `select_non_numeric_cols()`.
+
+```{r collapse = TRUE, }
+select_numeric_cols(df_tidy) %>% print_tbl(n = 5)
+
+
+# Implementação dplyr
+select(df_tidy, where(is.numeric)) %>% print_tbl(n = 5)
+
+
+select_non_numeric_cols(df_tidy) %>% print_tbl(n = 5)
+
+
+# Implementação dplyr
+select(df_tidy, where(~!is.numeric(.x))) %>% print_tbl(n = 5)
+```
+
+Podemos selecionar a primeira ou última coluna rapidamente com `select_first_col()` e `select_last_col()`, respectivamente.
+
+```{r collapse = TRUE, }
+select_first_col(df_tidy) %>% print_tbl(n = 5)
+select_last_col(df_tidy) %>% print_tbl(n = 5)
+```
+
+
+Para remover colunas ou linhas, use `remove_cols()` e `remove_rows()`.
+```{r collapse = TRUE, }
+remove_cols(df_tidy, ENV, GEN) %>% print_tbl(n = 5)
+
+# Implementação dplyr
+select(df_tidy, -c(ENV, GEN)) %>% print_tbl(n = 5)
+
+```
+
+
+## Concatenar colunas
+A função `concatetate()` pode ser usada para concatenar várias colunas de um data.frame. Ela retorna o data.frame com todas as colunas originais em `.data` mais a variável concatenada, após a última coluna(por padrão), ou em qualquer posição ao usar os argumentos` .before` ou `.after`.
+
+
+```{r collapse = TRUE, }
+concatenado <- 
+  concatenate(df_tidy, ENV, GEN, BLOCO,
+              .after = BLOCO, 
+              new_var = FATORES)
+print_tbl(concatenado, n = 5)
+```
+
+Para eliminar as variáveis existentes e manter apenas a coluna concatenada, use o argumento `drop = TRUE`. Para usar `concatenate()` dentro de uma determinada função como `add_cols()` use o argumento `pull = TRUE` para puxar os resultados para um vetor.
+```{r collapse = TRUE, }
+concatenate(df_tidy, ENV, GEN, BLOCO, drop = TRUE) %>% head()
+concatenate(df_tidy, ENV, GEN, BLOCO, pull = TRUE) %>% head()
+```
+
+
+## Obtendo níveis
+Para obter os níveis e o número de níveis de um fator, as funções `get_levels()` e `get_level_size()` podem ser usadas.
+
+```{r collapse = TRUE, }
+get_levels(df_tidy, ENV)
+get_level_size(df_tidy, ENV) %>% print_tbl()
+```
+
+
+# Utilitários para números e strings
+## Arredondando valores
+A função `round_cols()` arredonda uma coluna selecionada ou um data.frame completo para o número especificado de casas decimais (padrão 0). Se nenhuma variável for informada, todas as variáveis numéricas serão arredondadas.
+
+```{r collapse = TRUE, }
+round_cols(df_tidy, digits = 1) %>% print_tbl(n = 5)
+```
+
+Alternativamente, selecione variáveis para arredondar.
+```{r collapse = TRUE, }
+round_cols(df_tidy, ALT_PLANT:COMPES, digits = 0) %>% print_tbl(n = 5)
+```
+
+## Extraindo e substituindo números
+
+As funções `extract_number()` e `replace_number()` podem ser usadas para extrair ou substituir números. Como exemplo, iremos extrair o número de cada genótipo em `df_tidy`. Por padrão, os números extraídos são colocados como uma nova variável chamada `new_var` após a última coluna dos dados.
+
+```{r collapse = TRUE, }
+extract_number(df_tidy, GEN) %>% print_tbl(n = 5)
+```
+
+Para substituir os números de uma determinada coluna por uma substituição especificada, use `replace_number()`. Por padrão, os números são substituídos por "".
+
+```{r collapse = TRUE, }
+replace_number(df_tidy,
+               BLOCO,
+               pattern  = "1",
+               replacement  = "Rep_1") %>% 
+  print_tbl(n = 5)
+```
+
+## Extraindo, substituindo e removendo strings
+As funções `extract_string()` e `replace_string()` são usadas no mesmo contexto de `extract_number()` e `replace_number()`, mas para lidar com strings.
+
+```{r collapse = TRUE, }
+extract_string(df_tidy, GEN) %>% print_tbl(n = 5)
+```
+
+Para substituir strings, podemos usar a função `replace_strings()`.
+```{r collapse = TRUE, }
+replace_string(df_tidy,
+               GEN,
+               pattern = "H",
+               replacement  = "GEN_") %>% 
+  print_tbl(n = 5)
+```
+
+
+## metan > GÊNES
+Para remover todas as strings de um quadro de dados, use `remove_strings()`.
+```{r collapse = TRUE, }
+remove_strings(df_tidy) %>% print_tbl(n = 5)
+```
+
+
+## metan > Selegen
+```{r collapse = TRUE, }
+df_selegen <- 
+  df_to_selegen_54(df_tidy,
+                   env = ENV,
+                   gen = GEN,
+                   rep = BLOCO)
+print_tbl(df_selegen, n = 15)
+
+```
+
+
+# Dividir/juntar conjunto de dados
+```{r collapse = TRUE, }
+df_list <- split_factors(df_tidy, ENV)
+df_list
+rbind_fill_id(df_list, .id = "AMBIENTE")
+```
+
+
+# Tabela bidirecional
+```{r collapse = TRUE, }
+# Cria uma tabela bidirecional
+tab <- make_mat(df_tidy,
+                row = GEN,
+                col = ENV,
+                value = NGE)
+print_tbl(tab)
+
+
+# máximo valor observado
+tab2 <- make_mat(df_tidy,
+                row = GEN,
+                col = ENV,
+                value = NGE,
+                fun = max)
+print_tbl(tab2)
+
+# soma de linhas e colunas
+row_col_sum(tab) %>% print_tbl()
+
+# média de linhas e colunas
+row_col_mean(tab) %>% print_tbl()
+```
+
+
+# Utilitários para zero e `NAs`
+
+NAs e zeros podem aumentar o ruído na análise de dados. O pacote `metan` possui uma coleção de funções que facilitarão a tarefa de lidar com zeros e valores `NA`.
+
+
+```{r collapse = TRUE,  message = FALSE, warning=FALSE}
+# Dados "bagunçados"
+df_messy <- import("http://bit.ly/df_messy", setclass = "tbl") %>% head(20)
+
+
+```
+
+
+## Remover ou substituir `NA`s
+```{r collapse = TRUE,  message = FALSE, warning=FALSE}
+
+# checar para ver se tem NA
+has_na(df_messy)
+
+# remover colunas com NA
+remove_cols_na(df_messy) %>% print_tbl()
+
+# remover linhas com NA
+remove_rows_na(df_messy) %>% print_tbl()
+
+# selecionar colunas com NA
+select_cols_na(df_messy) %>% print_tbl()
+
+# selecionar colunas com NA
+select_rows_na(df_messy) %>% print_tbl()
+
+# substituir NA por um valor
+replace_na(df_messy, replacement = "FALTA")
+```
+
+
+
+
+
+
+## Remover ou substituir zeros
+```{r collapse = TRUE,  message = FALSE, warning=FALSE}
+
+# checar para ver se tem NA
+has_zero(df_messy)
+
+# remover colunas com NA
+remove_cols_zero(df_messy) %>% print_tbl()
+
+# remover linhas com NA
+remove_rows_zero(df_messy) %>% print_tbl()
+
+# selecionar colunas com NA
+select_cols_zero(df_messy) %>% print_tbl()
+
+# selecionar colunas com NA
+select_rows_zero(df_messy) %>% print_tbl()
+
+# substituir NA por um valor
+replace_zero(df_messy, replacement = NA) # padrão
+```
+
+
+
+
+
+

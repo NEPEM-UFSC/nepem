@@ -1,0 +1,320 @@
+---
+title: Índices de estabilidade
+linktitle: "7. Índices de estabilidade"
+toc: true
+type: docs
+date: "2021/07/09"
+draft: false
+menu:
+  gemsr:
+    parent: GEMS-R
+    weight: 8
+weight: 8
+---
+
+```{r collapse = TRUE,}
+library(metan)
+library(rio)
+df_ge <- import("http://bit.ly/df_ge", setclass = "tbl")
+
+# gerar tabelas html
+print_tbl <- function(table, digits = 3, ...){
+  knitr::kable(table, booktabs = TRUE, digits = digits, ...)
+}
+```
+
+
+# Desempenho dos genótipos em cada ambiente
+A função `ge_plot()` pode ser usada para visualizar o desempenho do genótipo nos ambientes.
+
+```{r collapse = TRUE,, fig.width = 12, fig.height = 5, aviso = FALSE, mensagem = FALSE}
+a <- ge_plot(df_ge, ENV, GEN, MMG)
+b <- ge_plot(df_ge, ENV, GEN, MMG, type = 2)
+arrange_ggplot(a, b, tag_levels = "a")
+```
+
+Para identificar o genótipo ganhador em cada ambiente, podemos usar a função `ge_winners()`.
+
+```{r collapse = TRUE,}
+ge_winners(df_ge, ENV, GEN, resp = everything()) %>% print_tbl()
+```
+
+Ou obter a classificação dos genótipos em cada ambiente. 
+```{r collapse = TRUE,}
+winners <- 
+ge_winners(df_ge, ENV, GEN,
+           resp = everything(),
+           type = "ranks",
+           better = c("l, l, h, h, h, h, h, h, h, h"))
+
+print_tbl(winners)
+```
+
+Para mais detalhes sobre os testes, podemos usar `ge_details()`
+```{r collapse = TRUE,}
+details <- ge_details(df_ge, ENV, GEN, resp = everything())
+print_tbl(details)
+
+```
+
+
+# Matriz dupla entrada
+A função `make_mat()` pode ser usada para produzir uma tabela bidirecional com as médias genótipo-ambiente.
+
+```{r collapse = TRUE,}
+mat <- make_mat(df_ge, GEN, ENV, MMG)
+print_tbl(mat)
+```
+
+
+# Efeitos de interação genótipo-ambiente
+A função `ge_effects()` é usada para calcular os efeitos da interação genótipo-ambiente.
+```{r collapse = TRUE,}
+ge_ef <- ge_effects(df_ge, ENV, GEN, MMG)
+print_tbl(ge_ef$MMG)
+
+# o mesmo efeito é calculado com o resíduo do modelo aditivo
+ge_ef2 <- 
+df_ge %>% 
+  means_by(GEN, ENV) %>% 
+  lm(MMG ~ GEN + ENV, data = .) %>% 
+  residuals() %>% 
+  matrix(nrow = 13, byrow = TRUE)
+print_tbl(ge_ef2)
+```
+
+
+
+# Genótipo + interação genótipo-ambiente (GGE)
+Para obter o efeito GGE, usamos argumento `type =" gge "` na função `ge_effects()`.
+
+```{r collapse = TRUE,}
+gge_ef <- ge_effects(df_ge, ENV, GEN, MMG, type = "gge")
+print_tbl(gge_ef$MMG)
+
+# o mesmo efeito é calculado com o resíduo do modelo aditivo
+gge_ef2 <- 
+df_ge %>% 
+  means_by(GEN, ENV) %>% 
+  lm(MMG ~ ENV, data = .) %>% 
+  residuals() %>% 
+  matrix(nrow = 13, byrow = TRUE)
+print_tbl(gge_ef2)
+```
+
+
+# Agrupamento de ambientes
+
+A função `ge_cluster()` computa uma análise de agrupamento para agrupar ambientes com base em suas semelhanças usando uma distância euclidiana baseada em dados padronizados.
+
+```{r collapse = TRUE,, fig.width = 5, fig.height = 4, aviso = FALSE, mensagem = FALSE, fig.align =" center "}
+d1 <- ge_cluster(df_ge, ENV, GEN, MMG, nclust = 2)
+plot(d1, nclust = 2)
+
+```
+
+A função `env_dissimilarity()` calcula a dissimilaridade entre os ambientes de teste usando:
+
+* A partição da partição do quadrado médio da interação genótipo-ambiente (MS_GE) em partes simples (S) e complexas (C), de acordo com Robertson (1959)[^1], onde \\(S = \frac{1}{2} (\sqrt {Q_1} - \sqrt{Q_2}) ^ 2)\\) e \\(C = (1-r) \sqrt {Q1-Q2}\\), sendo \\(r\\) a correlação entre a média do genótipo nos dois ambientes; e \\(Q_1\\) e \\(Q_2\\) o quadrado médio do genótipo nos ambientes 1 e 2, respectivamente.
+
+* A decomposição do MS_GE proposta por Cruz e Castoldi (1991)[^2] em que a parte complexa é dada por \\(C = \sqrt {(1-r) ^ 3 Q1 Q2}\\).
+
+* O quadrado médio da interação entre genótipos e pares de ambientes.
+
+* Os coeficientes de correlação entre a média dos genótipos em cada par de ambiente.
+
+```{r collapse = TRUE,}
+mod <- env_dissimilarity(df_ge, ENV, GEN, BLOCO, MMG)
+
+# Coeficiente de correlação de Pearson
+print_tbl(mod$MMG$correlation)
+
+# Quadrado médio GxEjj '
+print_tbl(mod$MMG$MSGE)
+
+#% Parte simples do QM GxEjj '(Robertson, 1959)
+print_tbl(mod$MMG$SPART_RO)
+
+#% Da parte complexa do QM  GxEjj '(Robertson, 1959)
+print_tbl(mod$MMG$CPART_RO)
+
+
+#% Parte simples do QM  GxEjj '(Cruz e Castoldi, 1991)
+print_tbl(mod$MMG$SPART_CC)
+
+#% Parte complexa do QM  GxEjj '(Cruz e Castoldi, 1991)
+print_tbl(mod$MMG$CPART_CC)
+
+
+```
+
+
+Para obter dendrogramas com base na matriz acima, podemos usar `plot()`. Os dendrogramas são baseados no algoritmo de agrupamento hierárquico UPGMA (método de grupo de pares não ponderados usando médias aritméticas).
+
+```{r collapse = TRUE,, fig.width = 10, fig.height = 6}
+plot(mod)
+```
+
+
+# Análise de regressão conjunta
+Eberhart e Russell (1966)[^3] popularizaram a análise de estabilidade baseada em regressão. Neste procedimento, a análise de adaptabilidade e estabilidade é realizada por meio de ajustes de equações de regressão onde a variável dependente é predita em função de um índice ambiental, de acordo com o seguinte modelo:
+
+$$
+\mathop Y \nolimits_{ij} = {\beta_{0i}} + {\beta_{1i}}{I_j} + {\delta_{ij}} + {\bar \varepsilon_{ij}}
+$$
+
+onde \\({\beta_{0i}}\\) é a média do genótipo \\(i\\) (\\(i\\) = 1, 2, ..., I); \\({\beta_{1i}}\\) é a resposta linear (slope) do genótipo \\(i\\) ao índice ambiental; \\(Ij\\) é o índice ambiental (\\(j\\) = 1, 2, ..., \\(e\\)), onde \\({I_j} = [(y_{.J} / g) - (y_{..}/ge)]\\), \\({\delta_{ij}}\\) é o desvio da regressão e \\({\ bar \varepsilon_{ij}}\\) é o erro experimental.
+
+O modelo é ajustado com a função `ge_reg()`. Os métodos S3 `plot()` e `summary ()` podem ser usados para explorar o modelo ajustado.
+
+```{r collapse = TRUE,, fig.width = 10, fig.height = 10, aviso = FALSE, mensagem = FALSE}
+reg_model <- ge_reg(df_ge,
+                    env = ENV,
+                    gen = GEN,
+                    rep = BLOCO,
+                    resp = MMG,
+                    verbose = FALSE)
+
+# Use o método print()
+# ANOVA
+print_tbl(reg_model$MMG$anova)
+
+# REGRESSÃO
+print_tbl(reg_model$MMG$regression)
+
+
+# Gráfico
+p1 <- plot(reg_model)
+p2 <- plot(reg_model,
+           x.lab = "Índice ambiental",
+           y.lab = "Massa de Mil Grãos (g)",
+           plot_theme = theme_metan_minimal())
+p3 <- plot(reg_model, type = 2)
+
+# reunir os plots
+arrange_ggplot((p1 + p2), p3, ncol = 1,
+               guides = "collect",
+               tag_levels = "A",
+               tag_suffix = ")")
+```
+
+
+# Índice de confiança genotípica
+Annicchiarico (1992)[^4] propôs um método de estabilidade em que o parâmetro de estabilidade é medido pela superioridade do genótipo em relação à média de cada ambiente, de acordo com o seguinte modelo:
+
+$$
+{Z_ {ij}} = \frac {{{Y_ {ij}}}} {{{{\bar Y} _ {. J}}}} \times 100
+$$
+O índice de confiança genotípica do genótipo \\(i\\) (\\(W_i\\)) é então estimado da seguinte forma:
+
+$$
+W_i = Z_ {i.} / E - \alpha \times sd(Z_{i.})
+$$
+Onde \\(\alpha\\) é o quantil da distribuição normal padrão em uma dada probabilidade de erro (\\(\alpha \approx 1,64 \alpha 0,05\\)). O método é implementado usando a função `Annicchiarico()`. O índice de confiança é estimado considerando todos os ambientes, ambientes favoráveis (índice positivo) e ambientes desfavoráveis (índice negativo).
+
+
+
+```{r collapse = TRUE,, fig.width = 5, fig.height = 4, aviso = FALSE, mensagem = FALSE}
+ann1 <- Annicchiarico(df_ge,
+                      env = ENV,
+                      gen = GEN,
+                      rep = BLOCO,
+                      resp = everything(),
+                      verbose = FALSE)
+
+# Wi
+gmd(ann1) %>% print_tbl()
+
+# Ranques
+gmd(ann1, "rank")  %>% print_tbl()
+
+# classificação dos ambientes
+ann1$ALT_PLANT$environments  %>% print_tbl()
+```
+
+
+# Índice de superioridade
+A função `superiority()` implementa o método não paramétrico proposto por Lin e Binns (1988)[^5], que considera que uma medida de superioridade geral de cultivar para dados de ensaios multiambientes é definida como a soma do quadrado da distância média entre a resposta da cultivar e a resposta máxima calculada em todos os locais, de acordo com o seguinte modelo.
+
+$$
+P_i = \sum \limits_ {j = 1} ^ n {(y_ {ij} - y _ {. J}) ^ 2 / (2n)}
+$$
+onde *n* é o número de ambientes
+
+Semelhante ao índice de confiança genotípica, o índice de superioridade é calculado por todos os ambientes, favoráveis e desfavoráveis.
+
+```{r collapse = TRUE,}
+super <- superiority(df_ge,
+                     env = ENV,
+                     gen = GEN,
+                     resp = everything(),
+                     verbose = FALSE)
+gmd(super) %>% print_tbl()
+```
+
+
+
+# Estratificação ambiental
+Um método que combina análise de estabilidade e estratificação ambiental usando análise fatorial foi proposto por Murakami e Cruz (2004)[^6]. Este método é implementado com a função `ge_factanal()`, da seguinte forma:
+
+```{r collapse = TRUE,, fig.width = 5, fig.height = 4, aviso = FALSE, mensagem = FALSE}
+fato <- ge_factanal(df_ge, 
+                    env = ENV,
+                    gen = GEN,
+                    rep = BLOCO,
+                    resp = everything(),
+                    verbose = FALSE,
+                    mineval = 0.7)
+
+# plot
+plot(fato, var = "MMG")
+
+# Autovalores e variância
+print_tbl(fato$MMG$PCA)
+
+# Cargas fatoriais após rotação varimax
+print_tbl(fato$MMG$FA)
+
+# Estratificação
+print_tbl(fato$MMG$env_strat)
+
+```
+
+
+# A função ge_stats()
+
+A maneira mais fácil de calcular os índices de estabilidade mencionados acima é usando a função `ge_stats()`. É uma função "wrapper" que computa todos os índices de estabilidade de uma única vez. Para obter os resultados em um arquivo *"pronto para ler"*, use `gmd()`.
+
+```{r collapse = TRUE,}
+stat_ge <- ge_stats(df_ge,
+                    env = ENV,
+                    gen = GEN,
+                    rep = BLOCO,
+                    resp = c(MMG, MGE))
+# estatisticas
+gmd(stat_ge, "stats") %>% print_tbl()
+
+# Ranques
+gmd(stat_ge, "ranks") %>% print_tbl()
+
+```
+
+Também é possível obter a correlação de postos de Spearman entre os índices de estabilidade usando `corr_stab_ind()`.
+
+```{r collapse = TRUE, fig.width = 10, fig.height = 10}
+corr_stab_ind(stat_ge)
+```
+
+
+[^1]: Robertson, A. (1959). Experimental design on the measurement of heritabilities and genetic correlations: Biometrical genetics. In Biometrical genetics. Pergamon.
+
+[^2]: CRUZ, C.D.; CASTOLDI, F.L. Decomposição da interação genótipos x ambientes em partes simples e complexa. Revista Ceres, v.38, n.219, p.422-430, 1991.
+
+[^3]: Eberhart, S. A., & Russell, W. A. (1966). Stability parameters for comparing varieties. Crop Science, 6(1), 36–40. https://doi.org/10.2135/cropsci1966.0011183X000600010011x
+
+[^4]: Annicchiarico, P. (1992). Cultivar adaptation and recommendation from alfalfa trials in Northern Italy. Journal of Genetics and Breeding, 46, 269–278.
+
+[^5]: Lin, C.S.; & Binns, M.R. (1988). A superiority measure of cultivar performance for cultivar x location data. Canadian Journal of
+Plant Science, 68, 193-198. https://cdnsciencepub.com/doi/abs/10.4141/cjps88-018
+
+[^6]: Murakami, D. M., & Cruz, C. D. (2004). Proposal of methodologies for environment stratification and analysis of genotype adaptability. Cropp Breeding and Applied Biotechnology, 4(1), 7–11. https://doi.org/10.12702/1984-7033.v04n01a02

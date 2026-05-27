@@ -1,0 +1,266 @@
+---
+title: ANOVA - conjunta
+linktitle: "6. ANOVA - conjunta"
+type: docs
+toc: true
+keep_md: yes
+menu:
+  gemsr:
+    parent: GEMS-R
+    weight: 6
+weight: 6    
+---
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" ></script>
+
+
+
+# Anova conjunta - modelo fixo
+
+```{r collapse = TRUE, message = FALSE, warning=FALSE}
+library(metan)
+library(rio)
+
+# gerar tabelas html
+print_tbl <- function(table, digits = 3, ...){
+  knitr::kable(table, booktabs = TRUE, digits = digits, ...)
+}
+
+
+df_ge <- import("http://bit.ly/df_ge", setclass = "tbl")
+inspect(df_ge, verbose = FALSE) %>% print_tbl()
+
+joint_an <- 
+    anova_joint(df_ge,
+                env = ENV, 
+                gen = GEN,
+                rep = BLOCO,
+                resp = everything(), 
+                verbose = FALSE)
+
+```
+
+# Anova conjunta - modelo misto
+## O modelo
+O modelo linear mais simples e conhecido com efeito de interação usado para analisar dados em multi-ambientes é:
+
+$$
+{y_{ijk}} = {\rm {}} \mu {\rm {}} + \mathop \alpha \nolimits_i + \mathop \tau \nolimits_j + \mathop {(\alpha \tau)} \nolimits_{ij } + \mathop \gamma \nolimits_{jk} + {\rm {}} \mathop \varepsilon \nolimits_{ijk}
+$$
+
+onde \\(y_{ijk}\\) é a variável resposta (por exemplo, rendimento de grãos) observada no \\(k\\)-ésimo bloco do \\(i\\)-ésimo genótipo no \\(j\\)-ésimo ambiente (\\(i\\) = 1, 2, ..., \\(g\\); \\(j\\) = 1, 2, ..., \\(e\\); \\(k\\) = 1, 2, ..., \\(b\\)); \\(\mu\\) é a média geral; \\(\mathop \alpha \nolimits_i\\) é o efeito do \\(i\\)-ésimo genótipo; \\(\mathop \tau \nolimits_j\\) é o efeito do \\(j\\)-ésimo; \\(\mathop {(\alpha \tau)} \nolimits_{ij}\\) é o efeito de interação do \\(i\\)-ésimo genótipo com o \\(j\\)-ésimo ambiente; \\(\mathop \gamma \nolimits_{jk}\\) é o efeito do \\(k\\)-ésimo bloco dentro do \\(j\\)-ésimo ambiente; e \\(\mathop \varepsilon \nolimits_{ijk}\\) é o erro aleatório. Em um modelo de efeito misto assumindo \\({\alpha_i}\\) e \\(\mathop {(\alpha \tau)} \nolimits_{ij}\\) como efeitos aleatórios, o modelo acima pode ser reescrito como:
+
+$$
+{\bf {y = X b + Zu + \varepsilon}}
+$$
+
+
+onde **y** é um vetor \\(n [= \sum \nolimits_{j = 1} ^ e {(gb)]} \times 1\\) da variável de resposta \\({\bf{y}} = {\rm{ }}{\left[ {{y_{111}},{\rm{ }}{y_{112}},{\rm{ }} \ldots ,{\rm{ }}{y_{geb}}} \right]^\prime }\\); \\(\bf{b}\\) é um vetor \\((eb) \times 1\\) de efeitos fixos desconhecidos \\({\bf{b}} = [\mathop \gamma \nolimits_{11}, \mathop \gamma \nolimits_{12}, ..., \mathop \gamma \nolimits_{eb}]^\prime\\); \\(\bf{u}\\) é um vetor \\(m \[= g + ge\] \times 1\\) de efeitos aleatórios \\({\bf {u}} = {\rm {}} {\left [{{\alpha_1}, { \alpha_2}, ..., {\alpha_g}, \mathop {(\alpha \tau)} \nolimits_{11}, \mathop {(\alpha \tau)} \nolimits_{12}, ... , \mathop {(\alpha \tau)} \nolimits_{ge}} \right] ^ \prime}\\); \\(\bf{X}\\) é uma matriz de design \\(n \times (eb)\\) relacionando \\(\bf{y}\\) a \\(\bf{b}\\); \\(\bf{Z}\\) é uma matriz de design \\(n\times m\\) relacionando \\(\bf{y}\\) a \\(\bf{u}\\); \\({\bf {\varepsilon}}\\) é um vetor \\(n \times 1\\) de erros aleatórios \\({\bf {\varepsilon}} = {\rm {}} {\left \[{{y\_{111}}, {\rm {}} {y\_{112}}, {\rm {}} \ldots, {\rm {}} {y\_{geb}}} \right\] ^ \prime}\\);
+
+Os vetores \\(\bf{b}\\) e \\(\bf{u}\\) são estimados usando a conhecida equação de modelo misto[^1].
+
+
+$$
+\left[ {\begin{array}{*{20}{c}}{{\bf{\hat b }}}\\{{\bf{\hat u}}}\end{array}} \right]{\bf{ = }}{\left[ {\begin{array}{*{20}{c}}{{\bf{X'}}{{\bf{R }}^{ - {\bf{1}}}}{\bf{X}}}&{{\bf{X'}}{{\bf{R }}^{ - {\bf{1}}}}{\bf{Z}}}\\{{\bf{Z'}}{{\bf{R }}^{ - {\bf{1}}}}{\bf{X}}}&{{\bf{Z'}}{{\bf{R }}^{ - {\bf{1}}}}{\bf{Z + }}{{\bf{G}}^{ - {\bf{1}}}}}\end{array}} \right]^ - }\left[ {\begin{array}{*{20}{c}}{{\bf{X'}}{{\bf{R }}^{ - {\bf{1}}}}{\bf{y}}}\\{{\bf{Z'}}{{\bf{R }}^{ - {\bf{1}}}}{\bf{y}}}\end{array}} \right]
+$$
+
+
+onde **G** e **R** são as matrizes de variância-covariância para o vetor de efeito aleatório **u** e o vetor residual \\({\bf{\varepsilon }}\\), respectivamente.
+
+
+## A função gamem_met()
+
+A função `gamem_met()` é usada para ajustar o modelo linear de efeitos mistos. 
+
+```{r collapse = TRUE,}
+args(gamem_met)
+```
+
+O primeiro argumento são os dados, em nosso exemplo `df_ge`. Os argumentos (`env`, `gen` e `rep`) são os nomes das colunas que contêm os níveis de ambientes, genótipos e blocos, respectivamente. O argumento (`resp`) é a variável de resposta a ser analisada . A função permite uma única variável ou um vetor de variáveis resposta. Aqui, usaremos `everything()` para analisar todas as variáveis numéricas nos dados. Por padrão, o genótipo e a interação genótipo *vs* ambiente são considerados efeitos aleatórios. Outros efeitos podem ser considerados usando o argumento `random`. O último argumento (`verbose`) controla se o código é executado silenciosamente ou não.
+
+```{r collapse = TRUE, echo = TRUE}
+met_mixed <-
+  gamem_met(df_ge,
+            env = ENV,
+            gen = GEN,
+            rep = BLOCO,
+            resp = everything(),
+            random = "gen", #Default
+            verbose = TRUE) #Padrão
+
+```
+
+## Gráfico de diagnóstico para resíduos
+
+A função genérica S3 `plot()` é usada para gerar gráficos de diagnóstico de resíduos do modelo.
+
+```{r collapse = TRUE, echo = TRUE, fig.width = 7, fig.height = 7, fig.align =" center "}
+plot(met_mixed)
+```
+
+A normalidade dos efeitos aleatórios de genótipo e efeitos de interação também podem ser obtidos usando `type =" re "`.
+
+```{r collapse = TRUE, echo = TRUE, fig.width = 10, fig.height = 3.33, fig.align =" center "}
+plot(met_mixed, type = "re")
+```
+
+## LRT
+
+A saída `LRT` contém os testes de razão de verossimilhança para genótipo e efeitos aleatórios genótipo versus ambiente. Podemos obter esses valores com `get_model_data()`
+
+```{r collapse = TRUE, aviso = F, mensagem = F}
+lrt <- gmd(met_mixed, "lrt")
+print_tbl(lrt)
+```
+
+## Componentes de variância
+
+```{r collapse = TRUE, fig.width = 10}
+vcomp <- gmd(met_mixed, "vcomp")
+print_tbl(vcomp)
+# plot
+plot(met_mixed, type = "vcomp")
+```
+
+
+## Parâmetros genéticos
+
+```{r collapse = TRUE,}
+genpar <- gmd(met_mixed, "genpar")
+print_tbl(genpar)
+```
+
+
+Na saída acima, além dos componentes de variância para os efeitos aleatórios declarados, alguns parâmetros importantes também são mostrados.
+
+**Heritability** é a herdabilidade em sentido amplo, \\(\mathop h \nolimits_g ^ 2\\), estimada por 
+
+$$
+\mathop h\nolimits_g^2  = \frac{\mathop {\hat\sigma} \nolimits_g^2} {\mathop {\hat\sigma} \nolimits_g^2  + \mathop {\hat\sigma} \nolimits_i^2  + \mathop {\hat\sigma} \nolimits_e^2 }
+$$
+
+onde \\(\mathop {\hat \sigma} \nolimits_g ^ 2\\) é a variância genotípica; \\(\mathop {\hat \sigma} \nolimits_i ^ 2\\) é a variância da interação genótipo *vs* ambiente; e \\(\mathop {\hat \sigma} \nolimits_e ^ 2\\) é a variância residual.
+
+**GEIr2** é o coeficiente de determinação dos efeitos de interação, \\(\mathop r \nolimits_i ^ 2\\), estimado por
+
+$$
+\mathop r\nolimits_i^2  = \frac{\mathop {\hat\sigma} \nolimits_i^2}
+{\mathop {\hat\sigma} \nolimits_g^2  + \mathop {\hat\sigma} \nolimits_i^2  + \mathop {\hat\sigma} \nolimits_e^2 }
+$$
+
+**h2mg** é a herdabilidade com base na média, \\(\mathop h \nolimits\_{gm} ^ 2\\), estimada por
+
+$$
+\mathop h\nolimits_{gm}^2  = \frac{\mathop {\hat\sigma} \nolimits_g^2}{[\mathop {\hat\sigma} \nolimits_g^2  + \mathop {\hat\sigma} \nolimits_i^2 /e + \mathop {\hat\sigma} \nolimits_e^2 /\left( {eb} \right)]}
+$$
+
+onde *e* e *b* são o número de ambientes e blocos, respectivamente;
+
+**Accuracy** é a acurácia de seleção, *Ac*, estimada por
+
+$$
+Ac = \sqrt{\mathop h\nolimits_{gm}^2}
+$$
+
+**rge** é a correlação genótipo-ambiente, \\(\mathop r \nolimits\_{ge}\\), estimada por
+
+$$
+\mathop r\nolimits_{ge} = \frac{\mathop {\hat\sigma} \nolimits_g^2}{\mathop {\hat\sigma} \nolimits_g^2  + \mathop {\hat\sigma} \nolimits_i^2}
+$$
+
+**CVg** e **CVr** são o coeficiente de variação genotípico e o coeficiente de variação residual estimado, respectivamente, por
+
+$$
+CVg  = \left( {\sqrt {\mathop {\hat \sigma }\nolimits_g^2 } /\mu } \right) \times 100
+$$
+
+e 
+
+$$
+CVr = \left( {\sqrt {\mathop {\hat \sigma }\nolimits_e^2 } /\mu } \right) \times 100
+$$
+
+
+onde \\(\mu\\) é a média geral.
+
+**CV ratio** é a razão entre o coeficiente de variação genotípico e residual.
+
+
+## BLUP para genótipos
+
+```{r collapse = TRUE,}
+met_mixed$MGE$BLUPgen
+blupg <- gmd(met_mixed, "blupg")
+print_tbl(blupg)
+```
+
+## Plotar o BLUP para genótipos
+
+```{r collapse = TRUE, echo = TRUE, fig.height = 5, fig.width = 10, fig.align =" center ", mensagem = F, aviso = F}
+a <- plot_blup(met_mixed, var = "MGE")
+b <- plot_blup(met_mixed,
+               var = "MGE",
+               col.shape = c("gray20", "gray80"),
+               plot_theme = theme_metan(grid = "y"))
+arrange_ggplot(a, b, tag_levels = "a")
+
+```
+
+Esta saída mostra as médias previstas para genótipos. **BLUPg** é o efeito genotípico \\((\hat{g_i})\\), que considerando dados balanceados e genótipo como efeito aleatório é estimado por
+
+$$
+\hat g_{i} = h_g ^ 2(\bar y_{i.} - \bar y_{..})
+$$
+
+onde \\(h_g ^ 2\\) é o efeito de *shrinkage* do genótipo.
+
+**Predicted** é a média predita, dada por
+
+$$
+\hat {g}_{i} + \mu
+$$
+
+onde \\(\mu\\) é a média geral.
+
+
+
+**LL** e **UL** são os limites inferior e superior, respectivamente, estimados por 
+
+$$
+(\hat {g}_{i} + \mu) \pm {CI}
+$$
+
+com
+
+$$
+CI = t \times \sqrt {((1-Ac) \times {\mathop \sigma \nolimits_g ^ 2)}}
+$$
+
+onde \\(t\\) é o valor *t* de Student para um teste *t* bicaudal em uma data probabilidade; \\(Ac\\) é a acurácia da seleção e \\(\mathop\sigma\nolimits_g ^2\\) é a variância genotípica.
+
+## BLUP para combinação de genótipos X ambiente
+
+```{r collapse = TRUE,}
+blupint <- met_mixed$MGE$BLUPint
+print_tbl(blupint)
+```
+
+Esta saída mostra as médias preditas para cada combinação de genótipo e ambiente. **BLUPg** é o efeito genotípico descrito acima. **BLUPge** é o efeito genotípico do *i*-ésimo genótipo no *j*-ésimo ambiente \\((\hat g_{ij})\\), que considerando dados balanceados e genótipo como efeito aleatório é estimado por:
+
+$$
+\hat g_{ij} = h_g ^ 2 (\bar y_{i.} - \bar y_{..}) + h_{ge} ^ 2 (y_{ij} - \bar y_{i.} - \bar y_{.j} + \bar y_{..})
+$$
+
+onde \\(h_{ge} ^2\\) é o efeito *shrinkage* para a interação genótipo por ambiente; 
+
+**BLUPg + ge** é o BLUP genotipico somado ao BLUP da interação do genótipo \\(i\\) no ambiente \\(j\\).
+
+**Predicted** é o valor predito (\\(\hat y_{ij}\\)) dado por
+
+
+$$
+\hat y_{ij} = \bar y_{.j} + BLUP_{g+ge}
+$$
+
+
+[^1]: Henderson, C. R. (1975). Best linear unbiased estimation and prediction under a selection model. *Biometrics*, *31*(2), 423--447. <https://doi.org/10.2307/2529430>

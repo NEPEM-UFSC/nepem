@@ -1,0 +1,308 @@
+---
+title: Modelos biométricos
+linktitle: "10. Modelos biométricos"
+toc: true
+type: docs
+date: "2021/07/09"
+draft: false
+menu:
+  gemsr:
+    parent: GEMS-R
+    weight: 12
+weight: 12
+---
+
+```{r collapse = TRUE, collapse = TRUE,}
+library(metan)
+library(rio)
+# gerar tabelas html
+print_tbl <- function(table, digits = 3, ...){
+  knitr::kable(table, booktabs = TRUE, digits = digits, ...)
+}
+df_ge <- import("http://bit.ly/df_ge", setclass = "tbl")
+```
+
+# Correlação linear
+
+
+A função `corr_coef()` pode ser usada para calcular o coeficiente de correlação de Pearson com valores de p. Um mapa de calor de correlação pode ser criado com a função `plot()`.
+
+```{r collapse = TRUE, fig.width = 7, fig.height = 7, mensagem = FALSE, aviso = FALSE, fig.align =" center "}
+# Todas as variáveis ​​numéricas
+ccoef <- corr_coef(df_ge)
+plot(ccoef)
+```
+
+
+Podemos usar uma função auxiliar de seleção para selecionar variáveis. Aqui, selecionaremos variáveis ​​que começam com "C" ** OU ** termina com "D" usando `union_var ()`.
+
+```{r collapse = TRUE, fig.width = 7, fig.height = 7, mensagem = FALSE, aviso = FALSE, fig.align =" center "}
+ccoef2 <- corr_coef(df_ge, contains("A"))
+plot(ccoef2, dígitos = 2)
+
+```
+
+
+A função `corr_plot()` pode ser usada para visualizar (graficamente e numericamente) uma matriz de correlação. Os gráficos de dispersão em pares são produzidos e podem ser mostrados na diagonal superior ou inferior, o que pode ser visto como uma versão mais agradável e personalizável baseada em ggplot2 da função R de base de `pairs()`.
+
+```{r collapse = TRUE,, eval = FALSE, fig.height = 12, fig.width = 12, fig.align =" center "}
+a <- corr_plot(df_ge, MMG, MGE, COMPES, DIAMES, NGE)
+
+
+corr_plot(df_ge, MMG, MGE, COMPES, DIAMES, NGE,
+          lower = NULL,
+          upper = "corr")
+
+corr_plot(df_ge, MMG, MGE, COMPES, DIAMES, NGE,
+          shape.point = 19,
+          size.point = 2,
+          alpha.point = 0.5,
+          alpha.diag = 0,
+          pan.spacing = 0,
+          diag.type = "boxplot",
+          col.sign = "gray",
+          alpha.sign = 0.3,
+          axis.labels = TRUE)
+
+corr_plot(df_ge, MMG, MGE, COMPES, DIAMES, NGE,
+          prob = 0.01,
+          shape.point = 21,
+          col.point = "black",
+          fill.point = "orange",
+          size.point = 2,
+          alpha.point = 0.6,
+          maxsize = 4,
+          minsize = 2,
+          smooth = TRUE,
+          size.smooth = 1,
+          col.smooth = "black",
+          col.sign = "cyan",
+          col.up.panel = "black",
+          col.lw.panel = "black",
+          col.dia.panel = "black",
+          pan.spacing = 0,
+          lab.position = "tl")
+
+```
+
+Também é possível usar uma variável categórica dos dados para mapear o gráfico de dispersão por cores.
+
+```{r collapse = TRUE, fig.height = 6, fig.width = 6}
+corr_plot(df_ge, MMG, MGE, COMPES, DIAMES, NGE, col.by = ENV)
+```
+
+
+
+# Matrizes de correlação/covariância
+
+
+
+A função `covcor_design()` pode ser usada para calcular matrizes de correlação genéticas, fenotípicas e residuais de correlação por meio da Análise de Variância (ANOVA) usando um delineamento de bloco completo ao acaso (DBC) ou delineamento inteiramente ao acaso (DIC).
+
+As correlações fenotípicas (\\(r_p\\)), genotípicas (\\(r_g\\)) e residuais (\\(r_r\\)) são calculadas da seguinte forma:
+
+$$
+r ^ p_ {xy} = \frac {cov ^ p_ {xy}} {\sqrt {var ^ p_ {x} var ^ p_ {y}}} \\
+r ^ g_ {xy} = \frac {cov ^ g_ {xy}} {\sqrt {var ^ g_ {x} var ^ g_ {y}}} \\
+r ^ r_ {xy} = \frac {cov ^ r_ {xy}} {\sqrt {var ^ r_ {x} var ^ r_ {y}}}
+$$
+
+Usando os quadrados médios (*MS*) do método ANOVA, as variâncias (*var*) e as covariâncias (*cov*) são calculadas da seguinte forma:
+
+$$
+cov ^ p_ {xy} = [(MST_ {x + y} - MST_x - MST_y) / 2] / r \\
+var ^ p_x = MST_x / r \\
+var ^ p_y = MST_y / r \\
+cov ^ r_ {xy} = (MSR_ {x + y} - MSR_x - MSR_y) / 2 \\
+var ^ r_x = MSR_x \\
+var ^ r_y = MSR_y \\
+cov ^ g_ {xy} = [(cov ^ p_ {xy} \times r) - cov ^ r_ {xy}] / r \\
+var ^ g_x = (MST_x - MSE_x) / r \\
+var ^ g_y = (MST_x - MSE_y) / r \\
+$$
+
+onde \\(MST\\) é o quadrado médio para tratamento, \\(MSR\\) é o quadrado médio para resíduos e \\(r\\) é o número de repetições. A função `covcor_design()` retorna uma lista com as matrize. Matrizes específicas podem ser retornadas usando o argumento `type`, conforme mostrado abaixo.
+
+
+```{r collapse = TRUE,, fig.height = 5, fig.width = 5.5, fig.align =" center "}
+df_g <- import("http://bit.ly/df_g", setclass = "tbl")
+correl <- covcor_design(df_g,
+                        gen = GEN,
+                        rep = BLOCO,
+                        resp = c(MMG, MGE, COMPES, DIAMES, NGE))
+```
+
+
+
+## Correlações
+```{r collapse = TRUE,}
+# genéticas
+print_tbl(correl$geno_cor)
+
+# fenotípicas
+print_tbl(correl$phen_cor)
+
+# residuais
+print_tbl(correl$resi_cor)
+```
+
+
+## Covariâncias
+```{r collapse = TRUE,}
+# genéticas
+print_tbl(correl$geno_cov)
+
+# fenotípicas
+print_tbl(correl$phen_cov)
+
+# residuais
+print_tbl(correl$resi_cov)
+```
+
+
+# Distância de Mahalanobis
+
+A matriz de covariância residual e as médias podem ser usados  na função `mahala()` para calcular a distância de Mahalanobis.
+
+```{r collapse = TRUE,, fig.height = 5, fig.width = 5.5, fig.align =" center ", mensagem = FALSE, aviso = FALSE}
+D2 <- mahala(.means = correl$means, covar = correl$resi_cov, inverted = FALSE)
+print_tbl(D2)
+D2 %>% 
+  as.dist() %>% 
+  hclust() %>% 
+  plot()
+```
+
+
+
+
+# Diagnóstico de colinearidade
+
+Os códigos a seguir calculam um diagnóstico de colinearidade completo de uma matriz de correlação de características do preditor. Vários indicadores, como fator de inflação de variância, número de condição e determinante da matriz são considerados[^1]
+
+```{r collapse = TRUE,}
+colin <- colindiag(df_ge)
+print(colin)
+
+print_tbl(colin$evalevet)
+```
+
+
+## Diagnóstico para cada nível do fator ENV
+
+```{r collapse = TRUE,}
+colin2 <- colindiag(df_ge, by = ENV)
+print(colin2)         
+```
+
+
+
+# Análise de trilha
+Neste exemplo, a variável massa de grãos por espiga (MGE) será utilziada como resposta e todas as outras como explicativa
+
+```{r collapse = TRUE,}
+pcoeff <- path_coeff(df_ge, resp = MGE)
+print(pcoeff)
+```
+
+Para declarar características preditoras, use o argumento `pred`
+
+```{r collapse = TRUE,}
+pcoeff2 <-
+  path_coeff(df_ge,
+             resp = MGE,
+             pred = c(MMG, COMPES, DIAMES, NGE))
+print(pcoeff2)
+
+
+```
+
+
+Para selecionando um conjunto de preditores com multicolinearidade mínima use o argumento `brutstep`.
+```{r collapse = TRUE,}
+pcoeff3 <-
+  path_coeff(df_ge,
+             resp = MGE,
+             brutstep = TRUE)
+print(pcoeff3$Models$Model_4)
+```
+
+
+Também é possível calcular uma análise para cada nível de um determinado fator
+```{r collapse = TRUE, fig.width=6}
+pcoeff4 <-
+  path_coeff(df_ge,
+             resp = MGE,
+             pred = c(MMG, COMPES, DIAMES, NGE),
+             by = ENV)
+
+
+# diagrama de trilha
+library(diagram)
+
+pcoeff5 <-
+  path_coeff(df_ge,
+             resp = MGE,
+             pred = c(MMG, COMPES, DIAMES, NGE))
+
+
+coeffs <- 
+  pcoeff5$Coefficients %>% 
+  remove_cols(linear) %>% 
+  round_cols(digits = 3)
+coeffs
+
+plotmat(coeffs,
+        curve = 0,
+        box.size = 0.08,
+        box.prop = 0.5,
+        box.col = "gray90",
+        arr.type = "curved",
+        arr.pos = 0.35,
+        arr.lwd = 1,
+        arr.length = 0.4,
+        arr.width = 0.2)
+```
+
+
+# Correlações canônicas
+Em primeiro lugar, renomearemos as características relacionadas à planta `ALT_PLANT e ALT_ESP` com o sufixo `_PLANTA` para mostrar a usabilidade do select helper `contains()`.
+
+```{r collapse = TRUE, }
+data_cc <- 
+  df_ge %>% 
+  rename(ESP_COMPES = COMPES,
+         ESP_DIAMES = DIAMES,
+         ESP_COMPSAB = COMP_SAB,
+         GRAO_MGE = MGE,
+         GRAO_MMG = MMG)
+  
+# Digitar os nomes das variáveis
+cc1 <- can_corr(data_cc,
+                FG = c(GRAO_MGE, GRAO_MMG),
+                SG = c(ESP_COMPES, ESP_DIAMES, ESP_COMPSAB))
+
+# usando select helpers
+cc2 <- can_corr(data_cc,
+                FG = contains("GRAO_"),
+                SG = contains("ESP_"))
+
+```
+
+
+## Gráfico de barras
+
+```{r}
+plot_bars(df_g,
+          x = GEN,
+          y = MMG,
+          lab.bar = 1:13)
+
+plot_factbars(df_ge, ENV, GEN, resp = MMG)
+```
+
+
+
+
+
+[^1]: Olivoto, T., Souza, V. Q., Nardino, M., Carvalho, I. R., Ferrari, M., Pelegrin, A. J., Szareski, V. J., & Schmidt, D. (2017). Multicollinearity in path analysis: A simple method to reduce its effects. Agronomy Journal, 109(1), 131–142. https://doi.org/10.2134/agronj2016.04.0196

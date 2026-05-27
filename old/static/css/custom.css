@@ -1,0 +1,303 @@
+/*---------------------------------------------------------------------- */
+  
+  /* @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed:600&display=swap'); */
+  @import url('https://fonts.googleapis.com/css?family=Fira+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Francois+One&display=swap');
+
+body {
+  font-family: 'Fira Sans', sans-serif;
+}
+
+div#refs div p {
+text-indent: -1.25em !important;
+/* text-indent: -1em */
+  margin-left: 1.25em;
+text-align: left;
+}
+
+div#refs div p a {
+color: lightgray;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  /* font-family: "Roboto", Helvetica, Arial, sans-serif; */
+    /* font-family: 'IBM Plex Sans Condensed', sans-serif; */
+    font-family: 'Francois One', sans-serif;
+  font-weight: 100;
+  line-height: 1.1;
+  color: var(--wz-color6);
+}
+
+#heading-breadcrumbs h1 {
+color: #ffffff;
+  letter-spacing: 0em;
+font-weight: inherit;
+text-shadow: black 0px 0px 1em;
+}
+
+/*------------------------------------------- */
+  /* https://codepen.io/P1N2O/pen/pyBNzX */
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+#heading-breadcrumbs {
+/* background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab), url('../img/pattern-hexagons.png'); */
+                                     /* background-size: 400% 200%, auto auto; */
+                                       /* background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab), url('../img/pattern-waves.jpg'); */
+                                                                            /* background-size: 400% 200%, 10em auto; */
+                                                                              /* background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab), url('../img/pattern-points.jpg'); */
+                                                                                                                   /* background-size: 400% 200%, 7em auto; */
+                                                                                                                     /* background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab), url('../img/pattern-dots.jpg'); */
+                                                                                                                                                          /* background-size: 400% 200%, 8em auto; */
+                                                                                                                                                            /* background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab), url('../img/pattern-diamond.jpg'); */
+                                                                                                                                                                                                 /* background-size: 400% 200%, 12em auto; */
+                                                                                                                                                                                                   /* background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab), url('../img/pattern-lines.jpg'); */
+                                                                                                                                                                                                                                        /* background-size: 400% 200%, 8em auto; */
+                                                                                                                                                                                                                                          /* background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab), url('../img/pattern-voronoi.jpg'); */
+                                                                                                                                                                                                                                                                               /* background-size: 400% 200%, 20em auto; */
+                                                                                                                                                                                                                                                                                 /* background-blend-mode: multiply; */
+                                                                                                                                                                                                                                                                                 background-image: url('../img/panorama-landscape.png');
+                                                                                                                                                                                                                                                                               background-size: 90em auto;
+                                                                                                                                                                                                                                                                               /* animation: gradientBG 30s ease infinite; */
+                                                                                                                                                                                                                                                                                 animation: gradientBG 120s linear infinite;
+                                                                                                                                                                                                                                                                               padding: 0px 0;
+                                                                                                                                                                                                                                                                               margin-bottom: 140px;
+                                                                                                                                                                                                                                                                               }
+
+/*------------------------------------------- */
+  /* https://codepen.io/deathfang/pen/WxNVoq */
+  canvas {
+    /* border: 3px solid red; */
+      position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+
+/*------------------------------------------- */
+  
+  /* #heading-breadcrumbs { */
+  /*     /\* background: url('../img/pattern-pixels.png') center center repeat; *\/ */
+  /*     background: url('../img/pattern-hexagons.png') center center repeat; */
+  /*     padding: 0px 0; */
+  /*     margin-bottom: 40px; */
+  /* } */
+  
+  #footer {
+  margin-top: 2em;
+}
+
+footer#footer strong {
+color: var(--wz-color1);
+}
+
+#footer h4 {
+font-weight: inherit;
+}
+
+#copyright {
+padding: 20px 0;
+}
+
+div#content {
+margin-bottom: 10em;
+}
+
+code {
+  color: inherit;
+}
+
+i.off {
+  color: #c0c0c0;
+}
+
+table.skills {
+  margin-left: 0.5em;
+}
+
+table.skills td {
+  padding: 0px 0.5ex;
+}
+
+ul.ul-edu li:hover,
+ul.ul-interests li:hover,
+table.skills tr:hover {
+  color: var(--wz-color1);
+}
+
+.ul-interests, .ul-edu {
+  text-align: left;
+}
+
+.box {
+  background: unset;
+  border: unset;
+}
+
+p.institution {
+  margin: -0.75em 0 10px;
+}
+
+.box-simple h3 {
+  font-weight: inherit;
+}
+
+.box-simple .icon,
+.box-simple .icon .ai,
+.box-simple h3 {
+  color: var(--wz-color6);
+  border-color: var(--wz-color6);
+}
+
+.box-simple:hover .icon,
+.box-simple:hover .icon .ai,
+.box-simple:hover h3 {
+  color: var(--wz-color1);
+  border-color: var(--wz-color1);
+}
+
+.box-simple a:hover,
+.box-simple a:focus {
+  text-decoration: unset;
+}
+
+.text-uppercase,
+.box-simple h3,
+.heading h1,
+.heading h2,
+.heading h3,
+.heading h4,
+.heading h5 {
+  letter-spacing: 0em;
+}
+
+.navbar ul.nav > li > a {
+  font-weight: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0em;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #DDD;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  border: 1px solid #DDD;
+  border-bottom-color: transparent;
+}
+
+.tab-content {
+  border: unset;
+}
+
+/*---------------------------------------------------------------------- */
+  
+  ul:not([class]) > li,
+ul.ul-interests > li {
+  list-style: none;
+}
+
+ul:not([class]) > li::before,
+ul.ul-interests > li::before {
+  content: '\25B8';
+  margin-left: -1em;
+  position: absolute;
+}
+
+/*---------------------------------------------------------------------- */
+  
+  img.projects {
+    height: 240px;
+    max-width: 300px;
+    display: block;
+    margin: auto;
+  }
+
+img.courses {
+  max-width:100%;
+  max-height:100%;
+  display: block;
+  margin: auto;
+}
+
+img.talks {
+  max-width:100%;
+  max-height:100%;
+  display: block;
+  margin: auto;
+}
+
+img:hover.shadow {
+  -moz-box-shadow: 1px 1px 5px #999999;
+  -webkit-box-shadow: 1px 1px 5px #999999;
+  box-shadow: 1px 1px 5px #999999;
+}
+
+img:hover.zoomout {
+  -webkit-transform: scale(0.95, 0.95);
+  -ms-transform: scale(0.95, 0.95);
+  -o-transform: scale(0.95, 0.95);
+  transform: scale(0.95, 0.95);
+}
+
+div#collaborator #blog-listing-medium .post .image img.img-responsive {
+min-width: inherit;
+}
+
+div.image + h3 {
+  margin-bottom: 10px;
+}
+
+div.social {
+  margin-bottom: 1.5em;
+}
+
+li > ul, li > ol {
+  margin-left: -0.5em;
+}
+
+/*---------------------------------------------------------------------- */
+  
+  .btn {
+    padding: 1px 5px;
+  }
+
+.btn-primary:hover,
+.btn-primary.focus,
+.btn-primary:focus {
+  color: white;
+  background-color: var(--wz-color1);
+  border-color: #fff;
+}
+
+.btn-primary {
+  color: #fff;
+    background-color: var(--wz-color6);
+  border-color: #fff;
+    font-size: 80%;
+}
+
+.btn {
+  letter-spacing: 0em;
+  text-transform: none;
+  font-weight: 400;
+}
+
+.card-body {
+  margin-top: 0.5em;
+  padding-bottom: 1em;
+}
+
+/*---------------------------------------------------------------------- */

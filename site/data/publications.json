@@ -1,0 +1,1900 @@
+﻿[
+    {
+        "id":  "aruna_multitrait_2024",
+        "journal":  "Heliyon",
+        "title":  "Multi-trait stability index for identification of stable green gram ( radiata (L.) Wilczek) genotypes with MYMV resistance",
+        "year":  2024,
+        "type":  "journal",
+        "authors":  [
+                        "Aruna K.",
+                        "Kumar B. M D.",
+                        "Sridhara S.",
+                        "B a S.",
+                        "K l N.",
+                        "Moussa I.",
+                        "O. Elansary H.",
+                        "Olivoto T."
+                    ],
+        "doi":  "10.1016/j.heliyon.2024.e32763",
+        "abstract":  "Multi-environment trials (met) are crucial for selecting genotypes that are well-suited to different environmental conditions. Incorporating multiple traits in the analysis can provide more reliable recommendations for selecting genotypes with desirable traits, including resistance to the mungbean yellow mosaic virus (mymv) and high yield potential. The use of a multi-trait stability index (mtsi) is a good approach for analyzing the stability of genotypes across multiple traits under mymv stress"
+    },
+    {
+        "id":  "assoni_identificacao_2024",
+        "journal":  "NA",
+        "title":  "IdentificaÃ§Ã£o de espÃ©cies de plantas por anÃ¡lise de imagens: uma abordagem com Random Forest e caracterÃ­sticas de forma e cor",
+        "year":  2024,
+        "type":  "conference",
+        "authors":  [
+                        "Assoni C.",
+                        "Bustamante F.",
+                        "Tonet K.",
+                        "Sousa P.",
+                        "Machado M.",
+                        "Silva J.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "assoni_influencia_2024",
+        "journal":  "NA",
+        "title":  "A influÃªncia da Ã©poca de semeadura em caracteres agronÃ´micos e nutracÃªuticos de linho (Linum usitatissimum, L.) cultivado na regiÃ£o litorÃ¢nea de Santa Catarina",
+        "year":  2024,
+        "type":  "conference",
+        "authors":  [
+                        "Assoni C.",
+                        "Sousa P.",
+                        "Silva J.",
+                        "Felipini R.",
+                        "Maraschin M.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "Benakanahalli2021",
+        "journal":  "Agronomy",
+        "title":  "A Framework for Identification of Stable Genotypes Basedon MTSI and MGDII Indexes: An Example in Guar (Cymopsis tetragonoloba L.)",
+        "year":  2021,
+        "type":  "journal",
+        "authors":  [
+                        "Benakanahalli N.",
+                        "Sridhara S.",
+                        "Ramesh N.",
+                        "Olivoto T.",
+                        "Sreekantappa G.",
+                        "Tamam N.",
+                        "Abdelbacki A.",
+                        "Elansary H.",
+                        "Abdelmohsen S."
+                    ],
+        "doi":  "10.3390/AGRONOMY11061221",
+        "abstract":  "Guar, the most popular vegetable, is tolerant of drought and is a valuable industrial crop enormously grown across india, pakistan, usa, and south africa for pharmaceutically and cosmetically usable galactomannan (gum) content present in seed endosperm. Guar genotypes with productive traits which could perform better in differential environmental conditions are of utmost priority for genotype selection. This could be achieved by employing multivariate trait analysis. In this context, multi-trait"
+    },
+    {
+        "id":  "bustamante_alise_2024",
+        "journal":  "NA",
+        "title":  "AnÃ¡lise de Componentes Principais para CaracterizaÃ§Ã£o e PriorizaÃ§Ã£o de VariÃ¡veis em GenÃ³tipos de Linho (Linum usitatissimum, L.)",
+        "year":  2024,
+        "type":  "conference",
+        "authors":  [
+                        "Bustamante F.",
+                        "Assoni C.",
+                        "Sousa P.",
+                        "Tonet K.",
+                        "Machado M.",
+                        "Silva J.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "Carvalho2017",
+        "journal":  "Australian Journal of Crop Science",
+        "title":  "Path analysis of grain yield associated characters in Brazilians wheat genotypes (Triticum aestivum L.)",
+        "year":  2017,
+        "type":  "journal",
+        "authors":  [
+                        "Carvalho I.",
+                        "Nardino M.",
+                        "Follmann D.",
+                        "Demari G.",
+                        "Olivoto T.",
+                        "Pelegrin A.",
+                        "Szareski V.",
+                        "Ferrari M.",
+                        "da Rosa T.",
+                        "Koch F.",
+                        "Aisenberg G.",
+                        "Pedo T.",
+                        "Aumonde T.",
+                        "de Souza V."
+                    ],
+        "doi":  "10.21475/ajcs.17.11.11.pne484",
+        "abstract":  "The aim of this study was to evaluate the phenotypic interrelation among agronomic characters associated with wheat grain yield of the main brazilian cultivated genotypes through path analysis in two environments. The tests were conducted in tenente portela-rs and braga-rs. The experimental design was randomized blocks arranged in factorial scheme, 2 locations Ã— 17 genotypes and 3 repetitions. The evaluated characters were plant height, main stem spike mass, tiller spikes mass, main stem spike "
+    },
+    {
+        "id":  "casagrande_envirotypes_2024",
+        "journal":  "Euphytica",
+        "title":  "Envirotypes applied to evaluate the adaptability and stability of wheat genotypes in the tropical region in Brazil",
+        "year":  2024,
+        "type":  "journal",
+        "authors":  [
+                        "Casagrande C.",
+                        "Mezzomo H.",
+                        "De Sousa D.",
+                        "Dos Santos C.",
+                        "Yamanaka C.",
+                        "Olivoto T.",
+                        "Das GraÃ§as Dias K.",
+                        "BorÃ©m A.",
+                        "Nardino M."
+                    ],
+        "doi":  "10.1007/s10681-023-03286-y",
+        "abstract":  ""
+    },
+    {
+        "id":  "chaga_correlacao_2023",
+        "journal":  "NA",
+        "title":  "CorrelaÃ§Ã£o canÃ´nica entre caracteres morfolÃ³gicos e componentes de rendimento em genÃ³tipos de linho (Linum usitatissimum, L.)",
+        "year":  2023,
+        "type":  "conference",
+        "authors":  [
+                        "Chaga V.",
+                        "Silva J.",
+                        "Souza P.",
+                        "Guimaraes V.",
+                        "Trois A.",
+                        "Machado M.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "DeOliveira2017",
+        "journal":  "Australian Journal of Crop Science",
+        "title":  "The effect of types and split of urea on yield indicators and yield components of maize",
+        "year":  2017,
+        "type":  "journal",
+        "authors":  [
+                        "de Oliveira J.",
+                        "Krysczun D.",
+                        "Ubessi C.",
+                        "Olivoto T.",
+                        "Sari B.",
+                        "Diel M.",
+                        "Lucio A.",
+                        "Viau L."
+                    ],
+        "doi":  "10.21475/ajcs.17.11.12.pne763",
+        "abstract":  "Maize is one of the most important cereals in the world. The productive potential of this crop is closely associated with nitrogen (n) fertilization, thus, studies focused on this subject are important in the development of cropping strategies. The aim of this work was to evaluate the effects of n split and different type of urea on important agronomic traits of the maize crop. A randomized complete block design in a 2Ã—2+1 factorial treatment design with four replications was used. The factoria"
+    },
+    {
+        "id":  "Diel2018",
+        "journal":  "The Journal of Horticultural Science and Biotechnology",
+        "title":  "Nonlinear regression for description of strawberry (Fragaria x ananassa) production",
+        "year":  2018,
+        "type":  "journal",
+        "authors":  [
+                        "Diel M.",
+                        "Sari B.",
+                        "Krysczun D.",
+                        "Olivoto T.",
+                        "Pinheiro M.",
+                        "Meira D.",
+                        "Schmidt D.",
+                        "Lucio A."
+                    ],
+        "doi":  "10.1080/14620316.2018.1472045",
+        "abstract":  "The aim of this study was to select growth models to describe strawberry (fragaria x ananassa)fruit production. To do this, data on 16 treatments (combination of 2 cultivars [albion and camarosa], 2 origins [national and imported] , and 4 organic substrates mixed [70 percent crushed sugar cane residue + 30 percent organic compost, 70 percent crushed sugar cane residue + 30 percent commercial substrate, 70 percent burnt rice husk + 30 percent organic compost, and 70 percent burnt rice husk + 30 p"
+    },
+    {
+        "id":  "Diel2019",
+        "journal":  "Revista Colombiana de Ciencias Horticolas",
+        "title":  "Relationship between morpho-agronomic traits in tomato hybrids",
+        "year":  2019,
+        "type":  "journal",
+        "authors":  [
+                        "Diel M.",
+                        "Zamban D.",
+                        "Olivoto T.",
+                        "Krysczun D.",
+                        "Pinheiro M.",
+                        "Sari B.",
+                        "Schmidt D.",
+                        "Lucio A."
+                    ],
+        "doi":  "10.17584/rcch.2019v13i1.7967",
+        "abstract":  "The objective of this study was to identify and estimate the relationships between production component variables and fruit yields in tomatoes. This experiment was conducted in a randomized block design with a 2Ã—3Ã—3 factorial arrangement, with two tomato hybrids (netuno and san vito), three doses of boron (h3bo3 - 0, 2, 4 g pit1) and three calcium floral applications (no application; application every 7 days; and application every 14 days), totaling 18 treatments with four replications and 20 "
+    },
+    {
+        "id":  "Diel2020",
+        "journal":  "Ci^encia Rural",
+        "title":  "Production of biquinho pepper in different growing seasons characterized by the logistic model and its critical points",
+        "year":  2020,
+        "type":  "journal",
+        "authors":  [
+                        "Diel M.",
+                        "Lucio A.",
+                        "Valera O.",
+                        "Sari B.",
+                        "Olivoto T.",
+                        "Pinheiro M.",
+                        "Melo P.",
+                        "Tartaglia F.",
+                        "Schmidt D."
+                    ],
+        "doi":  "10.1590/0103-8478cr20190477",
+        "abstract":  "The objective of this study was to characterize the production of biquinho pepper through the interpretation of parameter estimates from the logistic model and its critical points obtained by the partial derivatives of the function, and to indicate the best cultivar and growing season for subtropical climate sites. For this, a 2x3 factorial experiment was conducted with two cultivars of biquinho pepper (brs moema and airetama biquinho) in three growing seasons (e1: october 2015, e2: november 201"
+    },
+    {
+        "id":  "Diel2020a",
+        "journal":  "Acta Scientiarum. Agronomy",
+        "title":  "Repeatability coefficients and number of measurements for evaluating traits in strawberry",
+        "year":  2020,
+        "type":  "journal",
+        "authors":  [
+                        "Diel M.",
+                        "Lucio A.",
+                        "Olivoto T.",
+                        "Pinheiro M.",
+                        "Krysczun D.",
+                        "Sari B.",
+                        "Schmidt D."
+                    ],
+        "doi":  "10.4025/actasciagron.v42i1.43357",
+        "abstract":  "The objective of this study was to estimate the coefficient of repeatability and the number of measurements required for production and quality variables in a strawberry crop. An experiment was conducted with two strawberry cultivars from two origins grown in four substrate mixtures, totaling 16 treatments, evaluated in a randomized block design with four replications. Mass (mf) and number (nf) of fruits per plant were evaluated as measures of production, and total soluble solids (sst), titratab"
+    },
+    {
+        "id":  "Diel2020b",
+        "journal":  "International Journal for Innovation Education and Research",
+        "title":  "Canonical correlations in agricultural research: Method of interpretation used leads to greater reliability of results",
+        "year":  2020,
+        "type":  "journal",
+        "authors":  [
+                        "Diel M.",
+                        "Lucio A.",
+                        "Michalski Lambrecht D.",
+                        "Pinheiro M.",
+                        "Sari B.",
+                        "Olivoto T.",
+                        "Valera O.",
+                        "de Melo P.",
+                        "Tartaglia F.",
+                        "Tischler A.",
+                        "Schmidt D."
+                    ],
+        "doi":  "10.31686/ijier.vol8.iss7.2464",
+        "abstract":  "Canonical correlations analyzes are being used in the agrarian sciences and constitute an important tool in the interpretation of results. This analysis is performed by complicated mathematical equations and it is only possible to use it thanks to the development of computational software, which allow different interpretations of results, and it is up to the researcher to choose according to his knowledge. Canonical correlations can be interpreted using canonical weights, canonical loadings, or "
+    },
+    {
+        "id":  "DosSantos2018",
+        "journal":  "Pesquisa Agropecuaria Brasileira",
+        "title":  "Methods of adaptability and stability applied to eucalyptus breeding",
+        "year":  2018,
+        "type":  "journal",
+        "authors":  [
+                        "dos Santos O.",
+                        "Carvalho I.",
+                        "Nardino M.",
+                        "Olivoto T.",
+                        "de Pelegrin A.",
+                        "Szareski V.",
+                        "Ferrari M.",
+                        "Nunes A.",
+                        "Demari G.",
+                        "Lautenchleger F.",
+                        "de Souza V.",
+                        "da Maia L."
+                    ],
+        "doi":  "10.1590/S0100-204X2018000100006",
+        "abstract":  "Textcopyright 2018 embrapa. The objective of this work was to evaluate the consistency of the methods of annicchiarico, lin \u0026 binns, wricke, and factor analysis in identifying eucalyptus clones with stability, adaptability, and high productive potential. Eight-four clones, with three years of age, from the genetic breeding program of the company cmpc celulose riograndense were used. Three field experiments were carried out in a randomized complete block design, in an 84x3 factorial arragement, w"
+    },
+    {
+        "id":  "Elli2018",
+        "journal":  "Agronomy Journal",
+        "title":  "Precision of growth estimates and sufficient sample size: can solar radiation level change these factors?",
+        "year":  2018,
+        "type":  "journal",
+        "authors":  [
+                        "Elli E.",
+                        "Olivoto T.",
+                        "Schmidt D.",
+                        "Caron B.",
+                        "Souza V."
+                    ],
+        "doi":  "10.2134/agronj2017.05.0297",
+        "abstract":  ""
+    },
+    {
+        "id":  "Ferrari2018",
+        "journal":  "Australian Journal of Crop Science",
+        "title":  "Path analysis and phenotypic correlation among yield components of soybean using environmental stratification methods",
+        "year":  2018,
+        "type":  "journal",
+        "authors":  [
+                        "Ferrari M.",
+                        "Carvalho I.",
+                        "de Pelegrin A.",
+                        "Nardino M.",
+                        "Szareski V.",
+                        "Olivoto T.",
+                        "da Rosa T.",
+                        "Follmann D.",
+                        "Pegoraro C.",
+                        "da Maia L.",
+                        "de Souza V."
+                    ],
+        "doi":  "10.21475/ajcs.18.12.02.pne488",
+        "abstract":  "The main aim of this study was to investigate the phenotypic correlation of yield component traits using several environmental stratifications methods. We also aimed to propose cause and effect of relationships for grain yield components in soybean genotypes under several environmental conditions. The tests were conducted in the agricultural year of 2013/2014 in four growing sites in rio grande do sul, brazil. The experimental arrangement was randomized blocks in factorial scheme (11 Ã— 4), cons"
+    },
+    {
+        "id":  "ferreira_research_2023",
+        "journal":  "Vegetos",
+        "title":  "Research on microgreens: a bibliometric analysis",
+        "year":  2023,
+        "type":  "journal",
+        "authors":  [
+                        "Ferreira M.",
+                        "Henschel J.",
+                        "Olivoto T.",
+                        "Batista D.",
+                        "Zeist A."
+                    ],
+        "doi":  "10.1007/s42535-023-00699-x",
+        "abstract":  "Microgreens are vegetables whose edible parts are harvested at the seedling stage. They are highly nutritious and widely used in sophisticated cuisines. They are considered an emerging food product that have been investigated in the scientific and commercial fields. Scientometrics can be used to study scientific literature in a quantitative manner, identifying emerging trends and the knowledge structure of a certain field of research. The objective of this study was to measure the status quo, id"
+    },
+    {
+        "id":  "Follmann2019",
+        "journal":  "Journal of Agricultural Science",
+        "title":  "Correlations and Path Analysis in Sunflower Grown at Lower Elevations",
+        "year":  2019,
+        "type":  "journal",
+        "authors":  [
+                        "Follmann D.",
+                        "Filho A.",
+                        "dos Santos M.",
+                        "Costa V.",
+                        "Plautz E.",
+                        "Scopel J.",
+                        "Bamberg D.",
+                        "Engel G.",
+                        "Olivoto T.",
+                        "Wartha C.",
+                        "Nardino M."
+                    ],
+        "doi":  "10.5539/jas.v11n2p445",
+        "abstract":  "Sunflower cultivation has great importance in brazil, mainly for production of oil and animal feed. Studies on sunflower cultivar selection are important for crop expansion, contributing to better cultivar adaptation to different environments. Thus, the objective of this study was to evaluate the linear relations among sunflower (helianthus annuus l.) morphological traits in a subtropical region with lower elevations and to identify traits that may assist in cultivar selection based on agronomic"
+    },
+    {
+        "id":  "Follmann2019a",
+        "journal":  "Bragantia",
+        "title":  "Agronomic performance and genetic dissimilarity of second-harvest soybean cultivars using REML/BLUP and Gowers algorithm",
+        "year":  2019,
+        "type":  "journal",
+        "authors":  [
+                        "Follmann D.",
+                        "de Souza V.",
+                        "Cargnelutti Filho A.",
+                        "Demari G.",
+                        "Nardino M.",
+                        "Olivoto T.",
+                        "Carvalho I.",
+                        "Silva A.",
+                        "Meira D.",
+                        "Meier C."
+                    ],
+        "doi":  "10.1590/1678-4499.20180194",
+        "abstract":  "The cultivation of second-harvest with soybean crop after first-harvest with maize crop has become an alternative to aggregate income to farmers in the south region of brazil. However, there is little information about this cropping system in this region. The aims of this study were to: (i) evaluate the agronomic performance of soybean (glycine max l.) cultivars growing in second-harvest during the summer; and (ii) evaluate the genetic divergence of the cultivars based on qualitative and quantit"
+    },
+    {
+        "id":  "follmann_path_2023",
+        "journal":  "Revista Brasileira de CiÃªncias AgrÃ¡rias",
+        "title":  "Path analysis associated with fungicide use in corn hybrids",
+        "year":  2023,
+        "type":  "journal",
+        "authors":  [
+                        "Follmann D.",
+                        "Eggers H.",
+                        "Rosa G.",
+                        "Bolzan F.",
+                        "Lucio A.",
+                        "Marchioro V.",
+                        "Maldaner I.",
+                        "Olivoto T."
+                    ],
+        "doi":  "10.5039/agraria.v18i4a3003",
+        "abstract":  "The objective of this study was to identify the linear relationships between the morphological variables of corn hybrids, associated with grain yield and fungicide use in subtropical environments. Seven experiments were conducted in three locations: santa maria - rs, sÃ£o vicente do sul - rs, and frederico westphalen - rs, brazil. The design used was a randomized block design with subdivided plots and three replications, where the main factor was the use or not of fungicide and the subplots corr"
+    },
+    {
+        "id":  "follmann_path_20231",
+        "journal":  "Revista Brasileira de CiÃªncias AgrÃ¡rias",
+        "title":  "Path analysis associated with fungicide use in corn hybrids",
+        "year":  2023,
+        "type":  "journal",
+        "authors":  [
+                        "Follmann D.",
+                        "Eggers H.",
+                        "Rosa G.",
+                        "Bolzan F.",
+                        "Lucio A.",
+                        "Marchioro V.",
+                        "Maldaner I.",
+                        "Olivoto T."
+                    ],
+        "doi":  "10.5039/agraria.v18i4a3003",
+        "abstract":  "The objective of this study was to identify the linear relationships between the morphological variables of corn hybrids, associated with grain yield and fungicide use in subtropical environments. Seven experiments were conducted in three locations: santa maria - rs, sÃ£o vicente do sul - rs, and frederico westphalen - rs, brazil. The design used was a randomized block design with subdivided plots and three replications, where the main factor was the use or not of fungicide and the subplots corr"
+    },
+    {
+        "id":  "GiacominiSari2019",
+        "journal":  "European Journal of Agronomy",
+        "title":  "Nonlinear growth models: An alternative to ANOVA in tomato trials evaluation",
+        "year":  2019,
+        "type":  "journal",
+        "authors":  [
+                        "Sari B.",
+                        "Lucio A.",
+                        "Santana C.",
+                        "Olivoto T.",
+                        "Diel M.",
+                        "Krysczun D."
+                    ],
+        "doi":  "10.1016/J.EJA.2018.12.012",
+        "abstract":  "The aim of this work was to use growth models as an alternative analysis of experiments with tomatoes. The data were obtained from field experiments of tomatoes carried out in the 2015/2016 and 2016/2017 growing seasons. Six and nine harvests were carried out in 2015/2016 and 2016/2017, respectively. In each harvest, the number and mass of fruits per plant were assessed. The anova for repeated measures was performed to analysis of the data, and the residuals were assessed. Also for each variable"
+    },
+    {
+        "id":  "guimaraes_diversidade_2023",
+        "journal":  "NA",
+        "title":  "Diversidade genÃ©tica entre acessos de linho (Linum usitatissimum, L.) baseada em caracteres morfoagronÃ´micos",
+        "year":  2023,
+        "type":  "conference",
+        "authors":  [
+                        "Guimaraes V.",
+                        "Trois A.",
+                        "Machado M.",
+                        "Souza P.",
+                        "Chaga V.",
+                        "Silva J.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "hada_junior_paleta_2024",
+        "journal":  "NA",
+        "title":  "A paleta genÃ©tica da linhaÃ§a: um mergulho na diversidade de cor auxiliado por mÃ©todos multivariados",
+        "year":  2024,
+        "type":  "conference",
+        "authors":  [
+                        "Hada Junior D.",
+                        "Assoni C.",
+                        "Bustamante F.",
+                        "Tonet K.",
+                        "Silva J.",
+                        "Machado M.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "InesDiel2020",
+        "journal":  "Acta Scientiarum. Agronomy, v",
+        "title":  "Behavior of strawberry production with growth models: a multivariate approach",
+        "year":  2020,
+        "type":  "journal",
+        "authors":  [
+                        "Diel M.",
+                        "Lucio A.",
+                        "Sari B.",
+                        "Olivoto T.",
+                        "Pinheiro M.",
+                        "Krysczum D.",
+                        "Melo P.",
+                        "Schmidt D."
+                    ],
+        "doi":  "10.4025/actasciagron.v43i1.47812",
+        "abstract":  "Strawberry is an economically and socially important crop in several regions worldwide. Thus, studies that provide information on topics in strawberry growth are important and must be constantly updated. The aims of this study were to fit a logistic growth model to describe strawberry fruit production and to estimate the partial derivatives of the fitted model in order to estimate and interpret the critical points, in addition to using multivariate analyses. To do this, data on 16 treatments [co"
+    },
+    {
+        "id":  "klein_adaptability_2024",
+        "journal":  "Pesquisa AgropecuÃ¡ria Brasileira",
+        "title":  "Adaptability and stability of black oat genotypes using the GGE biplot analysis",
+        "year":  2024,
+        "type":  "journal",
+        "authors":  [
+                        "Klein L.",
+                        "Marchioro V.",
+                        "Toebe M.",
+                        "Olivoto T.",
+                        "Meira D.",
+                        "Alberti J.",
+                        "Finatto J.",
+                        "Garafini D.",
+                        "Scaravonatto B.",
+                        "Azeredo N.",
+                        "Ulbrik G.",
+                        "Osmari C.",
+                        "Foguesatto C."
+                    ],
+        "doi":  "10.1590/S1678-3921.pab2024.v59.03483",
+        "abstract":  "Abstract the objective of this work was to identify the most adapted and stable genotypes for dry mass and seed yield using the genotype plus environment interaction (gge) biplot technique. The experiment was conducted in the municipality of frederico westphalen, in the state of rio grande do sul, brazil, in 2018, 2019, 2020, and 2021, using five lines and two cultivars of black oat, in a randomized complete block experimental design, with three replicates. The adaptability and stability of the "
+    },
+    {
+        "id":  "klein_genetic_2023",
+        "journal":  "CiÃªncia Rural",
+        "title":  "Genetic parameters and genetic dissimilarity of Gower in black oat",
+        "year":  2023,
+        "type":  "journal",
+        "authors":  [
+                        "Klein L.",
+                        "Marchioro V.",
+                        "Toebe M.",
+                        "Olivoto T.",
+                        "Meira D.",
+                        "Meier C.",
+                        "Chitolina G.",
+                        "Allebrante L.",
+                        "Ricardi G.",
+                        "Bastiani R.",
+                        "Busatto C."
+                    ],
+        "doi":  "10.1590/0103-8478cr20220239",
+        "abstract":  "Abstract: this research evaluated the agronomic performance through mixed models, and determined the genetic divergence between black oat genotypes. The experiment was carried out at federal university of santa maria, frederico westphalen/rs. Fourteen black oat genotypes were evaluated, being 11 lines developed by breeding program of university, and three commercial cultivars (iapar 61, upfa 21 - moreninha and, ipr cabocla). We evaluated quantitative traits associated to plant height, cycle, dry"
+    },
+    {
+        "id":  "klein_selection_2023",
+        "journal":  "Crop Breeding and Applied Biotechnology",
+        "title":  "Selection of superior black oat lines using the MGIDI index",
+        "year":  2023,
+        "type":  "journal",
+        "authors":  [
+                        "Klein L.",
+                        "Marchioro V.",
+                        "Toebe M.",
+                        "Olivoto T.",
+                        "Meira D.",
+                        "Meier C.",
+                        "Benin G.",
+                        "Busatto C.",
+                        "Garafini D.",
+                        "Alberti J.",
+                        "Finatto J."
+                    ],
+        "doi":  "10.1590/1984-70332023v23n3a25",
+        "abstract":  "Abstract the objective of this work was to select black oat genotypes using the mgidi for simultaneous selection, comparing it with the smith-hazel index. The experiment was carried out in frederico westphalen/rs and pato branco/pr, in a randomized block design, with three replications, with 9 genotypes tested. Days from emergence to flowering and maturation; cutting and plant height; number of tillers; panicle length; tiller, plant, panicle, panicle seed mass, green and dry; and seed yield were"
+    },
+    {
+        "id":  "Krysczun2018",
+        "journal":  "Scientia Horticulturae",
+        "title":  "Sample size, plot size and number of replications for trials with Solanum melongena L.",
+        "year":  2018,
+        "type":  "journal",
+        "authors":  [
+                        "Krysczun D.",
+                        "Lucio A.",
+                        "Sari B.",
+                        "Diel M.",
+                        "Olivoto T.",
+                        "Santana C.",
+                        "Ubessi C.",
+                        "Schabarum D."
+                    ],
+        "doi":  "10.1016/j.scienta.2018.01.044",
+        "abstract":  "Due to the increasing consumption of eggplant (solanum melongena l.), research should be carried out with this horticultural species aiming at providing technical recommendations for increasing production and quality of fruits. The aim of this study was to estimate the plot and sample size, as well the number of replications suitable for eggplant trials. Two uniformity trials were performed with eggplant in a plastic tunnel. The fresh fruit weight and the total number of fruits were assessed in "
+    },
+    {
+        "id":  "Krysczun2018b",
+        "journal":  "Journal of Agricultural Science",
+        "title":  "The Size of the Uniformity Trial Affects the Accuracy of Plot Size Estimation in Eggplant",
+        "year":  2018,
+        "type":  "journal",
+        "authors":  [
+                        "Krysczun D.",
+                        "Lucio A.",
+                        "Sari B.",
+                        "Diel M.",
+                        "Olivoto T.",
+                        "da Silva J.",
+                        "Santana C.",
+                        "Melo P.",
+                        "Gomes S."
+                    ],
+        "doi":  "10.5539/jas.v10n11p510",
+        "abstract":  "The plot size estimation is based on uniformity trials, however little is known about and how the size of uniformity trial affects the estimate of the plot size. That way, the aim of this study was to determine the influence of uniformity trial size on the estimation of plot size in the eggplant crop. Two uniformity trials were performed with the eggplant culture in a plastic tunnel. The fresh mass of fruit and number of fruits were assessed in six harvests, with a seven-day interval between har"
+    },
+    {
+        "id":  "Lima2022a",
+        "journal":  "Agronomy Journal",
+        "title":  "Genetic diversity in tropical wheat germplasm and selection via multitrait index",
+        "year":  2022,
+        "type":  "journal",
+        "authors":  [
+                        "Lima G.",
+                        "Silva C.",
+                        "Mezzomo H.",
+                        "Casagrande C.",
+                        "Olivoto T.",
+                        "Borem A.",
+                        "Nardino M."
+                    ],
+        "doi":  "10.1002/AGJ2.20991",
+        "abstract":  "Abstract genetic diversity studies and analysis of the selection gain of wheat genotypes (triticum aestivum l.) released over the decades allow the planning of strategies and support decision-making for crossing in wheat breeding. We investigated genetic diversity in tropical wheat germplasm, discussed the main trends in breeding programs and selected potential parents. Therefore, a trial with 90 commercial cultivars released in brazil between 1800-2000 and 2001-2019 was conducted during the 202"
+    },
+    {
+        "id":  "Lucio2017",
+        "journal":  "Journal of Agricultural Science",
+        "title":  "Variability and Experimental Desing for Trials with Cucurbita pepo and Capsicum annuum",
+        "year":  2017,
+        "type":  "journal",
+        "authors":  [
+                        "Lucio A.",
+                        "Santos D.",
+                        "Olivoto T."
+                    ],
+        "doi":  "10.5539/jas.v9n11p58",
+        "abstract":  "The variability within rows of cultivation may reduce the accuracy of vegetables trails; however, little is known about this variability in protected environments. This study aimed at to assess the variability in greenhouses cultivated with cucurbita pepo and capsicum annuum and to verify the effect of borders use and plot size in minimizing this variability. Data from two uniformity trials each crop were used. For statistical analysis, the total of productivity by plant was used, considering th"
+    },
+    {
+        "id":  "MachadoESilva",
+        "journal":  "Bulgarian Journal of Agricultural Science",
+        "title":  "Selection of tropical wheat lines based on classical and modern parameters of adaptability and stability",
+        "year":  2021,
+        "type":  "journal",
+        "authors":  [
+                        "Machado E Silva C.",
+                        "Mezzomo H.",
+                        "Casagrande C.",
+                        "Lima G.",
+                        "Olivoto T.",
+                        "Nardino M."
+                    ],
+        "doi":  "NA",
+        "abstract":  "Silva, c. M., mezzomo, h. C., casagrande, c. R., lima, g. W., olivoto, t. \u0026 Nardino, m. (2021). Selection of tropical wheat lines based on classical and modern parameters of adaptability and stability. Bulg. J. Agric. Sci., 27 (5), 933-941 the differential response of lines to the variation of environments makes it necessary to use robust biometric tools for efficient evaluation and selection of wheat lines in tropical regions of brazil. The objective of this work was to select tropical wheat li"
+    },
+    {
+        "id":  "machado_classificacao_2024",
+        "journal":  "NA",
+        "title":  "ClassificaÃ§Ã£o automatizada de cores de batata-doce (Ipomoea batatas. L) por modelos combinados de aprendizado de mÃ¡quina",
+        "year":  2024,
+        "type":  "conference",
+        "authors":  [
+                        "Machado M.",
+                        "Assoni C.",
+                        "Silva J.",
+                        "Bustamante F.",
+                        "Tonet K.",
+                        "Zeist A.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "machado_relacao_2023",
+        "journal":  "NA",
+        "title":  "RelaÃ§Ã£o entre SPAD e o Ã­ndice DGCI em folhas de linho obtido em diferentes condiÃ§Ãµes de iluminaÃ§Ã£o",
+        "year":  2023,
+        "type":  "conference",
+        "authors":  [
+                        "Machado M.",
+                        "Trois A.",
+                        "Guimaraes V.",
+                        "Chaga V.",
+                        "Souza P.",
+                        "Silva J.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "machado_um_2023",
+        "journal":  "NA",
+        "title":  "Um mÃ©todo simples e indireto para estimaÃ§Ã£o da Ã¡rea de folha de linho",
+        "year":  2023,
+        "type":  "conference",
+        "authors":  [
+                        "Machado M.",
+                        "Tonet K.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "marchioro_scientometric_2022",
+        "journal":  "J Plant Pathol",
+        "title":  "A scientometric view of wheat blast: the new catastrophic threat to wheat worldwide",
+        "year":  2022,
+        "type":  "journal",
+        "authors":  [
+                        "Marchioro V.",
+                        "Benin G.",
+                        "Meira D.",
+                        "Meier C.",
+                        "Olivoto T.",
+                        "Klein L.",
+                        "Woyann L.",
+                        "Toebe M.",
+                        "Bozi A."
+                    ],
+        "doi":  "10.1007/s42161-022-01222-y",
+        "abstract":  "As wheat blast is one of the most damaging disease of wheat worldwide and extremely important in brazil, in this work we are trying to summarize the scientific research direction and temporal trends about the disease. We summarized the evolution of scientific research from the thomson reuters web of science database, through bibliometrix analysis of the temporal trends of authors, organizations and journals. During 31 years, 521 publications approach wheat blast was published, with an annual gro"
+    },
+    {
+        "id":  "marchioro_ufsmfw_2023",
+        "journal":  "Crop Breeding and Applied Biotechnology",
+        "title":  "UFSMFW 2101 - very early black oat cultivar with high yield potential",
+        "year":  2023,
+        "type":  "journal",
+        "authors":  [
+                        "Marchioro V.",
+                        "Meira D.",
+                        "Klein L.",
+                        "Meier C.",
+                        "Souza V.",
+                        "Follmann D.",
+                        "Carvalho I.",
+                        "Caron B.",
+                        "Schimidt D.",
+                        "Nardino M.",
+                        "Olivoto T."
+                    ],
+        "doi":  "10.1590/1984-70332022v22n4c49",
+        "abstract":  "Abstract the black oat cultivar ufsmfw 2101, recommended for northwest of the state of rio grande do sul, is very early and can produce high dry matter and grain yields. In rotation systems, an immediate advantage is the very early cycle, with the possibility of anticipated sowing of the subsequent crop."
+    },
+    {
+        "id":  "marchioro_ufsmfw_20231",
+        "journal":  "Crop Breeding and Applied Biotechnology",
+        "title":  "UFSMFW 2202 - Early black oat cultivar for ground cover",
+        "year":  2023,
+        "type":  "journal",
+        "authors":  [
+                        "Marchioro V.",
+                        "Meira D.",
+                        "Klein L.",
+                        "Meier C.",
+                        "Souza V.",
+                        "Follmann D.",
+                        "Carvalho I.",
+                        "Caron B.",
+                        "Schimidt D.",
+                        "Nardino M.",
+                        "Olivoto T."
+                    ],
+        "doi":  "10.1590/1984-70332022v22n4c41",
+        "abstract":  "Abstract ufsmfw 2202 is an early black oat cultivar with high dry matter and grain yield potential. When used in rotation systems, the early cycle has the immediate advantage of allowing anticipated sowing of subsequent crop. Initially, the cultivar is recommended for the north and northwest of rio grande do sul."
+    },
+    {
+        "id":  "Meier2019",
+        "journal":  "Revista Ceres",
+        "title":  "Selection gain and interrelations between agronomic traits in wheat F5 genotypes",
+        "year":  2019,
+        "type":  "journal",
+        "authors":  [
+                        "Meier C.",
+                        "Meira D.",
+                        "Marchioro V.",
+                        "Olivoto T.",
+                        "Klein L.",
+                        "de Souza V."
+                    ],
+        "doi":  "10.1590/0034-737X201966040005",
+        "abstract":  "This work aimed to estimate the variance components and genetic parameters, the selection gain, and the cause and effect relationships among traits in order to identify important traits for direct and indirect selection of wheat (triticum aestivum l.) lines. Three strategies were used to obtain selection gains: direct and indirect selection, an index based on ranks, and the smith and hazel index. In the 2017 crop season in brazil, 420 wheat lines from the f5 generation were conducted in families"
+    },
+    {
+        "id":  "Meier2019a",
+        "journal":  "Revista de Ci^encias Agrarias",
+        "title":  "Performance agron^omica e correla~ao linear entre componentes de rendimento da soja em segunda safra Agronomic performance and linear correlation between yield traits in second-harvest soybean",
+        "year":  2019,
+        "type":  "journal",
+        "authors":  [
+                        "Meier C.",
+                        "Meira D.",
+                        "Marchioro V.",
+                        "Olivoto T.",
+                        "Klein L.",
+                        "Moro E.",
+                        "Lunkes A.",
+                        "Rigatti A.",
+                        "Bello R.",
+                        "Bueno R.",
+                        "Souza V."
+                    ],
+        "doi":  "10.19084/rca.17995",
+        "abstract":  ""
+    },
+    {
+        "id":  "Meier2021",
+        "journal":  "Pesquisa Agropecuaria Tropical",
+        "title":  "Genetic parameters and multiple-trait selection in wheat genotypes",
+        "year":  2021,
+        "type":  "journal",
+        "authors":  [
+                        "Meier C.",
+                        "Marchioro V.",
+                        "Meira D.",
+                        "Olivoto T.",
+                        "Klein L."
+                    ],
+        "doi":  "10.1590/1983-40632021V5167996",
+        "abstract":  "Abstract mixed models and multivariate analysis are powerful tools for selecting superior genotypes in plant breeding programs. The blup (best linear unbiased prediction) method has been used to predict genetic values without environmental effects. Furthermore, the fai-blup (ideotype-design index) procedure is especially valuable for plant breeding because of multiple-trait selection. This study aimed to determine the genetic potential of advanced wheat generations using reml/blup in combination"
+    },
+    {
+        "id":  "meier_correlation_2022",
+        "journal":  "Rev. Ceres",
+        "title":  "Correlation and selection gains in F6 wheat genotypes",
+        "year":  2022,
+        "type":  "journal",
+        "authors":  [
+                        "Meier C.",
+                        "Marchioro V.",
+                        "Olivoto T.",
+                        "Meira D.",
+                        "Klein L.",
+                        "Souza V."
+                    ],
+        "doi":  "10.1590/0034-737X202269050003",
+        "abstract":  "Abstract the agronomic traits have complex quantitative inheritance, wheat breeding has a highly cost and time expending to achieve advanced lines, and new cultivars. The objective of this work was to estimate the phenotypic (rp), genotypic (rg) and environmental (re) correlation coefficients and the genetic parameters, as well as to estimate the selection gains between agronomic traits in wheat using multivariate analysis. F6 generation was carried out in a randomized block experimental design,"
+    },
+    {
+        "id":  "Meira2017",
+        "journal":  "Genetics and Molecular Research",
+        "title":  "Physiological traits and their relationships in black oat populations",
+        "year":  2017,
+        "type":  "journal",
+        "authors":  [
+                        "Meira D.",
+                        "Meier C.",
+                        "Olivoto T.",
+                        "Nardino M.",
+                        "Rigatti A.",
+                        "Lunkes A.",
+                        "Bordin R.",
+                        "Marchioro V.",
+                        "Souza V."
+                    ],
+        "doi":  "10.4238/gmr16039814",
+        "abstract":  "The objective of this work was to verify physiological quality of black oat populations, in order to know and point out the relationships among physiological characters for selection of progenies. The experiment was carried out at the laboratory of plant breeding and production, federal university of santa maria, campus of frederico westphalen - rs. Seed samples were collected from 14 black oat populations from small producers in the region, and cultivars brs madrugada and brs centauro (populati"
+    },
+    {
+        "id":  "Meira2019",
+        "journal":  "Bragantia",
+        "title":  "Estimates of genetic parameters between and within black oat populations",
+        "year":  2019,
+        "type":  "journal",
+        "authors":  [
+                        "Meira D.",
+                        "Meier C.",
+                        "Olivoto T.",
+                        "Nardino M.",
+                        "Klein L.",
+                        "Moro E.",
+                        "Fassini F.",
+                        "Marchioro V.",
+                        "de Souza V.",
+                        "Meira D.",
+                        "Meier C.",
+                        "Olivoto T.",
+                        "Nardino M.",
+                        "Klein L.",
+                        "Moro E.",
+                        "Fassini F.",
+                        "Marchioro V.",
+                        "de Souza V."
+                    ],
+        "doi":  "10.1590/1678-4499.2018116",
+        "abstract":  "The aims of this study were to characterize black oat populations by estimating between- and within-populations variance components and genetic parameters, as well as to distinguish the populations using multivariable statistics. The experiment was carried out in randomized blocks design with three repetitions, with 14 black oat populations collected in several municipalities of rio grande do sul state. Agronomic important traits were assessed at physiological maturation stage. Variance componen"
+    },
+    {
+        "id":  "Meira2019a",
+        "journal":  "Revista Brasileira de Ci^encias Agrarias - Brazilian Journal of Agricultural Sciences",
+        "title":  "Multivariate analysis revealed genetic divergence and promising traits for indirect selection in black oat",
+        "year":  2019,
+        "type":  "journal",
+        "authors":  [
+                        "Meira D.",
+                        "Meier C.",
+                        "Olivoto T.",
+                        "Follmann D.",
+                        "Rigatti A.",
+                        "Lunkes A.",
+                        "Marchioro V.",
+                        "Souza V."
+                    ],
+        "doi":  "10.5039/agraria.v14i4a6514",
+        "abstract":  "This study aimed to identify important traits for indirect selection and to evaluate the variability among black oat populations through cause and effect relationships and canonical variables. Fourteen (14) black oat populations were collected in the 2013 cropping season which were evaluated in the laboratory, and then in the field in the 2014 cropping season. The seed width has a high and positive association with physiological quality of black oat seeds. The number of grains and thousand-grain"
+    },
+    {
+        "id":  "melo_genetic_2024",
+        "journal":  "Brazilian Journal of Biometrics",
+        "title":  "Genetic dissimilarity between sugarcane genotypes at different harvest period for brown sugar production",
+        "year":  2024,
+        "type":  "journal",
+        "authors":  [
+                        "Melo P.",
+                        "LÃºcio A.",
+                        "Torres E.",
+                        "Diel M.",
+                        "Olivoto T.",
+                        "Landell M.",
+                        "Lambrecht D.",
+                        "Tischler A.",
+                        "Tartaglia F."
+                    ],
+        "doi":  "10.28951/bjb.v42i1.651",
+        "abstract":  "The purpose of this study was to characterize and identify the dissimilarity between sugarcane genotypes through technological and agronomic traits, in three harvest periods for brown sugar production. A randomized complete block design with four replications, using a split-plot treatment layout was used (iacsp 93-3046, rb 96-6928, iacsp 95-5094, iacsp 97-4039, sp 81-3250, iacsp 95-5000, rb 86-7515, iacsp 96-3060, iacsp 04-704, iacsp 04-656) and three harvest periods (15, 17 and 19 months of cul"
+    },
+    {
+        "id":  "Nardino2016b",
+        "journal":  "African Journal of Agricultural Research",
+        "title":  "Restricted maximum likelihood/best linear unbiased prediction (REML/BLUP) for analyzing the agronomic performance of corn",
+        "year":  2016,
+        "type":  "journal",
+        "authors":  [
+                        "Nardino M.",
+                        "Baretta D.",
+                        "Carvalho I.",
+                        "Olivoto T.",
+                        "Follmann D.",
+                        "Szareski V.",
+                        "Ferrari M.",
+                        "de Pelegrin A.",
+                        "Konflanz V.",
+                        "de Souza V."
+                    ],
+        "doi":  "10.5897/AJAR2016.11691",
+        "abstract":  "Adoption of accurate and simplistic biometric models that estimate variance components, predicting genotypic effects are desired in plant breeding. The aim of this study was to estimate the variance components and predict genotypic values by reml/blup for combinations of maize inbred lines derived from two heterotic groups with f1\u0026#39;s evaluation in four locations. The crosses originated 25 hybrids that were evaluated in four trials. Genotype x environment interaction provided oscillations rega"
+    },
+    {
+        "id":  "Nardino2018",
+        "journal":  "Journal of Agricultural Science",
+        "title":  "Environment Stratification in the Evaluation of Corn Hybrids in Southern Brazil",
+        "year":  2018,
+        "type":  "journal",
+        "authors":  [
+                        "Nardino M.",
+                        "Baretta D.",
+                        "Carvalho I.",
+                        "Olivoto T.",
+                        "Follmann D.",
+                        "de Pelegrin A.",
+                        "Szareski V.",
+                        "Lautenchleger F.",
+                        "da Rosa T.",
+                        "Barbosa M.",
+                        "Konflanz V.",
+                        "Barros W.",
+                        "de Souza V."
+                    ],
+        "doi":  "10.5539/jas.v10n10p333",
+        "abstract":  "The implementation of a network of maize trials is an onerous task, so breeding programs seek to eliminate redundant environments, remaining only contrasting ones. The objective was to perform the homogeneous environment grouping by studying the g\u0026times;e interaction through different environmental stratification methods, as well as to compare the efficiency of these methods. Four methods were used: environmental dissimilarity (djj); decomposition of the genotype \u0026times; environment interaction "
+    },
+    {
+        "id":  "Nardino2020a",
+        "journal":  "Anais da Academia Brasileira de Ciencias",
+        "title":  "Multivariate diallel analysis by factor analysis for establish mega-traits",
+        "year":  2020,
+        "type":  "journal",
+        "authors":  [
+                        "Nardino M.",
+                        "Barros W.",
+                        "Olivoto T.",
+                        "Cruz C.",
+                        "E Silva F.",
+                        "De Pelegrin A.",
+                        "De Souza V.",
+                        "Carvalho I.",
+                        "Szareski V.",
+                        "De Oliveira A.",
+                        "Da Maia L.",
+                        "Konflanz V."
+                    ],
+        "doi":  "10.1590/0001-3765202020180874",
+        "abstract":  "In plant breeding, the dialelic models univariate have aided the selection of parents for hybridization. Multivariate analyses allow combining and associating the multiple pieces of information of the genetic relationships between traits. Therefore, multivariate analyses might refine the discrimination and selection of the parents with greater potential to meet the goals of a plant breeding program. Here, we propose a method of multivariate analysis used for stablishing mega-traits (mts) in dial"
+    },
+    {
+        "id":  "nardino_metaanalysis_2022",
+        "journal":  "Sci. agric. (Piracicaba, Braz.)",
+        "title":  "Meta-analysis of the experimental coefficient of variation in wheat using the Bayesian and Frequentist approaches",
+        "year":  2022,
+        "type":  "journal",
+        "authors":  [
+                        "Nardino M.",
+                        "Silva F.",
+                        "Olivoto T.",
+                        "Barros W.",
+                        "Carvalho C.",
+                        "Signorini V.",
+                        "Mezzomo H.",
+                        "Casagrande C."
+                    ],
+        "doi":  "10.1590/1678-992X-2021-0190",
+        "abstract":  "Abstract a large set of variables is assessed for progeny selection in a plant-breeding program and other agronomic fields. The meta-analysis of the coefficient of variation (cve) produces information for researchers and breeders on the experimental quality of trials. This analysis can also be applied in the decision-making process of the experimental plan regarding the experimental design, the number of repetitions, and the treatments and plants/progenies to be measured. In this study, we evalu"
+    },
+    {
+        "id":  "nardino_reml_2016",
+        "journal":  "International Journal of Current Research",
+        "title":  "REML/BLUP in analysis of pre-commercial simple maize hybrids",
+        "year":  2016,
+        "type":  "journal",
+        "authors":  [
+                        "Nardino M.",
+                        "Baretta D.",
+                        "CARVALHO I.",
+                        "Olivoto T.",
+                        "Pelegrin A.",
+                        "Ferrari M.",
+                        "Szareski V.",
+                        "Konflanz V.",
+                        "Caron B.",
+                        "Schmidt D.",
+                        "Barros W.",
+                        "Souza V."
+                    ],
+        "doi":  "http://www.journalcra.com/sites/default/files/16966.pdf",
+        "abstract":  ""
+    },
+    {
+        "id":  "Olivoto2016",
+        "journal":  "International Journal of Current Research",
+        "title":  "Pearson correlation coefficients and accuracy of path analysis used in maize breeding: a critical review",
+        "year":  2016,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Nardino M.",
+                        "Carvalho I.",
+                        "Follmann D.",
+                        "Szareski V.",
+                        "Ferrari M.",
+                        "Pelegrin A.",
+                        "Souza V."
+                    ],
+        "doi":  "NA",
+        "abstract":  "Maize (zea mays l.) has been the subject of several studies involving correlation coefficient estimates and path analysis. This critical review discusses some systematic errors that have been observed in estimating of correlation coefficients and its possible impacts on accuracy of path analysis. In a first moment, an approach about the maize crop, origin, characteristics and biometric models commonly used in genetic breeding of this crop is presented. Some obstacles found in estimates of path c"
+    },
+    {
+        "id":  "Olivoto2016a",
+        "journal":  "Revista de Ci^encias Agroveterinarias",
+        "title":  "Efeitos de enxofre e nitrog^enio na qualidade industrial e no rendimento de gr~aos de trigo",
+        "year":  2016,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Carvalho I.",
+                        "Nardino M.",
+                        "Ferrari M.",
+                        "de Pelegrin A.",
+                        "Follmann D.",
+                        "Gutkoski L.",
+                        "de Souza V."
+                    ],
+        "doi":  "10.5965/223811711512016024",
+        "abstract":  "The consumer markets demand and requirement for wheat grains which present a satisfactory industrial quality have driven the demand for enhanced cropping systems, especially related to nutritional aspects. In this context, the purpose of this research was to evaluate how the sulfur supplementation and the usage of nitrogen (n) affect the baking quality and the yield of the wheat grain cultivar tbio itaiputextregistered. A randomized block experimental design in factorial arrangement, with two su"
+    },
+    {
+        "id":  "Olivoto2017",
+        "journal":  "Genetics and Molecular Research",
+        "title":  "REML/BLUP and sequential path analysis in estimating genotypic values and interrelationships among simple maize grain yield-related traits",
+        "year":  2017,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Nardino M.",
+                        "Carvalho I.",
+                        "Follmann D.",
+                        "Ferrari M.",
+                        "Szareski V.",
+                        "de Pelegrin A.",
+                        "de Souza V."
+                    ],
+        "doi":  "10.4238/gmr16019525",
+        "abstract":  ""
+    },
+    {
+        "id":  "Olivoto2017b",
+        "journal":  "Revista de Ciencias Agroveterinarias",
+        "title":  "Splitting and nitrogen sources in the physiological quality of wheat seed",
+        "year":  2017,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Nardino M.",
+                        "Carvalho I.",
+                        "Ferrari M.",
+                        "De Pelegrin A.",
+                        "Szareski V.",
+                        "De Souza V."
+                    ],
+        "doi":  "10.5965/223811711642017345",
+        "abstract":  "Textcopyright 2017 universidade federal de santa catarina. All rightd reserved. Different sources and nitrogen management (n) may increase the availability, absorption, and assimilation of this nutrient by plants, favoring the n accumulation in grains. However, little is known about the influence of these factors on the physiological quality of wheat seeds (triticum aestivum l.). In this context, the aim of this study was to evaluate the response of different sources and nitrogen fertilization, "
+    },
+    {
+        "id":  "Olivoto2017c",
+        "journal":  "African Journal of Agricultural Research",
+        "title":  "Optimal sample size and data arrangement method in estimating correlation matrices with lesser collinearity: A statistical focus in maize breeding",
+        "year":  2017,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Nardino M.",
+                        "Carvalho I.",
+                        "Follmann D.",
+                        "Ferrari M.",
+                        "de Pelegrin A.",
+                        "Szareski V.",
+                        "de Oliveira A.",
+                        "Caron B.",
+                        "de Souza V."
+                    ],
+        "doi":  "10.5897/AJAR2016.11799",
+        "abstract":  "Information about data arrangement methodologies and optimal sample size in estimating the pearson correlation coefficient (r) among maize traits are still limited. Furthermore, some data arrangement methodologies currently used may be increasing multicollinearity in multiple regression analysis. This study aimed to investigate the statistical behavior of the r and the multicollinearity of correlation matrices among maize traits in different data arrangement scenarios and different sample sizes."
+    },
+    {
+        "id":  "Olivoto2017d",
+        "journal":  "Revista de Ci^encias Agroveterinarias",
+        "title":  "Parcelamento e fontes de nitrog^enio na qualidade fisiologica de sementes de trigo",
+        "year":  2017,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Nardino M.",
+                        "Carvalho I.",
+                        "Ferrari M.",
+                        "de Pelegrin A.",
+                        "Szareski V.",
+                        "de Souza V."
+                    ],
+        "doi":  "10.5965/10.5965/223811711642017345",
+        "abstract":  "Diferentes fontes e manejos parcelados de nitrog^enio podem aumentar a disponibilidade, a absor~ao e a assimila~ao deste nutriente pelas plantas, favorecendo o acumulo de n nos gr~aos. No entanto, pouco se sabe sobre a influ^encia destes fatores na qualidade fisiologica de sementes de trigo (triticum aestivum l). Dentro deste contexto, o objetivo deste trabalho foi avaliar a resposta de diferentes fontes e parcelamentos de nitrog^enio aplicado em cobertura na qualidade fisiologica das sementes d"
+    },
+    {
+        "id":  "Olivoto2017e",
+        "journal":  "African Journal of Agricultural Research",
+        "title":  "Plant secondary metabolites and its dynamical systems of induction in response to environmental factors: A review",
+        "year":  2017,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Nardino M.",
+                        "Carvalho I.",
+                        "Follmann D.",
+                        "Szareski V.",
+                        "Ferrari M.",
+                        "de Pelegrin A.",
+                        "de Souza V."
+                    ],
+        "doi":  "10.5897/AJAR2016.11677",
+        "abstract":  "Under natural conditions, the plants are, usually, surrounded by a series of potential enemies. They had created strategies of defense against pathogens and herbivores\u0026#39; attacks, allowing its perpetuation throughout evolution. These defense mechanisms are closely associated with the synthesis of secondary metabolites, which are also worldwide used in several areas of industry. This bibliographic review was conducted aiming to better understand how plants synthesize these substances in respons"
+    },
+    {
+        "id":  "Olivoto2017f",
+        "journal":  "Agronomy Journal",
+        "title":  "Multicollinearity in path analysis: a simple method to reduce its effects",
+        "year":  2017,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Souza V.",
+                        "Nardino M.",
+                        "Carvalho I.",
+                        "Ferrari M.",
+                        "Pelegrin A.",
+                        "Szareski V.",
+                        "Schmidt D."
+                    ],
+        "doi":  "10.2134/agronj2016.04.0196",
+        "abstract":  ""
+    },
+    {
+        "id":  "Olivoto2018",
+        "journal":  "Agronomy Journal",
+        "title":  "Confidence Interval Width for Pearsons Correlation Coefficient: A Gaussian-Independent Estimator Based on Sample Size and Strength of Association",
+        "year":  2018,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Lucio A.",
+                        "de Souza V.",
+                        "Nardino M.",
+                        "Diel M.",
+                        "Sari B.",
+                        "Krysczun D.",
+                        "Meira D.",
+                        "Meier C."
+                    ],
+        "doi":  "10.2134/agronj2017.09.0566",
+        "abstract":  ""
+    },
+    {
+        "id":  "Olivoto2018a",
+        "journal":  "Revista de Ci^encias Agroveterinarias",
+        "title":  "Caracteres morfologicos e rendimento de gr~aos de hibridos simples de milho em diferentes ambientes",
+        "year":  2018,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Carvalho I.",
+                        "Nardino M.",
+                        "Ferrari M.",
+                        "de Pelegrin A.",
+                        "Szareski V.",
+                        "Demari G.",
+                        "de Souza V."
+                    ],
+        "doi":  "10.5965/223811711732018462",
+        "abstract":  "The aim of this study was to assess the behavior of morphological components and yield of simple hybrid corn grains cultivated in different environments. Three field trials were conducted in the state of rio grande do sul under an experimental randomized block design with factorial treatment: seven (simple hybrids) x three (cultivation environments) arranged in three replications. The analysis of variance showed significant interaction between genotype and environment for the traits ear diameter"
+    },
+    {
+        "id":  "Olivoto2018b",
+        "journal":  "Scientia Horticulturae",
+        "title":  "Photosynthetic photon flux density levels affect morphology and bromatology in Cichorium endivia L. var. latifolia grown in a hydroponic system",
+        "year":  2018,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Elli E.",
+                        "Schmidt D.",
+                        "Caron B.",
+                        "de Souza V."
+                    ],
+        "doi":  "10.1016/j.scienta.2017.11.031",
+        "abstract":  "Photosynthetic photon flux density (ppfd) in suboptimal or super-optimal levels can modify the biomass accumulation, bromatological composition and appearance of crops. This study was conducted in a hydroponic system to determine whether ppfd could change physiological and bromatological aspects of escarole (cichorium endivia l. var. latifolia). Three ppfd levels (100 percent, 70 percent and 50 percent of ppfd) were investigated to determine crops responses to this factor. Plants of escarole gro"
+    },
+    {
+        "id":  "Olivoto2018c",
+        "journal":  "Revista de Ciencias Agroveterinarias",
+        "title":  "Morphological characteristics and grain yield of simple corn hybrids in different environments",
+        "year":  2018,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Carvalho I.",
+                        "Nardino M.",
+                        "Ferrari M.",
+                        "de Pelegrin A.",
+                        "Szareski V.",
+                        "Demari G.",
+                        "de Souza V."
+                    ],
+        "doi":  "10.5965/223811711732018462",
+        "abstract":  ""
+    },
+    {
+        "id":  "Olivoto2019",
+        "journal":  "Agronomy Journal",
+        "title":  "Mean Performance and Stability in Multiâ€Environment Trials I: Combining Features of AMMI and BLUP Techniques",
+        "year":  2019,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Lucio A.",
+                        "Silva J.",
+                        "Marchioro V.",
+                        "Souza V.",
+                        "Jost E."
+                    ],
+        "doi":  "10.2134/agronj2019.03.0220",
+        "abstract":  "Additive main effect and multiplicative interaction (ammi) and best linear unbiased prediction (blup) are popular methods for analyzing multiâ€environment trials (met). The ammi has nice graphical tools for modeling genotypeâ€vs.â€environment interaction (gei) but fails in some aspects, such as accommodating a linear mixedâ€effect model (lmm) structure. The blup provides reliable estimates but new insights to deal graphically with a random gei structure are needed. This article compares the "
+    },
+    {
+        "id":  "Olivoto2019a",
+        "journal":  "Agronomy Journal",
+        "title":  "Mean Performance and Stability in Multiâ€Environment Trials II: Selection Based on Multiple Traits",
+        "year":  2019,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Lucio A.",
+                        "Silva J.",
+                        "Sari B.",
+                        "Diel M."
+                    ],
+        "doi":  "10.2134/agronj2019.03.0221",
+        "abstract":  "Modeling the genotype Ã— environment interaction (gei) and quantifying genotypic stability are crucial steps for selecting/recommending genotypes in multiâ€environment trials (mets). The efficiency in selection/recommendation could be greater if based on multiple traits, but identifying genotypes that combine high performance and stability across many traits has been a difficult task. In this study, we propose a multiâ€trait stability index (mtsi) for simultaneous selection considering mean pe"
+    },
+    {
+        "id":  "Olivoto2020a",
+        "journal":  "Methods in Ecology and Evolution",
+        "title":  "metan: An R package for multiâ€environment trial analysis",
+        "year":  2020,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Lucio A."
+                    ],
+        "doi":  "10.1111/2041-210X.13384",
+        "abstract":  "Multi-environment trials (met) are crucial steps in plant breeding programs that aim at increasing crop productivity to ensure global food security. The analysis of met data requires the combination of several approaches including data manipulation, visualization and modelling. As new methods are proposed, analysing met data correctly and completely remains a challenge, often intractable with existing tools. Here we describe the metan r package, a collection of functions that implement a workflo"
+    },
+    {
+        "id":  "Olivoto2021",
+        "journal":  "Bioinformatics",
+        "title":  "MGIDI: toward an effective multivariate selection in biological experiments",
+        "year":  2021,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Nardino M."
+                    ],
+        "doi":  "10.1093/bioinformatics/btaa981",
+        "abstract":  "Motivation: multivariate data are common in biological experiments and using the information on multiple traits is crucial to make better decisions for treatment recommendations or genotype selection. However, identifying genotypes/treatments that combine high performance across many traits has been a challenger task. Classical linear multi-trait selection indexes are available, but the presence of multicollinearity and the arbitrary choosing of weighting coefficients may erode the genetic gains"
+    },
+    {
+        "id":  "Olivoto2021c",
+        "journal":  "Agronomy Journal",
+        "title":  "Multiâ€trait selection for mean performance and stability in maize",
+        "year":  2021,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Nardino M.",
+                        "Meira D.",
+                        "Meier C.",
+                        "Follmann D.",
+                        "Souza V.",
+                        "Konflanz V.",
+                        "Baretta D."
+                    ],
+        "doi":  "10.1002/agj2.20741",
+        "abstract":  "There is a need to strengthen maize (zea mays l.) breeding strategies based on multivariate selection to obtain high-yielding hybrids that are more stable and resilient to contrasting environmental conditions. Here, we show how the multi-trait stability index (mtsi) can be used to select maize hybrids for mean performance and stability of multiple traits. A set of 10 traits, including grain yield (gy), yield components, and plant-related traits with negative and positive desired selection gains "
+    },
+    {
+        "id":  "Olivoto2022",
+        "journal":  "Methods in Ecology and Evolution",
+        "title":  "Lights, camera, pliman! an R package for plant image analysis",
+        "year":  2022,
+        "type":  "journal",
+        "authors":  "Olivoto T.",
+        "doi":  "10.1111/2041-210X.13803",
+        "abstract":  ""
+    },
+    {
+        "id":  "Olivoto2022a",
+        "journal":  "Tropical Plant Pathology",
+        "title":  "Measuring plant disease severity in R: introducing and evaluating the pliman package",
+        "year":  2022,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Andrade S.",
+                        "Del Ponte E."
+                    ],
+        "doi":  "10.1007/S40858-021-00487-5",
+        "abstract":  "Image analysis based on color thresholding is the reference method for measuring severity as percent area affected. It is deemed to produce accurate results, usually considered the â€œtrueâ€ severity value. More than a dozen applications have been used for the task in phytopathometry studies, but none was coded in r language. Here we introduced and evaluated pliman, a suite for the analysis of plant images. In particular, we show functions for computing percent severity based on rgb information"
+    },
+    {
+        "id":  "olivoto_alise_2015",
+        "journal":  "Enciclopedia Biosfera",
+        "title":  "Analise de trilha para caracteres relacionados ao crescimento de mudas de pepineiro",
+        "year":  2015,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "de Souza V.",
+                        "Carvalho I.",
+                        "Nardino M.",
+                        "Follmann D."
+                    ],
+        "doi":  "NA",
+        "abstract":  "A area foliar expressa import^ancia na determina~ao do potencial produtivo das culturas, sendo determinante na absor~ao de radia~ao fotossinteticamente ativa. O objetivo deste trabalho foi revelar as associa~oes fenotipicas entre caracteres relacionados ao crescimento e seus desdobramentos em efeitos diretos e indiretos visando uma estimativa n~ao destrutiva de pl^antulas de pepineiro hibrido japon^es com maior area foliar. Os experimentos foram realizados no ano agricola de 2014 em frederico we"
+    },
+    {
+        "id":  "olivoto_indices_2023",
+        "journal":  "NA",
+        "title":  "Ãndices FAI-BLUP e MGIDI na seleÃ§Ã£o de genÃ³tipos de linho",
+        "year":  2023,
+        "type":  "conference",
+        "authors":  [
+                        "Olivoto T.",
+                        "Souza P.",
+                        "Assoni C.",
+                        "Oliveira E."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "olivoto_indices_20231",
+        "journal":  "NA",
+        "title":  "Ãndices FAI-BLUP e MGIDI na seleÃ§Ã£o de genÃ³tipos de linho",
+        "year":  2023,
+        "type":  "conference",
+        "authors":  [
+                        "Olivoto T.",
+                        "Souza P.",
+                        "Assoni C.",
+                        "Oliveira E."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "olivoto_mgidi_2022",
+        "journal":  "Plant Methods",
+        "title":  "MGIDI: a powerful tool to analyze plant multivariate data",
+        "year":  2022,
+        "type":  "journal",
+        "authors":  [
+                        "Olivoto T.",
+                        "Diel M.",
+                        "Schmidt D.",
+                        "LÃºcio A."
+                    ],
+        "doi":  "10.1186/s13007-022-00952-5",
+        "abstract":  "Commonly, several traits are assessed in agronomic experiments to better understand the factors under study. However, it is also common to see that even when several traits are available, researchers opt to follow the easiest way by applying univariate analyses and post-hoc tests for mean comparison for each trait, which arouses the hypothesis that the benefits of a multi-trait framework analysis may have not been fully exploited in this area."
+    },
+    {
+        "id":  "olivoto_pcv_2024",
+        "journal":  "NA",
+        "title":  "PCV: desvendando a complexidade do perÃ­metro de objetos em anÃ¡lise computacional de imagens",
+        "year":  2024,
+        "type":  "conference",
+        "authors":  [
+                        "Olivoto T.",
+                        "Assoni C.",
+                        "Bustamante F.",
+                        "Tonet K.",
+                        "Sousa P.",
+                        "Machado M.",
+                        "Silva J."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "osunacaballero_rgb_2023",
+        "journal":  "Plant Methods",
+        "title":  "RGB image-based method for phenotyping rust disease progress in pea leaves using R",
+        "year":  2023,
+        "type":  "journal",
+        "authors":  [
+                        "Osuna-Caballero S.",
+                        "Olivoto T.",
+                        "JimÃ©nez-Vaquero M.",
+                        "Rubiales D.",
+                        "Rispail N."
+                    ],
+        "doi":  "10.1186/s13007-023-01069-z",
+        "abstract":  "Rust is a damaging disease affecting vital crops, including pea, and identifying highly resistant genotypes remains a challenge. Accurate measurement of infection levels in large germplasm collections is crucial for finding new resistance sources. Current evaluation methods rely on visual estimation of disease severity and infection type under field or controlled conditions. While they identify some resistance sources, they are error-prone and time-consuming. An image analysis system proves usef"
+    },
+    {
+        "id":  "PEREIRA2015",
+        "journal":  "Revista SODEBRAS",
+        "title":  "Rendimento e qualidade de panifica~ao da cultivar BRS 220 em fun~ao do nitrog^enio",
+        "year":  2015,
+        "type":  "journal",
+        "authors":  [
+                        "PEREIRA T.",
+                        "OLIVOTO T.",
+                        "MANTOVANI A.",
+                        "MATHIAS V.",
+                        "DRUM G.",
+                        "CARVALHO I.",
+                        "NARDINO M.",
+                        "FERRARI M.",
+                        "SOUZA V."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "PourAboughadareh2022",
+        "journal":  "Plants",
+        "title":  "Stability Indices to Deciphering the Genotype-by-Environment Interaction (GEI) Effect: An Applicable Review for Use in Plant Breeding Programs",
+        "year":  2022,
+        "type":  "journal",
+        "authors":  [
+                        "Pour-Aboughadareh A.",
+                        "Khalili M.",
+                        "Poczai P.",
+                        "Olivoto T."
+                    ],
+        "doi":  "10.3390/plants11030414",
+        "abstract":  "Experiments measuring the interaction between genotypes and environments measure the spatial (e.g., locations) and temporal (e.g., years) separation and/or combination of these factors. The genotype-by-environment interaction (gei) is very important in plant breeding programs. Over the past six decades, the propensity to model the gei led to the development of several models and mathematical methods for deciphering gei in multi-environmental trials (mets) called \u0026ldquo;stability analyses\u0026rdquo;."
+    },
+    {
+        "id":  "Rigatti2019",
+        "journal":  "Journal of Agricultural Science",
+        "title":  "Grain Yield and Its Associations With Pre-harvest Sprouting in Wheat",
+        "year":  2019,
+        "type":  "journal",
+        "authors":  [
+                        "Rigatti A.",
+                        "Meira D.",
+                        "Olivoto T.",
+                        "Meier C.",
+                        "Nardino M.",
+                        "Lunkes A.",
+                        "Klein L.",
+                        "Fassini F.",
+                        "Moro E.",
+                        "Marchioro V.",
+                        "de Souza V."
+                    ],
+        "doi":  "10.5539/jas.v11n4p142",
+        "abstract":  "This study aimed to evaluate direct and indirect effects of agronomic traits importance on grain yield with focus in pre-harvest sprouting. Experiment was conducted in 2017 crop season, and conducted in a randomized block design, with three replications, with eight wheat cultivars (brs s\u0026aacute;bia, cd 105, cd 1104, cd 1440, frontana, jade\u0026iacute;te 11, mirante and ors vintecinco). Grain yield and its components were evaluated, as well as other important traits such as pre-harvest sprouting. Dat"
+    },
+    {
+        "id":  "sampaio_filho_multitrait_2023",
+        "journal":  "Frontiers in Plant Science",
+        "title":  "Multi-trait selection in multi-environments for performance and stability in cassava genotypes",
+        "year":  2023,
+        "type":  "journal",
+        "authors":  [
+                        "Sampaio Filho J.",
+                        "Olivoto T.",
+                        "Campos M.",
+                        "Oliveira E."
+                    ],
+        "doi":  "10.3389/fpls.2023.1282221",
+        "abstract":  "Genotype-environment interaction (gei) presents challenges when aiming to select optimal cassava genotypes, often due to biased genetic estimates. Various strategies have been proposed to address the need for simultaneous improvements in multiple traits, while accounting for performance and yield stability. Among these methods are mean performance and stability (mps) and the multi-trait mean performance and stability index (mtmps), both utilizing linear mixed models. This studyâ€™s objective was"
+    },
+    {
+        "id":  "Santos2018",
+        "journal":  "Bragantia",
+        "title":  "Variability, plot size and border effect in lettuce trials in protected environment",
+        "year":  2018,
+        "type":  "journal",
+        "authors":  [
+                        "Santos D.",
+                        "Lucio A.",
+                        "Cargnelutti Filho A.",
+                        "Lopes S.",
+                        "Olivoto T."
+                    ],
+        "doi":  "10.1590/1678-4499.2017165",
+        "abstract":  "The variability within rows of cultivation may reduce the accuracy of experiments conducted in a complete randomized block design if the rows are considered as blocks, however, little is known about this variability in protected environments. Thus, our aim was to study the variability of the fresh mass in lettuce shoot, growing in protected environment, and to verify the border effect and size of the experimental unit in minimizing the productive variability. Data from two uniformity trials carr"
+    },
+    {
+        "id":  "Santos2018a",
+        "journal":  "Ciencia Rural",
+        "title":  "Productive variability, border use and plot size in trials with cherry tomato",
+        "year":  2018,
+        "type":  "journal",
+        "authors":  [
+                        "Santos D.",
+                        "Lucio A.",
+                        "Lopes S.",
+                        "Cargnelutti Filho A.",
+                        "Olivoto T."
+                    ],
+        "doi":  "10.1590/0103-8478cr20170310",
+        "abstract":  "Knowing the productive variability within protected environments is crucial for choosing the experimental design to be used in that conditions. Thus, the aim of the present study was to assess the variability of fruit production in protected environment cultivated with cherry tomatoes and to verify the border effect and plot size in reducing this variability. To this, data from an uniformity test carried out in a greenhouse with cherry tomato cv. â€˜Lili were used. Total fresh mass of fruits per"
+    },
+    {
+        "id":  "Sari2018",
+        "journal":  "Agronomy Journal",
+        "title":  "Nonlinear Modeling for Analyzing Data from Multiple Harvest Crops",
+        "year":  2018,
+        "type":  "journal",
+        "authors":  [
+                        "Sari B.",
+                        "Olivoto T.",
+                        "Diel M.",
+                        "Krysczun D.",
+                        "Lucio A.",
+                        "Savian T."
+                    ],
+        "doi":  "10.2134/agronj2018.05.0307",
+        "abstract":  "Nonlinear growth models have been widely used for analyzing production curves with a sigmoidal pattern; however, all benefits that these models provide are not being fully exploited. Our aim here is to provide a stepâ€byâ€step guide on how to choose a nonlinear model with parameters close to being unbiased, and to show how to estimate and interpret the critical points of a model aimed at determining the precocity and concentration of the production. Data on two uniformity trials conducted with"
+    },
+    {
+        "id":  "Sari2018a",
+        "journal":  "Pesquisa Agropecuaria Brasileira",
+        "title":  "Interference of sample size on multicollinearity diagnosis in path analysis",
+        "year":  2018,
+        "type":  "journal",
+        "authors":  [
+                        "Sari B.",
+                        "Lucio A.",
+                        "Olivoto T.",
+                        "Krysczun D.",
+                        "Tischler A.",
+                        "Drebes L."
+                    ],
+        "doi":  "10.1590/S0100-204X2018000600014",
+        "abstract":  "The objective of this work was to evaluate the interference of sample size on multicollinearity diagnosis in path analysis. From the analyses of productive traits of cherry tomato, two pearson correlation matrices were obtained, one with severe multicollinearity and the other with weak multicollinearity. Sixty-six sample sizes were designed, and from the amplitude of the bootstrap confidence interval, it was observed that sample size interfered on multicollinearity diagnosis. When sample size wa"
+    },
+    {
+        "id":  "Schwerz2017",
+        "journal":  "Advances in Horticultural Science",
+        "title":  "Solar radiation levels modify the growth traits and bromatological composition of cichorium intybus",
+        "year":  2017,
+        "type":  "journal",
+        "authors":  [
+                        "Schwerz F.",
+                        "Sgarbossa J.",
+                        "Olivoto T.",
+                        "Elli E.",
+                        "Aguiar A.",
+                        "Caron B.",
+                        "Schmidt D."
+                    ],
+        "doi":  "10.13128/ahs-20832",
+        "abstract":  "Shading greenhouse may be an effective method to achieve a suitable environment for crop growth and to enhance crop yield and quality in places or seasons where there is high light intensity. Therefore, solar radiation levels may modify the biomass accumulation and bromatological composition. Different solar radiation levels (100 percent, 70 percent and 50 percent of available solar radiation) were simulated in order to determine crop responses to these factors in chicory (cichorium intybus l. v"
+    },
+    {
+        "id":  "sgarbossa_multivariate_2024",
+        "journal":  "Crop and Pasture Science",
+        "title":  "Multivariate assumptions and effect of model parameters in path analysis in oat crop",
+        "year":  2024,
+        "type":  "journal",
+        "authors":  [
+                        "Sgarbossa J.",
+                        "LÃºcio A.",
+                        "Silva J.",
+                        "Caron B.",
+                        "Diel M.",
+                        "Olivoto T.",
+                        "Nardini C.",
+                        "Alessi O.",
+                        "Lambrecht D."
+                    ],
+        "doi":  "10.1071/CP23135",
+        "abstract":  "Context path analysis (pa) is a widely used multivariate statistical technique. When performing pa, the effects of the parameters of the mathematical model relating to the experimental design are disregarded, working only with the average effects of the treatments.aims we aimed to analyse the implications of statistical assumptions, and of removing mathematical model parameters, on the pa results in oat.methods a field study was conducted in southern brazil in five crop years. The experimental d"
+    },
+    {
+        "id":  "silva_alise_2023",
+        "journal":  "NA",
+        "title":  "AnÃ¡lise de trilha para caracteres agronÃ´micos e componentes de rendimento em genÃ³tipos de linhaÃ§a (Linum usitatissimum, L.)",
+        "year":  2023,
+        "type":  "conference",
+        "authors":  [
+                        "Silva J.",
+                        "Souza P.",
+                        "Bustamante F.",
+                        "Guimaraes V.",
+                        "Trois A.",
+                        "Chaga V.",
+                        "Machado M.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "silva_junior_desenvolvimento_2023",
+        "journal":  "NA",
+        "title":  "Desenvolvimento de novos genÃ³tipos de batata-doce com alta produtividade e qualidade por meio de Ã­ndice de seleÃ§Ã£o",
+        "year":  2023,
+        "type":  "conference",
+        "authors":  [
+                        "Silva Junior A.",
+                        "Oliveira F.",
+                        "Aguiar Neto J.",
+                        "Albuquerque D.",
+                        "Lopez J.",
+                        "Souza A.",
+                        "Olivoto T.",
+                        "Zeist A.",
+                        "Gomes C."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "silva_mgidi_2024",
+        "journal":  "NA",
+        "title":  "MGIDI para seleÃ§Ã£o de genÃ³tipos de Linum usitatissimum no melhoramento genÃ©tico vegetal",
+        "year":  2024,
+        "type":  "conference",
+        "authors":  [
+                        "Silva J.",
+                        "Bustamante F.",
+                        "Assoni C.",
+                        "Sousa P.",
+                        "Tonet K.",
+                        "Machado M.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "silva_modelagem_2023",
+        "journal":  "NA",
+        "title":  "Modelagem da Ã¡rea foliar de cultivares de linho em diferentes Ã©pocas de semeadura utilizando o modelo LogÃ­stico",
+        "year":  2023,
+        "type":  "conference",
+        "authors":  [
+                        "Silva J.",
+                        "Passos M.",
+                        "Trois A.",
+                        "Souza P.",
+                        "Bustamante F.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "singamsetti_genetic_2023",
+        "journal":  "Frontiers in Plant Science",
+        "title":  "Genetic gains in tropical maize hybrids across moisture regimes with multi-trait-based index selection",
+        "year":  2023,
+        "type":  "journal",
+        "authors":  [
+                        "Singamsetti A.",
+                        "Zaidi P.",
+                        "Seetharam K.",
+                        "Vinayan M.",
+                        "Olivoto T.",
+                        "Mahato A.",
+                        "Madankar K.",
+                        "Kumar M.",
+                        "Shikha K."
+                    ],
+        "doi":  "NA",
+        "abstract":  "Unpredictable weather vagaries in the asian tropics often increase the risk of a series of abiotic stresses in maize-growing areas, hindering the efforts to reach the projected demands. Breeding climate-resilient maize hybrids with a cross-tolerance to drought and waterlogging is necessary yet challenging because of the presence of genotype-by-environment interaction (gei) and the lack of an efficient multi-trait-based selection technique. The present study aimed at estimating the variance compo"
+    },
+    {
+        "id":  "singamsetti_genetic_20231",
+        "journal":  "Frontiers in Plant Science",
+        "title":  "Genetic gains in tropical maize hybrids across moisture regimes with multi-trait-based index selection",
+        "year":  2023,
+        "type":  "journal",
+        "authors":  [
+                        "Singamsetti A.",
+                        "Zaidi P.",
+                        "Seetharam K.",
+                        "Vinayan M.",
+                        "Olivoto T.",
+                        "Mahato A.",
+                        "Madankar K.",
+                        "Kumar M.",
+                        "Shikha K."
+                    ],
+        "doi":  "NA",
+        "abstract":  "Unpredictable weather vagaries in the asian tropics often increase the risk of a series of abiotic stresses in maize-growing areas, hindering the efforts to reach the projected demands. Breeding climate-resilient maize hybrids with a cross-tolerance to drought and waterlogging is necessary yet challenging because of the presence of genotype-by-environment interaction (gei) and the lack of an efficient multi-trait-based selection technique. The present study aimed at estimating the variance compo"
+    },
+    {
+        "id":  "sousa_o_2022",
+        "journal":  "NA",
+        "title":  "O modelo logÃ­stico e seus pontos crÃ­ticos sugerem diferenÃ§a no padrÃ£o de expansÃ£o foliar de cultivares de linho",
+        "year":  2022,
+        "type":  "conference",
+        "authors":  [
+                        "Sousa P.",
+                        "Trois A.",
+                        "Bustamante F.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "souza_diferencial_2023",
+        "journal":  "NA",
+        "title":  "Diferencial de seleÃ§Ã£o direto e indireto visando seleÃ§Ã£o de genÃ³tipos de linho",
+        "year":  2023,
+        "type":  "conference",
+        "authors":  [
+                        "Souza P.",
+                        "Guimaraes V.",
+                        "Trois A.",
+                        "Bustamante F.",
+                        "Chaga V.",
+                        "Silva J.",
+                        "Assoni C.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "tonet_diversidade_2024",
+        "journal":  "NA",
+        "title":  "Diversidade genÃ©tica em genÃ³tipos de linho (Linum usitatissimum, L.) cultivados em FlorianÃ³polis-SC",
+        "year":  2024,
+        "type":  "conference",
+        "authors":  [
+                        "Tonet K.",
+                        "Assoni C.",
+                        "Bustamante F.",
+                        "Sousa P.",
+                        "Machado M.",
+                        "Silva J.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "trois_desempenho_2023",
+        "journal":  "NA",
+        "title":  "Desempenho agronÃ´mico do linho em diferentes Ã©pocas de semeadura",
+        "year":  2023,
+        "type":  "conference",
+        "authors":  [
+                        "Trois A.",
+                        "Assoni C.",
+                        "Souza P.",
+                        "Bustamante F.",
+                        "Oliveira E.",
+                        "Silva J.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "trois_desempenho_20231",
+        "journal":  "NA",
+        "title":  "Desempenho agronÃ´mico do linho em diferentes Ã©pocas de semeadura",
+        "year":  2023,
+        "type":  "conference",
+        "authors":  [
+                        "Trois A.",
+                        "Assoni C.",
+                        "Souza P.",
+                        "Bustamante F.",
+                        "Oliveira E.",
+                        "Silva J.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "trois_padrao_2022",
+        "journal":  "NA",
+        "title":  "PadrÃ£o de emissÃ£o de folhas de cultivares de linho revelado pelo modelo logÃ­stico e seus pontos crÃ­ticos",
+        "year":  2022,
+        "type":  "conference",
+        "authors":  [
+                        "Trois A.",
+                        "Bustamante F.",
+                        "Sousa P.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "trois_selecao_2023",
+        "journal":  "NA",
+        "title":  "SeleÃ§Ã£o multivariada de genÃ³tipos de linho usando o Ã­ndice MGIDI",
+        "year":  2023,
+        "type":  "conference",
+        "authors":  [
+                        "Trois A.",
+                        "Guimaraes V.",
+                        "Chaga V.",
+                        "Souza P.",
+                        "Bustamante F.",
+                        "Machado M.",
+                        "Silva J.",
+                        "Olivoto T."
+                    ],
+        "doi":  "NA",
+        "abstract":  ""
+    },
+    {
+        "id":  "yue_multitrait_2022",
+        "journal":  "Frontiers in Plant Science",
+        "title":  "Multi-trait selection for mean performance and stability of maize hybrids in mega-environments delineated using envirotyping techniques",
+        "year":  2022,
+        "type":  "journal",
+        "authors":  [
+                        "Yue H.",
+                        "Olivoto T.",
+                        "Bu J.",
+                        "Li J.",
+                        "Wei J.",
+                        "Xie J.",
+                        "Chen S.",
+                        "Peng H.",
+                        "Nardino M.",
+                        "Jiang X."
+                    ],
+        "doi":  "10.3389/fpls.2022.1030521",
+        "abstract":  "Under global climate changes, understanding climate variables that are most associated with environmental kinships can contribute to improving the success of hybrid selection, mainly in environments with high climate variations. The main goal of this study is to integrate envirotyping techniques and multi-trait selection for mean performance and the stability of maize genotypes growing in the huanghuaihai plain in china. A panel of 26 maize hybrids growing in 10 locations in two crop seasons was"
+    }
+]

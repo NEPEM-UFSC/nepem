@@ -1,0 +1,126 @@
+[
+  {
+    "id": "metan",
+    "title": "R package metan",
+    "tags": [
+      "Pacotes R",
+      "Pesquisa"
+    ],
+    "description": {
+      "pt": "Pacote R para análise de ensaios multi-ambientes (MET). Fornece funções para análise AMMI, BLUP, GGE biplot e índices de estabilidade.",
+      "en": "R package for multi-environment trial (MET) analysis. Provides functions for AMMI, BLUP, GGE biplot analysis, and stability indices.",
+      "es": "Paquete R para análisis de ensayos multi-ambientales (MET). Proporciona funciones para análisis AMMI, BLUP, GGE biplot e índices de estabilidad."
+    },
+    "url": "https://nepem-ufsc.github.io/metan/",
+    "github": "https://github.com/NEPEM-UFSC/metan",
+    "image": "https://raw.githubusercontent.com/TiagoOlivoto/metan/master/man/figures/logo.png"
+  },
+  {
+    "id": "pliman",
+    "title": "R package pliman",
+    "tags": [
+      "Pacotes R",
+      "Pesquisa"
+    ],
+    "description": {
+      "pt": "Pacote R para análise de imagens de plantas. Permite medir área foliar, contar lesões, objetos e grãos, e extrair características de cor e forma.",
+      "en": "R package for plant image analysis. Allows measuring leaf area, counting lesions, objects, and grains, and extracting color and shape features.",
+      "es": "Paquete R para análisis de imágenes de plantas. Permite medir área foliar, contar lesiones, objetos y granos, y extraer características de color y forma."
+    },
+    "url": "https://nepem-ufsc.github.io/pliman/",
+    "github": "https://github.com/NEPEM-UFSC/pliman",
+    "image": "https://raw.githubusercontent.com/TiagoOlivoto/pliman/master/man/figures/logo.png"
+  },
+  {
+    "id": "plimanshiny",
+    "title": "plimanshiny",
+    "tags": [
+      "Aplicativos",
+      "Pesquisa"
+    ],
+    "description": {
+      "pt": "Interface Shiny interativa para o pacote pliman. Fenotipagem de alto rendimento com interface gráfica amigável.",
+      "en": "Interactive Shiny interface for the pliman package. High-throughput phenotyping with a user-friendly graphical interface.",
+      "es": "Interfaz Shiny interactiva para el paquete pliman. Fenotipado de alto rendimiento con interfaz gráfica amigable."
+    },
+    "url": "https://github.com/NEPEM-UFSC/plimanshiny",
+    "github": "https://github.com/NEPEM-UFSC/plimanshiny",
+    "image": "https://raw.githubusercontent.com/NEPEM-UFSC/plimanshiny/master/man/figures/logo.png"
+  },
+  {
+    "id": "melhoramentolinhaca",
+    "title": "Melhoramento de Linhaça",
+    "description": {
+      "pt": "Programa de melhoramento genético de linhaça para a região sul do Brasil, focado em produtividade, qualidade nutracêutica e adaptação.",
+      "en": "Flaxseed breeding program for southern Brazil, focused on productivity, nutraceutical quality, and adaptation.",
+      "es": "Programa de mejoramiento genético de lino para el sur de Brasil, enfocado en productividad, calidad nutracéutica y adaptación."
+    },
+    "tags": [
+      "Pesquisa"
+    ],
+    "url": "",
+    "github": "",
+    "image": ""
+  },
+  {
+    "id": "manejolinhaça",
+    "title": "Manejo de Linhaça",
+    "description": {
+      "pt": "Pesquisa sobre práticas de manejo e tratos culturais para otimização da produção de linhaça no sul do Brasil.",
+      "en": "Research on management practices and cultivation techniques for optimizing flaxseed production in southern Brazil.",
+      "es": "Investigación sobre prácticas de manejo y técnicas de cultivo para la optimización de la producción de lino en el sur de Brasil."
+    },
+    "tags": [
+      "Pesquisa"
+    ],
+    "url": "",
+    "github": "",
+    "image": ""
+  },
+  {
+    "id": "AIpomoea",
+    "title": "AIpomoea",
+    "tags": [
+      "Pesquisa",
+      "Aplicativos"
+    ],
+    "description": {
+      "pt": "Uso de Inteligência Artificial para fenotipagem e classificação de batata-doce (Ipomoea batatas).",
+      "en": "Use of Artificial Intelligence for phenotyping and classification of sweet potato (Ipomoea batatas).",
+      "es": "Uso de Inteligencia Artificial para fenotipado y clasificación de batata (Ipomoea batatas)."
+    },
+    "url": "https://github.com/NEPEM-UFSC/AIpomoea",
+    "github": "https://github.com/NEPEM-UFSC/AIpomoea",
+    "image": "https://raw.githubusercontent.com/NEPEM-UFSC/AIpomoea/master/.github/icone.png"
+  },
+  {
+    "id": "learnstats",
+    "title": "Learn Stats",
+    "description": {
+      "pt": "Material didático interativo para aprendizagem de estatística experimental aplicada à agronomia.",
+      "en": "Interactive educational material for learning experimental statistics applied to agronomy.",
+      "es": "Material didáctico interactivo para el aprendizaje de estadística experimental aplicada a la agronomía."
+    },
+    "tags": [
+      "Livros"
+    ],
+    "url": "",
+    "github": "",
+    "image": ""
+  },
+  {
+    "id": "book_software_r",
+    "title": "Software R para Ciências Agrárias",
+    "description": {
+      "pt": "Livro sobre uso do software R para análise de dados em ciências agrárias, com exemplos práticos e reproduzíveis.",
+      "en": "Book on using R software for data analysis in agricultural sciences, with practical and reproducible examples.",
+      "es": "Libro sobre el uso del software R para análisis de datos en ciencias agrarias, con ejemplos prácticos y reproducibles."
+    },
+    "tags": [
+      "Livros"
+    ],
+    "url": "",
+    "github": "",
+    "image": ""
+  }
+]

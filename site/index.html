@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NEPEM — Núcleo de Estudos e Pesquisas em Experimentação e Melhoramento Vegetal. Grupo de pesquisa da UFSC dedicado ao melhoramento genético e fenotipagem digital.">
+  <meta name="keywords" content="NEPEM, UFSC, melhoramento vegetal, plant breeding, phenotyping, fenotipagem digital">
+  <meta property="og:title" content="NEPEM/UFSC">
+  <meta property="og:description" content="Núcleo de Estudos e Pesquisas em Experimentação e Melhoramento Vegetal">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nepemufsc.com">
+  <meta name="theme-color" content="#1AB281">
+  <title>NEPEM/UFSC — Experimentação e Melhoramento Vegetal</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Academicons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar navbar-expand-lg navbar-nepem fixed-top" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand" href="#">NEPEM<span class="brand-accent">/UFSC</span></a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto me-3">
+          <li class="nav-item"><a class="nav-link active" href="#hero" data-i18n="nav.home">Início</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.about">
+              Sobre
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark bg-dark">
+              <li><a class="dropdown-item" href="#about" data-i18n="about.tab_group">O Grupo</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="institucional.html?tab=structure">Estrutura</a></li>
+              <li><a class="dropdown-item" href="institucional.html?tab=regimento">Regimento</a></li>
+              <li><a class="dropdown-item" href="institucional.html?tab=visual">Identidade Visual</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#team" data-i18n="nav.team">Equipe</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects" data-i18n="nav.projects">Projetos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#publications" data-i18n="nav.publications">Publicações</a></li>
+          <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav.contact">Contato</a></li>
+        </ul>
+        <div class="navbar-controls">
+          <button class="btn-navbar-control" id="themeToggle" title="Theme" onclick="ThemeManager.toggle()">
+            <i class="bi bi-circle-half"></i>
+          </button>
+          <button class="btn-navbar-control lang-selector" id="langToggle" title="Language" onclick="I18n.cycleLang()">
+            🇧🇷
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero" class="hero-section">
+    <div class="hero-particles"></div>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 hero-content">
+          <div class="hero-badge">
+            <i class="bi bi-mortarboard-fill"></i>
+            UFSC — Centro de Ciências Agrárias
+          </div>
+          <h1 class="hero-title">
+            <span data-i18n="hero.title">NEPEM</span><span class="title-accent" data-i18n="hero.org">/UFSC</span>
+          </h1>
+          <p class="hero-subtitle" data-i18n="hero.subtitle">Núcleo de Estudos e Pesquisas em Experimentação e Melhoramento Vegetal</p>
+          <p class="hero-description" data-i18n="hero.description">Dedicados ao melhoramento genético, experimentação de campo e fenotipagem digital de alto rendimento, utilizando Inteligência Artificial e Sensoriamento Remoto.</p>
+          <div class="hero-buttons">
+            <a href="#team" class="btn btn-nepem-primary"><i class="bi bi-people-fill me-2"></i><span data-i18n="hero.cta_team">Conheça a Equipe</span></a>
+            <a href="#publications" class="btn btn-nepem-outline"><i class="bi bi-journal-text me-2"></i><span data-i18n="hero.cta_publications">Publicações</span></a>
+          </div>
+          <div class="hero-stats flex-wrap">
+            <div class="hero-stat-item">
+              <div class="hero-stat-number" id="heroStatPubs">135+</div>
+              <div class="hero-stat-label" data-i18n="publications.title">Publicações</div>
+            </div>
+            <div class="hero-stat-item">
+              <div class="hero-stat-number" id="heroStatCitations">3.680+</div>
+              <div class="hero-stat-label">Citações</div>
+            </div>
+            <div class="hero-stat-item">
+              <div class="hero-stat-number" id="heroStatHIndex">23</div>
+              <div class="hero-stat-label">Índice h</div>
+            </div>
+            <div class="hero-stat-item">
+              <div class="hero-stat-number">8+</div>
+              <div class="hero-stat-label" data-i18n="projects.title">Projetos</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 hero-image-col">
+          <div class="hero-logo-wrapper">
+            <div class="hero-logo-glow"></div>
+            <img src="img/logo/icone.png" alt="NEPEM Icon">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about" class="section-nepem bg-alt">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <div class="section-label"><i class="bi bi-circle-fill"></i> <span data-i18n="nav.about">Sobre</span></div>
+        <h2 data-i18n="about.title">Sobre o NEPEM</h2>
+      </div>
+
+      <div class="about-tabs fade-in-up">
+        <!-- Tab navigation -->
+        <ul class="nav nav-pills justify-content-center mb-4" id="aboutTabs" role="tablist">
+          <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-group" type="button" data-i18n="about.tab_group">O Grupo</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-mission" type="button" data-i18n="about.tab_mission">Missão</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-vision" type="button" data-i18n="about.tab_vision">Visão</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-structure" type="button" data-i18n="about.tab_structure">Estrutura</button>
+          </li>
+        </ul>
+
+        <!-- Tab content -->
+        <div class="tab-content">
+          <!-- The Group -->
+          <div class="tab-pane fade show active" id="tab-group">
+            <div class="about-content-area">
+              <div class="row align-items-center">
+                <div class="col-lg-12">
+                  <h4 class="mb-3 text-gradient">NEPEM — Núcleo de Estudos e Pesquisas em Experimentação e Melhoramento Vegetal</h4>
+                  <p class="lead" data-i18n="about.group_text" style="font-size:1rem; line-height:1.9;">O NEPEM é um Núcleo vinculado ao Departamento de Fitotecnia do Centro de Ciências Agrárias da Universidade Federal de Santa Catarina (UFSC), campus Florianópolis.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mission -->
+          <div class="tab-pane fade" id="tab-mission">
+            <div class="about-content-area">
+              <h4 class="mb-4 text-gradient" data-i18n="about.mission_title">Objetivos do NEPEM</h4>
+              <div class="mission-item">
+                <div class="mission-icon"><i class="bi bi-mortarboard"></i></div>
+                <div>
+                  <h5 data-i18n="about.mission_1">Formação de Recursos Humanos Qualificados</h5>
+                  <p data-i18n="about.mission_1_desc">Capacitar estudantes e profissionais nas áreas de melhoramento genético.</p>
+                </div>
+              </div>
+              <div class="mission-item">
+                <div class="mission-icon"><i class="bi bi-flower1"></i></div>
+                <div>
+                  <h5 data-i18n="about.mission_2">Melhoramento Genético de Culturas</h5>
+                  <p data-i18n="about.mission_2_desc">Desenvolvimento de novas variedades de plantas.</p>
+                </div>
+              </div>
+              <div class="mission-item">
+                <div class="mission-icon"><i class="bi bi-graph-up"></i></div>
+                <div>
+                  <h5 data-i18n="about.mission_3">Experimentação de Campo</h5>
+                  <p data-i18n="about.mission_3_desc">Condução de experimentos de campo.</p>
+                </div>
+              </div>
+              <div class="mission-item">
+                <div class="mission-icon"><i class="bi bi-cpu"></i></div>
+                <div>
+                  <h5 data-i18n="about.mission_4">Fenotipagem Digital</h5>
+                  <p data-i18n="about.mission_4_desc">Aplicação de IA e Sensoriamento Remoto.</p>
+                </div>
+              </div>
+              <div class="mission-item">
+                <div class="mission-icon"><i class="bi bi-code-square"></i></div>
+                <div>
+                  <h5 data-i18n="about.mission_5">Desenvolvimento de Aplicativos</h5>
+                  <p data-i18n="about.mission_5_desc">Criação de ferramentas digitais.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vision -->
+          <div class="tab-pane fade" id="tab-vision">
+            <div class="about-content-area">
+              <div class="text-center mb-4">
+                <i class="bi bi-eye-fill" style="font-size:3rem; color:var(--nepem-green)"></i>
+              </div>
+              <p class="lead text-center" data-i18n="about.vision_text" style="font-size:1.05rem; line-height:1.9; max-width:800px; margin:0 auto;">O NEPEM visa ser uma referência nacional e internacional no melhoramento genético de culturas funcionais.</p>
+            </div>
+          </div>
+
+          <!-- Structure -->
+          <div class="tab-pane fade" id="tab-structure">
+            <div class="about-content-area">
+              <p class="mb-4" data-i18n="about.structure_text">A estrutura organizacional do NEPEM é composta por uma Coordenadoria Geral, uma Coordenadoria Científica e Assessorias de Apoio.</p>
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <div class="axis-card">
+                    <div class="axis-icon"><i class="bi bi-flower1"></i></div>
+                    <h5 data-i18n="about.axis_breeding">Melhoramento</h5>
+                    <p class="text-secondary small" data-i18n="about.axis_breeding_desc">Desenvolvimento de espécies funcionais e inovação agrícola.</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="axis-card">
+                    <div class="axis-icon"><i class="bi bi-clipboard-data"></i></div>
+                    <h5 data-i18n="about.axis_experimentation">Experimentação</h5>
+                    <p class="text-secondary small" data-i18n="about.axis_experimentation_desc">Experimentos de campo e bibliotecas open-source.</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="axis-card">
+                    <div class="axis-icon"><i class="bi bi-robot"></i></div>
+                    <h5 data-i18n="about.axis_technology">Tecnologia</h5>
+                    <p class="text-secondary small" data-i18n="about.axis_technology_desc">Fenotipagem de alto rendimento e análise de dados.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TEAM ========== -->
+  <section id="team" class="section-nepem">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <div class="section-label"><i class="bi bi-circle-fill"></i> <span data-i18n="nav.team">Equipe</span></div>
+        <h2 data-i18n="team.title">Nossa Equipe</h2>
+        <p data-i18n="team.subtitle">Pesquisadores e estudantes que fazem o NEPEM acontecer</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-buttons fade-in-up" id="teamFilters">
+        <button class="btn-filter active" data-filter="all" onclick="MembersModule.setFilter('all')" data-i18n="team.filter_all">Todos</button>
+        <button class="btn-filter" data-filter="coordinator" onclick="MembersModule.setFilter('coordinator')" data-i18n="team.filter_coordinator">Coordenação</button>
+        <button class="btn-filter" data-filter="postdoc" onclick="MembersModule.setFilter('postdoc')" data-i18n="team.filter_postdoc">Pós-Doutorado</button>
+        <button class="btn-filter" data-filter="phd" onclick="MembersModule.setFilter('phd')" data-i18n="team.filter_phd">Doutorado</button>
+        <button class="btn-filter" data-filter="masters" onclick="MembersModule.setFilter('masters')" data-i18n="team.filter_masters">Mestrado</button>
+        <button class="btn-filter" data-filter="undergrad" onclick="MembersModule.setFilter('undergrad')" data-i18n="team.filter_undergrad">Graduação</button>
+        <button class="btn-filter" data-filter="alumni" onclick="MembersModule.setFilter('alumni')" data-i18n="team.filter_alumni">Ex-alunos</button>
+      </div>
+
+      <!-- Members Grid -->
+      <div class="row" id="membersGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS ========== -->
+  <section id="projects" class="section-nepem bg-alt">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <div class="section-label"><i class="bi bi-circle-fill"></i> <span data-i18n="nav.projects">Projetos</span></div>
+        <h2 data-i18n="projects.title">Projetos</h2>
+        <p data-i18n="projects.subtitle">Projetos desenvolvidos ou em desenvolvimento</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-buttons fade-in-up" id="projectFilters">
+        <button class="btn-filter active" data-filter="all" onclick="App.setProjectFilter('all')" data-i18n="projects.filter_all">Todos</button>
+        <button class="btn-filter" data-filter="Pesquisa" onclick="App.setProjectFilter('Pesquisa')">Pesquisa</button>
+        <button class="btn-filter" data-filter="Pacotes R" onclick="App.setProjectFilter('Pacotes R')">Pacotes R</button>
+        <button class="btn-filter" data-filter="Aplicativos" onclick="App.setProjectFilter('Aplicativos')">Aplicativos</button>
+        <button class="btn-filter" data-filter="Livros" onclick="App.setProjectFilter('Livros')">Livros</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="row" id="projectsGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PUBLICATIONS ========== -->
+  <section id="publications" class="section-nepem">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <div class="section-label"><i class="bi bi-circle-fill"></i> <span data-i18n="nav.publications">Publicações</span></div>
+        <h2 data-i18n="publications.title">Publicações</h2>
+        <p data-i18n="publications.subtitle">Produção científica do grupo</p>
+      </div>
+
+      <!-- Publications Dashboard (Homepage) -->
+      <div class="row mb-5 fade-in-up">
+        <!-- Left: Stats Cards -->
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <div class="d-flex flex-column gap-3 h-100 justify-content-between">
+            <div class="pub-stats-card p-3 d-flex align-items-center gap-3 shadow-sm">
+              <div class="bg-light rounded p-2 text-gradient" style="background: rgba(26, 178, 129, 0.08) !important;"><i class="bi bi-journal-text fs-3"></i></div>
+              <div>
+                <h6 class="text-secondary mb-1 small" data-i18n="publications.total_publications">Total de Publicações</h6>
+                <h3 class="fw-bold mb-0" id="homepageStatPubs">135+</h3>
+              </div>
+            </div>
+            <div class="pub-stats-card p-3 d-flex align-items-center gap-3 shadow-sm">
+              <div class="bg-light rounded p-2 text-gradient" style="background: rgba(26, 178, 129, 0.08) !important;"><i class="bi bi-chat-left-quote fs-3"></i></div>
+              <div>
+                <h6 class="text-secondary mb-1 small" data-i18n="publications.citations">Citações (Google Scholar)</h6>
+                <h3 class="fw-bold mb-0" id="homepageStatCitations">3.680+</h3>
+              </div>
+            </div>
+            <div class="pub-stats-card p-3 d-flex align-items-center gap-3 shadow-sm">
+              <div class="bg-light rounded p-2 text-gradient" style="background: rgba(26, 178, 129, 0.08) !important;"><i class="bi bi-graph-up-arrow fs-3"></i></div>
+              <div>
+                <h6 class="text-secondary mb-1 small" data-i18n="publications.h_index">Índice h</h6>
+                <h3 class="fw-bold mb-0" id="homepageStatHIndex">23</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Center: Publications Chart -->
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <div class="pub-stats-card p-4 h-100 shadow-sm">
+            <h5 class="mb-3 text-center" data-i18n="publications.stats_title">Estatísticas de Publicação</h5>
+            <div style="height: 200px;">
+              <canvas id="pubChart"></canvas>
+            </div>
+          </div>
+        </div>
+        <!-- Right: Citations Chart -->
+        <div class="col-lg-4">
+          <div class="pub-stats-card p-4 h-100 shadow-sm">
+            <h5 class="mb-3 text-center">Citações por Ano</h5>
+            <div style="height: 200px;">
+              <canvas id="citesChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search & Sort Row -->
+      <div class="row align-items-center mb-4 fade-in-up">
+        <!-- Search Input -->
+        <div class="col-md-8 mb-3 mb-md-0">
+          <div class="search-box-wrapper m-0" style="max-width: 100%;">
+            <i class="bi bi-search"></i>
+            <input type="text" id="pubSearchInput" class="form-control form-control-nepem" data-i18n="publications.search" placeholder="Buscar por título, autor ou periódico...">
+          </div>
+        </div>
+        <!-- Sort Selector -->
+        <div class="col-md-4">
+          <div class="d-flex align-items-center justify-content-md-end gap-2">
+            <label for="pubSortSelect" class="text-secondary small fw-bold text-nowrap mb-0"><i class="bi bi-sort-down me-1"></i><span data-i18n="publications.sort_label">Ordenar por:</span></label>
+            <select id="pubSortSelect" class="form-select form-select-nepem" style="width: auto; min-width: 180px;" onchange="PublicationsModule.setSort(this.value)">
+              <option value="citations_desc" selected data-i18n="publications.sort_citations">Mais Citadas</option>
+              <option value="year_desc" data-i18n="publications.sort_recent">Mais Recentes</option>
+              <option value="year_asc" data-i18n="publications.sort_oldest">Mais Antigas</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-buttons fade-in-up" id="pubFilters">
+        <button class="btn-filter active" data-filter="all" onclick="PublicationsModule.setFilter('all')" data-i18n="publications.filter_all">Todos</button>
+        <button class="btn-filter" data-filter="journal" onclick="PublicationsModule.setFilter('journal')" data-i18n="publications.filter_journal">Periódicos</button>
+        <button class="btn-filter" data-filter="conference" onclick="PublicationsModule.setFilter('conference')" data-i18n="publications.filter_conference">Conferências</button>
+        <button class="btn-filter" data-filter="book" onclick="PublicationsModule.setFilter('book')" data-i18n="publications.filter_book">Livros</button>
+      </div>
+
+      <!-- Count -->
+      <div class="text-center mb-4 fade-in-up">
+        <span class="text-secondary"><span id="pubTotalCount">0</span> <span data-i18n="publications.total">publicações encontradas</span></span>
+      </div>
+
+      <!-- Publications Preview Container -->
+      <div id="publicationsPreview" class="row mb-4">
+        <!-- Rendered by JS (Top 6 most relevant publications by default) -->
+      </div>
+
+      <!-- Show All Publications Button -->
+      <div class="text-center mb-5 fade-in-up">
+        <a href="publications.html" class="btn btn-nepem-outline" style="color: var(--text-accent); border-color: var(--text-accent);">
+          <span data-i18n="publications.view_all">Ver todas as publicações</span>
+          <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BLOG / NOTÍCIAS ========== -->
+  <section id="blog" class="section-nepem">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <div class="section-label"><i class="bi bi-circle-fill"></i> Blog</div>
+        <h2>Notícias & Novidades</h2>
+        <p class="text-secondary">Acompanhe as últimas atualizações, pesquisas e acontecimentos do NEPEM.</p>
+      </div>
+
+      <!-- Blog Grid -->
+      <div class="row g-4" id="blogGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Full Post Modal -->
+  <div class="modal fade" id="blogPostModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content glass-card" style="border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-primary); border-radius: var(--radius-lg);">
+        <div class="modal-header border-0 pb-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(var(--text-primary));"></button>
+        </div>
+        <div class="modal-body pt-0" id="blogModalBody" style="max-height: 80vh; overflow-y: auto; padding: 2rem;">
+          <!-- Dynamically rendered full post content -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="section-nepem bg-alt">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <div class="section-label"><i class="bi bi-circle-fill"></i> <span data-i18n="nav.contact">Contato</span></div>
+        <h2 data-i18n="contact.title">Contato</h2>
+        <p data-i18n="contact.subtitle">Entre em contato conosco</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Contact Form -->
+        <div class="col-lg-7 fade-in-left">
+          <div class="contact-card">
+            <form action="https://formspree.io/f/xpwzgwrg" method="POST">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" data-i18n="contact.name">Nome</label>
+                  <input type="text" name="name" class="form-control form-control-nepem" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" data-i18n="contact.email">Email</label>
+                  <input type="email" name="email" class="form-control form-control-nepem" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" data-i18n="contact.message">Mensagem</label>
+                  <textarea name="message" class="form-control form-control-nepem" rows="5" required></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-nepem-primary w-100">
+                    <i class="bi bi-send me-2"></i>
+                    <span data-i18n="contact.send">Enviar Mensagem</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-lg-5 fade-in-right">
+          <div class="contact-card">
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="bi bi-geo-alt"></i></div>
+              <div>
+                <h6 data-i18n="contact.address">Endereço</h6>
+                <p>Rodovia Admar Gonzaga, 1346<br>Florianópolis, SC, 88034-000<br>Brasil</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="bi bi-envelope"></i></div>
+              <div>
+                <h6 data-i18n="contact.email_label">Email</h6>
+                <p><a href="mailto:contato@nepemufsc.com">contato@nepemufsc.com</a></p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="bi bi-building"></i></div>
+              <div>
+                <h6>Departamento</h6>
+                <p>Departamento de Fitotecnia — CCA/UFSC</p>
+              </div>
+            </div>
+
+            <h6 class="mt-4" data-i18n="contact.follow">Siga-nos</h6>
+            <div class="social-links-footer">
+              <a href="https://github.com/NEPEM-UFSC" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+              <a href="https://www.researchgate.net/lab/NEPEM-Tiago-Olivoto" target="_blank" title="ResearchGate"><i class="ai ai-researchgate"></i></a>
+              <a href="https://www.linkedin.com/company/nepem-n%C3%BAcleo-de-estudos-e-pesquisas-em-experimenta%C3%A7%C3%A3o-e-melhoramento-vegetal/" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="https://www.youtube.com/@nepemufsc" target="_blank" title="YouTube"><i class="bi bi-youtube"></i></a>
+              <a href="https://dgp.cnpq.br/dgp/espelhogrupo/771423" target="_blank" title="CNPq"><i class="ai ai-lattes"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer-nepem">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="footer-brand">NEPEM<span class="brand-accent">/UFSC</span></div>
+          <p data-i18n="hero.subtitle">Núcleo de Estudos e Pesquisas em Experimentação e Melhoramento Vegetal</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="admin.html" class="text-secondary small"><i class="bi bi-gear me-1"></i><span data-i18n="nav.admin">Admin</span></a>
+        </div>
+      </div>
+      <hr>
+      <div class="footer-bottom">
+        <span><span data-i18n="footer.copyright">© NEPEM/UFSC</span> 2024–2026. <span data-i18n="footer.rights">Todos os direitos reservados.</span></span>
+        <span><span data-i18n="footer.built_with">Feito com</span> ❤️ &amp; Bootstrap 5</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/members.js"></script>
+  <script src="js/publications.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,3305 @@
+{
+  "githubRepos": [
+    {
+      "name": "metan",
+      "html_url": "https://github.com/NEPEM-UFSC/metan",
+      "homepage": "https://nepem-ufsc.github.io/metan/",
+      "description": "null",
+      "language": "R",
+      "stargazers_count": 8,
+      "forks_count": 2,
+      "updated_at": "2026-05-22T11:11:19Z",
+      "topics": []
+    },
+    {
+      "name": "AIpomoea",
+      "html_url": "https://github.com/NEPEM-UFSC/AIpomoea",
+      "homepage": "null",
+      "description": "Plataforma de tecnologias uteis de I.A aplicadas a fenotipagem e classificação de Batata-doce (Ipomoea batatas)",
+      "language": "Python",
+      "stargazers_count": 2,
+      "forks_count": 0,
+      "updated_at": "2024-11-21T03:12:46Z",
+      "topics": []
+    },
+    {
+      "name": "69rbras21seagro",
+      "html_url": "https://github.com/NEPEM-UFSC/69rbras21seagro",
+      "homepage": "https://NEPEM-UFSC.github.io/69rbras21seagro/",
+      "description": "null",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 1,
+      "updated_at": "2026-05-06T17:28:45Z",
+      "topics": []
+    },
+    {
+      "name": "nepemregen",
+      "html_url": "https://github.com/NEPEM-UFSC/nepemregen",
+      "homepage": "null",
+      "description": "Repositório Códigos Automação de Estufa/Nursery de Linhaça",
+      "language": "C++",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-04-26T16:15:18Z",
+      "topics": []
+    },
+    {
+      "name": "paper_flax_growth",
+      "html_url": "https://github.com/NEPEM-UFSC/paper_flax_growth",
+      "homepage": "https://nepem-ufsc.github.io/paper_flax_growth/",
+      "description": "null",
+      "language": "SCSS",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-04-24T20:30:59Z",
+      "topics": []
+    },
+    {
+      "name": "nepem",
+      "html_url": "https://github.com/NEPEM-UFSC/nepem",
+      "homepage": "https://NEPEM-UFSC.github.io/nepem/",
+      "description": "null",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 8,
+      "updated_at": "2026-03-28T15:11:12Z",
+      "topics": []
+    },
+    {
+      "name": "plimanshiny",
+      "html_url": "https://github.com/NEPEM-UFSC/plimanshiny",
+      "homepage": "null",
+      "description": "null",
+      "language": "R",
+      "stargazers_count": 0,
+      "forks_count": 1,
+      "updated_at": "2026-03-26T16:38:03Z",
+      "topics": []
+    },
+    {
+      "name": "pliman",
+      "html_url": "https://github.com/NEPEM-UFSC/pliman",
+      "homepage": "https://nepem-ufsc.github.io/pliman/",
+      "description": "pliman R package",
+      "language": "R",
+      "stargazers_count": 19,
+      "forks_count": 0,
+      "updated_at": "2026-05-19T18:13:14Z",
+      "topics": []
+    },
+    {
+      "name": "nepemcert",
+      "html_url": "https://github.com/NEPEM-UFSC/nepemcert",
+      "homepage": "null",
+      "description": "null",
+      "language": "Python",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "updated_at": "2025-10-11T16:30:36Z",
+      "topics": []
+    },
+    {
+      "name": "tsimg",
+      "html_url": "https://github.com/NEPEM-UFSC/tsimg",
+      "homepage": "null",
+      "description": "Temporal Seried Interactive Imager",
+      "language": "C++",
+      "stargazers_count": 3,
+      "forks_count": 0,
+      "updated_at": "2025-02-10T19:50:07Z",
+      "topics": []
+    },
+    {
+      "name": "certificados",
+      "html_url": "https://github.com/NEPEM-UFSC/certificados",
+      "homepage": "null",
+      "description": "Sistema de Validação de Certificados NEPEM-UFSC",
+      "language": "TypeScript",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2025-11-25T16:22:06Z",
+      "topics": []
+    },
+    {
+      "name": "capacitacao_htp",
+      "html_url": "https://github.com/NEPEM-UFSC/capacitacao_htp",
+      "homepage": "null",
+      "description": "null",
+      "language": "HTML",
+      "stargazers_count": 0,
+      "forks_count": 1,
+      "updated_at": "2025-10-10T13:32:16Z",
+      "topics": []
+    },
+    {
+      "name": "capacitacao_imganalise",
+      "html_url": "https://github.com/NEPEM-UFSC/capacitacao_imganalise",
+      "homepage": "null",
+      "description": "null",
+      "language": "HTML",
+      "stargazers_count": 0,
+      "forks_count": 3,
+      "updated_at": "2025-09-09T12:08:27Z",
+      "topics": []
+    },
+    {
+      "name": "tcc_felipe_flaxsalinity",
+      "html_url": "https://github.com/NEPEM-UFSC/tcc_felipe_flaxsalinity",
+      "homepage": "null",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 1,
+      "updated_at": "2025-08-28T14:08:35Z",
+      "topics": [
+        "tcc"
+      ]
+    },
+    {
+      "name": "capacicatao_experimentacao",
+      "html_url": "https://github.com/NEPEM-UFSC/capacicatao_experimentacao",
+      "homepage": "null",
+      "description": "null",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 9,
+      "updated_at": "2025-08-24T22:44:32Z",
+      "topics": []
+    },
+    {
+      "name": "mgidi_pibic_2024",
+      "html_url": "https://github.com/NEPEM-UFSC/mgidi_pibic_2024",
+      "homepage": "null",
+      "description": "null",
+      "language": "HTML",
+      "stargazers_count": 0,
+      "forks_count": 3,
+      "updated_at": "2025-08-19T19:39:19Z",
+      "topics": [
+        "ic",
+        "mgidi"
+      ]
+    },
+    {
+      "name": "flax_count_pliman",
+      "html_url": "https://github.com/NEPEM-UFSC/flax_count_pliman",
+      "homepage": "null",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2025-07-09T18:19:04Z",
+      "topics": []
+    },
+    {
+      "name": "htp",
+      "html_url": "https://github.com/NEPEM-UFSC/htp",
+      "homepage": "null",
+      "description": "null",
+      "language": "R",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2025-07-03T21:20:20Z",
+      "topics": []
+    },
+    {
+      "name": "capacitacao_r",
+      "html_url": "https://github.com/NEPEM-UFSC/capacitacao_r",
+      "homepage": "null",
+      "description": "null",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 11,
+      "updated_at": "2025-06-26T01:28:11Z",
+      "topics": []
+    },
+    {
+      "name": "capacitacao_ia_agricultura",
+      "html_url": "https://github.com/NEPEM-UFSC/capacitacao_ia_agricultura",
+      "homepage": "null",
+      "description": "null",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 2,
+      "updated_at": "2025-06-18T01:03:39Z",
+      "topics": []
+    },
+    {
+      "name": "capacitacao-github",
+      "html_url": "https://github.com/NEPEM-UFSC/capacitacao-github",
+      "homepage": "null",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 12,
+      "updated_at": "2025-05-19T02:38:58Z",
+      "topics": []
+    },
+    {
+      "name": "plimanshiny_tutorial",
+      "html_url": "https://github.com/NEPEM-UFSC/plimanshiny_tutorial",
+      "homepage": "null",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2025-05-02T13:48:04Z",
+      "topics": []
+    },
+    {
+      "name": "tsimgR",
+      "html_url": "https://github.com/NEPEM-UFSC/tsimgR",
+      "homepage": "null",
+      "description": "Pacote R que implementa tsimg para exportação dinâmicas e interativas de imagens seriadas.",
+      "language": "R",
+      "stargazers_count": 2,
+      "forks_count": 0,
+      "updated_at": "2025-02-10T19:49:41Z",
+      "topics": []
+    },
+    {
+      "name": "shinycalendr",
+      "html_url": "https://github.com/NEPEM-UFSC/shinycalendr",
+      "homepage": "https://tiagoolivoto.shinyapps.io/shinycalendr/",
+      "description": "A shiny interface for the calendR package",
+      "language": "R",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "updated_at": "2025-10-29T00:33:03Z",
+      "topics": []
+    },
+    {
+      "name": "agrodata",
+      "html_url": "https://github.com/NEPEM-UFSC/agrodata",
+      "homepage": "null",
+      "description": "Pacote R para disponibilização de conjuntos de dados característicos da área agronômica",
+      "language": "R",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "updated_at": "2024-10-15T22:30:47Z",
+      "topics": []
+    },
+    {
+      "name": "nepemverser",
+      "html_url": "https://github.com/NEPEM-UFSC/nepemverser",
+      "homepage": "null",
+      "description": "Função serverless para disponibilização de versões e redirecionamentos de projetos NEPEM",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2024-09-20T12:13:07Z",
+      "topics": []
+    },
+    {
+      "name": "ProjetoMicrobiologia",
+      "html_url": "https://github.com/NEPEM-UFSC/ProjetoMicrobiologia",
+      "homepage": "null",
+      "description": "Projeto facilita a contagem de Unidades formadoras de colônia e quantificar o tamanho de fungos com o pacote pliman",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2024-09-14T15:25:31Z",
+      "topics": []
+    },
+    {
+      "name": "ProjetoMonitorAgricola",
+      "html_url": "https://github.com/NEPEM-UFSC/ProjetoMonitorAgricola",
+      "homepage": "null",
+      "description": "Projeto resolveu um problema no monitor da John deere, aonde este monitor não transferia os dados para o pendrive. Tendo assim se perdido a quantidade de sacos por tratamento, porem com o pacote pliman foi possivel estimar as produtividades assim resolvendo este problema.",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2024-09-14T15:19:16Z",
+      "topics": []
+    },
+    {
+      "name": ".github",
+      "html_url": "https://github.com/NEPEM-UFSC/.github",
+      "homepage": "null",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2024-08-02T16:17:38Z",
+      "topics": []
+    },
+    {
+      "name": "gxe_gscourse",
+      "html_url": "https://github.com/TiagoOlivoto/gxe_gscourse",
+      "homepage": "null",
+      "description": "null",
+      "language": "HTML",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-05-21T09:17:44Z",
+      "topics": []
+    },
+    {
+      "name": "classes",
+      "html_url": "https://github.com/TiagoOlivoto/classes",
+      "homepage": "https://tiagoolivoto.github.io/classes/",
+      "description": "Tutoriais (português) de apoio às disciplinas ministradas",
+      "language": "TeX",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-02-05T12:20:21Z",
+      "topics": []
+    },
+    {
+      "name": "images",
+      "html_url": "https://github.com/TiagoOlivoto/images",
+      "homepage": "null",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-02-04T19:36:17Z",
+      "topics": []
+    },
+    {
+      "name": "tiagoolivoto",
+      "html_url": "https://github.com/TiagoOlivoto/tiagoolivoto",
+      "homepage": "null",
+      "description": "Personal website of Tiago Olivoto",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 1,
+      "updated_at": "2025-10-10T13:41:49Z",
+      "topics": []
+    },
+    {
+      "name": "htp_cbmp2025",
+      "html_url": "https://github.com/TiagoOlivoto/htp_cbmp2025",
+      "homepage": "null",
+      "description": "Repositório com scripts e imagens para o curso pliman e plimanshiny no 13º Congresso Brasileiro de Melhoramento de Plantas",
+      "language": "HTML",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2025-09-05T20:25:42Z",
+      "topics": []
+    },
+    {
+      "name": "fungal-colony-analysis",
+      "html_url": "https://github.com/TiagoOlivoto/fungal-colony-analysis",
+      "homepage": "null",
+      "description": "This document demonstrates an automated workflow for analyzing fungal colony images from Petri plates. The project is designed for fungicide resistance assays, where reliable colony size measurement is required to replace manual ruler-based approaches.",
+      "language": "HTML",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2025-08-26T18:19:43Z",
+      "topics": []
+    },
+    {
+      "name": "planejamento_esalq",
+      "html_url": "https://github.com/TiagoOlivoto/planejamento_esalq",
+      "homepage": "null",
+      "description": "Repositório com dados e scripts para a aula do dia 25/08/2025 - disciplina de  Pesquisa e Redação Científica",
+      "language": "R",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2025-08-25T15:34:30Z",
+      "topics": []
+    },
+    {
+      "name": "capacitacao_r",
+      "html_url": "https://github.com/TiagoOlivoto/capacitacao_r",
+      "homepage": "null",
+      "description": "null",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2025-06-26T01:12:14Z",
+      "topics": []
+    },
+    {
+      "name": "capacitacao-github",
+      "html_url": "https://github.com/TiagoOlivoto/capacitacao-github",
+      "homepage": "null",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2025-05-21T23:23:22Z",
+      "topics": []
+    },
+    {
+      "name": "metan",
+      "html_url": "https://github.com/TiagoOlivoto/metan",
+      "homepage": "https://tiagoolivoto.github.io/metan/",
+      "description": "Package for multi-environment trial analysis",
+      "language": "R",
+      "stargazers_count": 39,
+      "forks_count": 18,
+      "updated_at": "2026-04-27T16:51:10Z",
+      "topics": [
+        "ammi",
+        "ammi-model",
+        "biplots",
+        "gge",
+        "hmrpgv",
+        "mgidi",
+        "mtsi",
+        "rpgv",
+        "stability",
+        "waas",
+        "waasb"
+      ]
+    },
+    {
+      "name": "ufprr",
+      "html_url": "https://github.com/TiagoOlivoto/ufprr",
+      "homepage": "null",
+      "description": "Repositório para hospedar o material do minicurso R ministrado na 50ª Semana de Estudos Florestais - UFPR",
+      "language": "HTML",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2024-09-27T10:17:33Z",
+      "topics": []
+    },
+    {
+      "name": "pliman",
+      "html_url": "https://github.com/TiagoOlivoto/pliman",
+      "homepage": "https://tiagoolivoto.github.io/pliman/",
+      "description": "Tools for Plant Image Analysis",
+      "language": "R",
+      "stargazers_count": 55,
+      "forks_count": 8,
+      "updated_at": "2026-04-05T01:15:14Z",
+      "topics": [
+        "binary-image",
+        "count-objects",
+        "disease-severity",
+        "grains",
+        "image-analysis",
+        "image-manipulation",
+        "image-segmentation",
+        "leaf-area",
+        "leaf-area-index"
+      ]
+    },
+    {
+      "name": "htp",
+      "html_url": "https://github.com/TiagoOlivoto/htp",
+      "homepage": "null",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2024-08-29T11:22:40Z",
+      "topics": []
+    },
+    {
+      "name": "conbraf2024",
+      "html_url": "https://github.com/TiagoOlivoto/conbraf2024",
+      "homepage": "null",
+      "description": "null",
+      "language": "R",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2024-08-21T14:49:08Z",
+      "topics": []
+    },
+    {
+      "name": "68rbras",
+      "html_url": "https://github.com/TiagoOlivoto/68rbras",
+      "homepage": "https://tiagoolivoto.github.io/68rbras/",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2024-05-26T14:29:18Z",
+      "topics": []
+    },
+    {
+      "name": "pliman_livefitop",
+      "html_url": "https://github.com/TiagoOlivoto/pliman_livefitop",
+      "homepage": "null",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2023-12-05T12:40:13Z",
+      "topics": []
+    },
+    {
+      "name": "2nd_workshop_a4p0",
+      "html_url": "https://github.com/TiagoOlivoto/2nd_workshop_a4p0",
+      "homepage": "null",
+      "description": "null",
+      "language": "R",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2023-11-24T20:01:28Z",
+      "topics": []
+    },
+    {
+      "name": "slides_R",
+      "html_url": "https://github.com/TiagoOlivoto/slides_R",
+      "homepage": "https://TiagoOlivoto.github.io/slides_R/",
+      "description": "https://tiagoolivoto.github.io/slides_R/",
+      "language": "HTML",
+      "stargazers_count": 0,
+      "forks_count": 1,
+      "updated_at": "2021-12-11T10:04:14Z",
+      "topics": []
+    },
+    {
+      "name": "pliman67rbras",
+      "html_url": "https://github.com/TiagoOlivoto/pliman67rbras",
+      "homepage": "null",
+      "description": "null",
+      "language": "HTML",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2023-07-25T14:28:24Z",
+      "topics": []
+    },
+    {
+      "name": "67rbras22seagro",
+      "html_url": "https://github.com/TiagoOlivoto/67rbras22seagro",
+      "homepage": "https://tiagoolivoto.github.io/67rbras22seagro/00_about.html",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2023-04-17T01:06:57Z",
+      "topics": []
+    },
+    {
+      "name": "pliman_tut",
+      "html_url": "https://github.com/TiagoOlivoto/pliman_tut",
+      "homepage": "https://tiagoolivoto.github.io/pliman_tut/",
+      "description": "Visit the website at",
+      "language": "CSS",
+      "stargazers_count": 0,
+      "forks_count": 1,
+      "updated_at": "2022-10-07T11:16:43Z",
+      "topics": []
+    },
+    {
+      "name": "flax_growth",
+      "html_url": "https://github.com/TiagoOlivoto/flax_growth",
+      "homepage": "null",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2023-04-28T16:16:19Z",
+      "topics": []
+    },
+    {
+      "name": "maize_41_locations",
+      "html_url": "https://github.com/TiagoOlivoto/maize_41_locations",
+      "homepage": "null",
+      "description": "maize_41_locations",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2023-04-28T10:28:23Z",
+      "topics": []
+    },
+    {
+      "name": "paper_wheat",
+      "html_url": "https://github.com/TiagoOlivoto/paper_wheat",
+      "homepage": "https://tiagoolivoto.github.io/paper_wheat/",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2022-07-19T00:30:14Z",
+      "topics": []
+    },
+    {
+      "name": "paper_maize_huanghuaihai",
+      "html_url": "https://github.com/TiagoOlivoto/paper_maize_huanghuaihai",
+      "homepage": "https://tiagoolivoto.github.io/paper_maize_huanghuaihai/",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2022-07-11T13:37:16Z",
+      "topics": []
+    },
+    {
+      "name": "paper_mgidi_pm",
+      "html_url": "https://github.com/TiagoOlivoto/paper_mgidi_pm",
+      "homepage": "https://TiagoOlivoto.github.io/paper_mgidi_pm/",
+      "description": "https://tiagoolivoto.github.io/paper_mgidi_pm/",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2021-12-29T20:11:24Z",
+      "topics": []
+    },
+    {
+      "name": "pliman_rbras2022",
+      "html_url": "https://github.com/TiagoOlivoto/pliman_rbras2022",
+      "homepage": "https://TiagoOlivoto.github.io/pliman_rbras2022/",
+      "description": "https://tiagoolivoto.github.io/pliman_rbras2022/",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2022-10-28T21:29:55Z",
+      "topics": []
+    },
+    {
+      "name": "paper_flaxgrowth",
+      "html_url": "https://github.com/TiagoOlivoto/paper_flaxgrowth",
+      "homepage": "https://TiagoOlivoto.github.io/paper_flaxgrowth/",
+      "description": "https://tiagoolivoto.github.io/paper_flaxgrowth/",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2022-11-09T12:15:38Z",
+      "topics": []
+    },
+    {
+      "name": "paper_barley",
+      "html_url": "https://github.com/TiagoOlivoto/paper_barley",
+      "homepage": "https://tiagoolivoto.github.io/paper_barley/",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2022-07-18T11:25:42Z",
+      "topics": []
+    },
+    {
+      "name": "quarto-web",
+      "html_url": "https://github.com/TiagoOlivoto/quarto-web",
+      "homepage": "null",
+      "description": "Quarto website",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2022-05-12T06:17:05Z",
+      "topics": []
+    },
+    {
+      "name": "lattes",
+      "html_url": "https://github.com/TiagoOlivoto/lattes",
+      "homepage": "null",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 1,
+      "forks_count": 1,
+      "updated_at": "2022-01-19T08:36:58Z",
+      "topics": []
+    },
+    {
+      "name": "paper_pliman",
+      "html_url": "https://github.com/TiagoOlivoto/paper_pliman",
+      "homepage": "https://TiagoOlivoto.github.io/paper_pliman/",
+      "description": "Scripts used in the paper describing the R package pliman https://tiagoolivoto.github.io/paper_pliman/",
+      "language": "CSS",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "updated_at": "2022-06-01T06:50:28Z",
+      "topics": []
+    },
+    {
+      "name": "genomics",
+      "html_url": "https://github.com/TiagoOlivoto/genomics",
+      "homepage": "https://TiagoOlivoto.github.io/genomics/",
+      "description": "https://tiagoolivoto.github.io/genomics/",
+      "language": "R",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2021-11-24T10:55:39Z",
+      "topics": []
+    },
+    {
+      "name": "paper_gei",
+      "html_url": "https://github.com/TiagoOlivoto/paper_gei",
+      "homepage": "null",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2021-11-10T23:54:27Z",
+      "topics": []
+    },
+    {
+      "name": "paper_tpp",
+      "html_url": "https://github.com/TiagoOlivoto/paper_tpp",
+      "homepage": "https://TiagoOlivoto.github.io/paper_tpp/",
+      "description": "The website with supplementary material for the paper \"Measuring plant disease severity using R: introducing and evaluating the pliman package\" https://tiagoolivoto.github.io/paper_tpp/",
+      "language": "CSS",
+      "stargazers_count": 0,
+      "forks_count": 1,
+      "updated_at": "2021-11-08T21:18:09Z",
+      "topics": []
+    },
+    {
+      "name": "paper_coefvar",
+      "html_url": "https://github.com/TiagoOlivoto/paper_coefvar",
+      "homepage": "https://TiagoOlivoto.github.io/paper_coefvar/",
+      "description": "https://tiagoolivoto.github.io/paper_coefvar/",
+      "language": "CSS",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2021-07-26T13:47:15Z",
+      "topics": []
+    },
+    {
+      "name": "e-bookr",
+      "html_url": "https://github.com/TiagoOlivoto/e-bookr",
+      "homepage": "https://TiagoOlivoto.github.io/e-bookr/",
+      "description": "Código Ebook para Software R para avaliação de dados experimentais:Um foco em experimentos agronômicos",
+      "language": "TeX",
+      "stargazers_count": 1,
+      "forks_count": 4,
+      "updated_at": "2022-05-25T10:21:10Z",
+      "topics": []
+    },
+    {
+      "name": "cursoR",
+      "html_url": "https://github.com/TiagoOlivoto/cursoR",
+      "homepage": "null",
+      "description": "null",
+      "language": "R",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2018-10-24T22:29:11Z",
+      "topics": []
+    }
+  ],
+  "scholarData": {
+    "profile": {
+      "cited_by": {
+        "table": [
+          {
+            "citations": {
+              "all": 4930,
+              "desde_2021": 4576
+            }
+          },
+          {
+            "h_index": {
+              "all": 28,
+              "desde_2021": 27
+            }
+          },
+          {
+            "i10_index": {
+              "all": 58,
+              "desde_2021": 50
+            }
+          }
+        ],
+        "graph": [
+          {
+            "year": 2017,
+            "citations": 16
+          },
+          {
+            "year": 2018,
+            "citations": 63
+          },
+          {
+            "year": 2019,
+            "citations": 83
+          },
+          {
+            "year": 2020,
+            "citations": 149
+          },
+          {
+            "year": 2021,
+            "citations": 377
+          },
+          {
+            "year": 2022,
+            "citations": 446
+          },
+          {
+            "year": 2023,
+            "citations": 725
+          },
+          {
+            "year": 2024,
+            "citations": 1117
+          },
+          {
+            "year": 2025,
+            "citations": 1338
+          },
+          {
+            "year": 2026,
+            "citations": 562
+          }
+        ]
+      }
+    },
+    "articles": [
+      {
+        "title": "metan: An R package for multi‐environment trial analysis",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:ns9cj8rnVeAC",
+        "citation_id": "QjxIJkcAAAAJ:ns9cj8rnVeAC",
+        "authors": "T Olivoto, ADC Lúcio",
+        "publication": "Methods in Ecology and Evolution 11 (6), 783-789, 2020",
+        "cited_by": {
+          "value": 1247,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=7434043990981196599",
+          "serpapi_link": "https://serpapi.com/search.json?cites=7434043990981196599&engine=google_scholar&hl=pt-br",
+          "cites_id": "7434043990981196599"
+        },
+        "year": "2020",
+        "doi": "10.1111/2041-210X.13384",
+        "doiLink": "https://doi.org/10.1111/2041-210X.13384",
+        "journalTitle": "Methods in Ecology and Evolution"
+      },
+      {
+        "title": "Mean performance and stability in multi‐environment trials I: combining features of AMMI and BLUP techniques",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:iH-uZ7U-co4C",
+        "citation_id": "QjxIJkcAAAAJ:iH-uZ7U-co4C",
+        "authors": "T Olivoto, ADC Lúcio, JAG da Silva, VS Marchioro, VQ de Souza, E Jost",
+        "publication": "Agronomy journal 111 (6), 2949-2960, 2019",
+        "cited_by": {
+          "value": 537,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=8780929387939413023",
+          "serpapi_link": "https://serpapi.com/search.json?cites=8780929387939413023&engine=google_scholar&hl=pt-br",
+          "cites_id": "8780929387939413023"
+        },
+        "year": "2019",
+        "doi": "10.2134/agronj2019.03.0220",
+        "doiLink": "https://doi.org/10.2134/agronj2019.03.0220",
+        "journalTitle": "Agronomy Journal"
+      },
+      {
+        "title": "Mean performance and stability in multi‐environment trials II: Selection based on multiple traits",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:maZDTaKrznsC",
+        "citation_id": "QjxIJkcAAAAJ:maZDTaKrznsC",
+        "authors": "T Olivoto, ADC Lúcio, JAG da Silva, BG Sari, MI Diel",
+        "publication": "Agronomy Journal 111 (6), 2961-2969, 2019",
+        "cited_by": {
+          "value": 417,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=9787619337169825913",
+          "serpapi_link": "https://serpapi.com/search.json?cites=9787619337169825913&engine=google_scholar&hl=pt-br",
+          "cites_id": "9787619337169825913"
+        },
+        "year": "2019",
+        "doi": "2-s2.0-85077534430",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85077534430&partnerID=MN8TOARS",
+        "journalTitle": "Agronomy Journal"
+      },
+      {
+        "title": "MGIDI: Toward an effective multivariate selection in biological experiments",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:f2IySw72cVMC",
+        "citation_id": "QjxIJkcAAAAJ:f2IySw72cVMC",
+        "authors": "T Olivoto, M Nardino",
+        "publication": "Bioinformatics 37 (10), 1383-1389, 2021",
+        "cited_by": {
+          "value": 403,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=16989222218416855967",
+          "serpapi_link": "https://serpapi.com/search.json?cites=16989222218416855967&engine=google_scholar&hl=pt-br",
+          "cites_id": "16989222218416855967"
+        },
+        "year": "2021",
+        "doi": "33226063",
+        "doiLink": "https://doi.org/10.1093/bioinformatics/btaa981",
+        "journalTitle": "Bioinformatics"
+      },
+      {
+        "title": "Stability indices to deciphering the genotype-by-environment interaction (GEI) effect: An applicable review for use in plant breeding programs",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:08ZZubdj9fEC",
+        "citation_id": "QjxIJkcAAAAJ:08ZZubdj9fEC",
+        "authors": "A Pour-Aboughadareh, M Khalili, P Poczai, T Olivoto",
+        "publication": "Plants 11 (3), 414, 2022",
+        "cited_by": {
+          "value": 202,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=16171281041334699878",
+          "serpapi_link": "https://serpapi.com/search.json?cites=16171281041334699878&engine=google_scholar&hl=pt-br",
+          "cites_id": "16171281041334699878"
+        },
+        "year": "2022",
+        "doi": "10.3390/plants11030414",
+        "doiLink": "https://doi.org/10.3390/plants11030414",
+        "journalTitle": "Plants"
+      },
+      {
+        "title": "A Framework for Identification of Stable Genotypes Basedon MTSI and MGDII Indexes: An Example in Guar (Cymopsis tetragonoloba L.)",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:P5F9QuxV20EC",
+        "citation_id": "QjxIJkcAAAAJ:P5F9QuxV20EC",
+        "authors": "NK Benakanahalli, S Sridhara, N Ramesh, T Olivoto, G Sreekantappa, ...",
+        "publication": "Agronomy 11 (6), 1221, 2021",
+        "cited_by": {
+          "value": 145,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=10143355156286794038",
+          "serpapi_link": "https://serpapi.com/search.json?cites=10143355156286794038&engine=google_scholar&hl=pt-br",
+          "cites_id": "10143355156286794038"
+        },
+        "year": "2021",
+        "doi": "10.3390/agronomy11061221",
+        "doiLink": "https://doi.org/10.3390/agronomy11061221",
+        "journalTitle": "Agronomy"
+      },
+      {
+        "title": "Plant secondary metabolites and its dynamical systems of induction in response to environmental factors: A review",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:Tyk-4Ss8FVUC",
+        "citation_id": "QjxIJkcAAAAJ:Tyk-4Ss8FVUC",
+        "authors": "T Olivoto, M Nardino, IR Carvalho, DN Follmann, VÃJ Szareski, M Ferrari, ...",
+        "publication": "African Journal of Agricultural Research 12 (2), 71-84, 2017",
+        "cited_by": {
+          "value": 142,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=2881185528198539024",
+          "serpapi_link": "https://serpapi.com/search.json?cites=2881185528198539024&engine=google_scholar&hl=pt-br",
+          "cites_id": "2881185528198539024"
+        },
+        "year": "2017",
+        "doi": "10.5897/AJAR2016.11677",
+        "doiLink": "https://doi.org/10.5897/AJAR2016.11677",
+        "journalTitle": "African Journal of Agricultural Research"
+      },
+      {
+        "title": "MGIDI: a powerful tool to analyze plant multivariate data",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:mvPsJ3kp5DgC",
+        "citation_id": "QjxIJkcAAAAJ:mvPsJ3kp5DgC",
+        "authors": "T Olivoto, MI Diel, D Schmidt, AD Lúcio",
+        "publication": "Plant Methods 18 (1), 121, 2022",
+        "cited_by": {
+          "value": 105,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=4514428932631641747",
+          "serpapi_link": "https://serpapi.com/search.json?cites=4514428932631641747&engine=google_scholar&hl=pt-br",
+          "cites_id": "4514428932631641747"
+        },
+        "year": "2022",
+        "doi": "10.1186/s13007-022-00952-5",
+        "doiLink": "https://doi.org/10.1186/s13007-022-00952-5",
+        "journalTitle": "Plant Methods"
+      },
+      {
+        "title": "Multicollinearity in path analysis: a simple method to reduce its effects",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:IjCSPb-OGe4C",
+        "citation_id": "QjxIJkcAAAAJ:IjCSPb-OGe4C",
+        "authors": "T Olivoto, VQ de Souza, M Nardino, IR Carvalho, M Ferrari, ...",
+        "publication": "Agronomy journal 109 (1), 131-142, 2017",
+        "cited_by": {
+          "value": 100,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=17791843996381987107",
+          "serpapi_link": "https://serpapi.com/search.json?cites=17791843996381987107&engine=google_scholar&hl=pt-br",
+          "cites_id": "17791843996381987107"
+        },
+        "year": "2017",
+        "doi": "2-s2.0-85010444992",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85010444992&partnerID=MN8TOARS",
+        "journalTitle": "Agronomy Journal"
+      },
+      {
+        "title": "Genetic gains in tropical maize hybrids across moisture regimes with multi-trait-based index selection",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:XiVPGOgt02cC",
+        "citation_id": "QjxIJkcAAAAJ:XiVPGOgt02cC",
+        "authors": "A Singamsetti, PH Zaidi, K Seetharam, MT Vinayan, T Olivoto, A Mahato, ...",
+        "publication": "Frontiers in Plant Science 14, 1147424, 2023",
+        "cited_by": {
+          "value": 82,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=11932065436384987380",
+          "serpapi_link": "https://serpapi.com/search.json?cites=11932065436384987380&engine=google_scholar&hl=pt-br",
+          "cites_id": "11932065436384987380"
+        },
+        "year": "2023",
+        "doi": "10.3389/fpls.2023.1147424",
+        "doiLink": "https://doi.org/10.3389/fpls.2023.1147424",
+        "journalTitle": "Frontiers in Plant Science"
+      },
+      {
+        "title": "metan: An R package for multi-environment trial analysis. Methods Ecol Evol 11: 783–789",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:5ugPr518TE4C",
+        "citation_id": "QjxIJkcAAAAJ:5ugPr518TE4C",
+        "authors": "T Olivoto, AD Lúcio",
+        "cited_by": {
+          "value": 74,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=16340000323371594652",
+          "serpapi_link": "https://serpapi.com/search.json?cites=16340000323371594652&engine=google_scholar&hl=pt-br",
+          "cites_id": "16340000323371594652"
+        },
+        "year": "2020",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Lights, camera, pliman! An R package for plant image analysis",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:l7t_Zn2s7bgC",
+        "citation_id": "QjxIJkcAAAAJ:l7t_Zn2s7bgC",
+        "authors": "T Olivoto",
+        "publication": "Methods in Ecology and Evolution 13 (4), 789-798, 2022",
+        "cited_by": {
+          "value": 71,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=15601436863111771555",
+          "serpapi_link": "https://serpapi.com/search.json?cites=15601436863111771555&engine=google_scholar&hl=pt-br",
+          "cites_id": "15601436863111771555"
+        },
+        "year": "2022",
+        "doi": "10.1111/2041-210X.13803",
+        "doiLink": "https://doi.org/10.1111/2041-210X.13803",
+        "journalTitle": "Methods in Ecology and Evolution"
+      },
+      {
+        "title": "MGIDI: A novel multi-trait index for genotype selection in plant breeding",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:dfsIfKJdRG4C",
+        "citation_id": "QjxIJkcAAAAJ:dfsIfKJdRG4C",
+        "authors": "T Olivoto, M Nardino",
+        "publication": "BioRxiv, 2020.07. 23.217778, 2020",
+        "cited_by": {
+          "value": 69,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=343688834834986247",
+          "serpapi_link": "https://serpapi.com/search.json?cites=343688834834986247&engine=google_scholar&hl=pt-br",
+          "cites_id": "343688834834986247"
+        },
+        "year": "2020",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "BioRxiv"
+      },
+      {
+        "title": "Multi‐trait selection for mean performance and stability in maize",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:nb7KW1ujOQ8C",
+        "citation_id": "QjxIJkcAAAAJ:nb7KW1ujOQ8C",
+        "authors": "T Olivoto, M Nardino, D Meira, C Meier, DN Follmann, VQ de Souza, ...",
+        "publication": "Agronomy Journal 113 (5), 3968-3974, 2021",
+        "cited_by": {
+          "value": 65,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=14949664674412521408",
+          "serpapi_link": "https://serpapi.com/search.json?cites=14949664674412521408&engine=google_scholar&hl=pt-br",
+          "cites_id": "14949664674412521408"
+        },
+        "year": "2021",
+        "doi": "2-s2.0-85113734728",
+        "doiLink": "https://doi.org/10.1002/agj2.20741",
+        "journalTitle": "Agronomy Journal"
+      },
+      {
+        "title": "Multi-trait selection for mean performance and stability of maize hybrids in mega-environments delineated using envirotyping techniques",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:BrmTIyaxlBUC",
+        "citation_id": "QjxIJkcAAAAJ:BrmTIyaxlBUC",
+        "authors": "H Yue, T Olivoto, J Bu, J Li, J Wei, J Xie, S Chen, H Peng, M Nardino, ...",
+        "publication": "Frontiers in Plant Science 13, 1030521, 2022",
+        "cited_by": {
+          "value": 62,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=2841347758487102069",
+          "serpapi_link": "https://serpapi.com/search.json?cites=2841347758487102069&engine=google_scholar&hl=pt-br",
+          "cites_id": "2841347758487102069"
+        },
+        "year": "2022",
+        "doi": "10.3389/fpls.2022.1030521",
+        "doiLink": "https://doi.org/10.3389/fpls.2022.1030521",
+        "journalTitle": "Frontiers in Plant Science"
+      },
+      {
+        "title": "REML/BLUP and sequential path analysis in estimating genotypic values and interrelationships among simple maize grain yield-related traits",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:W7OEmFMy1HYC",
+        "citation_id": "QjxIJkcAAAAJ:W7OEmFMy1HYC",
+        "authors": "T Olivoto, M Nardino, IR Carvalho, DN Follmann, M Ferrari, VJ Szareski, ...",
+        "publication": "Genetics and Molecular Research 16 (1), 1-19, 2017",
+        "cited_by": {
+          "value": 60,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=14128227557738779184",
+          "serpapi_link": "https://serpapi.com/search.json?cites=14128227557738779184&engine=google_scholar&hl=pt-br",
+          "cites_id": "14128227557738779184"
+        },
+        "year": "2017",
+        "doi": "2-s2.0-85021308417",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85021308417&partnerID=MN8TOARS",
+        "journalTitle": "Genetics and Molecular Research"
+      },
+      {
+        "title": "Nonlinear growth models: An alternative to ANOVA in tomato trials evaluation",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:mB3voiENLucC",
+        "citation_id": "QjxIJkcAAAAJ:mB3voiENLucC",
+        "authors": "BG Sari, ADC Lúcio, CS Santana, T Olivoto, MI Diel, DK Krysczun",
+        "publication": "European Journal of Agronomy 104, 21-36, 2019",
+        "cited_by": {
+          "value": 47,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=13410805514464192034",
+          "serpapi_link": "https://serpapi.com/search.json?cites=13410805514464192034&engine=google_scholar&hl=pt-br",
+          "cites_id": "13410805514464192034"
+        },
+        "year": "2019",
+        "doi": "2-s2.0-85059446796",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85059446796&partnerID=MN8TOARS",
+        "journalTitle": "European Journal of Agronomy"
+      },
+      {
+        "title": "Path analysis and phenotypic correlation among yield components of soybean using environmental stratification methods",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:4DMP91E08xMC",
+        "citation_id": "QjxIJkcAAAAJ:4DMP91E08xMC",
+        "authors": "M Ferrari, IR Carvalho, AJ de Pelegrin, M Nardino, VJ Szareski, T Olivoto, ...",
+        "publication": "Australian Journal of Crop Science 12 (2), 193-202, 2018",
+        "cited_by": {
+          "value": 45,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=6848310920533185547",
+          "serpapi_link": "https://serpapi.com/search.json?cites=6848310920533185547&engine=google_scholar&hl=pt-br",
+          "cites_id": "6848310920533185547"
+        },
+        "year": "2018",
+        "doi": "10.21475/ajcs.18.12.02.pne488",
+        "doiLink": "https://doi.org/10.21475/ajcs.18.12.02.pne488",
+        "journalTitle": "Australian Journal of Crop Science"
+      },
+      {
+        "title": "Nonlinear modeling for analyzing data from multiple harvest crops",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:qUcmZB5y_30C",
+        "citation_id": "QjxIJkcAAAAJ:qUcmZB5y_30C",
+        "authors": "BG Sari, T Olivoto, MI Diel, DK Krysczun, ADC Lúcio, TV Savian",
+        "publication": "Agronomy Journal 110 (6), 2331-2342, 2018",
+        "cited_by": {
+          "value": 39,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=11853558958055374692",
+          "serpapi_link": "https://serpapi.com/search.json?cites=11853558958055374692&engine=google_scholar&hl=pt-br",
+          "cites_id": "11853558958055374692"
+        },
+        "year": "2018",
+        "doi": "WOS:000449667800026",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85056653521&partnerID=MN8TOARS",
+        "journalTitle": "Agronomy Journal"
+      },
+      {
+        "title": "Nonlinear regression for description of strawberry (Fragaria x ananassa) production",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:Wp0gIr-vW9MC",
+        "citation_id": "QjxIJkcAAAAJ:Wp0gIr-vW9MC",
+        "authors": "MI Diel, BG Sari, DK Krysczun, T Olivoto, MVM Pinheiro, D Meira, ...",
+        "publication": "The Journal of Horticultural Science and Biotechnology 94 (2), 259-273, 2019",
+        "cited_by": {
+          "value": 38,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=13196847501647910598",
+          "serpapi_link": "https://serpapi.com/search.json?cites=13196847501647910598&engine=google_scholar&hl=pt-br",
+          "cites_id": "13196847501647910598"
+        },
+        "year": "2019",
+        "doi": "WOS:000458521800013",
+        "doiLink": "https://doi.org/10.1080/14620316.2018.1472045",
+        "journalTitle": "The Journal of Horticultural Science and Biotechnology"
+      },
+      {
+        "title": "Multi-trait selection in multi-environments for performance and stability in cassava genotypes",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:eMMeJKvmdy0C",
+        "citation_id": "QjxIJkcAAAAJ:eMMeJKvmdy0C",
+        "authors": "JS Sampaio Filho, T Olivoto, MS Campos, EJ Oliveira",
+        "publication": "Frontiers in Plant Science 14, 1282221, 2023",
+        "cited_by": {
+          "value": 34,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=15390167804260252701",
+          "serpapi_link": "https://serpapi.com/search.json?cites=15390167804260252701&engine=google_scholar&hl=pt-br",
+          "cites_id": "15390167804260252701"
+        },
+        "year": "2023",
+        "doi": "2-s2.0-85176413033",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85176413033&partnerID=MN8TOARS",
+        "journalTitle": "Frontiers in Plant Science"
+      },
+      {
+        "title": "Genetic diversity in tropical wheat germplasm and selection via multitrait index",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:K3LRdlH-MEoC",
+        "citation_id": "QjxIJkcAAAAJ:K3LRdlH-MEoC",
+        "authors": "GW Lima, CM e Silva, HC Mezzomo, CR Casagrande, T Olivoto, A Borem, ...",
+        "publication": "Agronomy Journal 114 (2), 887-899, 2022",
+        "cited_by": {
+          "value": 34,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=10352117171520449708",
+          "serpapi_link": "https://serpapi.com/search.json?cites=10352117171520449708&engine=google_scholar&hl=pt-br",
+          "cites_id": "10352117171520449708"
+        },
+        "year": "2022",
+        "doi": "10.1002/agj2.20991",
+        "doiLink": "https://doi.org/10.1002/agj2.20991",
+        "journalTitle": "Agronomy Journal"
+      },
+      {
+        "title": "Multivariate analysis of strawberry experiments: where are we now and where can we go?",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:abG-DnoFyZgC",
+        "citation_id": "QjxIJkcAAAAJ:abG-DnoFyZgC",
+        "authors": "T Olivoto, MI Diel, D Schmidt, ADC Lúcio",
+        "publication": "BioRxiv, 2020.12. 30.424876, 2021",
+        "cited_by": {
+          "value": 34,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=1798344048499026734",
+          "serpapi_link": "https://serpapi.com/search.json?cites=1798344048499026734&engine=google_scholar&hl=pt-br",
+          "cites_id": "1798344048499026734"
+        },
+        "year": "2021",
+        "doi": "10.1101/2020.12.30.424876",
+        "doiLink": "https://doi.org/10.1101/2020.12.30.424876",
+        "journalTitle": "null"
+      },
+      {
+        "title": "Metan: multi environment trials analysis. R package version 1.1. 0",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:xtRiw3GOFMkC",
+        "citation_id": "QjxIJkcAAAAJ:xtRiw3GOFMkC",
+        "authors": "T Olivoto",
+        "cited_by": {
+          "value": 34,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=15011102907094874426",
+          "serpapi_link": "https://serpapi.com/search.json?cites=15011102907094874426&engine=google_scholar&hl=pt-br",
+          "cites_id": "15011102907094874426"
+        },
+        "year": "2019",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Genetic parameters and multiple-trait selection in wheat genotypes",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:UxriW0iASnsC",
+        "citation_id": "QjxIJkcAAAAJ:UxriW0iASnsC",
+        "authors": "C Meier, VS Marchioro, D Meira, T Olivoto, LA Klein",
+        "publication": "Pesquisa Agropecuária Tropical 51, e67996, 2021",
+        "cited_by": {
+          "value": 33,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=12411179411147067974",
+          "serpapi_link": "https://serpapi.com/search.json?cites=12411179411147067974&engine=google_scholar&hl=pt-br",
+          "cites_id": "12411179411147067974"
+        },
+        "year": "2021",
+        "doi": "2-s2.0-85111675742",
+        "doiLink": "https://doi.org/10.1590/1983-40632021v5167996",
+        "journalTitle": "Pesquisa Agropecuária Tropical"
+      },
+      {
+        "title": "RGB image-based method for phenotyping rust disease progress in pea leaves using R",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:AXPGKjj_ei8C",
+        "citation_id": "QjxIJkcAAAAJ:AXPGKjj_ei8C",
+        "authors": "S Osuna-Caballero, T Olivoto, MA Jiménez-Vaquero, D Rubiales, ...",
+        "publication": "Plant Methods 19 (1), 86, 2023",
+        "cited_by": {
+          "value": 31,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=4809031544199978006",
+          "serpapi_link": "https://serpapi.com/search.json?cites=4809031544199978006&engine=google_scholar&hl=pt-br",
+          "cites_id": "4809031544199978006"
+        },
+        "year": "2023",
+        "doi": "2-s2.0-85168527351",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85168527351&partnerID=MN8TOARS",
+        "journalTitle": "Plant Methods"
+      },
+      {
+        "title": "Production of biquinho pepper in different growing seasons characterized by the logistic model and its critical points",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:g5m5HwL7SMYC",
+        "citation_id": "QjxIJkcAAAAJ:g5m5HwL7SMYC",
+        "authors": "MI Diel, ADC Lúcio, OVS Valera, BG Sari, T Olivoto, MVM Pinheiro, ...",
+        "publication": "Ciência Rural 50, e20190477, 2020",
+        "cited_by": {
+          "value": 31,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=4801769918973415480",
+          "serpapi_link": "https://serpapi.com/search.json?cites=4801769918973415480&engine=google_scholar&hl=pt-br",
+          "cites_id": "4801769918973415480"
+        },
+        "year": "2020",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Cincia Rural  e"
+      },
+      {
+        "title": "Restricted maximum likelihood/best linear unbiased prediction (REML/BLUP) for analyzing the agronomic performance of corn",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:UeHWp8X0CEIC",
+        "citation_id": "QjxIJkcAAAAJ:UeHWp8X0CEIC",
+        "authors": "M Nardino, D Baretta, IR Carvalho, T Olivoto, DN Follmann, VÃJ Szareski, ...",
+        "publication": "African Journal of Agricultural Research 11 (48), 4864-4872, 2016",
+        "cited_by": {
+          "value": 30,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=919893535364699628",
+          "serpapi_link": "https://serpapi.com/search.json?cites=919893535364699628&engine=google_scholar&hl=pt-br",
+          "cites_id": "919893535364699628"
+        },
+        "year": "2016",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "African Journal of Agricultural Research"
+      },
+      {
+        "title": "Selection of superior black oat lines using the MGIDI index",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:Y5dfb0dijaUC",
+        "citation_id": "QjxIJkcAAAAJ:Y5dfb0dijaUC",
+        "authors": "LA Klein, VS Marchioro, M Toebe, T Olivoto, D Meira, C Meier, G Benin, ...",
+        "publication": "Crop Breeding and Applied Biotechnology 23 (3), e45112332, 2023",
+        "cited_by": {
+          "value": 28,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=180822783028407651",
+          "serpapi_link": "https://serpapi.com/search.json?cites=180822783028407651&engine=google_scholar&hl=pt-br",
+          "cites_id": "180822783028407651"
+        },
+        "year": "2023",
+        "doi": "2-s2.0-85175192042",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85175192042&partnerID=MN8TOARS",
+        "journalTitle": "Crop Breeding and Applied Biotechnology"
+      },
+      {
+        "title": "Interference of sample size on multicollinearity diagnosis in path analysis",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:L8Ckcad2t8MC",
+        "citation_id": "QjxIJkcAAAAJ:L8Ckcad2t8MC",
+        "authors": "BG Sari, ADC Lúcio, T Olivoto, DK Krysczun, AL Tischler, L Drebes",
+        "publication": "Pesquisa Agropecuária Brasileira 53, 769-773, 2018",
+        "cited_by": {
+          "value": 26,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=11770414879655504013,16469459694867834980",
+          "serpapi_link": "https://serpapi.com/search.json?cites=11770414879655504013%2C16469459694867834980&engine=google_scholar&hl=pt-br",
+          "cites_id": "11770414879655504013,16469459694867834980"
+        },
+        "year": "2018",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Pesquisa Agropecuria Brasileira"
+      },
+      {
+        "title": "Metan: an R package for multienvironment trial analysis. Methods in Ecology and Evolution 11: 783–789",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:eJXPG6dFmWUC",
+        "citation_id": "QjxIJkcAAAAJ:eJXPG6dFmWUC",
+        "authors": "T Olivoto, AD Lúcio",
+        "publication": "Go to original source, 2020",
+        "cited_by": {
+          "value": 24,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=614158928949962884",
+          "serpapi_link": "https://serpapi.com/search.json?cites=614158928949962884&engine=google_scholar&hl=pt-br",
+          "cites_id": "614158928949962884"
+        },
+        "year": "2020",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Go to original source"
+      },
+      {
+        "title": "Measuring plant disease severity in R: introducing and evaluating the pliman package",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:dshw04ExmUIC",
+        "citation_id": "QjxIJkcAAAAJ:dshw04ExmUIC",
+        "authors": "T Olivoto, SMP Andrade, E M. Del Ponte",
+        "publication": "Tropical Plant Pathology 47 (1), 95-104, 2022",
+        "cited_by": {
+          "value": 23,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=11931287973060433668",
+          "serpapi_link": "https://serpapi.com/search.json?cites=11931287973060433668&engine=google_scholar&hl=pt-br",
+          "cites_id": "11931287973060433668"
+        },
+        "year": "2022",
+        "doi": "10.1007/s40858-021-00487-5",
+        "doiLink": "https://doi.org/10.1007/s40858-021-00487-5",
+        "journalTitle": "Tropical Plant Pathology"
+      },
+      {
+        "title": "Patient and microbial genomic factors associated with carbapenem-resistant Klebsiella pneumoniae extraintestinal colonization and infection",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:tS2w5q8j5-wC",
+        "citation_id": "QjxIJkcAAAAJ:tS2w5q8j5-wC",
+        "authors": "Z Lapp, JH Han, J Wiens, EJC Goldstein, E Lautenbach, ES Snitkin",
+        "publication": "Msystems 6 (2), 10.1128/msystems. 00177-21, 2021",
+        "cited_by": {
+          "value": 23,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=7568400745953803084",
+          "serpapi_link": "https://serpapi.com/search.json?cites=7568400745953803084&engine=google_scholar&hl=pt-br",
+          "cites_id": "7568400745953803084"
+        },
+        "year": "2021",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Msystems   msystems"
+      },
+      {
+        "title": "Selection gain and interrelations between agronomic traits in wheat F5 genotypes",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:k_IJM867U9cC",
+        "citation_id": "QjxIJkcAAAAJ:k_IJM867U9cC",
+        "authors": "C Meier, D Meira, VS Marchioro, T Olivoto, LA Klein, VQ Souza",
+        "publication": "Revista Ceres 66 (4), 271-278, 2019",
+        "cited_by": {
+          "value": 23,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=13158277776028803398",
+          "serpapi_link": "https://serpapi.com/search.json?cites=13158277776028803398&engine=google_scholar&hl=pt-br",
+          "cites_id": "13158277776028803398"
+        },
+        "year": "2019",
+        "doi": "2-s2.0-85074474532",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85074474532&partnerID=MN8TOARS",
+        "journalTitle": "Revista Ceres"
+      },
+      {
+        "title": "Agronomic performance and genetic dissimilarity of second-harvest soybean cultivars using REML/BLUP and Gower’s algorithm",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:RHpTSmoSYBkC",
+        "citation_id": "QjxIJkcAAAAJ:RHpTSmoSYBkC",
+        "authors": "DN Follmann, VQ Souza, A Cargnelutti Filho, GH Demari, M Nardino, ...",
+        "publication": "Bragantia 78 (2), 197-207, 2019",
+        "cited_by": {
+          "value": 23,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=10117562142148872846",
+          "serpapi_link": "https://serpapi.com/search.json?cites=10117562142148872846&engine=google_scholar&hl=pt-br",
+          "cites_id": "10117562142148872846"
+        },
+        "year": "2019",
+        "doi": "10.1590/1678-4499.20180194",
+        "doiLink": "https://doi.org/10.1590/1678-4499.20180194",
+        "journalTitle": "Bragantia"
+      },
+      {
+        "title": "Relations among phenotypic traits of soybean pods and growth habit",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:Y0pCki6q_DkC",
+        "citation_id": "QjxIJkcAAAAJ:Y0pCki6q_DkC",
+        "authors": "IR Carvalho, M Nardino, GH Demari, VÃJ Szareski, DN Follmann, ...",
+        "publication": "African Journal of Agricultural Research 12 (6), 450-458, 2017",
+        "cited_by": {
+          "value": 23,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=6339056645135231379",
+          "serpapi_link": "https://serpapi.com/search.json?cites=6339056645135231379&engine=google_scholar&hl=pt-br",
+          "cites_id": "6339056645135231379"
+        },
+        "year": "2017",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "African Journal of Agricultural Research"
+      },
+      {
+        "title": "Behavior of strawberry production with growth models: a multivariate approach",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:EUQCXRtRnyEC",
+        "citation_id": "QjxIJkcAAAAJ:EUQCXRtRnyEC",
+        "authors": "MI Diel, ADC Lúcio, BG Sari, T Olivoto, MVM Pinheiro, DK Krysczum, ...",
+        "publication": "Acta Scientiarum. Agronomy 43, e47812, 2021",
+        "cited_by": {
+          "value": 22,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=2310891082046370928",
+          "serpapi_link": "https://serpapi.com/search.json?cites=2310891082046370928&engine=google_scholar&hl=pt-br",
+          "cites_id": "2310891082046370928"
+        },
+        "year": "2021",
+        "doi": "2-s2.0-85099126767",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85099126767&partnerID=MN8TOARS",
+        "journalTitle": "Acta Scientiarum - Agronomy"
+      },
+      {
+        "title": "Pearson correlation coefficient and accuracy of path analysis used in maize breeding: a critical review",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:7PzlFSSx8tAC",
+        "citation_id": "QjxIJkcAAAAJ:7PzlFSSx8tAC",
+        "authors": "T Olivoto, M Nardino, IRC Carvalho, DN Follmann, VJ Szareski, M Ferrari, ...",
+        "publication": "International Journal of Current Research 8 (9), 37787-37795, 2016",
+        "cited_by": {
+          "value": 22,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=5851400970183542963",
+          "serpapi_link": "https://serpapi.com/search.json?cites=5851400970183542963&engine=google_scholar&hl=pt-br",
+          "cites_id": "5851400970183542963"
+        },
+        "year": "2016",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "International Journal of Current Research"
+      },
+      {
+        "title": "Envirotypes applied to evaluate the adaptability and stability of wheat genotypes in the tropical region in Brazil",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:dTyEYWd-f8wC",
+        "citation_id": "QjxIJkcAAAAJ:dTyEYWd-f8wC",
+        "authors": "CR Casagrande, HC Mezzomo, DJP de Sousa, CV dos Santos, ...",
+        "publication": "Euphytica 220 (2), 27, 2024",
+        "cited_by": {
+          "value": 19,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=9436359974079777763",
+          "serpapi_link": "https://serpapi.com/search.json?cites=9436359974079777763&engine=google_scholar&hl=pt-br",
+          "cites_id": "9436359974079777763"
+        },
+        "year": "2024",
+        "doi": "2-s2.0-85183616250",
+        "doiLink": "https://doi.org/10.1007/s10681-023-03286-y",
+        "journalTitle": "Euphytica"
+      },
+      {
+        "title": "Path analysis of grain yield associated characters in Brazilians wheat genotypes (Triticum aestivum L.)",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:_FxGoFyzp5QC",
+        "citation_id": "QjxIJkcAAAAJ:_FxGoFyzp5QC",
+        "authors": "IR Carvalho, M Nardino, DN Follmann, GH Demari, T Olivoto, AJ Pelegrin, ...",
+        "publication": "Australian Journal of Crop Science 11 (11), 1406-1410, 2017",
+        "cited_by": {
+          "value": 19,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=681114155266594397",
+          "serpapi_link": "https://serpapi.com/search.json?cites=681114155266594397&engine=google_scholar&hl=pt-br",
+          "cites_id": "681114155266594397"
+        },
+        "year": "2017",
+        "doi": "2-s2.0-85035040115",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85035040115&partnerID=MN8TOARS",
+        "journalTitle": "Australian Journal of Crop Science"
+      },
+      {
+        "title": "Confidence interval width for pearson’s correlation coefficient: A Gaussian‐independent estimator based on sample size and strength of association",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:3fE2CSJIrl8C",
+        "citation_id": "QjxIJkcAAAAJ:3fE2CSJIrl8C",
+        "authors": "T Olivoto, ADC Lúcio, VQ de Souza, M Nardino, MI Diel, BG Sari, ...",
+        "publication": "Agronomy Journal 110 (2), 503-510, 2018",
+        "cited_by": {
+          "value": 18,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=12921893952526341270",
+          "serpapi_link": "https://serpapi.com/search.json?cites=12921893952526341270&engine=google_scholar&hl=pt-br",
+          "cites_id": "12921893952526341270"
+        },
+        "year": "2018",
+        "doi": "10.2134/agronj2017.09.0566",
+        "doiLink": "https://doi.org/10.2134/agronj2017.09.0566",
+        "journalTitle": "Agronomy Journal"
+      },
+      {
+        "title": "Effect of temperature on bean seed germination: vigor and isozyme expression",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:TQgYirikUcIC",
+        "citation_id": "QjxIJkcAAAAJ:TQgYirikUcIC",
+        "authors": "I Dubal, C Troyjack, F Koch, GR Aisenberg, VJ Szareski, JR Pimentel, ...",
+        "publication": "American Journal of Agricultural Research 1 (5), 1-9, 2016",
+        "cited_by": {
+          "value": 18,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=8948207539026822046",
+          "serpapi_link": "https://serpapi.com/search.json?cites=8948207539026822046&engine=google_scholar&hl=pt-br",
+          "cites_id": "8948207539026822046"
+        },
+        "year": "2016",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "American Journal of Agricultural Research"
+      },
+      {
+        "title": "Assessing the role of genotype by environment interaction as determinants of maize grain yield and lodging resistance",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:dQ2og3OwTAUC",
+        "citation_id": "QjxIJkcAAAAJ:dQ2og3OwTAUC",
+        "authors": "H Yue, T Olivoto, J Bu, J Wei, P Liu, W Wu, M Nardino, X Jiang",
+        "publication": "BMC Plant Biology 25 (1), 120, 2025",
+        "cited_by": {
+          "value": 17,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=8060569516182253406",
+          "serpapi_link": "https://serpapi.com/search.json?cites=8060569516182253406&engine=google_scholar&hl=pt-br",
+          "cites_id": "8060569516182253406"
+        },
+        "year": "2025",
+        "doi": "10.1186/s12870-025-06158-w",
+        "doiLink": "https://doi.org/10.1186/s12870-025-06158-w",
+        "journalTitle": "BMC Plant Biology"
+      },
+      {
+        "title": "Multivariate diallel analysis by factor analysis for establish mega-traits",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:u_35RYKgDlwC",
+        "citation_id": "QjxIJkcAAAAJ:u_35RYKgDlwC",
+        "authors": "M Nardino, WS Barros, T Olivoto, CD Cruz, FFE Silva, AJ PELEGRIN, ...",
+        "publication": "Anais da Academia Brasileira de Ciencias 92, e20180874, 2020",
+        "cited_by": {
+          "value": 17,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=6419517932195280611",
+          "serpapi_link": "https://serpapi.com/search.json?cites=6419517932195280611&engine=google_scholar&hl=pt-br",
+          "cites_id": "6419517932195280611"
+        },
+        "year": "2020",
+        "doi": "10.1590/0001-3765202020180874",
+        "doiLink": "https://doi.org/10.1590/0001-3765202020180874",
+        "journalTitle": "Anais da Academia Brasileira de Ciências"
+      },
+      {
+        "title": "Sample size, plot size and number of replications for trials with Solanum melongena L.",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:Zph67rFs4hoC",
+        "citation_id": "QjxIJkcAAAAJ:Zph67rFs4hoC",
+        "authors": "DK Krysczun, ADC Lúcio, BG Sari, MI Diel, T Olivoto, CS Santana, ...",
+        "publication": "Scientia Horticulturae 233, 220-224, 2018",
+        "cited_by": {
+          "value": 17,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=5238172433012756083",
+          "serpapi_link": "https://serpapi.com/search.json?cites=5238172433012756083&engine=google_scholar&hl=pt-br",
+          "cites_id": "5238172433012756083"
+        },
+        "year": "2018",
+        "doi": "WOS:000428605600025",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85044448797&partnerID=MN8TOARS",
+        "journalTitle": "Scientia Horticulturae"
+      },
+      {
+        "title": "Meta-analysis of the experimental coefficient of variation in wheat using the Bayesian and Frequentist approaches",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:D_sINldO8mEC",
+        "citation_id": "QjxIJkcAAAAJ:D_sINldO8mEC",
+        "authors": "M Nardino, T Olivoto, WS Barros, CG Carvalho, VS Signorini, ...",
+        "publication": "Scientia Agricola 80, e20210190, 2022",
+        "cited_by": {
+          "value": 16,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=14066189375368430133",
+          "serpapi_link": "https://serpapi.com/search.json?cites=14066189375368430133&engine=google_scholar&hl=pt-br",
+          "cites_id": "14066189375368430133"
+        },
+        "year": "2022",
+        "doi": "2-s2.0-85133751529",
+        "doiLink": "https://doi.org/10.1590/1678-992x-2021-0190",
+        "journalTitle": "Scientia Agricola"
+      },
+      {
+        "title": "Caracteres morfológicos e rendimento de grãos de híbridos simples de milho em diferentes ambienteso em diferentes ambientes",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:-f6ydRqryjwC",
+        "citation_id": "QjxIJkcAAAAJ:-f6ydRqryjwC",
+        "authors": "T Olivoto, IR Carvalho, M Nardino, M Ferrari, AJ de Pelegrin, VJ Szareski, ...",
+        "publication": "Revista de Ciências Agroveterinárias 17 (4), 462-471, 2018",
+        "cited_by": {
+          "value": 14,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=10794418356005062436",
+          "serpapi_link": "https://serpapi.com/search.json?cites=10794418356005062436&engine=google_scholar&hl=pt-br",
+          "cites_id": "10794418356005062436"
+        },
+        "year": "2018",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Revista de Cincias Agroveterinrias"
+      },
+      {
+        "title": "Performance agronômica e correlação linear entre componentes de rendimento da soja em segunda safra",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:35N4QoGY0k4C",
+        "citation_id": "QjxIJkcAAAAJ:35N4QoGY0k4C",
+        "authors": "C Meier, D Meira, VS Marchioro, T Olivoto, LA Klein, ED Moro, RB Bueno, ...",
+        "publication": "Revista de Ciências Agrárias 42 (4), 933-941, 2019",
+        "cited_by": {
+          "value": 12,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=15383376421991313465",
+          "serpapi_link": "https://serpapi.com/search.json?cites=15383376421991313465&engine=google_scholar&hl=pt-br",
+          "cites_id": "15383376421991313465"
+        },
+        "year": "2019",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Revista de Cincias Agrrias"
+      },
+      {
+        "title": "Efficiency of water use for strawberries cultivated in different semi-hydroponic substrates",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:1sJd4Hv_s6UC",
+        "citation_id": "QjxIJkcAAAAJ:1sJd4Hv_s6UC",
+        "authors": "MI Diel, D Schmidt, T Olivoto, CS Altissimo, MM Pretto, MVM Pinheiro, ...",
+        "publication": "Australian Journal of Basic and Applied Sciences 10 (8), 31-37, 2016",
+        "cited_by": {
+          "value": 12,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=13762819001311790748",
+          "serpapi_link": "https://serpapi.com/search.json?cites=13762819001311790748&engine=google_scholar&hl=pt-br",
+          "cites_id": "13762819001311790748"
+        },
+        "year": "2016",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Australian Journal of Basic and Applied Sciences"
+      },
+      {
+        "title": "Ambiente de cultivo e seus efeitos aos caracteres morfológicos e bromatológicos da soja",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:u5HHmVD_uO8C",
+        "citation_id": "QjxIJkcAAAAJ:u5HHmVD_uO8C",
+        "authors": "VJ Szareski, VQ de Souza, IR Carvalho, M Nardino, DN Follmann, ...",
+        "publication": "Revista Brasileira de Agropecuária Sustentável 5 (2), 2015",
+        "cited_by": {
+          "value": 12,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=4938062384611457124",
+          "serpapi_link": "https://serpapi.com/search.json?cites=4938062384611457124&engine=google_scholar&hl=pt-br",
+          "cites_id": "4938062384611457124"
+        },
+        "year": "2015",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Revista Brasileira de Agropecuria Sustentvel"
+      },
+      {
+        "title": "Multi-trait selection for mean performance and stability in purple-fleshed sweet potato",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:PR6Y55bgFSsC",
+        "citation_id": "QjxIJkcAAAAJ:PR6Y55bgFSsC",
+        "authors": "MHS Leal, ADS Júnior, JRS de Pieri, B da Rocha Toroco, GJA Oliveira, ...",
+        "publication": "South African Journal of Botany 174, 571-579, 2024",
+        "cited_by": {
+          "value": 11,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=12462058125451377335",
+          "serpapi_link": "https://serpapi.com/search.json?cites=12462058125451377335&engine=google_scholar&hl=pt-br",
+          "cites_id": "12462058125451377335"
+        },
+        "year": "2024",
+        "doi": "10.1016/j.sajb.2024.09.048",
+        "doiLink": "https://doi.org/10.1016/j.sajb.2024.09.048",
+        "journalTitle": "South African Journal of Botany"
+      },
+      {
+        "title": "Repeatability coefficients and number of measurements for evaluating traits in strawberry",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:zA6iFVUQeVQC",
+        "citation_id": "QjxIJkcAAAAJ:zA6iFVUQeVQC",
+        "authors": "MI Diel, ADC Lúcio, T Olivoto, MVM Pinheiro, DK Krysczun, BG Sari, ...",
+        "publication": "Acta Scientiarum. Agronomy 42, e43357, 2020",
+        "cited_by": {
+          "value": 11,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=17939053617827423693",
+          "serpapi_link": "https://serpapi.com/search.json?cites=17939053617827423693&engine=google_scholar&hl=pt-br",
+          "cites_id": "17939053617827423693"
+        },
+        "year": "2020",
+        "doi": "2-s2.0-85086849442",
+        "doiLink": "https://doi.org/10.4025/actasciagron.v42i1.43357",
+        "journalTitle": "Acta Scientiarum. Agronomy"
+      },
+      {
+        "title": "Multivariate analysis revealed genetic divergence and promising traits for indirect selection in black oat",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:O3NaXMp0MMsC",
+        "citation_id": "QjxIJkcAAAAJ:O3NaXMp0MMsC",
+        "authors": "D Meira, C Meier, T Olivoto, DN Follmann, A Rigatti, A Lunkes, ...",
+        "publication": "Agrária-Revista Brasileira de Ciências Agrárias 14 (4), 1-7, 2019",
+        "cited_by": {
+          "value": 11,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=3990507856032827080",
+          "serpapi_link": "https://serpapi.com/search.json?cites=3990507856032827080&engine=google_scholar&hl=pt-br",
+          "cites_id": "3990507856032827080"
+        },
+        "year": "2019",
+        "doi": "2-s2.0-85077551402",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85077551402&partnerID=MN8TOARS",
+        "journalTitle": "Revista Brasileirade Ciencias Agrarias"
+      },
+      {
+        "title": "Optimal sample size and data arrangement method in estimating correlation matrices with lesser collinearity: A statistical focus in maize breeding",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:zYLM7Y9cAGgC",
+        "citation_id": "QjxIJkcAAAAJ:zYLM7Y9cAGgC",
+        "authors": "T Olivoto, M Nardino, IR Carvalho, DN Follmann, M Ferrari, ...",
+        "publication": "African Journal of Agricultural Research 12 (2), 93-103, 2017",
+        "cited_by": {
+          "value": 11,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=2759384596381815097",
+          "serpapi_link": "https://serpapi.com/search.json?cites=2759384596381815097&engine=google_scholar&hl=pt-br",
+          "cites_id": "2759384596381815097"
+        },
+        "year": "2017",
+        "doi": "10.5897/AJAR2016.11799",
+        "doiLink": "https://doi.org/10.5897/AJAR2016.11799",
+        "journalTitle": "African Journal of Agricultural Research"
+      },
+      {
+        "title": "Evaluation of soybeans genotypes in field environments of Rio Grande do Sul state, Brazil",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:M3NEmzRMIkIC",
+        "citation_id": "QjxIJkcAAAAJ:M3NEmzRMIkIC",
+        "authors": "M Ferrari, AJ Pelegrin, M Nardino, IR Carvalho, VJ Szareski, T Olivoto, ...",
+        "publication": "International Journal of Current Research 8 (9), 38383-38392, 2016",
+        "cited_by": {
+          "value": 11,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=15461163283777414133",
+          "serpapi_link": "https://serpapi.com/search.json?cites=15461163283777414133&engine=google_scholar&hl=pt-br",
+          "cites_id": "15461163283777414133"
+        },
+        "year": "2016",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "International Journal of Current Research"
+      },
+      {
+        "title": "Multi-trait stability index for identification of stable green gram (Vigna radiata (L.) Wilczek) genotypes with MYMV resistance",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:VL0QpB8kHFEC",
+        "citation_id": "QjxIJkcAAAAJ:VL0QpB8kHFEC",
+        "authors": "K Aruna, S Sridhara, NK KL, IM Moussa, HO Elansary, T Olivoto",
+        "publication": "Heliyon 10 (12), 2024",
+        "cited_by": {
+          "value": 10,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=52866443288172886",
+          "serpapi_link": "https://serpapi.com/search.json?cites=52866443288172886&engine=google_scholar&hl=pt-br",
+          "cites_id": "52866443288172886"
+        },
+        "year": "2024",
+        "doi": "10.1016/j.heliyon.2024.e32763",
+        "doiLink": "https://doi.org/10.1016/j.heliyon.2024.e32763",
+        "journalTitle": "Heliyon"
+      },
+      {
+        "title": "Path analysis and dissimilarity in soybean with indeterminate habit",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:KxtntwgDAa4C",
+        "citation_id": "QjxIJkcAAAAJ:KxtntwgDAa4C",
+        "authors": "D Meira, IR Carvalho, M Nardino, DN Follmann, AJ Pelegrin, VJ Szareski, ...",
+        "publication": "International Journal of Current Research 8 (10), 39568-39573, 2016",
+        "cited_by": {
+          "value": 10,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=16936273755516001615",
+          "serpapi_link": "https://serpapi.com/search.json?cites=16936273755516001615&engine=google_scholar&hl=pt-br",
+          "cites_id": "16936273755516001615"
+        },
+        "year": "2016",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "International Journal of Current Research"
+      },
+      {
+        "title": "REML/BLUP in analysis of pre-commercial simple maize hybrid",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:4JMBOYKVnBMC",
+        "citation_id": "QjxIJkcAAAAJ:4JMBOYKVnBMC",
+        "authors": "M Nardino, D Baretta, IR Carvalho, T Olivoto, AJ Pelegrin, M Ferrari, ...",
+        "publication": "Int. J. Curr. Res 8, 37008-37013, 2016",
+        "cited_by": {
+          "value": 10,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=1237783110668281934",
+          "serpapi_link": "https://serpapi.com/search.json?cites=1237783110668281934&engine=google_scholar&hl=pt-br",
+          "cites_id": "1237783110668281934"
+        },
+        "year": "2016",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Int J Curr Res"
+      },
+      {
+        "title": "Conilon coffee outturn index: a precise alternative for estimating grain yield",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:4fKUyHm3Qg0C",
+        "citation_id": "QjxIJkcAAAAJ:4fKUyHm3Qg0C",
+        "authors": "GS Fialho, AFA Fonseca, MAG Ferrão, RG Ferrão, T Olivoto, M Nardino, ...",
+        "publication": "Acta Scientiarum. Agronomy 44, e54249, 2022",
+        "cited_by": {
+          "value": 9,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=8689014200449594738",
+          "serpapi_link": "https://serpapi.com/search.json?cites=8689014200449594738&engine=google_scholar&hl=pt-br",
+          "cites_id": "8689014200449594738"
+        },
+        "year": "2022",
+        "doi": "10.4025/actasciagron.v44i1.54249",
+        "doiLink": "https://doi.org/10.4025/actasciagron.v44i1.54249",
+        "journalTitle": "Acta Scientiarum - Agronomy"
+      },
+      {
+        "title": "Correlations and path analysis in sunflower grown at lower elevations.",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:hMod-77fHWUC",
+        "citation_id": "QjxIJkcAAAAJ:hMod-77fHWUC",
+        "authors": "DN Follmann, A Cargnelutti Filho, MS Santos, VO Costa, ÉN Plautz, ...",
+        "cited_by": {
+          "value": 9,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=12094620120071982094",
+          "serpapi_link": "https://serpapi.com/search.json?cites=12094620120071982094&engine=google_scholar&hl=pt-br",
+          "cites_id": "12094620120071982094"
+        },
+        "year": "2019",
+        "doi": "10.5539/JAS.V11N2P445",
+        "doiLink": "https://doi.org/10.5539/JAS.V11N2P445",
+        "journalTitle": "Journal of Agricultural Science"
+      },
+      {
+        "title": "Physiological traits and their relationships in black oat populations",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:ufrVoPGSRksC",
+        "citation_id": "QjxIJkcAAAAJ:ufrVoPGSRksC",
+        "authors": "D Meira¹, C Meier¹, T Olivoto, M Nardino, A Rigatti¹, A Lunkes¹, R Bordin¹, ...",
+        "cited_by": {
+          "value": 9,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=14225304378808391515",
+          "serpapi_link": "https://serpapi.com/search.json?cites=14225304378808391515&engine=google_scholar&hl=pt-br",
+          "cites_id": "14225304378808391515"
+        },
+        "year": "2017",
+        "doi": "10.4238/gmr16039814",
+        "doiLink": "https://doi.org/10.4238/gmr16039814",
+        "journalTitle": "Genetics and Molecular Research"
+      },
+      {
+        "title": "Sulfur and nitrogen effects on industrial quality and grain yield of wheat",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:u-x6o8ySG0sC",
+        "citation_id": "QjxIJkcAAAAJ:u-x6o8ySG0sC",
+        "authors": "T Olivoto, IR Carvalho, M Nardino, M Ferrari, AJ de Pelegrin, ...",
+        "publication": "Revista de Ciências Agroveterinárias 15 (1), 24-33, 2016",
+        "cited_by": {
+          "value": 9,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=5240411684136491758",
+          "serpapi_link": "https://serpapi.com/search.json?cites=5240411684136491758&engine=google_scholar&hl=pt-br",
+          "cites_id": "5240411684136491758"
+        },
+        "year": "2016",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Revista de Cincias Agroveterinrias"
+      },
+      {
+        "title": "Relationship between morpho-agronomic traits in tomato hybrids",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:NMxIlDl6LWMC",
+        "citation_id": "QjxIJkcAAAAJ:NMxIlDl6LWMC",
+        "authors": "MI Diel, T OLIVOTO, DK KRYSCZUN, B GIACOMINI SARI, ...",
+        "publication": "Revista Colombiana de Ciencias Horticolas 13 (1), 64-70, 2019",
+        "cited_by": {
+          "value": 8,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=17284906788608642223",
+          "serpapi_link": "https://serpapi.com/search.json?cites=17284906788608642223&engine=google_scholar&hl=pt-br",
+          "cites_id": "17284906788608642223"
+        },
+        "year": "2019",
+        "doi": "10.17584/rcch.2019v13i1.7967",
+        "doiLink": "https://doi.org/10.17584/rcch.2019v13i1.7967",
+        "journalTitle": "Revista Colombiana de Ciencias Hortícolas"
+      },
+      {
+        "title": "Environment stratification in the evaluation of corn hybrids in Southern Brazil",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:IWHjjKOFINEC",
+        "citation_id": "QjxIJkcAAAAJ:IWHjjKOFINEC",
+        "authors": "M Nardino, D Baretta, IR Carvalho, T Olivoto, DN Follmann, A Pelegrin, ...",
+        "publication": "J. Agric. Sci 10, 333-342, 2018",
+        "cited_by": {
+          "value": 8,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=11057123481553245778",
+          "serpapi_link": "https://serpapi.com/search.json?cites=11057123481553245778&engine=google_scholar&hl=pt-br",
+          "cites_id": "11057123481553245778"
+        },
+        "year": "2018",
+        "doi": "10.5539/JAS.V10N10P333",
+        "doiLink": "https://doi.org/10.5539/JAS.V10N10P333",
+        "journalTitle": "Journal of Agricultural Science"
+      },
+      {
+        "title": "Solar radiation levels modify the growth traits and bromatological composition of Cichorium intybus",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:roLk4NBRz8UC",
+        "citation_id": "QjxIJkcAAAAJ:roLk4NBRz8UC",
+        "authors": "F Schwerz, J Sgarbossa, T Olivoto, EF Elli, ACM Aguiar, BO Caron, ...",
+        "publication": "Advances in Horticultural Science 31 (4), 257-266, 2017",
+        "cited_by": {
+          "value": 8,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=9060891614885339327",
+          "serpapi_link": "https://serpapi.com/search.json?cites=9060891614885339327&engine=google_scholar&hl=pt-br",
+          "cites_id": "9060891614885339327"
+        },
+        "year": "2017",
+        "doi": "10.13128/ahs-20832",
+        "doiLink": "https://doi.org/10.13128/ahs-20832",
+        "journalTitle": "Advances in Horticultural Science"
+      },
+      {
+        "title": "Biometry and genetic breeding of dual-purpose wheat",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:ZHo1McVdvXMC",
+        "citation_id": "QjxIJkcAAAAJ:ZHo1McVdvXMC",
+        "authors": "IR Carvalho, M Nardino, G Demari, VJ Szareski, TZ Aumonde, T Pedó, ...",
+        "publication": "International Journal of Current Research 8, 3439-34545, 2016",
+        "cited_by": {
+          "value": 8,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=16833477531491308621",
+          "serpapi_link": "https://serpapi.com/search.json?cites=16833477531491308621&engine=google_scholar&hl=pt-br",
+          "cites_id": "16833477531491308621"
+        },
+        "year": "2016",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "International Journal of Current Research"
+      },
+      {
+        "title": "Estimates of genetic parameters between and within black oat populations",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:R3hNpaxXUhUC",
+        "citation_id": "QjxIJkcAAAAJ:R3hNpaxXUhUC",
+        "authors": "D Meira, C Meier, T Olivoto, M Nardino, LA Klein, ED Moro, F Fassini, ...",
+        "publication": "Bragantia 78 (1), 43-51, 2019",
+        "cited_by": {
+          "value": 7,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=10670350811418235214",
+          "serpapi_link": "https://serpapi.com/search.json?cites=10670350811418235214&engine=google_scholar&hl=pt-br",
+          "cites_id": "10670350811418235214"
+        },
+        "year": "2019",
+        "doi": "2-s2.0-85065338315",
+        "doiLink": "https://doi.org/10.1590/1678-4499.2018116",
+        "journalTitle": "Bragantia"
+      },
+      {
+        "title": "Photosynthetic photon flux density levels affect morphology and bromatology in Cichorium endivia L. var. latifolia grown in a hydroponic system",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:LkGwnXOMwfcC",
+        "citation_id": "QjxIJkcAAAAJ:LkGwnXOMwfcC",
+        "authors": "T Olivoto, EF Elli, D Schmidt, BO Caron, VQ de Souza",
+        "publication": "Scientia Horticulturae 230, 178-185, 2018",
+        "cited_by": {
+          "value": 7,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=3316128233558892377",
+          "serpapi_link": "https://serpapi.com/search.json?cites=3316128233558892377&engine=google_scholar&hl=pt-br",
+          "cites_id": "3316128233558892377"
+        },
+        "year": "2018",
+        "doi": "10.1016/j.scienta.2017.11.031",
+        "doiLink": "https://doi.org/10.1016/j.scienta.2017.11.031",
+        "journalTitle": "Scientia Horticulturae"
+      },
+      {
+        "title": "Growing environment and its effects on morphological characters and dietetic soy.",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:J_g5lzvAfSwC",
+        "citation_id": "QjxIJkcAAAAJ:J_g5lzvAfSwC",
+        "authors": "VJ Szareski, VQ Souza, IR Carvalho, M Nardino, DN Follmann, ...",
+        "cited_by": {
+          "value": 7,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=10571109124988506471",
+          "serpapi_link": "https://serpapi.com/search.json?cites=10571109124988506471&engine=google_scholar&hl=pt-br",
+          "cites_id": "10571109124988506471"
+        },
+        "year": "2015",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Prediction‐based breeding: Modern tools to optimize and reshape programs",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:ZfRJV9d4-WMC",
+        "citation_id": "QjxIJkcAAAAJ:ZfRJV9d4-WMC",
+        "authors": "R Fritsche‐Neto, RT Resende, T Olivoto, J Garcia‐Abadillo, ...",
+        "publication": "Crop Science 65 (5), e70175, 2025",
+        "cited_by": {
+          "value": 6,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=5577710615745378070",
+          "serpapi_link": "https://serpapi.com/search.json?cites=5577710615745378070&engine=google_scholar&hl=pt-br",
+          "cites_id": "5577710615745378070"
+        },
+        "year": "2025",
+        "doi": "10.1002/csc2.70175",
+        "doiLink": "https://doi.org/10.1002/csc2.70175",
+        "journalTitle": "Crop Science"
+      },
+      {
+        "title": "Canonical correlations in agricultural research: Method of interpretation used leads to greater reliability of results",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:yD5IFk8b50cC",
+        "citation_id": "QjxIJkcAAAAJ:yD5IFk8b50cC",
+        "authors": "MI Diel, AD Lúcio, DM Lambrecht, MVM Pinheiro, BG Sari, T Olivoto, ...",
+        "publication": "IJERI 8, 171-181, 2020",
+        "cited_by": {
+          "value": 6,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=8620980129156273395",
+          "serpapi_link": "https://serpapi.com/search.json?cites=8620980129156273395&engine=google_scholar&hl=pt-br",
+          "cites_id": "8620980129156273395"
+        },
+        "year": "2020",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "IJERI"
+      },
+      {
+        "title": "Phenotypic variance of black oat growing in crop seasons reveals genetic effects predominance",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:isC4tDSrTZIC",
+        "citation_id": "QjxIJkcAAAAJ:isC4tDSrTZIC",
+        "authors": "D Meira, C Meier, T Olivoto, M Nardino, A Rigatti, LA Klein, BO Caron, ...",
+        "publication": "Anais da Academia Brasileira de Ciências 91 (03), e20180036, 2019",
+        "cited_by": {
+          "value": 6,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=11133960036942430326",
+          "serpapi_link": "https://serpapi.com/search.json?cites=11133960036942430326&engine=google_scholar&hl=pt-br",
+          "cites_id": "11133960036942430326"
+        },
+        "year": "2019",
+        "doi": "2-s2.0-85072599005",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85072599005&partnerID=MN8TOARS",
+        "journalTitle": "Anais da Academia Brasileira de Ciencias"
+      },
+      {
+        "title": "Grain yield and its associations with pre-harvest sprouting in wheat",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:GnPB-g6toBAC",
+        "citation_id": "QjxIJkcAAAAJ:GnPB-g6toBAC",
+        "authors": "A Rigatti, D Meira, T Olivoto, C Meier, M Nardino, A Lunkes, LA Klein, ...",
+        "publication": "Journal of Agricultural Science 11 (4), 142-150, 2019",
+        "cited_by": {
+          "value": 6,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=17087351938566404000",
+          "serpapi_link": "https://serpapi.com/search.json?cites=17087351938566404000&engine=google_scholar&hl=pt-br",
+          "cites_id": "17087351938566404000"
+        },
+        "year": "2019",
+        "doi": "10.5539/JAS.V11N4P142",
+        "doiLink": "https://doi.org/10.5539/JAS.V11N4P142",
+        "journalTitle": "Journal of Agricultural Science"
+      },
+      {
+        "title": "Efeitos de fungicidas na soja com hábito de crescimento determinado",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:LPZeul_q3PIC",
+        "citation_id": "QjxIJkcAAAAJ:LPZeul_q3PIC",
+        "authors": "IR Carvalho, VQ Souza, M Nardino, DN Follmann, G Demari, D Schmidt, ...",
+        "publication": "Rev Sodebras 10, 30-34, 2015",
+        "cited_by": {
+          "value": 6,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=473666600231513212",
+          "serpapi_link": "https://serpapi.com/search.json?cites=473666600231513212&engine=google_scholar&hl=pt-br",
+          "cites_id": "473666600231513212"
+        },
+        "year": "2015",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Rev Sodebras"
+      },
+      {
+        "title": "Multivariate assumptions and effect of model parameters in path analysis in oat crop",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:SdhP9T11ey4C",
+        "citation_id": "QjxIJkcAAAAJ:SdhP9T11ey4C",
+        "authors": "J Sgarbossa, ADC Lúcio, JAG da Silva, BO Caron, MI Diel, T Olivoto, ...",
+        "publication": "Crop & Pasture Science 75 (3), CP23135, 2024",
+        "cited_by": {
+          "value": 5,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=12242850831553800398",
+          "serpapi_link": "https://serpapi.com/search.json?cites=12242850831553800398&engine=google_scholar&hl=pt-br",
+          "cites_id": "12242850831553800398"
+        },
+        "year": "2024",
+        "doi": "2-s2.0-85186660386",
+        "doiLink": "https://doi.org/10.1071/CP23135",
+        "journalTitle": "Crop & Pasture Science"
+      },
+      {
+        "title": "Selection of tropical wheat lines based on classical and modern parameters of adaptability and stability.",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:WbkHhVStYXYC",
+        "citation_id": "QjxIJkcAAAAJ:WbkHhVStYXYC",
+        "authors": "C Machado e Silva, H Caletti Mezzomo, C Renato Casagrande, ...",
+        "publication": "Bulgarian Journal of Agricultural Science 27 (5), 2021",
+        "cited_by": {
+          "value": 5,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=17484095291336381221",
+          "serpapi_link": "https://serpapi.com/search.json?cites=17484095291336381221&engine=google_scholar&hl=pt-br",
+          "cites_id": "17484095291336381221"
+        },
+        "year": "2021",
+        "doi": "2-s2.0-85119580749",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85119580749&partnerID=MN8TOARS",
+        "journalTitle": "Bulgarian Journal of Agricultural Science"
+      },
+      {
+        "title": "Supplemental material with R scripts: Nonlinear modeling for analyzing data from multiple harvest crops",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:N5tVd3kTz84C",
+        "citation_id": "QjxIJkcAAAAJ:N5tVd3kTz84C",
+        "authors": "BG Sari, T Olivoto, MI Diel, DK Krysczun, ADC Lúcio, TV Savian",
+        "publication": "Agronomy Journal 110 (6 Supl.), 1-35, 2018",
+        "cited_by": {
+          "value": 5,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=13663910013545781604",
+          "serpapi_link": "https://serpapi.com/search.json?cites=13663910013545781604&engine=google_scholar&hl=pt-br",
+          "cites_id": "13663910013545781604"
+        },
+        "year": "2018",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Agronomy Journal   Supl"
+      },
+      {
+        "title": "Análise de trilha para caracteres relacionados ao crescimento de mudas de pepineiro",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:5nxA0vEk-isC",
+        "citation_id": "QjxIJkcAAAAJ:5nxA0vEk-isC",
+        "authors": "T Olivoto",
+        "cited_by": {
+          "value": 5,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=8307984556688229451",
+          "serpapi_link": "https://serpapi.com/search.json?cites=8307984556688229451&engine=google_scholar&hl=pt-br",
+          "cites_id": "8307984556688229451"
+        },
+        "year": "2015",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Estimation of genetic parameters and use of selection indices in the identification of superior sweet potato genotypes",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:Fu2w8maKXqMC",
+        "citation_id": "QjxIJkcAAAAJ:Fu2w8maKXqMC",
+        "authors": "ADS Junior, CN Gomes, DP Albuquerque, FA da Silva Oliveira, JL Gomes, ...",
+        "publication": "Euphytica 221 (5), 60, 2025",
+        "cited_by": {
+          "value": 4,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=10220651648613681564",
+          "serpapi_link": "https://serpapi.com/search.json?cites=10220651648613681564&engine=google_scholar&hl=pt-br",
+          "cites_id": "10220651648613681564"
+        },
+        "year": "2025",
+        "doi": "2-s2.0-105002919667",
+        "doiLink": "https://doi.org/10.1007/s10681-025-03513-8",
+        "journalTitle": "Euphytica"
+      },
+      {
+        "title": "Research on microgreens: a bibliometric analysis",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:1yQoGdGgb4wC",
+        "citation_id": "QjxIJkcAAAAJ:1yQoGdGgb4wC",
+        "authors": "ME Ferreira, JM Henschel, T Olivoto, DS Batista, AR Zeist",
+        "publication": "Vegetos 37 (4), 1589-1601, 2024",
+        "cited_by": {
+          "value": 4,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=13316192015149339969",
+          "serpapi_link": "https://serpapi.com/search.json?cites=13316192015149339969&engine=google_scholar&hl=pt-br",
+          "cites_id": "13316192015149339969"
+        },
+        "year": "2024",
+        "doi": "10.1007/s42535-023-00699-x",
+        "doiLink": "https://doi.org/10.1007/s42535-023-00699-x",
+        "journalTitle": "Vegetos"
+      },
+      {
+        "title": "A scientometric view of wheat blast: the new catastrophic threat to wheat worldwide",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:1qzjygNMrQYC",
+        "citation_id": "QjxIJkcAAAAJ:1qzjygNMrQYC",
+        "authors": "VS Marchioro, G Benin, D Meira, C Meier, T Olivoto, LA Klein, LG Woyann, ...",
+        "publication": "Journal of Plant Pathology 105 (1), 121-128, 2023",
+        "cited_by": {
+          "value": 4,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=11160092971791105250",
+          "serpapi_link": "https://serpapi.com/search.json?cites=11160092971791105250&engine=google_scholar&hl=pt-br",
+          "cites_id": "11160092971791105250"
+        },
+        "year": "2023",
+        "doi": "2-s2.0-85143124691",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85143124691&partnerID=MN8TOARS",
+        "journalTitle": "Journal of Plant Pathology"
+      },
+      {
+        "title": "Índices de estabilidade genotípica e seleção simultânea multivariada: uma nova abordagem",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:CHSYGLWDkRkC",
+        "citation_id": "QjxIJkcAAAAJ:CHSYGLWDkRkC",
+        "authors": "T Olivoto",
+        "cited_by": {
+          "value": 4,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=11790781949827465812",
+          "serpapi_link": "https://serpapi.com/search.json?cites=11790781949827465812&engine=google_scholar&hl=pt-br",
+          "cites_id": "11790781949827465812"
+        },
+        "year": "2019",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Methods of adaptability and stability applied to eucalyptus breeding",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:ULOm3_A8WrAC",
+        "citation_id": "QjxIJkcAAAAJ:ULOm3_A8WrAC",
+        "authors": "OP Santos, IR Carvalho, M Nardino, T Olivoto, AJ Pelegrin, VJ Szareski, ...",
+        "publication": "Pesquisa Agropecuária Brasileira 53 (01), 53-62, 2018",
+        "cited_by": {
+          "value": 4,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=17231588879691466431",
+          "serpapi_link": "https://serpapi.com/search.json?cites=17231588879691466431&engine=google_scholar&hl=pt-br",
+          "cites_id": "17231588879691466431"
+        },
+        "year": "2018",
+        "doi": "2-s2.0-85042607998",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85042607998&partnerID=MN8TOARS",
+        "journalTitle": "Pesquisa Agropecuaria Brasileira"
+      },
+      {
+        "title": "Script and images for\" RGB image-based method for phenotyping rust disease progress in pea leaves using R\"",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:_Re3VWB3Y0AC",
+        "citation_id": "QjxIJkcAAAAJ:_Re3VWB3Y0AC",
+        "authors": "S Osuna-Caballero, T Olivoto, D Rubiales, MA Jiménez-Vaquero, ...",
+        "publication": "Zenodo, 2023",
+        "cited_by": {
+          "value": 3,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=15113366356196452697",
+          "serpapi_link": "https://serpapi.com/search.json?cites=15113366356196452697&engine=google_scholar&hl=pt-br",
+          "cites_id": "15113366356196452697"
+        },
+        "year": "2023",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Zenodo"
+      },
+      {
+        "title": "Methods in Ecology and Evolution",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:fEOibwPWpKIC",
+        "citation_id": "QjxIJkcAAAAJ:fEOibwPWpKIC",
+        "authors": "T Olivoto, AD Lúcio",
+        "publication": "Wiley-Blackwell on behalf of the British Ecological Society 11, 783-789, 2020",
+        "cited_by": {
+          "value": 3,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=8241194128547413004",
+          "serpapi_link": "https://serpapi.com/search.json?cites=8241194128547413004&engine=google_scholar&hl=pt-br",
+          "cites_id": "8241194128547413004"
+        },
+        "year": "2020",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "WileyBlackwell on behalf of the British Ecological Society"
+      },
+      {
+        "title": "Linear relationships between yield, quality and phenological traits of strawberry cultivars",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:D03iK_w7-QYC",
+        "citation_id": "QjxIJkcAAAAJ:D03iK_w7-QYC",
+        "authors": "MI Diel, AD Lúcio, D Schmidt, MVM Pinheiro, T Olivoto, BG Sari, ...",
+        "publication": "J. Agric. Stud 8 (3), 737-755, 2020",
+        "cited_by": {
+          "value": 3,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=5993942182107177633",
+          "serpapi_link": "https://serpapi.com/search.json?cites=5993942182107177633&engine=google_scholar&hl=pt-br",
+          "cites_id": "5993942182107177633"
+        },
+        "year": "2020",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "J Agric Stud"
+      },
+      {
+        "title": "The size of the uniformity trial affects the accuracy of plot size estimation in eggplant.",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:bFI3QPDXJZMC",
+        "citation_id": "QjxIJkcAAAAJ:bFI3QPDXJZMC",
+        "authors": "DK Krysczun, AD Lúcio, BG Sari, MI Diel, T Olivoto, JAG Silva, ...",
+        "cited_by": {
+          "value": 3,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=9504815910258991732",
+          "serpapi_link": "https://serpapi.com/search.json?cites=9504815910258991732&engine=google_scholar&hl=pt-br",
+          "cites_id": "9504815910258991732"
+        },
+        "year": "2018",
+        "doi": "10.5539/JAS.V10N11P510",
+        "doiLink": "https://doi.org/10.5539/JAS.V10N11P510",
+        "journalTitle": "Journal of Agricultural Science"
+      },
+      {
+        "title": "Morphological characteristics and grain yield of simple corn hybrids in different environments.",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:HDshCWvjkbEC",
+        "citation_id": "QjxIJkcAAAAJ:HDshCWvjkbEC",
+        "authors": "T Olivoto, IR Carvalho, M Nardino, M Ferrari, AJ Pelegrin, VJ Szareski, ...",
+        "cited_by": {
+          "value": 3,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=5195620757351545149",
+          "serpapi_link": "https://serpapi.com/search.json?cites=5195620757351545149&engine=google_scholar&hl=pt-br",
+          "cites_id": "5195620757351545149"
+        },
+        "year": "2018",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Precision of growth estimates and sufficient sample size: can solar radiation level change these factors?",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:Se3iqnhoufwC",
+        "citation_id": "QjxIJkcAAAAJ:Se3iqnhoufwC",
+        "authors": "EF Elli, T Olivoto, D Schmidt, BO Caron, VQ De Souza",
+        "publication": "Agronomy Journal 110 (1), 155-163, 2018",
+        "cited_by": {
+          "value": 3,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=3417205606856712709",
+          "serpapi_link": "https://serpapi.com/search.json?cites=3417205606856712709&engine=google_scholar&hl=pt-br",
+          "cites_id": "3417205606856712709"
+        },
+        "year": "2018",
+        "doi": "10.2134/agronj2017.05.0297",
+        "doiLink": "https://doi.org/10.2134/agronj2017.05.0297",
+        "journalTitle": "Agronomy Journal"
+      },
+      {
+        "title": "Parcelamento e fontes de nitrogênio na qualidade fisiológica de sementes de trigo",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:kNdYIx-mwKoC",
+        "citation_id": "QjxIJkcAAAAJ:kNdYIx-mwKoC",
+        "authors": "T Olivoto, M Nardino, IR Carvalho, M Ferrari, AJ de Pelegrin, VJ Szareski, ...",
+        "publication": "Revista de Ciências Agroveterinárias 16 (4), 345-356, 2017",
+        "cited_by": {
+          "value": 3,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=18289501092669240661,4132156547408954395",
+          "serpapi_link": "https://serpapi.com/search.json?cites=18289501092669240661%2C4132156547408954395&engine=google_scholar&hl=pt-br",
+          "cites_id": "18289501092669240661,4132156547408954395"
+        },
+        "year": "2017",
+        "doi": "10.5965/10.5965/223811711642017345",
+        "doiLink": "https://doi.org/10.5965/10.5965/223811711642017345",
+        "journalTitle": "Revista de Ciências Agroveterinárias"
+      },
+      {
+        "title": "Bayesian AMMI‐based indexes for genotype selection: Integrating novel stability measures for enhanced G× E inference",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:tKAzc9rXhukC",
+        "citation_id": "QjxIJkcAAAAJ:tKAzc9rXhukC",
+        "authors": "ACC Nascimento, M Nascimento, VS Sagae, V Destro, M Nardino, ...",
+        "publication": "Crop Science 65 (5), e70140, 2025",
+        "cited_by": {
+          "value": 2,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=8763558241460804817",
+          "serpapi_link": "https://serpapi.com/search.json?cites=8763558241460804817&engine=google_scholar&hl=pt-br",
+          "cites_id": "8763558241460804817"
+        },
+        "year": "2025",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Crop Science   e"
+      },
+      {
+        "title": "Evaluation of wheat recombinant inbred lines compared to control cultivars in terms of different germination components based on multi-trait indices",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:WqliGbK-hY8C",
+        "citation_id": "QjxIJkcAAAAJ:WqliGbK-hY8C",
+        "authors": "M Kharf-Meskini, A Sabouri, T Olivoto, HA Fallahi",
+        "publication": "Iranian Journal of Seed Sciences and Research 10 (4), 1-17, 2023",
+        "cited_by": {
+          "value": 2,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=13122280806036273690",
+          "serpapi_link": "https://serpapi.com/search.json?cites=13122280806036273690&engine=google_scholar&hl=pt-br",
+          "cites_id": "13122280806036273690"
+        },
+        "year": "2023",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Iranian Journal of Seed Sciences and Research"
+      },
+      {
+        "title": "Variability, plot size and border effect in lettuce trials in protected environment",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:_kc_bZDykSQC",
+        "citation_id": "QjxIJkcAAAAJ:_kc_bZDykSQC",
+        "authors": "D Santos, ADC Lúcio, A Cargnelutti Filho, SJ Lopes, T Olivoto",
+        "publication": "Bragantia 77 (2), 230-242, 2018",
+        "cited_by": {
+          "value": 2,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=6606606414923762074",
+          "serpapi_link": "https://serpapi.com/search.json?cites=6606606414923762074&engine=google_scholar&hl=pt-br",
+          "cites_id": "6606606414923762074"
+        },
+        "year": "2018",
+        "doi": "10.1590/1678-4499.2017165",
+        "doiLink": "https://doi.org/10.1590/1678-4499.2017165",
+        "journalTitle": "Bragantia"
+      },
+      {
+        "title": "Productive variability, border use and plot size in trials with cherry tomato",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:KlAtU1dfN6UC",
+        "citation_id": "QjxIJkcAAAAJ:KlAtU1dfN6UC",
+        "authors": "D Santos, ADC Lúcio, SJ Lopes, A Cargnelutti Filho, T Olivoto",
+        "publication": "Ciência Rural 48, e20170310, 2018",
+        "cited_by": {
+          "value": 2,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=9932128929519406610",
+          "serpapi_link": "https://serpapi.com/search.json?cites=9932128929519406610&engine=google_scholar&hl=pt-br",
+          "cites_id": "9932128929519406610"
+        },
+        "year": "2018",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Cincia Rural  e"
+      },
+      {
+        "title": "The effect of types and split of urea on yield indicators and yield components of maize",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:UebtZRa9Y70C",
+        "citation_id": "QjxIJkcAAAAJ:UebtZRa9Y70C",
+        "authors": "JIP de Oliveira, DK Krysczun, C Ubessi, T Olivoto, BG Sari, MI Diel, ...",
+        "publication": "Australian Journal of Crop Science 11 (12), 1594-1598, 2017",
+        "cited_by": {
+          "value": 2,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=6145495952121017382",
+          "serpapi_link": "https://serpapi.com/search.json?cites=6145495952121017382&engine=google_scholar&hl=pt-br",
+          "cites_id": "6145495952121017382"
+        },
+        "year": "2017",
+        "doi": "2-s2.0-85038869203",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85038869203&partnerID=MN8TOARS",
+        "journalTitle": "Australian Journal of Crop Science"
+      },
+      {
+        "title": "Efeitos de enxofre e nitrogênio na qualidade industrial e no rendimento de grãos de trigo",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:-_dYPAW6P2MC",
+        "citation_id": "QjxIJkcAAAAJ:-_dYPAW6P2MC",
+        "authors": "T Olivoto, IR Carvalho, M Nardino, M Ferrari, AJ Pelegrin, DN Follmann, ...",
+        "cited_by": {
+          "value": 2,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=5687668803550355099",
+          "serpapi_link": "https://serpapi.com/search.json?cites=5687668803550355099&engine=google_scholar&hl=pt-br",
+          "cites_id": "5687668803550355099"
+        },
+        "year": "2016",
+        "doi": "10.5965/223811711512016024",
+        "doiLink": "https://doi.org/10.5965/223811711512016024",
+        "journalTitle": "Revista de Ciências Agroveterinárias"
+      },
+      {
+        "title": "Efeitos fenotípicos e dissimilaridade genética em milho",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:8k81kl-MbHgC",
+        "citation_id": "QjxIJkcAAAAJ:8k81kl-MbHgC",
+        "authors": "MH Barbosa, IR Carvalho, M Nardino, DN Follmann, T Olivoto, VQ Souza",
+        "publication": "Ciencia y Tecnología Agropecuaria 10 (2), 39-44, 2016",
+        "cited_by": {
+          "value": 2,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=16535111536016858288",
+          "serpapi_link": "https://serpapi.com/search.json?cites=16535111536016858288&engine=google_scholar&hl=pt-br",
+          "cites_id": "16535111536016858288"
+        },
+        "year": "2016",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Ciencia y Tecnologa Agropecuaria"
+      },
+      {
+        "title": "Adaptability and stability of black oat genotypes using the GGE biplot analysis",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:ye4kPcJQO24C",
+        "citation_id": "QjxIJkcAAAAJ:ye4kPcJQO24C",
+        "authors": "LA Klein, VS Marchioro, M Toebe, T Olivoto, D Meira, JV Alberti, ...",
+        "publication": "Pesquisa Agropecuária Brasileira 59, e03483, 2024",
+        "cited_by": {
+          "value": 1,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=15391695942936337511",
+          "serpapi_link": "https://serpapi.com/search.json?cites=15391695942936337511&engine=google_scholar&hl=pt-br",
+          "cites_id": "15391695942936337511"
+        },
+        "year": "2024",
+        "doi": "10.1590/s1678-3921.pab2024.v59.03483",
+        "doiLink": "https://doi.org/10.1590/s1678-3921.pab2024.v59.03483",
+        "journalTitle": "Pesquisa Agropecuária Brasileira"
+      },
+      {
+        "title": "Genetic dissimilarity between sugarcane genotypes at different harvest period for brown sugar production",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:5awf1xo2G04C",
+        "citation_id": "QjxIJkcAAAAJ:5awf1xo2G04C",
+        "authors": "PJ de Melo, ADC Lúcio, EMJ Torres, MI Diel, T Olivoto, ...",
+        "publication": "Brazilian Journal of Biometrics 42 (1), 59-67, 2024",
+        "cited_by": {
+          "value": 1,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=202979412835149984",
+          "serpapi_link": "https://serpapi.com/search.json?cites=202979412835149984&engine=google_scholar&hl=pt-br",
+          "cites_id": "202979412835149984"
+        },
+        "year": "2024",
+        "doi": "10.28951/bjb.v42i1.651",
+        "doiLink": "https://doi.org/10.28951/bjb.v42i1.651",
+        "journalTitle": "Brazilian Journal of Biometrics"
+      },
+      {
+        "title": "Genetic parameters and genetic dissimilarity of Gower in black oat",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&pagesize=100&citation_for_view=QjxIJkcAAAAJ:HE397vMXCloC",
+        "citation_id": "QjxIJkcAAAAJ:HE397vMXCloC",
+        "authors": "LA Klein, VS Marchioro, M Toebe, T Olivoto, D Meira, C Meier, G Chitolina, ...",
+        "publication": "Ciência Rural 54 (1), e20220239, 2023",
+        "cited_by": {
+          "value": 1,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=9443031849285313166",
+          "serpapi_link": "https://serpapi.com/search.json?cites=9443031849285313166&engine=google_scholar&hl=pt-br",
+          "cites_id": "9443031849285313166"
+        },
+        "year": "2023",
+        "doi": "10.1590/0103-8478cr20220239",
+        "doiLink": "https://doi.org/10.1590/0103-8478cr20220239",
+        "journalTitle": "Ciência Rural"
+      },
+      {
+        "title": "New agricultural wheat frontier in Brazil: Envirotypes applied in the adaptability and stability of wheat genotypes in contrasting environments",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:bnK-pcrLprsC",
+        "citation_id": "QjxIJkcAAAAJ:bnK-pcrLprsC",
+        "authors": "CR Casagrande, HC Mezzomo, CV dos Santos, DJP se Sousa, ...",
+        "cited_by": {
+          "value": 1,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=18096658023003601378",
+          "serpapi_link": "https://serpapi.com/search.json?cites=18096658023003601378&engine=google_scholar&hl=pt-br",
+          "cites_id": "18096658023003601378"
+        },
+        "year": "2023",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "UFSMFW 2202-Early black oat cultivar for ground cover",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:J-pR_7NvFogC",
+        "citation_id": "QjxIJkcAAAAJ:J-pR_7NvFogC",
+        "authors": "VS Marchioro, D Meira, LA Klein, C Meier, VQ Souza, DN Follmann, ...",
+        "publication": "Crop Breeding and Applied Biotechnology 22 (4), e41572246, 2022",
+        "cited_by": {
+          "value": 1,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=13386724232903412845",
+          "serpapi_link": "https://serpapi.com/search.json?cites=13386724232903412845&engine=google_scholar&hl=pt-br",
+          "cites_id": "13386724232903412845"
+        },
+        "year": "2022",
+        "doi": "10.1590/1984-70332022v22n4c41",
+        "doiLink": "https://doi.org/10.1590/1984-70332022v22n4c41",
+        "journalTitle": "Crop Breeding and Applied Biotechnology"
+      },
+      {
+        "title": "Correlation and selection gains in F6 wheat genotypes",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:eflP2zaiRacC",
+        "citation_id": "QjxIJkcAAAAJ:eflP2zaiRacC",
+        "authors": "C Meier, VS Marchioro, T Olivoto, D Meira, LA Klein, VQ Souza",
+        "publication": "Revista Ceres 69 (5), 513-519, 2022",
+        "cited_by": {
+          "value": 1,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=17208579973141832816",
+          "serpapi_link": "https://serpapi.com/search.json?cites=17208579973141832816&engine=google_scholar&hl=pt-br",
+          "cites_id": "17208579973141832816"
+        },
+        "year": "2022",
+        "doi": "10.1590/0034-737X202269050003",
+        "doiLink": "https://doi.org/10.1590/0034-737X202269050003",
+        "journalTitle": "Revista Ceres"
+      },
+      {
+        "title": "Modelos multivariados na caracterização e seleção de genótipos superiores de aveia preta (Avena strigosa S.)",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:NJ774b8OgUMC",
+        "citation_id": "QjxIJkcAAAAJ:NJ774b8OgUMC",
+        "authors": "LA Klein, VS Marchioro, M Toebe, T Olivoto",
+        "cited_by": {
+          "value": 1,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=5910191815424083383",
+          "serpapi_link": "https://serpapi.com/search.json?cites=5910191815424083383&engine=google_scholar&hl=pt-br",
+          "cites_id": "5910191815424083383"
+        },
+        "year": "2022",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Supplementary Material for metan: an R package for multi-environment trial analysis",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:NaGl4SEjCO4C",
+        "citation_id": "QjxIJkcAAAAJ:NaGl4SEjCO4C",
+        "authors": "T Olivoto, ADC Lúcio",
+        "cited_by": {
+          "value": 1,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=3495285616056667880",
+          "serpapi_link": "https://serpapi.com/search.json?cites=3495285616056667880&engine=google_scholar&hl=pt-br",
+          "cites_id": "3495285616056667880"
+        },
+        "year": "2020",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Stability analysis in R using the WAASB index",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:bEWYMUwI8FkC",
+        "citation_id": "QjxIJkcAAAAJ:bEWYMUwI8FkC",
+        "authors": "T Olivoto",
+        "cited_by": {
+          "value": 1,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=7696769565205812685",
+          "serpapi_link": "https://serpapi.com/search.json?cites=7696769565205812685&engine=google_scholar&hl=pt-br",
+          "cites_id": "7696769565205812685"
+        },
+        "year": "2019",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Agronomic performance and linear correlation between yield traits in second-harvest soybean.",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:fQNAKQ3IYiAC",
+        "citation_id": "QjxIJkcAAAAJ:fQNAKQ3IYiAC",
+        "authors": "C Meier, D Meira, VS Marchioro, T Olivoto, LA Klein, ED Moro, A Lunkes, ...",
+        "cited_by": {
+          "value": 1,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=1487662400547934058",
+          "serpapi_link": "https://serpapi.com/search.json?cites=1487662400547934058&engine=google_scholar&hl=pt-br",
+          "cites_id": "1487662400547934058"
+        },
+        "year": "2019",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Crescimento de pepineiro híbrido japonês submetido à variação de temperatura e luminosidade",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:2osOgNQ5qMEC",
+        "citation_id": "QjxIJkcAAAAJ:2osOgNQ5qMEC",
+        "authors": "IR Carvalho, VQ de Souza, M Nardino, T Olivoto, D Schmidt",
+        "publication": "Ambiência 12 (2), 615-628, 2016",
+        "cited_by": {
+          "value": 1,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=13408466537831091801",
+          "serpapi_link": "https://serpapi.com/search.json?cites=13408466537831091801&engine=google_scholar&hl=pt-br",
+          "cites_id": "13408466537831091801"
+        },
+        "year": "2016",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Ambincia"
+      },
+      {
+        "title": "ASSOCIAÇÕES FENOTÍPICAS ENTRE CARACTERES FISIOLÓGICOS DA SOJA CONTRASTANTE AO HÁBITO DE CRESCIMENTO.",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:9yKSN-GCB0IC",
+        "citation_id": "QjxIJkcAAAAJ:9yKSN-GCB0IC",
+        "authors": "IR Carvalho, V Queiróz de Souza, M Nardino, D Nicolau Follmann, ...",
+        "publication": "Global Science & Technology 8 (3), 2015",
+        "cited_by": {
+          "value": 1,
+          "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=15245018878680194684",
+          "serpapi_link": "https://serpapi.com/search.json?cites=15245018878680194684&engine=google_scholar&hl=pt-br",
+          "cites_id": "15245018878680194684"
+        },
+        "year": "2015",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Global Science  Technology"
+      },
+      {
+        "title": "Historical shifts and ecological patterns: Rethinking genome size evolution in Coffea L.",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:VLnqNzywnoUC",
+        "citation_id": "QjxIJkcAAAAJ:VLnqNzywnoUC",
+        "authors": "SG Barbosa, MC Sattler, M Nardino, T Olivoto, K Yotoko",
+        "publication": "Journal of Evolutionary Biology, voag035, 2026",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2026",
+        "doi": "10.1093/jeb/voag035",
+        "doiLink": "https://doi.org/10.1093/jeb/voag035",
+        "journalTitle": "Journal of Evolutionary Biology"
+      },
+      {
+        "title": "Optimizing indirect selection of tropical wheat genotypes using high-throughput longitudinal phenotyping and trait relationships",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:35r97b3x0nAC",
+        "citation_id": "QjxIJkcAAAAJ:35r97b3x0nAC",
+        "authors": "CM e Silva, VS Signorini, HC Mezzomo, JPO Ribeiro, GW Lima, ...",
+        "publication": "Remote Sensing Applications: Society and Environment, 101892, 2026",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2026",
+        "doi": "10.1016/j.rsase.2026.101892",
+        "doiLink": "https://doi.org/10.1016/j.rsase.2026.101892",
+        "journalTitle": "Remote Sensing Applications: Society and Environment"
+      },
+      {
+        "title": "Multicharacteristic Selection of Purple-Flesh Sweetpotato Genotypes with High Productivity and Anthocyanin Content",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:tzM49s52ZIMC",
+        "citation_id": "QjxIJkcAAAAJ:tzM49s52ZIMC",
+        "authors": "JA Betancur González, A Junior Ribeiro, D Beise, EP Guerra, J Galina, ...",
+        "publication": "Horticulturae 11 (12), 1486, 2025",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2025",
+        "doi": "10.3390/horticulturae11121486",
+        "doiLink": "https://doi.org/10.3390/horticulturae11121486",
+        "journalTitle": "Horticulturae"
+      },
+      {
+        "title": "Diagrammatic scales use to improve the accuracy of the Grape Ripe Rot severity evaluations.",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:2KloaMYe4IUC",
+        "citation_id": "QjxIJkcAAAAJ:2KloaMYe4IUC",
+        "authors": "MR Burin, A Hilha, MA Dalbó, JEG Mueller, FB Orlandi, NCBB Alves, ...",
+        "publication": "Vitis 64, 2025",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2025",
+        "doi": "2-s2.0-105010151139",
+        "doiLink": "null",
+        "journalTitle": "VITIS - Journal of Grapevine Research"
+      },
+      {
+        "title": "Nitrogen management in golden and brown flax crops",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:UHK10RUVsp4C",
+        "citation_id": "QjxIJkcAAAAJ:UHK10RUVsp4C",
+        "authors": "DN Follmann, ADC Lucio, JP Velho, VS Marchioro, M Nardino, T Olivoto, ...",
+        "publication": "Australian Journal of Crop Science 18 (12), 831-836, 2024",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2024",
+        "doi": "2-s2.0-85214679967",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85214679967&partnerID=MN8TOARS",
+        "journalTitle": "Australian Journal of Crop Science"
+      },
+      {
+        "title": "Genotype-Environment Interaction in Brazilian Wheat: Insights from AMMI, Reml/Blup, Waasb, and Waasby Models",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:kzcrU_BdoSEC",
+        "citation_id": "QjxIJkcAAAAJ:kzcrU_BdoSEC",
+        "authors": "AL Tischler, ADC Lúcio, IC Maldaner, M Nardino, T Olivoto, MI s Diel, ...",
+        "publication": "ASA, CSSA, SSSA International Annual Meeting, 2024",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2024",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "ASA CSSA SSSA International Annual Meeting"
+      },
+      {
+        "title": "Respostas de cultivares de soja e otimização de população de milho em dois ambientes agrícolas contrastantes no Rio Grande do Sul",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:j8SEvjWlNXcC",
+        "citation_id": "QjxIJkcAAAAJ:j8SEvjWlNXcC",
+        "authors": "FA Baron, TJC Amado, EL Bottega, IR Carvalho, JD Martins, T Olivoto",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2024",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Classificação automatizada de cores de batata-doce (Ipomoea batatas. L) por modelos combinados de aprendizado de máquina",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:W5xh706n7nkC",
+        "citation_id": "QjxIJkcAAAAJ:W5xh706n7nkC",
+        "authors": "ML Machado, CEF Assoni, JEP Silva, FRM Bustamante, KS Tonet, ...",
+        "publication": "Ciência de Dados, estatística e pós-graduação: oportunidades e desafios, 2024",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2024",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Cincia de Dados estatstica e psgraduao oportunidades e desafios"
+      },
+      {
+        "title": "Agrupación de ambientes en respuesta al cultivo de genotipos de avena negra",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:_Ybze24A_UAC",
+        "citation_id": "QjxIJkcAAAAJ:_Ybze24A_UAC",
+        "authors": "VS Marchioro, LA Klein, D Meira, T Olivoto, M Toebe, ST Bairros, ...",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2024",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Clustering of environments in response to the cultivation of black oat genotypes",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:JQOojiI6XY0C",
+        "citation_id": "QjxIJkcAAAAJ:JQOojiI6XY0C",
+        "authors": "VS Marchioro, LA Klein, D Meira, T Olivoto, M Toebe, ST Bairros, ...",
+        "publication": "Agronomía Colombiana 42 (3), 2, 2024",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2024",
+        "doi": "2-s2.0-85218766885",
+        "doiLink": "https://doi.org/10.15446/agron.colomb.v42n3.114923",
+        "journalTitle": "Agronomía Colombiana"
+      },
+      {
+        "title": "Digital assessment of Helminthosporium disease in maize cultivation, in a subtropical environment in Brazil",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:hkOj_22Ku90C",
+        "citation_id": "QjxIJkcAAAAJ:hkOj_22Ku90C",
+        "authors": "OD Schlösser, DN Follmann, AC Pereira, AD Lúcio, ED dos Santos, ...",
+        "publication": "GENETICS AND MOLECULAR RESEARCH 23 (3), 2024",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2024",
+        "doi": "10.4238/gmr2356",
+        "doiLink": "https://doi.org/10.4238/gmr2356",
+        "journalTitle": "Genetics and Molecular Research"
+      },
+      {
+        "title": "Adaptabilidade e estabilidade de genótipos de aveia-preta com uso da análise GGE biplot",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:LjlpjdlvIbIC",
+        "citation_id": "QjxIJkcAAAAJ:LjlpjdlvIbIC",
+        "authors": "LA Klein, VS Marchioro, M Toebe, T Olivoto, D Meira, JV Alberti, ...",
+        "publication": "Pesquisa Agropecuária Brasileira 59, e03483, 2024",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2024",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Pesquisa Agropecuria Brasileira  e"
+      },
+      {
+        "title": "Parâmetros genéticos e dissimilaridade genética de Gower em aveia preta",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:WA5NYHcadZ8C",
+        "citation_id": "QjxIJkcAAAAJ:WA5NYHcadZ8C",
+        "authors": "LA Klein, VS Marchioro, M Toebe, T Olivoto, D Meira, C Meier, G Chitolina, ...",
+        "publication": "Ciência Rural 54, e20220239, 2024",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2024",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Cincia Rural  e"
+      },
+      {
+        "title": "Análise de trilha associado ao uso de fungicida em híbridos de milho",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:_B80troHkn4C",
+        "citation_id": "QjxIJkcAAAAJ:_B80troHkn4C",
+        "authors": "DN Follmann, HS Eggers, GB da Rosa, F Bolzan, ADC Lucio, ...",
+        "publication": "Agrária-Revista Brasileira de Ciências Agrárias 18 (4), e3003-e3003, 2023",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2023",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "AgrriaRevista Brasileira de Cincias Agrrias   ee"
+      },
+      {
+        "title": "Path analysis associated with fungicide use in corn hybrids.",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:JoZmwDi-zQgC",
+        "citation_id": "QjxIJkcAAAAJ:JoZmwDi-zQgC",
+        "authors": "D Nicolau Follmann, H Schaf Eggers, G Bergeijer da Rosa, F Bolzan, ...",
+        "publication": "Brazilian Journal of Agricultural Sciences/Revista Brasileira de Ciências …, 2023",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2023",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Brazilian Journal of Agricultural SciencesRevista Brasileira de Cincias"
+      },
+      {
+        "title": "Multi-trait selection for mean performance and stability of maize hybrids in mega-environments delineated",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:7T2F9Uy0os0C",
+        "citation_id": "QjxIJkcAAAAJ:7T2F9Uy0os0C",
+        "authors": "H Yue, T Olivoto, J Bu, J Li, J Wei, J Xie, S Chen, H Peng, M Nardino, ...",
+        "publication": "Nutrient Use Efficiency of Plants under Abiotic Stress, 20, 2023",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2023",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Nutrient Use Efficiency of Plants under Abiotic Stress"
+      },
+      {
+        "title": "UFSMFW 2101-very early black oat cultivar with high yield potential",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:olpn-zPbct0C",
+        "citation_id": "QjxIJkcAAAAJ:olpn-zPbct0C",
+        "authors": "VS Marchioro, D Meira, LA Klein, C Meier, VQ Souza, DN Follmann, ...",
+        "publication": "Crop Breeding and Applied Biotechnology 22 (4), e440222414, 2022",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2022",
+        "doi": "10.1590/1984-70332022v22n4c49",
+        "doiLink": "https://doi.org/10.1590/1984-70332022v22n4c49",
+        "journalTitle": "Crop Breeding and Applied Biotechnology"
+      },
+      {
+        "title": "Genetic parameters and selection of multiple traits in wheat genotypes.",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:9vf0nzSNQJEC",
+        "citation_id": "QjxIJkcAAAAJ:9vf0nzSNQJEC",
+        "authors": "C Meier, VS Marchioro, D Meira, T Olivoto, LA Klein",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2021",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Associação entre caracteres e seleção de híbridos de sorgo biomassa para produção de bioenergia",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:evX43VCCuoAC",
+        "citation_id": "QjxIJkcAAAAJ:evX43VCCuoAC",
+        "authors": "GMR Lombardi, JAR Nunes, RAC Parrella, FMA Gonçalves, T Olivoto, ...",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2021",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Parâmetros genéticos e seleção de múltiplas características em genótipos de trigo",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:uWQEDVKXjbEC",
+        "citation_id": "QjxIJkcAAAAJ:uWQEDVKXjbEC",
+        "authors": "C Meier, VS Marchioro, D Meira, T Olivoto, LA Klein",
+        "publication": "Pesquisa Agropecuária Tropical 51, e67996, 2021",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2021",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Pesquisa Agropecuria Tropical  e"
+      },
+      {
+        "title": "Análise multivariada revela divergência genética e características promissoras para seleção indireta em aveia preta",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:RGFaLdJalmkC",
+        "citation_id": "QjxIJkcAAAAJ:RGFaLdJalmkC",
+        "authors": "D Meira, C Meier, T Olivoto, DN Follmann, A Rigatti, A Lunkes, ...",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2021",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Produção de pimenta biquinho em diferentes épocas de cultivo caracterizadas pelo modelo logístico e seus pontos críticos",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:HoB7MX3m0LUC",
+        "citation_id": "QjxIJkcAAAAJ:HoB7MX3m0LUC",
+        "authors": "MI Diel, ADC Lúcio, OVS Valera, BG Sari, T Olivoto, MVM Pinheiro, ...",
+        "publication": "Ciência Rural 50, e20190477, 2020",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2020",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Cincia Rural  e"
+      },
+      {
+        "title": "Nonparametric confidence interval for correlation coefficient",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:tOudhMTPpwUC",
+        "citation_id": "QjxIJkcAAAAJ:tOudhMTPpwUC",
+        "authors": "T Olivoto",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2019",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Stability and mean performance based on multiple traits",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:TFP_iSt0sucC",
+        "citation_id": "QjxIJkcAAAAJ:TFP_iSt0sucC",
+        "authors": "T Olivoto",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2019",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Variabilidade produtiva, uso de bordadura e tamanho de parcela em ensaios com tomate cereja",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:fPk4N6BV_jEC",
+        "citation_id": "QjxIJkcAAAAJ:fPk4N6BV_jEC",
+        "authors": "D Santos, ADC Lúcio, SJ Lopes, A Cargnelutti Filho, T Olivoto",
+        "publication": "Ciência Rural 48, e20170310, 2018",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2018",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Cincia Rural  e"
+      },
+      {
+        "title": "Métodos de adaptabilidade e estabilidade aplicados ao melhoramento de eucalipto",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:dhFuZR0502QC",
+        "citation_id": "QjxIJkcAAAAJ:dhFuZR0502QC",
+        "authors": "OP Santos, IR Carvalho, M Nardino, T Olivoto, AJ Pelegrin, VJ Szareski, ...",
+        "publication": "Pesquisa Agropecuária Brasileira 53, 53-62, 2018",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2018",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Pesquisa Agropecuria Brasileira"
+      },
+      {
+        "title": "Variability and experimental desing for trials with Cucurbita pepo and Capsicum annuum.",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:YFjsv_pBGBYC",
+        "citation_id": "QjxIJkcAAAAJ:YFjsv_pBGBYC",
+        "authors": "AD Lúcio, D Santos, T Olivoto",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2017",
+        "doi": "10.5539/JAS.V9N11P58",
+        "doiLink": "https://doi.org/10.5539/JAS.V9N11P58",
+        "journalTitle": "Journal of Agricultural Science"
+      },
+      {
+        "title": "Viés associado ao arranjo de dados e tamanho amostral e suas implicações na acurácia da seleção indireta no melhoramento de plantas",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:r0BpntZqJG4C",
+        "citation_id": "QjxIJkcAAAAJ:r0BpntZqJG4C",
+        "authors": "T Olivoto, VQ Souza, VS Marchioro, MVM Pinheiro",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2017",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Japanese hybrid cucumber growth subjected to variation of temperature and luminosity.",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:_xSYboBqXhAC",
+        "citation_id": "QjxIJkcAAAAJ:_xSYboBqXhAC",
+        "authors": "IR Carvalho, VQ Souza, M Nardino, T Olivoto, D Schmidt",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2016",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "cualeóza",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:MXK_kJrjxJIC",
+        "citation_id": "QjxIJkcAAAAJ:MXK_kJrjxJIC",
+        "authors": "EDEFNAS COMHÁBITO, IR CARVALHO, VQ DE SOUZA, M NARDINO, ...",
+        "publication": "Revista SODEBRAS–Volume 10 (1), 2015",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2015",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "Revista SODEBRASVolume"
+      },
+      {
+        "title": "Path analysis associated with fungicide use in corn hybrids",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:uJ-U7cs_P_0C",
+        "citation_id": "QjxIJkcAAAAJ:uJ-U7cs_P_0C",
+        "authors": "DN Follmann, HS Eggers, GB da Rosa, F Bolzan, ADC Lucio, ...",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2000"
+      },
+      {
+        "title": "metan: an R package for multi-environment",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:uLbwQdceFCQC",
+        "citation_id": "QjxIJkcAAAAJ:uLbwQdceFCQC",
+        "authors": "T Olivoto, ADC Lúcio",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2000",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Evolução da área foliar de duas cultivares de linho revelada pelo modelo Logístico",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:V3AGJWp-ZtQC",
+        "citation_id": "QjxIJkcAAAAJ:V3AGJWp-ZtQC",
+        "authors": "FR de Matheus Bustamante, AM Trois, PRO Sousa, T Olivoto",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2000",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Selection gain and interrelations between agronomic traits in wheat F",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:kRWSkSYxWN8C",
+        "citation_id": "QjxIJkcAAAAJ:kRWSkSYxWN8C",
+        "authors": "C Meier, D Meira, VS Marchioro, T Olivoto, LA Klein, VQ de Souza",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2000",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Relationship between morphoagronomic characteristics in tomato hybrids Relación entre caracteres morfoagronómicos en híbridos de tomate",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:B3FOqHPlNUQC",
+        "citation_id": "QjxIJkcAAAAJ:B3FOqHPlNUQC",
+        "authors": "MI DIEL, DT ZAMBAN, T OLIVOTO, DK KRYSCZUN, MVM PINHEIRO, ...",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2000",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "QUALIDADE FISIOLÓGICA DE SEMENTES DE SOJA COM HÁBITO DE CRESCIMENTO DETERMINADO1",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:738O_yMBCRsC",
+        "citation_id": "QjxIJkcAAAAJ:738O_yMBCRsC",
+        "authors": "ADB Silva, T Olivoto, IR Carvalho, A Rigatti, A Lunkes, M Nardino, ...",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2000",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Indexes for simultaneous selection",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:XiSMed-E-HIC",
+        "citation_id": "QjxIJkcAAAAJ:XiSMed-E-HIC",
+        "authors": "T Olivoto",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2000",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Useful functions for biometrical models",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:u9iWguZQMMsC",
+        "citation_id": "QjxIJkcAAAAJ:u9iWguZQMMsC",
+        "authors": "T Olivoto",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2000",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Analyzing multienvironment trials using AMMI",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:p2g8aNsByqUC",
+        "citation_id": "QjxIJkcAAAAJ:p2g8aNsByqUC",
+        "authors": "T Olivoto",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2000",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Parametric and non-parametric stability statistics",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:OU6Ihb5iCvQC",
+        "citation_id": "QjxIJkcAAAAJ:OU6Ihb5iCvQC",
+        "authors": "T Olivoto",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2000",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Supporting Informatin for MGIDI: towards an effective multivariate selection in biological experiments",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:b0M2c_1WBrUC",
+        "citation_id": "QjxIJkcAAAAJ:b0M2c_1WBrUC",
+        "authors": "T Olivoto, M Nardino",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2000",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Supporting Informatin for ‘MGIDI: a novel multi-trait index for genotype selection in plant breeding’",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:pyW8ca7W8N0C",
+        "citation_id": "QjxIJkcAAAAJ:pyW8ca7W8N0C",
+        "authors": "T Olivoto, M Nardino",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2000",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "MGIDI: a novel multi-trait index for genotype selection",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:a0OBvERweLwC",
+        "citation_id": "QjxIJkcAAAAJ:a0OBvERweLwC",
+        "authors": "T Olivoto, M Nardino",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2000",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Supplementary Material for MGIDI: a novel multi-trait index for genotype selection in plant breeding",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:cFHS6HbyZ2cC",
+        "citation_id": "QjxIJkcAAAAJ:cFHS6HbyZ2cC",
+        "authors": "T Olivoto, M Nardino",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2000",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Multi-environment Trial Analysis",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:4OULZ7Gr8RgC",
+        "citation_id": "QjxIJkcAAAAJ:4OULZ7Gr8RgC",
+        "authors": "T Olivoto",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2000",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Software R para avaliação de dados experimentais",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:hFOr9nPyWt4C",
+        "citation_id": "QjxIJkcAAAAJ:hFOr9nPyWt4C",
+        "authors": "BG Sari, T Olivoto",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2000",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": null
+      },
+      {
+        "title": "Resíduos orgânicos utilizados como alternativa para a produção de morango em substratos",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:hC7cP41nSMkC",
+        "citation_id": "QjxIJkcAAAAJ:hC7cP41nSMkC",
+        "authors": "MI DIEL, ADC LÚCIO, D SCHMIDT, L Antonio, MVMP THIESEN, ...",
+        "publication": "XII ENCONTRO BRASILEIRO DE HIDROPONIA IV SIMPÓSIO BRASILEIRO DE HIDROPONIA, 82, 0",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2000",
+        "doi": "null",
+        "doiLink": "null",
+        "journalTitle": "XII ENCONTRO BRASILEIRO DE HIDROPONIA IV SIMPSIO BRASILEIRO DE HIDROPONIA"
+      }
+    ]
+  }
+}
