@@ -12,3 +12,4 @@ write_md.R
 .env
 node_modules/
 sort_authors_by_name.R
+keys.json
