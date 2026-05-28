@@ -354,5 +354,29 @@
     },
     "status": "active",
     "weight": 1
+  },
+  {
+    "id": "felipe_rosauro_de_matheus_bustamante",
+    "name": "Felipe Rosauro de Matheus Bustamante",
+    "role": "Aluno de Graduação",
+    "group": "Ex-alunos",
+    "bio": {
+      "pt": "Engenheiro Agrônomo pela Universidade Federal de Santa Catarina (2021-2025)",
+      "en": "",
+      "es": ""
+    },
+    "photo": "img/members/member_1747616465819_j_1780000611446.jpg",
+    "email": "",
+    "interests": [],
+    "links": {
+      "lattes": "http://lattes.cnpq.br/1594696248936082",
+      "linkedin": "https://www.linkedin.com/in/felipe-rosauro-3133bb1a7/",
+      "github": "",
+      "researchgate": "",
+      "orcid": "",
+      "scholar": ""
+    },
+    "status": "active",
+    "weight": 50
   }
 ]
