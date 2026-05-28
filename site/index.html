@@ -19,7 +19,7 @@
   <!-- Academicons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" rel="stylesheet">
   <!-- Custom CSS -->
-  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/styles.css?v=2" rel="stylesheet">
 </head>
 <body>
 
@@ -122,114 +122,33 @@
       </div>
 
       <div class="about-tabs fade-in-up">
-        <!-- Tab navigation -->
-        <ul class="nav nav-pills justify-content-center mb-4" id="aboutTabs" role="tablist">
+        <!-- Tab navigation as links -->
+        <ul class="nav nav-pills justify-content-center mb-4" id="aboutTabs">
           <li class="nav-item">
-            <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-group" type="button" data-i18n="about.tab_group">O Grupo</button>
+            <a class="nav-link active" href="#about" data-i18n="about.tab_group">O Grupo</a>
           </li>
           <li class="nav-item">
-            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-mission" type="button" data-i18n="about.tab_mission">Missão</button>
+            <a class="nav-link" href="institucional.html?tab=structure" data-i18n="about.tab_structure">Estrutura</a>
           </li>
           <li class="nav-item">
-            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-vision" type="button" data-i18n="about.tab_vision">Visão</button>
+            <a class="nav-link" href="institucional.html?tab=regimento">Regimento</a>
           </li>
           <li class="nav-item">
-            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-structure" type="button" data-i18n="about.tab_structure">Estrutura</button>
+            <a class="nav-link" href="institucional.html?tab=visual">Identidade Visual</a>
           </li>
         </ul>
 
-        <!-- Tab content -->
-        <div class="tab-content">
-          <!-- The Group -->
-          <div class="tab-pane fade show active" id="tab-group">
-            <div class="about-content-area">
-              <div class="row align-items-center">
-                <div class="col-lg-12">
-                  <h4 class="mb-3 text-gradient">NEPEM — Núcleo de Estudos e Pesquisas em Experimentação e Melhoramento Vegetal</h4>
-                  <p class="lead" data-i18n="about.group_text" style="font-size:1rem; line-height:1.9;">O NEPEM é um Núcleo vinculado ao Departamento de Fitotecnia do Centro de Ciências Agrárias da Universidade Federal de Santa Catarina (UFSC), campus Florianópolis.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Mission -->
-          <div class="tab-pane fade" id="tab-mission">
-            <div class="about-content-area">
-              <h4 class="mb-4 text-gradient" data-i18n="about.mission_title">Objetivos do NEPEM</h4>
-              <div class="mission-item">
-                <div class="mission-icon"><i class="bi bi-mortarboard"></i></div>
-                <div>
-                  <h5 data-i18n="about.mission_1">Formação de Recursos Humanos Qualificados</h5>
-                  <p data-i18n="about.mission_1_desc">Capacitar estudantes e profissionais nas áreas de melhoramento genético.</p>
-                </div>
-              </div>
-              <div class="mission-item">
-                <div class="mission-icon"><i class="bi bi-flower1"></i></div>
-                <div>
-                  <h5 data-i18n="about.mission_2">Melhoramento Genético de Culturas</h5>
-                  <p data-i18n="about.mission_2_desc">Desenvolvimento de novas variedades de plantas.</p>
-                </div>
-              </div>
-              <div class="mission-item">
-                <div class="mission-icon"><i class="bi bi-graph-up"></i></div>
-                <div>
-                  <h5 data-i18n="about.mission_3">Experimentação de Campo</h5>
-                  <p data-i18n="about.mission_3_desc">Condução de experimentos de campo.</p>
-                </div>
-              </div>
-              <div class="mission-item">
-                <div class="mission-icon"><i class="bi bi-cpu"></i></div>
-                <div>
-                  <h5 data-i18n="about.mission_4">Fenotipagem Digital</h5>
-                  <p data-i18n="about.mission_4_desc">Aplicação de IA e Sensoriamento Remoto.</p>
-                </div>
-              </div>
-              <div class="mission-item">
-                <div class="mission-icon"><i class="bi bi-code-square"></i></div>
-                <div>
-                  <h5 data-i18n="about.mission_5">Desenvolvimento de Aplicativos</h5>
-                  <p data-i18n="about.mission_5_desc">Criação de ferramentas digitais.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Vision -->
-          <div class="tab-pane fade" id="tab-vision">
-            <div class="about-content-area">
-              <div class="text-center mb-4">
-                <i class="bi bi-eye-fill" style="font-size:3rem; color:var(--nepem-green)"></i>
-              </div>
-              <p class="lead text-center" data-i18n="about.vision_text" style="font-size:1.05rem; line-height:1.9; max-width:800px; margin:0 auto;">O NEPEM visa ser uma referência nacional e internacional no melhoramento genético de culturas funcionais.</p>
-            </div>
-          </div>
-
-          <!-- Structure -->
-          <div class="tab-pane fade" id="tab-structure">
-            <div class="about-content-area">
-              <p class="mb-4" data-i18n="about.structure_text">A estrutura organizacional do NEPEM é composta por uma Coordenadoria Geral, uma Coordenadoria Científica e Assessorias de Apoio.</p>
-              <div class="row g-3">
-                <div class="col-md-4">
-                  <div class="axis-card">
-                    <div class="axis-icon"><i class="bi bi-flower1"></i></div>
-                    <h5 data-i18n="about.axis_breeding">Melhoramento</h5>
-                    <p class="text-secondary small" data-i18n="about.axis_breeding_desc">Desenvolvimento de espécies funcionais e inovação agrícola.</p>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="axis-card">
-                    <div class="axis-icon"><i class="bi bi-clipboard-data"></i></div>
-                    <h5 data-i18n="about.axis_experimentation">Experimentação</h5>
-                    <p class="text-secondary small" data-i18n="about.axis_experimentation_desc">Experimentos de campo e bibliotecas open-source.</p>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="axis-card">
-                    <div class="axis-icon"><i class="bi bi-robot"></i></div>
-                    <h5 data-i18n="about.axis_technology">Tecnologia</h5>
-                    <p class="text-secondary small" data-i18n="about.axis_technology_desc">Fenotipagem de alto rendimento e análise de dados.</p>
-                  </div>
-                </div>
+        <!-- Content -->
+        <div class="about-content-area">
+          <div class="row align-items-center">
+            <div class="col-lg-12 text-center">
+              <h4 class="mb-4 text-gradient">NEPEM — Núcleo de Estudos e Pesquisas em Experimentação e Melhoramento Vegetal</h4>
+              <p class="lead" data-i18n="about.group_text" style="font-size:1.05rem; line-height:1.9; max-width: 800px; margin: 0 auto;">O NEPEM é um Núcleo vinculado ao Departamento de Fitotecnia do Centro de Ciências Agrárias da Universidade Federal de Santa Catarina (UFSC), campus Florianópolis.</p>
+              
+              <div class="mt-5">
+                <a href="institucional.html?tab=structure" class="btn btn-nepem-outline" style="color: var(--text-accent); border-color: var(--text-accent);">
+                  Conheça nossa Estrutura <i class="bi bi-arrow-right ms-2"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -427,6 +346,20 @@
     </div>
   </div>
 
+  <!-- Member Details Modal -->
+  <div class="modal fade" id="memberModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content glass-card" style="border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-primary); border-radius: var(--radius-lg);">
+        <div class="modal-header border-0 pb-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(var(--text-primary));"></button>
+        </div>
+        <div class="modal-body text-center pt-0 px-4 pb-4" id="memberModalBody">
+          <!-- Dynamically rendered member details -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ========== CONTACT ========== -->
   <section id="contact" class="section-nepem bg-alt">
     <div class="container">
@@ -527,10 +460,10 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="js/i18n.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/members.js"></script>
-  <script src="js/publications.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/i18n.js?v=2"></script>
+  <script src="js/theme.js?v=2"></script>
+  <script src="js/members.js?v=2"></script>
+  <script src="js/publications.js?v=2"></script>
+  <script src="js/app.js?v=2"></script>
 </body>
 </html>
