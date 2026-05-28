@@ -62,7 +62,7 @@
     "role": "Graduando em Agronomia",
     "group": "Estudantes de Graduação",
     "bio": {
-      "pt": "Graduando em Agronomia na UFSC, com experiência em bioestimulação vegetal, cadeias agrícolas de commodities, consultoria em agronegócio, pesquisas em experimentação e melhoramento vegetal da cultura da linhaça.",
+      "pt": "Graduando em Agronomia na UFSC, com experiência em bioestimulação vegetal, cadeias agrícolas de commodities, consultoria em agronegócio, pesquisas em experimentação e melhoramento vegetal da cultura da linhaça",
       "en": "Undergraduate student in Agronomy at UFSC, with experience in plant biostimulation, agricultural commodity chains, agribusiness consulting, and research in experimentation and plant breeding of flaxseed.",
       "es": "Estudiante de Agronomía en la UFSC, con experiencia en bioestimulación vegetal, cadenas agrícolas de commodities, consultoría en agronegocios e investigación en experimentación y mejoramiento vegetal del cultivo de lino."
     },
@@ -76,8 +76,11 @@
     ],
     "links": {
       "lattes": "https://lattes.cnpq.br/4322250654654174",
+      "linkedin": "https://www.linkedin.com/in/carlos-eduardo-forcelini-assoni-50b78a26a/",
+      "github": "",
       "researchgate": "https://www.researchgate.net/profile/Carlos-Eduardo-Forcelni-Assoni",
-      "linkedin": "https://www.linkedin.com/in/carlos-eduardo-forcelini-assoni-50b78a26a/"
+      "orcid": "",
+      "scholar": ""
     },
     "status": "active",
     "weight": 1
@@ -165,7 +168,7 @@
   },
   {
     "id": "isabella_stefani_lisboa_da_costa",
-    "name": "Isabella Stefani Lisboa Da Cost",
+    "name": "Isabella Stefani Lisboa Da Costa",
     "role": "Graduando em Agronomia",
     "group": "Estudantes de Graduação",
     "bio": {
