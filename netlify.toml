@@ -1,12 +1,7 @@
 [build]
+  base = "."
   command = "echo 'Deploying static site...'"
   publish = "site"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  conditions = {Role = ["admin"]}
 
 [[headers]]
   for = "/*"
