@@ -500,6 +500,7 @@ const AdminModule = (() => {
     localStorage.setItem('nepem-publications-v4', JSON.stringify(pubs));
     editingId = null;
     renderTab('publications');
+    syncToGithub('publications');
   }
 
   /* ---- MEMBERS ---- */
@@ -757,6 +758,7 @@ const AdminModule = (() => {
     localStorage.setItem('nepem-members', JSON.stringify(members));
     editingId = null;
     renderTab('members');
+    syncToGithub('members');
   }
 
   /* ---- PROJECTS ---- */
@@ -945,6 +947,7 @@ const AdminModule = (() => {
     localStorage.setItem('nepem-projects', JSON.stringify(projects));
     editingId = null;
     renderTab('projects');
+    syncToGithub('projects');
   }
 
   /* ---- BLOG POSTS ---- */
@@ -1142,6 +1145,7 @@ const AdminModule = (() => {
     localStorage.setItem('nepem-posts', JSON.stringify(posts));
     editingId = null;
     renderTab('posts');
+    syncToGithub('posts');
   }
 
   function insertFormat(tag) {
@@ -1242,15 +1246,9 @@ const AdminModule = (() => {
     const file = event.target.files[0];
     if (!file) return;
 
-    // File size check (limit to 1MB to avoid bloated localStorage)
-    if (file.size > 1024 * 1024) {
-      alert("A imagem selecionada é muito grande! Por favor, escolha uma imagem de até 1MB para evitar sobrecarregar o armazenamento do navegador.");
-      return;
-    }
+    const MAX_SIZE = 1024 * 1024; // 1MB limit for localStorage
 
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const base64 = e.target.result;
+    const processBase64 = (base64) => {
       if (type === 'member') {
         const input = document.getElementById('memberPhoto');
         const img = document.getElementById('memberPhotoImg');
@@ -1274,7 +1272,108 @@ const AdminModule = (() => {
         if (preview) preview.style.display = 'block';
       }
     };
-    reader.readAsDataURL(file);
+
+    const resizeImage = (fileToProcess) => {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(fileToProcess);
+        reader.onload = (e) => {
+          if (fileToProcess.size <= MAX_SIZE) {
+            resolve(e.target.result);
+            return;
+          }
+          
+          const img = new Image();
+          img.src = e.target.result;
+          img.onerror = () => {
+             alert("O formato dessa imagem não é suportado pelo navegador ou o arquivo está corrompido. Tente enviar como JPG ou PNG.");
+             resolve(null);
+          };
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Calculate new dimensions (max 800px width/height for reasonable quality)
+            const MAX_DIM = 800;
+            let width = img.width;
+            let height = img.height;
+            
+            if (width > height) {
+              if (width > MAX_DIM) {
+                height = Math.round(height *= MAX_DIM / width);
+                width = MAX_DIM;
+              }
+            } else {
+              if (height > MAX_DIM) {
+                width = Math.round(width *= MAX_DIM / height);
+                height = MAX_DIM;
+              }
+            }
+            
+            canvas.width = width;
+            canvas.height = height;
+            ctx.drawImage(img, 0, 0, width, height);
+            
+            let quality = 0.8;
+            let compressedBase64 = canvas.toDataURL('image/jpeg', quality);
+            
+            let currentWidth = width;
+            let currentHeight = height;
+            
+            // Força a compressão iterativa até que caiba no limite de 1MB (considerando o overhead do Base64)
+            while (compressedBase64.length > MAX_SIZE * 1.37) {
+              if (quality > 0.4) {
+                quality -= 0.15;
+              } else {
+                currentWidth = Math.floor(currentWidth * 0.8);
+                currentHeight = Math.floor(currentHeight * 0.8);
+                canvas.width = currentWidth;
+                canvas.height = currentHeight;
+                ctx.drawImage(img, 0, 0, currentWidth, currentHeight);
+              }
+              compressedBase64 = canvas.toDataURL('image/jpeg', quality);
+            }
+            
+            resolve(compressedBase64);
+          };
+        };
+      });
+    };
+
+    const isHeic = file.type === "image/heic" || file.type === "image/heif" || file.name.toLowerCase().endsWith('.heic');
+
+    if (isHeic) {
+      alert("Formato HEIC (iPhone) detectado. O sistema vai converter automaticamente para JPG, isso pode levar alguns segundos...");
+      if (!window.heic2any) {
+        const script = document.createElement('script');
+        script.src = "https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js";
+        script.onload = () => runHeicConversion(file);
+        document.head.appendChild(script);
+      } else {
+        runHeicConversion(file);
+      }
+    } else {
+      resizeImage(file).then(base64 => {
+        if (base64) processBase64(base64);
+      });
+    }
+
+    function runHeicConversion(heicFile) {
+      heic2any({
+        blob: heicFile,
+        toType: "image/jpeg",
+        quality: 0.8
+      }).then((conversionResult) => {
+        let blob = Array.isArray(conversionResult) ? conversionResult[0] : conversionResult;
+        let newFile = new File([blob], heicFile.name.replace(/\.heic$/i, ".jpg"), { type: "image/jpeg" });
+        resizeImage(newFile).then(base64 => {
+          if (base64) processBase64(base64);
+        });
+      }).catch((e) => {
+        console.error(e);
+        alert("Erro ao converter arquivo HEIC. Por favor, converta manualmente para JPG ou PNG e tente novamente.");
+      });
+    }
   }
 
   /* ---- COMMON ---- */
@@ -1291,6 +1390,7 @@ const AdminModule = (() => {
     const filtered = items.filter(item => item.id !== id);
     localStorage.setItem(key, JSON.stringify(filtered));
     renderTab(currentTab);
+    syncToGithub(type);
   }
 
   function editItem(type, id) {
@@ -1367,6 +1467,115 @@ const AdminModule = (() => {
     }
   }
 
+  /* ---- GITHUB SYNC ---- */
+  function openGithubSettings() {
+    const config = JSON.parse(localStorage.getItem('nepem-github-config') || '{}');
+    if (config.token) document.getElementById('ghToken').value = config.token;
+    if (config.owner) document.getElementById('ghOwner').value = config.owner;
+    if (config.repo) document.getElementById('ghRepo').value = config.repo;
+    if (config.branch) document.getElementById('ghBranch').value = config.branch;
+    
+    new bootstrap.Modal(document.getElementById('githubConfigModal')).show();
+  }
+
+  function saveGithubSettings(e) {
+    e.preventDefault();
+    const config = {
+      token: document.getElementById('ghToken').value.trim(),
+      owner: document.getElementById('ghOwner').value.trim(),
+      repo: document.getElementById('ghRepo').value.trim(),
+      branch: document.getElementById('ghBranch').value.trim()
+    };
+    localStorage.setItem('nepem-github-config', JSON.stringify(config));
+    bootstrap.Modal.getInstance(document.getElementById('githubConfigModal')).hide();
+    alert('Configurações do GitHub salvas com sucesso! As próximas edições farão commit automático.');
+  }
+
+  function clearGithubSettings() {
+    if (confirm('Deseja realmente desvincular sua conta do GitHub? O auto-save deixará de funcionar.')) {
+      localStorage.removeItem('nepem-github-config');
+      bootstrap.Modal.getInstance(document.getElementById('githubConfigModal')).hide();
+      alert('Configurações removidas. O sistema voltará a baixar o JSON no seu computador ao salvar.');
+    }
+  }
+
+  async function syncToGithub(type) {
+    const configStr = localStorage.getItem('nepem-github-config');
+    if (!configStr) {
+      exportData(type);
+      return;
+    }
+
+    const config = JSON.parse(configStr);
+    if (!config.token || !config.owner || !config.repo) {
+      exportData(type);
+      return;
+    }
+
+    // Prepare data
+    const key = type === 'publications' ? 'nepem-publications-v4' : `nepem-${type}`;
+    const data = localStorage.getItem(key) || '[]';
+    const formattedData = JSON.stringify(JSON.parse(data), null, 2);
+    
+    // GitHub API requires Base64 encoded content
+    const contentEncoded = btoa(unescape(encodeURIComponent(formattedData)));
+    const path = `site/data/${type}.json`;
+    const url = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${path}`;
+    
+    showToast(`Sincronizando ${type} com o GitHub...`);
+
+    try {
+      // 1. Get current SHA
+      let currentSha = null;
+      const getRes = await fetch(`${url}?ref=${config.branch}`, {
+        headers: { 'Authorization': `token ${config.token}`, 'Accept': 'application/vnd.github.v3+json' }
+      });
+      
+      if (getRes.ok) {
+        const fileInfo = await getRes.json();
+        currentSha = fileInfo.sha;
+      } else if (getRes.status !== 404) {
+        throw new Error(`Erro ao acessar GitHub: ${getRes.statusText}`);
+      }
+
+      // 2. Update File
+      const putRes = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `token ${config.token}`,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: `Auto-update ${type}.json via Admin Panel`,
+          content: contentEncoded,
+          sha: currentSha, // Required if file exists
+          branch: config.branch
+        })
+      });
+
+      if (!putRes.ok) {
+        const errorData = await putRes.json();
+        throw new Error(errorData.message || 'Erro desconhecido');
+      }
+
+      showToast(`Sucesso! Atualizado no GitHub (${type}).`);
+    } catch (err) {
+      console.error(err);
+      alert(`Falha ao sincronizar com o GitHub: ${err.message}\nBaixando o arquivo localmente como plano B.`);
+      exportData(type);
+    }
+  }
+
+  function showToast(msg) {
+    const toastEl = document.getElementById('githubToast');
+    const msgEl = document.getElementById('githubToastMsg');
+    if (toastEl && msgEl) {
+      msgEl.textContent = msg;
+      new bootstrap.Toast(toastEl).show();
+    }
+  }
+
   return {
     init, setTab,
     showPubForm, savePub,
@@ -1376,6 +1585,7 @@ const AdminModule = (() => {
     deleteItem, editItem, filterTable,
     exportData, importData, resetToDefault,
     handlePhotoUpload, handleLogin,
-    insertFormat, updatePostPreview
+    insertFormat, updatePostPreview,
+    openGithubSettings, saveGithubSettings, clearGithubSettings
   };
 })();

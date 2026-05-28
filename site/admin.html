@@ -63,6 +63,10 @@
               <button class="nav-link" data-tab="posts" onclick="AdminModule.setTab('posts')">
                 <i class="bi bi-postcard me-2"></i><span>Blog / Postagens</span>
               </button>
+              <hr class="text-secondary opacity-25">
+              <button class="nav-link text-info" onclick="AdminModule.openGithubSettings()">
+                <i class="bi bi-github me-2"></i><span>Sincronização GitHub</span>
+              </button>
             </nav>
           </div>
 
@@ -105,5 +109,61 @@
       AdminModule.init();
     });
   </script>
+
+  <!-- GitHub Settings Modal -->
+  <div class="modal fade" id="githubConfigModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header border-bottom-0">
+          <h5 class="modal-title"><i class="bi bi-github me-2"></i>Sincronização com o GitHub</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="githubConfigForm" onsubmit="AdminModule.saveGithubSettings(event)">
+            <p class="small text-secondary mb-4">Insira os dados do seu repositório. O token de acesso ficará salvo <strong>apenas no seu navegador local</strong>. Quando preenchido, os itens criados ou editados no painel serão atualizados automaticamente direto no site.</p>
+            
+            <div class="mb-3">
+              <label class="form-label small">GitHub Token (Classic com escopo 'repo')</label>
+              <input type="password" id="ghToken" class="form-control form-control-nepem" placeholder="ghp_xxxxxxxxxxxxxxxxxxxxx" required>
+            </div>
+            
+            <div class="row mb-3">
+              <div class="col-6">
+                <label class="form-label small">Owner (Dono/Organização)</label>
+                <input type="text" id="ghOwner" class="form-control form-control-nepem" placeholder="Ex: NEPEM-UFSC" value="NEPEM-UFSC" required>
+              </div>
+              <div class="col-6">
+                <label class="form-label small">Repositório</label>
+                <input type="text" id="ghRepo" class="form-control form-control-nepem" placeholder="Ex: nepem" value="nepem" required>
+              </div>
+            </div>
+            
+            <div class="mb-4">
+              <label class="form-label small">Branch (ramificação principal)</label>
+              <input type="text" id="ghBranch" class="form-control form-control-nepem" placeholder="Ex: main" value="main" required>
+            </div>
+
+            <div class="d-flex gap-2 justify-content-end">
+              <button type="button" class="btn btn-outline-danger" onclick="AdminModule.clearGithubSettings()">Desvincular</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-nepem-primary">Salvar Credenciais</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
+    <div id="githubToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="githubToastMsg">
+          Sincronizando com GitHub...
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
