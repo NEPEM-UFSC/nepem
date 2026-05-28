@@ -134,6 +134,13 @@ const App = (() => {
       console.error('Failed to load projects:', e);
     }
     renderProjects();
+    
+    // Set dynamic 3D badge count
+    const badge = document.getElementById('badgeProjectsCount');
+    if (badge) {
+      badge.textContent = projects.length;
+    }
+
     document.addEventListener('langChanged', () => renderProjects());
   }
 
@@ -259,6 +266,12 @@ const BlogModule = (() => {
       posts = [];
     }
     renderGrid();
+    
+    // Set dynamic 3D badge count
+    const badge = document.getElementById('badgePostsCount');
+    if (badge) {
+      badge.textContent = posts.length;
+    }
   }
 
   function renderGrid() {
@@ -511,6 +524,12 @@ const ScholarStats = (() => {
     const pubTotalCountHeader = document.getElementById('pubTotalCountHeader');
     if (pubTotalCountHeader) {
       updateElementText(pubTotalCountHeader, `${formattedWorks}+`);
+    }
+
+    // Set dynamic 3D badge count
+    const badgePubs = document.getElementById('badgePublicationsCount');
+    if (badgePubs) {
+      badgePubs.textContent = stats.worksCount;
     }
   }
 

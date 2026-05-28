@@ -1,0 +1,355 @@
+[
+  {
+    "id": "tiago_olivoto",
+    "name": "Tiago Olivoto",
+    "role": "Professor Adjunto — Coordenador Geral",
+    "group": "Coordenador geral",
+    "bio": {
+      "pt": "Engenheiro Agrônomo pela Universidade do Oeste de Santa Catarina (2014), Mestre e Doutor em Agronomia pela UFSM. Professor Adjunto no Departamento de Fitotecnia da UFSC, onde coordena o Programa de Melhoramento Genético de Linhaça do NEPEM. Pesquisas focadas em Estatística Experimental, Biometria e fenotipagem de alto rendimento. Desenvolvedor dos pacotes metan, pliman e plimanshiny.",
+      "en": "Agricultural Engineer from the University of Western Santa Catarina (2014), Master's and PhD in Agronomy from UFSM. Adjunct Professor at the UFSC Department of Crop Science, where he coordinates the NEPEM Flaxseed Breeding Program. Research focused on Experimental Statistics, Biometrics, and high-throughput phenotyping. Developer of the metan, pliman, and plimanshiny R packages.",
+      "es": "Ingeniero Agrónomo por la Universidad del Oeste de Santa Catarina (2014), Máster y Doctor en Agronomía por la UFSM. Profesor Adjunto en el Departamento de Fitotecnia de la UFSC, donde coordina el Programa de Mejoramiento Genético de Lino del NEPEM. Investigación enfocada en Estadística Experimental, Biometría y fenotipado de alto rendimiento. Desarrollador de los paquetes metan, pliman y plimanshiny."
+    },
+    "photo": "img/members/member_avatar_jpeg_1779995840425.jpg",
+    "email": "tiago.olivoto@ufsc.br",
+    "interests": [
+      "Plant Breeding",
+      "High-throughput Phenotyping",
+      "Experimental Statistics"
+    ],
+    "links": {
+      "lattes": "http://lattes.cnpq.br/2432360896340086",
+      "linkedin": "https://www.linkedin.com/in/tiago-olivoto-49060531/",
+      "github": "https://github.com/TiagoOlivoto",
+      "researchgate": "https://www.researchgate.net/profile/Tiago_Olivoto2",
+      "orcid": "https://orcid.org/0000-0002-0241-9636",
+      "scholar": "https://scholar.google.com/citations?user=QjxIJkcAAAAJ&hl=pt-BR"
+    },
+    "status": "active",
+    "weight": 1
+  },
+  {
+    "id": "leonardo_campos",
+    "name": "Leonardo Talavera Campos",
+    "role": "Pós-Doutorando",
+    "group": "Estudantes de Pós-Doutorado",
+    "bio": {
+      "pt": "Engenheiro Agrônomo formado pela UFRGS, Doutor em Ciências pela UFPel em Zootecnia com ênfase em Melhoramento Animal. Mestrado Profissional em Métodos e Gestão em Avaliação pela UFSC e MBA em Data Science e Analytics. Atualmente realiza Estágio de Pós-Doutorado em Recursos Genéticos Vegetais na UFSC/NEPEM.",
+      "en": "Agricultural Engineer from UFRGS, PhD in Sciences from UFPel in Animal Science with emphasis on Animal Breeding. Professional Master's in Methods and Management in Evaluation from UFSC and MBA in Data Science and Analytics. Currently doing a Postdoctoral Fellowship in Plant Genetic Resources at UFSC/NEPEM.",
+      "es": "Ingeniero Agrónomo de la UFRGS, Doctor en Ciencias por la UFPel en Zootecnia con énfasis en Mejoramiento Animal. Maestría Profesional en Métodos y Gestión en Evaluación por la UFSC y MBA en Data Science y Analytics. Actualmente realiza Pasantía de Postdoctorado en Recursos Genéticos Vegetales en la UFSC/NEPEM."
+    },
+    "photo": "img/members/leonardo_campos.jpg",
+    "email": "leonardo.campos@ifc.edu.br",
+    "interests": [
+      "Biostatistics and Experimentation",
+      "High-throughput Phenotyping",
+      "Plant and Animal Breeding",
+      "Data Science"
+    ],
+    "links": {
+      "lattes": "http://lattes.cnpq.br/5406295733742944",
+      "linkedin": "https://www.linkedin.com/in/leonardo-campos-a5b684212/",
+      "github": "https://github.com/ltcampos",
+      "researchgate": "",
+      "orcid": "",
+      "scholar": ""
+    },
+    "status": "active",
+    "weight": 1
+  },
+  {
+    "id": "cadu_assoni",
+    "name": "Carlos Eduardo Forcelini Assoni",
+    "role": "Graduando em Agronomia",
+    "group": "Estudantes de Graduação",
+    "bio": {
+      "pt": "Graduando em Agronomia na UFSC, com experiência em bioestimulação vegetal, cadeias agrícolas de commodities, consultoria em agronegócio, pesquisas em experimentação e melhoramento vegetal da cultura da linhaça.",
+      "en": "Undergraduate student in Agronomy at UFSC, with experience in plant biostimulation, agricultural commodity chains, agribusiness consulting, and research in experimentation and plant breeding of flaxseed.",
+      "es": "Estudiante de Agronomía en la UFSC, con experiencia en bioestimulación vegetal, cadenas agrícolas de commodities, consultoría en agronegocios e investigación en experimentación y mejoramiento vegetal del cultivo de lino."
+    },
+    "photo": "img/members/cadu_assoni.png",
+    "email": "caduforcelini@gmail.com",
+    "interests": [
+      "Plant Breeding",
+      "High-throughput Phenotyping",
+      "Digital Agriculture",
+      "Industrial Hemp"
+    ],
+    "links": {
+      "lattes": "https://lattes.cnpq.br/4322250654654174",
+      "researchgate": "https://www.researchgate.net/profile/Carlos-Eduardo-Forcelni-Assoni",
+      "linkedin": "https://www.linkedin.com/in/carlos-eduardo-forcelini-assoni-50b78a26a/"
+    },
+    "status": "active",
+    "weight": 1
+  },
+  {
+    "id": "matheus_lopes",
+    "name": "Matheus Lopes",
+    "role": "Graduando em Engenharia Agronômica",
+    "group": "Estudantes de Graduação",
+    "bio": {
+      "pt": "Estudante de Engenharia Agronômica na UFSC. Participa do NEPEM com ênfase em análise estatística aplicada ao setor agrário e do GEAD-UFSC explorando soluções em Geomática e Agricultura de Precisão. Experiência em Python, automação, análise espacial e processamento de imagens.",
+      "en": "Agricultural Engineering student at UFSC. Participates in NEPEM with emphasis on statistical analysis applied to agriculture and in GEAD-UFSC exploring solutions in Geomatics and Precision Agriculture. Experience in Python, automation, spatial analysis, and image processing.",
+      "es": "Estudiante de Ingeniería Agronómica en la UFSC. Participa del NEPEM con énfasis en análisis estadístico aplicado al sector agrario y del GEAD-UFSC explorando soluciones en Geomática y Agricultura de Precisión. Experiencia en Python, automatización, análisis espacial y procesamiento de imágenes."
+    },
+    "photo": "img/members/matheus_lopes.png",
+    "email": "matheuslmachado03@gmail.com",
+    "interests": [
+      "Remote Sensing",
+      "High-throughput Phenotyping",
+      "Web/App Development",
+      "Machine Learning"
+    ],
+    "links": {
+      "lattes": "http://lattes.cnpq.br/2358727109257378",
+      "linkedin": "https://www.linkedin.com/in/matheus-lopesma/",
+      "github": "https://github.com/matheus-lopesm",
+      "researchgate": "https://www.researchgate.net/profile/Matheus-Lopes-Machado",
+      "orcid": "",
+      "scholar": ""
+    },
+    "status": "active",
+    "weight": 1
+  },
+  {
+    "id": "fausto_galhardi",
+    "name": "Fausto Galhardi",
+    "role": "Graduando em Agronomia",
+    "group": "Estudantes de Graduação",
+    "bio": {
+      "pt": "",
+      "en": "",
+      "es": ""
+    },
+    "photo": "img/members/member_avatar_jpeg_1779994359041.jpg",
+    "email": "faustohsgalhardi@gmail.com",
+    "interests": [],
+    "links": {
+      "lattes": "",
+      "linkedin": "https://https://www.linkedin.com/in/fausto-galhardi-b63188276/",
+      "github": "https://github.com/FaustoGalhardi",
+      "researchgate": "https://https://www.researchgate.net/profile/Fausto-Galhardi?ev=hdr_xprf",
+      "orcid": "",
+      "scholar": ""
+    },
+    "status": "active",
+    "weight": 1
+  },
+  {
+    "id": "daniel_fumio_hada_junior",
+    "name": "Daniel Fumio Hada Júnior",
+    "role": "Graduando em Agronomia",
+    "group": "Estudantes de Graduação",
+    "bio": {
+      "pt": "",
+      "en": "",
+      "es": ""
+    },
+    "photo": "img/members/member_avatar_jpeg_1779994380319.jpg",
+    "email": "hadanielfu@gmail.com",
+    "interests": [
+      "Plant Breeding",
+      "High-throughput Phenotyping",
+      "Bioinputs"
+    ],
+    "links": {
+      "lattes": "http://lattes.cnpq.br/2778715590464122",
+      "linkedin": "https://www.linkedin.com/in/jr-daniel-fumio-hada-0b379232b",
+      "github": "https://github.com/danielhadajr",
+      "researchgate": "https://www.researchgate.net/profile/Daniel-Hada-Junior?ev=hdr_xprf",
+      "orcid": "",
+      "scholar": ""
+    },
+    "status": "active",
+    "weight": 1
+  },
+  {
+    "id": "isabella_stefani_lisboa_da_costa",
+    "name": "Isabella Stefani Lisboa Da Cost",
+    "role": "Graduando em Agronomia",
+    "group": "Estudantes de Graduação",
+    "bio": {
+      "pt": "",
+      "en": "",
+      "es": ""
+    },
+    "photo": "img/members/member_foto_jpg_1779994301333.jpg",
+    "email": "isacostabj@gmail.com",
+    "interests": [
+      "Plant Breeding",
+      "Field Experimentation"
+    ],
+    "links": {
+      "lattes": "https://lattes.cnpq.br/9710647902255348",
+      "linkedin": "https://www.linkedin.com/in/isabella-lisboa-da-costa",
+      "github": "",
+      "researchgate": "",
+      "orcid": "",
+      "scholar": ""
+    },
+    "status": "active",
+    "weight": 1
+  },
+  {
+    "id": "luiz_felipe_inacio",
+    "name": "Luiz Felipe Inácio",
+    "role": "Estudante de Mestrado",
+    "group": "Estudantes de Mestrado",
+    "bio": {
+      "pt": "",
+      "en": "",
+      "es": ""
+    },
+    "photo": "img/members/member_avatar_jpeg_1779992508049.jpg",
+    "email": "fellipe_is@hotmail.com",
+    "interests": [
+      "Plant Breeding",
+      "High-throughput Phenotyping"
+    ],
+    "links": {
+      "lattes": "https://lattes.cnpq.br/1068704666386119",
+      "linkedin": "https://www.linkedin.com/in/luizfelipeinaciosantos",
+      "github": "https://github.com/FellipeIS",
+      "researchgate": "",
+      "orcid": "",
+      "scholar": ""
+    },
+    "status": "active",
+    "weight": 1
+  },
+  {
+    "id": "luiz_paulo_da_silva",
+    "name": "Luiz Paulo da Silva",
+    "role": "Iniciação Científica",
+    "group": "Estudantes de Graduação",
+    "bio": {
+      "pt": "",
+      "en": "",
+      "es": ""
+    },
+    "photo": "img/members/member_avatar_png__1___1779995566129.jpg",
+    "email": "luizpaulo20022@gmail.com",
+    "interests": [
+      "Phytopathology",
+      "Digital agriculture"
+    ],
+    "links": {
+      "lattes": "https://lattes.cnpq.br/1739060070598762",
+      "linkedin": "www.linkedin.com/in/ luiz-paulo-da-silva-b21a88251",
+      "github": "https://github.com/Luizpsilva241",
+      "researchgate": "https://www.researchgate.net/profile/Luiz-Paulo-Da-Silva",
+      "orcid": "",
+      "scholar": ""
+    },
+    "status": "active",
+    "weight": 1
+  },
+  {
+    "id": "marina_mattiello_crestani",
+    "name": "Marina Mattiello Crestani",
+    "role": "Aluno de Graduação",
+    "group": "Estudantes de Graduação",
+    "bio": {
+      "pt": "",
+      "en": "",
+      "es": ""
+    },
+    "photo": "img/members/member_avatar3_jpeg_1779995682904.jpg",
+    "email": "marimcrestani@gmail.com",
+    "interests": [
+      "Plant Breeding",
+      "Field Experimentation",
+      "High-throughput Phenotyping",
+      "Digital Agriculture",
+      "Precision Agriculture"
+    ],
+    "links": {
+      "lattes": "http://lattes.cnpq.br/0644184013151442",
+      "linkedin": "https://www.linkedin.com/in/marina-crestani-a437462bb/",
+      "github": "https://github.com/marimcrestani",
+      "researchgate": "",
+      "orcid": "",
+      "scholar": ""
+    },
+    "status": "active",
+    "weight": 1
+  },
+  {
+    "id": "daniel_schmechel_affeldt",
+    "name": "Daniel Schmechel Affeldt",
+    "role": "Monitor - Bioestatística",
+    "group": "Estudantes de Graduação",
+    "bio": {
+      "pt": "",
+      "en": "",
+      "es": ""
+    },
+    "photo": "img/members/member_avatar_jpeg_1779995824271.jpg",
+    "email": "daniel.schmechel@grad.ufsc.br",
+    "interests": [
+      "Data Science for Agriculture",
+      "Plant Breeding"
+    ],
+    "links": {
+      "lattes": "https://lattes.cnpq.br/2935281406685997",
+      "linkedin": "",
+      "github": "https://github.com/DanSchme",
+      "researchgate": "",
+      "orcid": "",
+      "scholar": ""
+    },
+    "status": "active",
+    "weight": 1
+  },
+  {
+    "id": "vanessa_borges",
+    "name": "Vanessa Borges",
+    "role": "Estudante de Mestrado",
+    "group": "Estudantes de Mestrado",
+    "bio": {
+      "pt": "",
+      "en": "",
+      "es": ""
+    },
+    "photo": "img/members/member_avatar_jpeg_1779996018872.jpg",
+    "email": "vanessaborges1312@gmail.com",
+    "interests": [
+      "Plant Breeding",
+      "Molecular Biology"
+    ],
+    "links": {
+      "lattes": "https://lattes.cnpq.br/2795791686260523",
+      "linkedin": "https://www.linkedin.com/in/vanessagabrielaborges",
+      "github": "",
+      "researchgate": "",
+      "orcid": "",
+      "scholar": ""
+    },
+    "status": "active",
+    "weight": 1
+  },
+  {
+    "id": "taina_caroline_kuhn",
+    "name": "Tainá Caroline Kuhn",
+    "role": "Estudante de Doutorado",
+    "group": "Estudantes de Doutorado",
+    "bio": {
+      "pt": "",
+      "en": "",
+      "es": ""
+    },
+    "photo": "img/members/member_taina_kuhn_webp_1779996254073.jpg",
+    "email": "tainakuhn26@gmail.com",
+    "interests": [],
+    "links": {
+      "lattes": "CV: http://lattes.cnpq.br/3933122088896686",
+      "linkedin": "",
+      "github": "",
+      "researchgate": "https://www.researchgate.net/profile/Taina-Kuhn",
+      "orcid": "",
+      "scholar": ""
+    },
+    "status": "active",
+    "weight": 1
+  }
+]

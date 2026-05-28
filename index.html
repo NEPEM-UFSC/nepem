@@ -162,7 +162,10 @@
     <div class="container">
       <div class="section-header fade-in-up">
         <div class="section-label"><i class="bi bi-circle-fill"></i> <span data-i18n="nav.team">Equipe</span></div>
-        <h2 data-i18n="team.title">Nossa Equipe</h2>
+        <h2 class="d-inline-flex align-items-center justify-content-center flex-wrap gap-2">
+          <span data-i18n="team.title">Nossa Equipe</span>
+          <span class="badge-3d" id="badgeMembersCount">0</span>
+        </h2>
         <p data-i18n="team.subtitle">Pesquisadores e estudantes que fazem o NEPEM acontecer</p>
       </div>
 
@@ -177,9 +180,20 @@
         <button class="btn-filter" data-filter="alumni" onclick="MembersModule.setFilter('alumni')" data-i18n="team.filter_alumni">Ex-alunos</button>
       </div>
 
-      <!-- Members Grid -->
-      <div class="row" id="membersGrid">
-        <!-- Rendered by JS -->
+      <!-- Members Wrapper with side arrows -->
+      <div class="team-carousel-wrapper position-relative">
+        <button class="team-carousel-btn prev-btn d-none" onclick="MembersModule.prevPage()" id="teamPrevBtn" title="Anterior">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+
+        <!-- Members Grid -->
+        <div class="row mx-0" id="membersGrid">
+          <!-- Rendered by JS -->
+        </div>
+
+        <button class="team-carousel-btn next-btn d-none" onclick="MembersModule.nextPage()" id="teamNextBtn" title="Próximo">
+          <i class="bi bi-chevron-right"></i>
+        </button>
       </div>
     </div>
   </section>
@@ -188,8 +202,10 @@
   <section id="projects" class="section-nepem bg-alt">
     <div class="container">
       <div class="section-header fade-in-up">
-        <div class="section-label"><i class="bi bi-circle-fill"></i> <span data-i18n="nav.projects">Projetos</span></div>
-        <h2 data-i18n="projects.title">Projetos</h2>
+        <h2 class="d-inline-flex align-items-center justify-content-center flex-wrap gap-2">
+          <span data-i18n="projects.title">Projetos</span>
+          <span class="badge-3d" id="badgeProjectsCount">0</span>
+        </h2>
         <p data-i18n="projects.subtitle">Projetos desenvolvidos ou em desenvolvimento</p>
       </div>
 
@@ -213,8 +229,10 @@
   <section id="publications" class="section-nepem">
     <div class="container">
       <div class="section-header fade-in-up">
-        <div class="section-label"><i class="bi bi-circle-fill"></i> <span data-i18n="nav.publications">Publicações</span></div>
-        <h2 data-i18n="publications.title">Publicações</h2>
+        <h2 class="d-inline-flex align-items-center justify-content-center flex-wrap gap-2">
+          <span data-i18n="publications.title">Publicações</span>
+          <span class="badge-3d" id="badgePublicationsCount">0</span>
+        </h2>
         <p data-i18n="publications.subtitle">Produção científica do grupo</p>
       </div>
 
@@ -321,7 +339,10 @@
     <div class="container">
       <div class="section-header fade-in-up">
         <div class="section-label"><i class="bi bi-circle-fill"></i> Blog</div>
-        <h2>Notícias & Novidades</h2>
+        <h2 class="d-inline-flex align-items-center justify-content-center flex-wrap gap-2">
+          <span>Notícias & Novidades</span>
+          <span class="badge-3d" id="badgePostsCount">0</span>
+        </h2>
         <p class="text-secondary">Acompanhe as últimas atualizações, pesquisas e acontecimentos do NEPEM.</p>
       </div>
 

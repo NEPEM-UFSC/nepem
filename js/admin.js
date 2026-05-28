@@ -149,7 +149,7 @@ const AdminModule = (() => {
       try {
         const res = await fetch('data/publications.json');
         let publications = await res.json();
-        
+
         // Clean text encodings in publications database first
         publications = publications.map(p => ({
           ...p,
@@ -355,21 +355,21 @@ const AdminModule = (() => {
           <tbody>
             ${sortedPubs.length === 0 ? '<tr><td colspan="5" class="text-center text-muted py-4">Nenhuma publicação cadastrada.</td></tr>' : ''}
             ${sortedPubs.map(p => {
-              const pId = p.id || ('pub_' + Math.random().toString(36).substr(2, 9));
-              const pTitle = p.title || 'Sem Título';
-              const pYear = p.year || 'S/A';
-              const pType = p.type || 'journal';
-              
-              // Safely handle authors as string, array or undefined
-              let authorsArr = [];
-              if (Array.isArray(p.authors)) {
-                authorsArr = p.authors;
-              } else if (typeof p.authors === 'string') {
-                authorsArr = p.authors.split(',').map(a => a.trim()).filter(Boolean);
-              }
-              const pAuthorsStr = authorsArr.join(', ') || 'Autores não especificados';
-              
-              return `
+      const pId = p.id || ('pub_' + Math.random().toString(36).substr(2, 9));
+      const pTitle = p.title || 'Sem Título';
+      const pYear = p.year || 'S/A';
+      const pType = p.type || 'journal';
+
+      // Safely handle authors as string, array or undefined
+      let authorsArr = [];
+      if (Array.isArray(p.authors)) {
+        authorsArr = p.authors;
+      } else if (typeof p.authors === 'string') {
+        authorsArr = p.authors.split(',').map(a => a.trim()).filter(Boolean);
+      }
+      const pAuthorsStr = authorsArr.join(', ') || 'Autores não especificados';
+
+      return `
               <tr class="pub-row" data-search="${pTitle.replace(/"/g, '').toLowerCase()} ${pAuthorsStr.replace(/"/g, '').toLowerCase()} ${pYear}">
                 <td><strong>${pYear}</strong></td>
                 <td style="max-width:320px" class="text-truncate" title="${pTitle.replace(/"/g, '&quot;')}">${pTitle}</td>
@@ -386,7 +386,7 @@ const AdminModule = (() => {
                   </div>
                 </td>
               </tr>`;
-            }).join('')}
+    }).join('')}
           </tbody>
         </table>
       </div>`;
@@ -409,7 +409,7 @@ const AdminModule = (() => {
     const pJournal = pub.journal || '';
     const pDoi = pub.doi || '';
     const pAbstract = pub.abstract || '';
-    
+
     let authorsArr = [];
     if (Array.isArray(pub.authors)) {
       authorsArr = pub.authors;
@@ -506,7 +506,7 @@ const AdminModule = (() => {
   /* ---- MEMBERS ---- */
   function renderMembersAdmin(container) {
     const members = JSON.parse(localStorage.getItem('nepem-members') || '[]');
-    const sortedMembers = [...members].sort((a, b) => (a.weight || 99) - (b.weight || 99));
+    const sortedMembers = [...members].sort((a, b) => (a.weight || 99) - (b.weight || 99) || a.name.localeCompare(b.name, 'pt', { sensitivity: 'base' }));
 
     container.innerHTML = `
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
@@ -667,7 +667,7 @@ const AdminModule = (() => {
             </div>
             <div class="col-md-2">
               <label class="form-label small mb-1">Peso (Ordenação)</label>
-              <input class="form-control form-control-nepem" type="number" id="memberWeight" placeholder="Ex: 10" value="${member.weight || 50}">
+              <input class="form-control form-control-nepem" type="number" id="memberWeight" placeholder="Ex: 10" value="${member.weight || 1}">
             </div>
 
             <!-- Links -->
@@ -799,10 +799,10 @@ const AdminModule = (() => {
             ${projects.map(p => `
               <tr class="project-row" data-search="${(p.title || '').toLowerCase()} ${(p.tags || []).join(' ').toLowerCase()}">
                 <td>
-                  ${p.image 
-                    ? `<img src="${p.image}" alt="${p.title}" style="width: 32px; height: 32px; object-fit: contain;">`
-                    : `<i class="bi bi-folder2-open text-success fs-5"></i>`
-                  }
+                  ${p.image
+        ? `<img src="${p.image}" alt="${p.title}" style="width: 32px; height: 32px; object-fit: contain;">`
+        : `<i class="bi bi-folder2-open text-success fs-5"></i>`
+      }
                 </td>
                 <td><strong>${p.title}</strong></td>
                 <td>${(p.tags || []).map(t => `<span class="badge bg-info me-1 text-dark">${t}</span>`).join('')}</td>
@@ -1104,7 +1104,7 @@ const AdminModule = (() => {
           </div>
         </form>
       </div>`;
-    
+
     updatePostPreview();
     area.scrollIntoView({ behavior: 'smooth' });
   }
@@ -1158,7 +1158,7 @@ const AdminModule = (() => {
     const selectedText = text.substring(start, end);
 
     let replacement = '';
-    switch(tag) {
+    switch (tag) {
       case 'bold':
         replacement = `**${selectedText || 'texto em negrito'}**`;
         break;
@@ -1196,38 +1196,38 @@ const AdminModule = (() => {
 
   function parseMarkdown(text) {
     if (!text) return '';
-    
+
     let html = text
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
-    
+
     // 1. Headings
     html = html.replace(/^### (.*?)$/gm, '<h5 class="fw-bold mt-4 mb-2 text-gradient">$1</h5>');
     html = html.replace(/^#### (.*?)$/gm, '<h6 class="fw-bold mt-3 mb-2">$1</h6>');
-    
+
     // 2. Bold & Italic
     html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-    
+
     // 3. Lists
     html = html.replace(/^\* (.*?)$/gm, '<li>$1</li>');
     html = html.replace(/(<li>.*?<\/li>)+/gs, (match) => `<ul class="text-secondary ps-3 my-2" style="list-style-type: disc;">${match}</ul>`);
-    
+
     // 4. Tables
     html = html.replace(/\|(.*?)\|\r?\n\|[ -:|]*?\|\r?\n((?:\|.*?\|\r?\n?)*)/g, (match, header, body) => {
       const headers = header.split('|').map(h => h.trim()).filter(Boolean);
       const rows = body.trim().split('\n').map(r => r.split('|').map(c => c.trim()).filter(Boolean));
-      
+
       const thHtml = headers.map(h => `<th class="bg-light text-secondary font-semibold p-2 border">${h}</th>`).join('');
       const trHtml = rows.map(row => {
         if (row.length === 0) return '';
         return `<tr>${row.map(cell => `<td class="p-2 border text-secondary">${cell}</td>`).join('')}</tr>`;
       }).join('');
-      
+
       return `<div class="table-responsive my-4"><table class="table border table-hover align-middle"><thead><tr>${thHtml}</tr></thead><tbody>${trHtml}</tbody></table></div>`;
     });
-    
+
     // 5. Paragraphs
     const paragraphs = html.split(/\n\n+/);
     html = paragraphs.map(p => {
@@ -1237,143 +1237,184 @@ const AdminModule = (() => {
       }
       return `<p class="mb-3">${trimmed.replace(/\n/g, '<br>')}</p>`;
     }).join('');
-    
+
     return html;
   }
 
   /* ---- PHOTO FILE UPLOAD HANDLE ---- */
-  function handlePhotoUpload(event, type) {
+  async function handlePhotoUpload(event, type) {
     const file = event.target.files[0];
     if (!file) return;
 
-    const MAX_SIZE = 1024 * 1024; // 1MB limit for localStorage
-
-    const processBase64 = (base64) => {
-      if (type === 'member') {
-        const input = document.getElementById('memberPhoto');
-        const img = document.getElementById('memberPhotoImg');
-        const preview = document.getElementById('memberPhotoPreview');
-        if (input) input.value = base64;
-        if (img) img.src = base64;
-        if (preview) preview.style.display = 'block';
-      } else if (type === 'project') {
-        const input = document.getElementById('projImage');
-        const img = document.getElementById('projImageImg');
-        const preview = document.getElementById('projImagePreview');
-        if (input) input.value = base64;
-        if (img) img.src = base64;
-        if (preview) preview.style.display = 'block';
-      } else if (type === 'post') {
-        const input = document.getElementById('postBanner');
-        const img = document.getElementById('postBannerImg');
-        const preview = document.getElementById('postBannerPreview');
-        if (input) input.value = base64;
-        if (img) img.src = base64;
-        if (preview) preview.style.display = 'block';
-      }
-    };
-
-    const resizeImage = (fileToProcess) => {
-      return new Promise((resolve) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(fileToProcess);
-        reader.onload = (e) => {
-          if (fileToProcess.size <= MAX_SIZE) {
-            resolve(e.target.result);
-            return;
-          }
-          
-          const img = new Image();
-          img.src = e.target.result;
-          img.onerror = () => {
-             alert("O formato dessa imagem não é suportado pelo navegador ou o arquivo está corrompido. Tente enviar como JPG ou PNG.");
-             resolve(null);
-          };
-          img.onload = () => {
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            
-            // Calculate new dimensions (max 800px width/height for reasonable quality)
-            const MAX_DIM = 800;
-            let width = img.width;
-            let height = img.height;
-            
-            if (width > height) {
-              if (width > MAX_DIM) {
-                height = Math.round(height *= MAX_DIM / width);
-                width = MAX_DIM;
-              }
-            } else {
-              if (height > MAX_DIM) {
-                width = Math.round(width *= MAX_DIM / height);
-                height = MAX_DIM;
-              }
-            }
-            
-            canvas.width = width;
-            canvas.height = height;
-            ctx.drawImage(img, 0, 0, width, height);
-            
-            let quality = 0.8;
-            let compressedBase64 = canvas.toDataURL('image/jpeg', quality);
-            
-            let currentWidth = width;
-            let currentHeight = height;
-            
-            // Força a compressão iterativa até que caiba no limite de 1MB (considerando o overhead do Base64)
-            while (compressedBase64.length > MAX_SIZE * 1.37) {
-              if (quality > 0.4) {
-                quality -= 0.15;
-              } else {
-                currentWidth = Math.floor(currentWidth * 0.8);
-                currentHeight = Math.floor(currentHeight * 0.8);
-                canvas.width = currentWidth;
-                canvas.height = currentHeight;
-                ctx.drawImage(img, 0, 0, currentWidth, currentHeight);
-              }
-              compressedBase64 = canvas.toDataURL('image/jpeg', quality);
-            }
-            
-            resolve(compressedBase64);
-          };
-        };
-      });
-    };
-
     const isHeic = file.type === "image/heic" || file.type === "image/heif" || file.name.toLowerCase().endsWith('.heic');
 
+    let fileToProcess = file;
     if (isHeic) {
       alert("Formato HEIC (iPhone) detectado. O sistema vai converter automaticamente para JPG, isso pode levar alguns segundos...");
-      if (!window.heic2any) {
-        const script = document.createElement('script');
-        script.src = "https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js";
-        script.onload = () => runHeicConversion(file);
-        document.head.appendChild(script);
-      } else {
-        runHeicConversion(file);
+      try {
+        if (!window.heic2any) {
+          await new Promise((resolve) => {
+            const script = document.createElement('script');
+            script.src = "https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js";
+            script.onload = resolve;
+            document.head.appendChild(script);
+          });
+        }
+        const conversionResult = await heic2any({
+          blob: file,
+          toType: "image/jpeg",
+          quality: 0.85
+        });
+        let blob = Array.isArray(conversionResult) ? conversionResult[0] : conversionResult;
+        fileToProcess = new File([blob], file.name.replace(/\.heic$/i, ".jpg"), { type: "image/jpeg" });
+      } catch (e) {
+        console.error(e);
+        alert("Erro ao converter arquivo HEIC. Por favor, envie como JPG ou PNG.");
+        return;
       }
-    } else {
-      resizeImage(file).then(base64 => {
-        if (base64) processBase64(base64);
-      });
     }
 
-    function runHeicConversion(heicFile) {
-      heic2any({
-        blob: heicFile,
-        toType: "image/jpeg",
-        quality: 0.8
-      }).then((conversionResult) => {
-        let blob = Array.isArray(conversionResult) ? conversionResult[0] : conversionResult;
-        let newFile = new File([blob], heicFile.name.replace(/\.heic$/i, ".jpg"), { type: "image/jpeg" });
-        resizeImage(newFile).then(base64 => {
-          if (base64) processBase64(base64);
-        });
-      }).catch((e) => {
-        console.error(e);
-        alert("Erro ao converter arquivo HEIC. Por favor, converta manualmente para JPG ou PNG e tente novamente.");
+    const processedBase64 = await resizeImage(fileToProcess);
+    if (!processedBase64) return;
+
+    // Show instant local preview in browser
+    const imgElId = type === 'member' ? 'memberPhotoImg' : (type === 'project' ? 'projImageImg' : 'postBannerImg');
+    const previewElId = type === 'member' ? 'memberPhotoPreview' : (type === 'project' ? 'projImagePreview' : 'postBannerPreview');
+    const imgEl = document.getElementById(imgElId);
+    const previewEl = document.getElementById(previewElId);
+    if (imgEl) imgEl.src = processedBase64;
+    if (previewEl) previewEl.style.display = 'block';
+
+    // Generate unique name for the file
+    const cleanExt = ".jpg";
+    const baseName = fileToProcess.name.toLowerCase().replace(/[^a-z0-9]/g, "_").substring(0, 15);
+    const uniqueFilename = `${type}_${baseName}_${Date.now()}${cleanExt}`;
+
+    showToast("Fazendo upload da imagem...");
+
+    let savedPath = null;
+
+    // 1. Try local server endpoint first if running locally
+    try {
+      const response = await fetch('/api/upload-image', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          filename: uniqueFilename,
+          base64: processedBase64,
+          type: type
+        })
       });
+      if (response.ok) {
+        const resData = await response.json();
+        savedPath = resData.path;
+      }
+    } catch (e) {
+      console.log("Local upload not available. Checking GitHub Sync...");
     }
+
+    // 2. Try GitHub API direct upload if GitHub Sync is configured
+    if (!savedPath) {
+      const configStr = localStorage.getItem('nepem-github-config');
+      if (configStr) {
+        const config = JSON.parse(configStr);
+        if (config.token && config.owner && config.repo) {
+          try {
+            const rawBase64 = processedBase64.includes(",") ? processedBase64.split(",")[1] : processedBase64;
+            const subfolder = type === 'member' ? 'members' : 'projects';
+            const gitHubPath = `img/${subfolder}/${uniqueFilename}`;
+            const putUrl = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${gitHubPath}`;
+
+            const putRes = await fetch(putUrl, {
+              method: 'PUT',
+              headers: {
+                'Authorization': `token ${config.token}`,
+                'Accept': 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                message: `Upload photo ${uniqueFilename} via Admin Panel`,
+                content: rawBase64,
+                branch: config.branch
+              })
+            });
+
+            if (putRes.ok) {
+              savedPath = `img/${subfolder}/${uniqueFilename}`;
+            }
+          } catch (gitErr) {
+            console.error("GitHub upload failed:", gitErr);
+          }
+        }
+      }
+    }
+
+    // 3. Set value of the corresponding text input field
+    const inputElId = type === 'member' ? 'memberPhoto' : (type === 'project' ? 'projImage' : 'postBanner');
+    const inputEl = document.getElementById(inputElId);
+
+    if (savedPath) {
+      if (inputEl) inputEl.value = savedPath;
+      showToast(`Imagem salva em ${savedPath}`);
+    } else {
+      // Fallback: use Base64 string directly inside JSON database if both offline & GitHub Sync are missing
+      if (inputEl) inputEl.value = processedBase64;
+      showToast("Imagem vinculada via base64 (plano de backup).");
+    }
+  }
+
+  function resizeImage(fileToProcess) {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(fileToProcess);
+      reader.onload = (e) => {
+        const img = new Image();
+        img.src = e.target.result;
+        img.onerror = () => {
+          alert("O formato dessa imagem não é suportado pelo navegador ou o arquivo está corrompido. Tente enviar como JPG ou PNG.");
+          resolve(null);
+        };
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+
+          // Let's set MAX_DIM to 1000px for excellent sharpness and resolution
+          const MAX_DIM = 1000;
+          let width = img.width;
+          let height = img.height;
+
+          if (width > height) {
+            if (width > MAX_DIM) {
+              height = Math.round(height *= MAX_DIM / width);
+              width = MAX_DIM;
+            }
+          } else {
+            if (height > MAX_DIM) {
+              width = Math.round(width *= MAX_DIM / height);
+              height = MAX_DIM;
+            }
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+          ctx.drawImage(img, 0, 0, width, height);
+
+          let quality = 0.85; // 85% JPEG quality is excellent and not blurry!
+          let compressedBase64 = canvas.toDataURL('image/jpeg', quality);
+
+          // Only iteratively compress if it is extremely huge to stay within 1.5MB for safety
+          const MAX_SIZE = 1.5 * 1024 * 1024;
+          let currentWidth = width;
+          let currentHeight = height;
+          while (compressedBase64.length > MAX_SIZE * 1.37 && quality > 0.4) {
+            quality -= 0.15;
+            compressedBase64 = canvas.toDataURL('image/jpeg', quality);
+          }
+
+          resolve(compressedBase64);
+        };
+      };
+    });
   }
 
   /* ---- COMMON ---- */
@@ -1422,7 +1463,7 @@ const AdminModule = (() => {
         body: formattedData
       });
       if (response.ok) {
-        showToast(`Salvo diretamente em site/data/${type}.json`);
+        showToast(`Salvo diretamente em data/${type}.json`);
         console.log(`Successfully saved ${type}.json directly to local folder.`);
         return;
       }
@@ -1492,7 +1533,7 @@ const AdminModule = (() => {
     if (config.owner) document.getElementById('ghOwner').value = config.owner;
     if (config.repo) document.getElementById('ghRepo').value = config.repo;
     if (config.branch) document.getElementById('ghBranch').value = config.branch;
-    
+
     new bootstrap.Modal(document.getElementById('githubConfigModal')).show();
   }
 
@@ -1534,12 +1575,12 @@ const AdminModule = (() => {
     const key = type === 'publications' ? 'nepem-publications-v4' : `nepem-${type}`;
     const data = localStorage.getItem(key) || '[]';
     const formattedData = JSON.stringify(JSON.parse(data), null, 2);
-    
+
     // GitHub API requires Base64 encoded content
     const contentEncoded = btoa(unescape(encodeURIComponent(formattedData)));
-    const path = `site/data/${type}.json`;
+    const path = `data/${type}.json`;
     const url = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${path}`;
-    
+
     showToast(`Sincronizando ${type} com o GitHub...`);
 
     try {
@@ -1548,7 +1589,7 @@ const AdminModule = (() => {
       const getRes = await fetch(`${url}?ref=${config.branch}`, {
         headers: { 'Authorization': `token ${config.token}`, 'Accept': 'application/vnd.github.v3+json' }
       });
-      
+
       if (getRes.ok) {
         const fileInfo = await getRes.json();
         currentSha = fileInfo.sha;

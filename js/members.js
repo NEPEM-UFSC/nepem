@@ -5,6 +5,7 @@
 const MembersModule = (() => {
   let members = [];
   let currentFilter = 'all';
+  let currentPage = 0;
 
   const groupOrder = [
     'Coordenador geral',
@@ -25,13 +26,35 @@ const MembersModule = (() => {
       members = [];
     }
     render();
+    
+    // Set dynamic 3D badge count
+    const badge = document.getElementById('badgeMembersCount');
+    if (badge) {
+      badge.textContent = members.filter(m => m.status === 'active').length;
+    }
+
     // Re-render on lang change
     document.addEventListener('langChanged', () => render());
   }
 
   function setFilter(filter) {
-    currentFilter = filter;
-    render();
+    const grid = document.getElementById('membersGrid');
+    if (grid) {
+      grid.classList.add('filter-exit');
+      setTimeout(() => {
+        currentFilter = filter;
+        currentPage = 0;
+        render();
+        grid.classList.remove('filter-exit');
+        grid.classList.add('filter-enter');
+        void grid.offsetWidth; // force reflow
+        grid.classList.remove('filter-enter');
+      }, 400);
+    } else {
+      currentFilter = filter;
+      currentPage = 0;
+      render();
+    }
     // Update filter button states
     document.querySelectorAll('#teamFilters .btn-filter').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.filter === filter);
@@ -71,10 +94,18 @@ const MembersModule = (() => {
       return;
     }
 
-    // Sort by weight
-    filtered.sort((a, b) => (a.weight || 99) - (b.weight || 99));
+    // Sort by weight first, then alphabetically by name within the same group
+    filtered.sort((a, b) => (a.weight || 99) - (b.weight || 99) || a.name.localeCompare(b.name, 'pt', { sensitivity: 'base' }));
 
-    container.innerHTML = filtered.map((m, i) => {
+    // Pagination logic: limit to 8 items (exactly 2 rows of 4 cards on desktop)
+    const itemsPerPage = 8;
+    const totalPages = Math.ceil(filtered.length / itemsPerPage);
+    if (currentPage >= totalPages) currentPage = Math.max(0, totalPages - 1);
+
+    const pageMembers = filtered.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
+
+    let html = pageMembers.map((m, i) => {
+      const globalIndex = currentPage * itemsPerPage + i;
       const bio = typeof m.bio === 'object' ? (m.bio[lang] || m.bio.pt || '') : (m.bio || '');
       const links = buildMemberLinks(m.links || {});
       const stagger = `stagger-${(i % 6) + 1}`;
@@ -92,12 +123,39 @@ const MembersModule = (() => {
             <div class="member-group">${m.group}</div>
             <p class="member-bio">${bio}</p>
             <div class="member-links">${links}</div>
-            <button class="btn btn-sm btn-nepem-outline mt-3 w-100" style="font-size: 0.8rem; padding: 0.4rem;" onclick="MembersModule.showMemberModal(${i})">
+            <button class="btn btn-sm btn-nepem-outline mt-3 w-100" style="font-size: 0.8rem; padding: 0.4rem;" onclick="MembersModule.showMemberModal(${globalIndex})">
               Ver mais
             </button>
           </div>
         </div>`;
     }).join('');
+
+    // Update side pagination buttons dynamically
+    const prevBtn = document.getElementById('teamPrevBtn');
+    const nextBtn = document.getElementById('teamNextBtn');
+    if (prevBtn && nextBtn) {
+      if (totalPages > 1) {
+        prevBtn.classList.remove('d-none');
+        nextBtn.classList.remove('d-none');
+        prevBtn.disabled = (currentPage === 0);
+        nextBtn.disabled = (currentPage === totalPages - 1);
+      } else {
+        prevBtn.classList.add('d-none');
+        nextBtn.classList.add('d-none');
+      }
+    }
+
+    // Append beautiful page indicator if totalPages > 1
+    if (totalPages > 1) {
+      html += `
+        <div class="col-12 text-center mt-2 fade-in visible">
+          <span class="fw-semibold text-secondary" style="font-size: 0.85rem; letter-spacing: 0.05em; opacity: 0.8;">
+            ${currentPage + 1} / ${totalPages}
+          </span>
+        </div>`;
+    }
+
+    container.innerHTML = html;
 
     // Trigger animations
     requestAnimationFrame(() => {
@@ -105,6 +163,42 @@ const MembersModule = (() => {
         el.classList.add('visible');
       });
     });
+  }
+
+  function nextPage() {
+    const grid = document.getElementById('membersGrid');
+    if (grid) {
+      grid.classList.add('slide-out-left');
+      setTimeout(() => {
+        currentPage++;
+        render();
+        grid.classList.remove('slide-out-left');
+        grid.classList.add('slide-in-right');
+        void grid.offsetWidth; // force reflow
+        grid.classList.remove('slide-in-right');
+      }, 600);
+    } else {
+      currentPage++;
+      render();
+    }
+  }
+
+  function prevPage() {
+    const grid = document.getElementById('membersGrid');
+    if (grid) {
+      grid.classList.add('slide-out-right');
+      setTimeout(() => {
+        currentPage--;
+        render();
+        grid.classList.remove('slide-out-right');
+        grid.classList.add('slide-in-left');
+        void grid.offsetWidth; // force reflow
+        grid.classList.remove('slide-in-left');
+      }, 600);
+    } else {
+      currentPage--;
+      render();
+    }
   }
 
   function buildMemberLinks(links) {
@@ -131,8 +225,8 @@ const MembersModule = (() => {
 
   function showMemberModal(index) {
     const filtered = getFilteredMembers();
-    // Sort logic identical to render() so indices match
-    filtered.sort((a, b) => (a.weight || 99) - (b.weight || 99));
+    // Sort logic identical to render() so indices match (weight then alphabetical)
+    filtered.sort((a, b) => (a.weight || 99) - (b.weight || 99) || a.name.localeCompare(b.name, 'pt', { sensitivity: 'base' }));
 
     const m = filtered[index];
     if (!m) return;
@@ -163,5 +257,5 @@ const MembersModule = (() => {
     modal.show();
   }
 
-  return { init, setFilter, showMemberModal };
+  return { init, setFilter, showMemberModal, nextPage, prevPage };
 })();

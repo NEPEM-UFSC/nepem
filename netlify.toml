@@ -1,7 +1,73 @@
 [build]
   base = "."
   command = "echo 'Deploying static site...'"
-  publish = "site"
+  publish = "."
+
+[[redirects]]
+  from = "/keys.json"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/server.py"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/server_debug.log"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/update_scholar_data.R"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package.json"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package-lock.json"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.RData"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.Rhistory"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.Rprofile"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/nepem.Rproj"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.git*"
+  to = "/404.html"
+  status = 404
+  force = true
 
 [[headers]]
   for = "/*"

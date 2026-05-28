@@ -53,10 +53,14 @@ const I18n = (() => {
   }
 
   function updateLangSelector() {
-    const flags = { pt: '🇧🇷', en: '🇺🇸', es: '🇪🇸' };
+    const flags = {
+      pt: 'https://flagcdn.com/w40/br.png',
+      en: 'https://flagcdn.com/w40/us.png',
+      es: 'https://flagcdn.com/w40/es.png'
+    };
     const btn = document.getElementById('langToggle');
     if (btn) {
-      btn.textContent = flags[currentLang] || '🇧🇷';
+      btn.innerHTML = `<img src="${flags[currentLang]}" alt="${currentLang}" style="width: 18px; height: auto; border-radius: 2px; vertical-align: middle; box-shadow: 0 1px 2px rgba(0,0,0,0.2);">`;
       btn.title = currentLang.toUpperCase();
     }
   }

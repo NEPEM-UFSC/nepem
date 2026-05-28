@@ -54,23 +54,13 @@ SERPAPI_KEYS <- keys$serpapi_api_key
 
 # Determina os caminhos corretos dinamicamente de acordo com o diretório atual de execução
 detect_paths <- function() {
-  if (dir_exists("site/data")) {
-    return(list(
-      main = "site/data/fallback-data.json",
-      temp = "site/data/fallback-data-temp.json"
-    ))
-  } else if (dir_exists("data")) {
-    return(list(
-      main = "data/fallback-data.json",
-      temp = "data/fallback-data-temp.json"
-    ))
-  } else {
-    dir_create("site/data")
-    return(list(
-      main = "site/data/fallback-data.json",
-      temp = "site/data/fallback-data-temp.json"
-    ))
+  if (!dir_exists("data")) {
+    dir_create("data")
   }
+  return(list(
+    main = "data/fallback-data.json",
+    temp = "data/fallback-data-temp.json"
+  ))
 }
 
 paths <- detect_paths()
