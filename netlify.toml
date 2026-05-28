@@ -1,7 +1,7 @@
 [build]
   base = "."
-  command = "echo 'Deploying static site...'"
-  publish = "."
+  command = "mkdir -p public && cp -r css js data img *.html public/"
+  publish = "public"
 
 [[redirects]]
   from = "/keys.json"
