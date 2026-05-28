@@ -97,7 +97,7 @@ const PublicationsModule = (() => {
 
                 // Check if this article exists in publications.json
                 const existsByDoi = doiKey && existingDois.has(doiKey);
-                
+
                 let existsByTitle = false;
                 let matchedCuratedKey = '';
                 if (titleKey) {
@@ -190,7 +190,7 @@ const PublicationsModule = (() => {
       if (citesB !== citesA) {
         return citesB - citesA;
       }
-      
+
       const yearA = (a && parseInt(a.year)) || 0;
       const yearB = (b && parseInt(b.year)) || 0;
       return yearB - yearA;
@@ -281,7 +281,7 @@ const PublicationsModule = (() => {
           if (citesB !== citesA) {
             return citesB - citesA;
           }
-          
+
           const yearA = (a && parseInt(a.year)) || 0;
           const yearB = (b && parseInt(b.year)) || 0;
           return yearB - yearA;
@@ -314,7 +314,7 @@ const PublicationsModule = (() => {
     const filtered = getFiltered();
     const recent = filtered.slice(0, 6);
     container.innerHTML = recent.map((p, i) => renderCard(p, i, true)).join('');
-    
+
     // Update stats
     const countEl = document.getElementById('pubCount');
     if (countEl) countEl.textContent = publications.length;

@@ -1408,11 +1408,29 @@ const AdminModule = (() => {
     });
   }
 
-  function exportData(type) {
+  async function exportData(type) {
     const key = type === 'publications' ? 'nepem-publications-v4' : `nepem-${type}`;
     const data = localStorage.getItem(key) || '[]';
     // Format JSON with 2-space indentation to make it pretty and easy to replace in repository!
     const formattedData = JSON.stringify(JSON.parse(data), null, 2);
+
+    // Try saving directly to our local python server first
+    try {
+      const response = await fetch(`/api/save/${type}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: formattedData
+      });
+      if (response.ok) {
+        showToast(`Salvo diretamente em site/data/${type}.json`);
+        console.log(`Successfully saved ${type}.json directly to local folder.`);
+        return;
+      }
+    } catch (e) {
+      console.log("Local backend save not available, falling back to download.");
+    }
+
+    // Fallback: standard browser download
     const blob = new Blob([formattedData], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');

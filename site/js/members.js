@@ -133,14 +133,14 @@ const MembersModule = (() => {
     const filtered = getFilteredMembers();
     // Sort logic identical to render() so indices match
     filtered.sort((a, b) => (a.weight || 99) - (b.weight || 99));
-    
+
     const m = filtered[index];
     if (!m) return;
 
     const lang = typeof I18n !== 'undefined' ? I18n.getLang() : 'pt';
     const bio = typeof m.bio === 'object' ? (m.bio[lang] || m.bio.pt || '') : (m.bio || '');
     const links = buildMemberLinks(m.links || {});
-    
+
     const modalBody = document.getElementById('memberModalBody');
     if (!modalBody) return;
 
@@ -158,7 +158,7 @@ const MembersModule = (() => {
       </div>
       <div class="member-links justify-content-center" style="gap: 0.75rem;">${links}</div>
     `;
-    
+
     const modal = new bootstrap.Modal(document.getElementById('memberModal'));
     modal.show();
   }

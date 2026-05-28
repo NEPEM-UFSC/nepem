@@ -113,7 +113,7 @@ const App = (() => {
           const fallbackData = await fallbackResp.json();
           if (fallbackData && fallbackData.githubRepos) {
             githubRepos = fallbackData.githubRepos;
-            
+
             // Inject a dynamic "Repositórios GitHub" button into filters
             const filters = document.getElementById('projectFilters');
             if (filters && !document.getElementById('btnFilterGithub')) {
@@ -159,14 +159,14 @@ const App = (() => {
         container.innerHTML = `<div class="col-12 no-results"><i class="bi bi-github"></i><p>Nenhum repositório GitHub carregado.</p></div>`;
         return;
       }
-      
+
       container.innerHTML = githubRepos.map((repo, i) => {
         const stagger = `stagger-${(i % 6) + 1}`;
         const desc = repo.description !== 'null' && repo.description ? repo.description : 'Sem descrição disponível no momento.';
         const lang = repo.language !== 'null' && repo.language ? repo.language : 'Outro';
         const stars = repo.stargazers_count || 0;
         const forks = repo.forks_count || 0;
-        
+
         return `
           <div class="col-lg-3 col-md-4 col-sm-6 mb-4 fade-in-up ${stagger}">
             <div class="project-card d-flex flex-column h-100">
@@ -191,7 +191,7 @@ const App = (() => {
             </div>
           </div>`;
       }).join('');
-      
+
       requestAnimationFrame(() => {
         container.querySelectorAll('.fade-in-up').forEach(el => el.classList.add('visible'));
       });
@@ -342,38 +342,38 @@ const BlogModule = (() => {
 
   function parseMarkdown(text) {
     if (!text) return '';
-    
+
     let html = text
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
-    
+
     // 1. Headings
     html = html.replace(/^### (.*?)$/gm, '<h5 class="fw-bold mt-4 mb-2 text-gradient">$1</h5>');
     html = html.replace(/^#### (.*?)$/gm, '<h6 class="fw-bold mt-3 mb-2">$1</h6>');
-    
+
     // 2. Bold & Italic
     html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-    
+
     // 3. Lists
     html = html.replace(/^\* (.*?)$/gm, '<li>$1</li>');
     html = html.replace(/(<li>.*?<\/li>)+/gs, (match) => `<ul class="text-secondary ps-3 my-2" style="list-style-type: disc;">${match}</ul>`);
-    
+
     // 4. Tables
     html = html.replace(/\|(.*?)\|\r?\n\|[ -:|]*?\|\r?\n((?:\|.*?\|\r?\n?)*)/g, (match, header, body) => {
       const headers = header.split('|').map(h => h.trim()).filter(Boolean);
       const rows = body.trim().split('\n').map(r => r.split('|').map(c => c.trim()).filter(Boolean));
-      
+
       const thHtml = headers.map(h => `<th class="bg-light text-secondary font-semibold p-2 border">${h}</th>`).join('');
       const trHtml = rows.map(row => {
         if (row.length === 0) return '';
         return `<tr>${row.map(cell => `<td class="p-2 border text-secondary">${cell}</td>`).join('')}</tr>`;
       }).join('');
-      
+
       return `<div class="table-responsive my-4"><table class="table border table-hover align-middle"><thead><tr>${thHtml}</tr></thead><tbody>${trHtml}</tbody></table></div>`;
     });
-    
+
     // 5. Paragraphs
     const paragraphs = html.split(/\n\n+/);
     html = paragraphs.map(p => {
@@ -383,7 +383,7 @@ const BlogModule = (() => {
       }
       return `<p class="mb-3">${trimmed.replace(/\n/g, '<br>')}</p>`;
     }).join('');
-    
+
     return html;
   }
 
@@ -436,21 +436,21 @@ const ScholarStats = (() => {
           const table = data.scholarData.profile.cited_by.table || [];
           let citations = DEFAULT_STATS.citations;
           let hIndex = DEFAULT_STATS.hIndex;
-          
+
           table.forEach(item => {
             if (item.citations) citations = item.citations.all || citations;
             if (item.h_index) hIndex = item.h_index.all || hIndex;
           });
-          
+
           const worksCount = (data.scholarData.articles && data.scholarData.articles.length) || DEFAULT_STATS.worksCount;
-          
+
           const newStats = {
             citations,
             hIndex,
             worksCount,
             timestamp: Date.now()
           };
-          
+
           localStorage.setItem(STORAGE_KEY, JSON.stringify(newStats));
           updateUI(newStats);
           return; // Exit successfully!
@@ -465,7 +465,7 @@ const ScholarStats = (() => {
       const response = await fetch(API_URL);
       if (!response.ok) throw new Error('API response not ok');
       const data = await response.json();
-      
+
       const newStats = {
         citations: data.cited_by_count || DEFAULT_STATS.citations,
         hIndex: (data.summary_stats && data.summary_stats.h_index) || DEFAULT_STATS.hIndex,
@@ -502,7 +502,7 @@ const ScholarStats = (() => {
     updateElementText(document.getElementById('homepageStatPubs'), `${formattedWorks}+`);
     updateElementText(document.getElementById('homepageStatCitations'), `${formattedCitations}+`);
     updateElementText(document.getElementById('homepageStatHIndex'), formattedHIndex);
-    
+
     // Also sync the local publication total count elements if present
     const pubTotalCount = document.getElementById('pubTotalCount');
     if (pubTotalCount) {
