@@ -377,6 +377,30 @@
       "scholar": ""
     },
     "status": "active",
+    "weight": 1
+  },
+  {
+    "id": "isabela_buttelli_carlomagno",
+    "name": "Isabela Buttelli Carlomagno",
+    "role": "Iniciação Científica",
+    "group": "Graduando",
+    "bio": {
+      "pt": "Estudante de Agronomia na UFSC, com sólida base em organização, planejamento, comunicação e escrita desenvolvida durante a graduação em Pedagogia na UDESC.\n\nAtualmente, participo como estudante voluntária do NEPEM, Núcleo de Estudos e Pesquisas em Experimentação e Melhoramento Vegetal\n\nPossuo fluência para atuação em ambientes bilíngues, com experiência em ensino e comunicação profissional integralmente em inglês",
+      "en": "",
+      "es": ""
+    },
+    "photo": "img/members/member_1765824891291_j_1780077649522.jpg",
+    "email": "isabelacarlomagno@gmail.com",
+    "interests": [],
+    "links": {
+      "lattes": "",
+      "linkedin": "https://www.linkedin.com/in/isabela-buttelli-carlomagno-883388235/",
+      "github": "",
+      "researchgate": "",
+      "orcid": "",
+      "scholar": ""
+    },
+    "status": "active",
     "weight": 50
   }
 ]
