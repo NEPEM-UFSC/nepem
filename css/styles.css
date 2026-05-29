@@ -1112,29 +1112,150 @@ img {
   color: var(--text-tertiary);
 }
 
+/* Premium Social Media Icons styling */
+.hero-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.hero-social-links .social-btn {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
+  transition: all var(--transition-base);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.hero-social-links .social-btn i,
+.hero-social-links .social-btn .ai {
+  font-size: 1.35rem;
+  transition: transform var(--transition-base);
+}
+
+.hero-social-links .social-btn .social-handle {
+  display: none;
+}
+
+.hero-social-links .social-btn:hover {
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* Hero branding details on hover */
+.hero-social-links .social-btn.instagram:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  border-color: transparent;
+  box-shadow: 0 8px 25px rgba(220, 39, 67, 0.35);
+}
+
+.hero-social-links .social-btn.youtube:hover {
+  background: #ff0000;
+  border-color: #ff0000;
+  box-shadow: 0 8px 25px rgba(255, 0, 0, 0.35);
+}
+
+.hero-social-links .social-btn.github:hover {
+  background: #24292e;
+  border-color: #24292e;
+  box-shadow: 0 8px 25px rgba(36, 41, 46, 0.35);
+}
+
+.hero-social-links .social-btn.linkedin:hover {
+  background: #0077b5;
+  border-color: #0077b5;
+  box-shadow: 0 8px 25px rgba(0, 119, 181, 0.35);
+}
+
+.hero-social-links .social-btn.researchgate:hover {
+  background: #00ccbb;
+  border-color: #00ccbb;
+  box-shadow: 0 8px 25px rgba(0, 204, 187, 0.35);
+}
+
+.hero-social-links .social-btn.cnpq:hover {
+  background: #003366;
+  border-color: #003366;
+  box-shadow: 0 8px 25px rgba(0, 51, 102, 0.35);
+}
+
+/* Footer / Contact Card Social Links */
 .social-links-footer {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.8rem;
   margin-top: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .social-links-footer a {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-sm);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
   border: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
-  transition: all var(--transition-fast);
+  background: var(--bg-secondary);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.social-links-footer a i,
+.social-links-footer a .ai {
+  font-size: 1.35rem;
+  transition: transform var(--transition-base);
 }
 
 .social-links-footer a:hover {
-  border-color: var(--nepem-green);
-  color: var(--nepem-green);
-  background: rgba(26, 178, 129, 0.08);
-  transform: translateY(-2px);
+  color: #ffffff !important;
+  transform: translateY(-4px);
+}
+
+.social-links-footer a.instagram:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  border-color: transparent;
+  box-shadow: 0 6px 15px rgba(220, 39, 67, 0.3);
+}
+
+.social-links-footer a.youtube:hover {
+  background: #ff0000;
+  border-color: #ff0000;
+  box-shadow: 0 6px 15px rgba(255, 0, 0, 0.3);
+}
+
+.social-links-footer a.github:hover {
+  background: #24292e;
+  border-color: #24292e;
+  box-shadow: 0 6px 15px rgba(36, 41, 46, 0.3);
+}
+
+.social-links-footer a.linkedin:hover {
+  background: #0077b5;
+  border-color: #0077b5;
+  box-shadow: 0 6px 15px rgba(0, 119, 181, 0.3);
+}
+
+.social-links-footer a.researchgate:hover {
+  background: #00ccbb;
+  border-color: #00ccbb;
+  box-shadow: 0 6px 15px rgba(0, 204, 187, 0.3);
+}
+
+.social-links-footer a.cnpq:hover {
+  background: #003366;
+  border-color: #003366;
+  box-shadow: 0 6px 15px rgba(0, 51, 102, 0.3);
 }
 
 /* ============================================
