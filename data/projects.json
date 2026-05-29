@@ -13,9 +13,7 @@
     },
     "url": "https://nepem-ufsc.github.io/metan/",
     "github": "https://github.com/NEPEM-UFSC/metan",
-    "image": "https://raw.githubusercontent.com/TiagoOlivoto/metan/master/man/figures/logo.png",
-    "tipo": "Bibliotecas de código",
-    "project_number": ""
+    "image": "https://raw.githubusercontent.com/TiagoOlivoto/metan/master/man/figures/logo.png"
   },
   {
     "id": "pliman",
@@ -31,9 +29,7 @@
     },
     "url": "https://nepem-ufsc.github.io/pliman/",
     "github": "https://github.com/NEPEM-UFSC/pliman",
-    "image": "https://raw.githubusercontent.com/TiagoOlivoto/pliman/master/man/figures/logo.png",
-    "tipo": "Bibliotecas de código",
-    "project_number": ""
+    "image": "https://raw.githubusercontent.com/TiagoOlivoto/pliman/master/man/figures/logo.png"
   },
   {
     "id": "plimanshiny",
@@ -49,9 +45,7 @@
     },
     "url": "https://github.com/NEPEM-UFSC/plimanshiny",
     "github": "https://github.com/NEPEM-UFSC/plimanshiny",
-    "image": "https://raw.githubusercontent.com/NEPEM-UFSC/plimanshiny/master/man/figures/logo.png",
-    "tipo": "Aplicativos",
-    "project_number": ""
+    "image": "https://raw.githubusercontent.com/NEPEM-UFSC/plimanshiny/master/man/figures/logo.png"
   },
   {
     "id": "melhoramentolinhaca",
@@ -66,9 +60,7 @@
     ],
     "url": "",
     "github": "",
-    "image": "",
-    "tipo": "Pesquisa",
-    "project_number": ""
+    "image": ""
   },
   {
     "id": "manejolinhaça",
@@ -83,9 +75,7 @@
     ],
     "url": "",
     "github": "",
-    "image": "",
-    "tipo": "Pesquisa",
-    "project_number": ""
+    "image": ""
   },
   {
     "id": "AIpomoea",
@@ -101,9 +91,7 @@
     },
     "url": "https://github.com/NEPEM-UFSC/AIpomoea",
     "github": "https://github.com/NEPEM-UFSC/AIpomoea",
-    "image": "https://raw.githubusercontent.com/NEPEM-UFSC/AIpomoea/master/.github/icone.png",
-    "tipo": "Aplicativos",
-    "project_number": ""
+    "image": "https://raw.githubusercontent.com/NEPEM-UFSC/AIpomoea/master/.github/icone.png"
   },
   {
     "id": "learnstats",
@@ -118,25 +106,21 @@
     ],
     "url": "",
     "github": "",
-    "image": "",
-    "tipo": "Material didático",
-    "project_number": ""
+    "image": ""
   },
   {
     "id": "book_software_r",
     "title": "Software R para Ciências Agrárias",
-    "tags": [
-      "Livros"
-    ],
     "description": {
       "pt": "Livro sobre uso do software R para análise de dados em ciências agrárias, com exemplos práticos e reproduzíveis.",
       "en": "Book on using R software for data analysis in agricultural sciences, with practical and reproducible examples.",
-      "es": "Livro sobre el uso del software R para análisis de dados en ciências agrarias, com exemplos práticos e reproduzíveis."
+      "es": "Libro sobre el uso del software R para análisis de datos en ciencias agrarias, con ejemplos prácticos y reproducibles."
     },
+    "tags": [
+      "Livros"
+    ],
     "url": "",
     "github": "",
-    "image": "https://github.com/TiagoOlivoto/e-bookr/blob/master/figures/cover.png?raw=true",
-    "tipo": "Livros",
-    "project_number": ""
+    "image": ""
   }
 ]
