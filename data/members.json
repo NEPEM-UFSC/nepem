@@ -31,7 +31,7 @@
     "id": "leonardo_campos",
     "name": "Leonardo Talavera Campos",
     "role": "Pós-Doutorando",
-    "group": "Estudantes de Pós-Doutorado",
+    "group": "Pós-Doutorando",
     "bio": {
       "pt": "Engenheiro Agrônomo formado pela UFRGS, Doutor em Ciências pela UFPel em Zootecnia com ênfase em Melhoramento Animal. Mestrado Profissional em Métodos e Gestão em Avaliação pela UFSC e MBA em Data Science e Analytics. Atualmente realiza Estágio de Pós-Doutorado em Recursos Genéticos Vegetais na UFSC/NEPEM.",
       "en": "Agricultural Engineer from UFRGS, PhD in Sciences from UFPel in Animal Science with emphasis on Animal Breeding. Professional Master's in Methods and Management in Evaluation from UFSC and MBA in Data Science and Analytics. Currently doing a Postdoctoral Fellowship in Plant Genetic Resources at UFSC/NEPEM.",
@@ -53,16 +53,16 @@
       "orcid": "",
       "scholar": ""
     },
-    "status": "active",
+    "status": "alumni",
     "weight": 1
   },
   {
     "id": "cadu_assoni",
     "name": "Carlos Eduardo Forcelini Assoni",
     "role": "Graduando em Agronomia",
-    "group": "Estudantes de Graduação",
+    "group": "Graduando",
     "bio": {
-      "pt": "Graduando em Agronomia na UFSC, com experiência em bioestimulação vegetal, cadeias agrícolas de commodities, consultoria em agronegócio, pesquisas em experimentação e melhoramento vegetal da cultura da linhaça",
+      "pt": "Graduando em Agronomia na UFSC, com experiência em bioestimulação vegetal, cadeias agrícolas de commodities, consultoria em agronegócio, pesquisas em experimentação e melhoramento vegetal da cultura da linhaça.",
       "en": "Undergraduate student in Agronomy at UFSC, with experience in plant biostimulation, agricultural commodity chains, agribusiness consulting, and research in experimentation and plant breeding of flaxseed.",
       "es": "Estudiante de Agronomía en la UFSC, con experiencia en bioestimulación vegetal, cadenas agrícolas de commodities, consultoría en agronegocios e investigación en experimentación y mejoramiento vegetal del cultivo de lino."
     },
@@ -89,7 +89,7 @@
     "id": "matheus_lopes",
     "name": "Matheus Lopes",
     "role": "Graduando em Engenharia Agronômica",
-    "group": "Estudantes de Graduação",
+    "group": "Graduando",
     "bio": {
       "pt": "Estudante de Engenharia Agronômica na UFSC. Participa do NEPEM com ênfase em análise estatística aplicada ao setor agrário e do GEAD-UFSC explorando soluções em Geomática e Agricultura de Precisão. Experiência em Python, automação, análise espacial e processamento de imagens.",
       "en": "Agricultural Engineering student at UFSC. Participates in NEPEM with emphasis on statistical analysis applied to agriculture and in GEAD-UFSC exploring solutions in Geomatics and Precision Agriculture. Experience in Python, automation, spatial analysis, and image processing.",
@@ -118,7 +118,7 @@
     "id": "fausto_galhardi",
     "name": "Fausto Galhardi",
     "role": "Graduando em Agronomia",
-    "group": "Estudantes de Graduação",
+    "group": "Graduando",
     "bio": {
       "pt": "",
       "en": "",
@@ -142,7 +142,7 @@
     "id": "daniel_fumio_hada_junior",
     "name": "Daniel Fumio Hada Júnior",
     "role": "Graduando em Agronomia",
-    "group": "Estudantes de Graduação",
+    "group": "Graduando",
     "bio": {
       "pt": "",
       "en": "",
@@ -168,9 +168,9 @@
   },
   {
     "id": "isabella_stefani_lisboa_da_costa",
-    "name": "Isabella Stefani Lisboa Da Costa",
+    "name": "Isabella Stefani Lisboa Da Cost",
     "role": "Graduando em Agronomia",
-    "group": "Estudantes de Graduação",
+    "group": "Graduando",
     "bio": {
       "pt": "",
       "en": "",
@@ -197,7 +197,7 @@
     "id": "luiz_felipe_inacio",
     "name": "Luiz Felipe Inácio",
     "role": "Estudante de Mestrado",
-    "group": "Estudantes de Mestrado",
+    "group": "Mestrando",
     "bio": {
       "pt": "",
       "en": "",
@@ -224,7 +224,7 @@
     "id": "luiz_paulo_da_silva",
     "name": "Luiz Paulo da Silva",
     "role": "Iniciação Científica",
-    "group": "Estudantes de Graduação",
+    "group": "Graduando",
     "bio": {
       "pt": "",
       "en": "",
@@ -251,7 +251,7 @@
     "id": "marina_mattiello_crestani",
     "name": "Marina Mattiello Crestani",
     "role": "Aluno de Graduação",
-    "group": "Estudantes de Graduação",
+    "group": "Graduando",
     "bio": {
       "pt": "",
       "en": "",
@@ -281,7 +281,7 @@
     "id": "daniel_schmechel_affeldt",
     "name": "Daniel Schmechel Affeldt",
     "role": "Monitor - Bioestatística",
-    "group": "Estudantes de Graduação",
+    "group": "Graduando",
     "bio": {
       "pt": "",
       "en": "",
@@ -308,7 +308,7 @@
     "id": "vanessa_borges",
     "name": "Vanessa Borges",
     "role": "Estudante de Mestrado",
-    "group": "Estudantes de Mestrado",
+    "group": "Mestrando",
     "bio": {
       "pt": "",
       "en": "",
@@ -335,7 +335,7 @@
     "id": "taina_caroline_kuhn",
     "name": "Tainá Caroline Kuhn",
     "role": "Estudante de Doutorado",
-    "group": "Estudantes de Doutorado",
+    "group": "Doutorando",
     "bio": {
       "pt": "",
       "en": "",
@@ -354,29 +354,5 @@
     },
     "status": "active",
     "weight": 1
-  },
-  {
-    "id": "felipe_rosauro_de_matheus_bustamante",
-    "name": "Felipe Rosauro de Matheus Bustamante",
-    "role": "Aluno de Graduação",
-    "group": "Ex-alunos",
-    "bio": {
-      "pt": "Engenheiro Agrônomo pela Universidade Federal de Santa Catarina (2021-2025)",
-      "en": "",
-      "es": ""
-    },
-    "photo": "img/members/member_1747616465819_j_1780000611446.jpg",
-    "email": "",
-    "interests": [],
-    "links": {
-      "lattes": "http://lattes.cnpq.br/1594696248936082",
-      "linkedin": "https://www.linkedin.com/in/felipe-rosauro-3133bb1a7/",
-      "github": "",
-      "researchgate": "",
-      "orcid": "",
-      "scholar": ""
-    },
-    "status": "active",
-    "weight": 50
   }
 ]

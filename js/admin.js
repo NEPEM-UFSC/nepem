@@ -160,7 +160,7 @@ const AdminModule = (() => {
 
         // Load fallback-data.json (Google Scholar data) and dynamically auto-merge missing articles
         try {
-          const fallbackResp = await fetch('data/fallback-data.json');
+          const fallbackResp = await fetch('data/fallback-data.json?t=' + Date.now());
           if (fallbackResp.ok) {
             const fallbackData = await fallbackResp.json();
             if (fallbackData && fallbackData.scholarData && fallbackData.scholarData.articles) {
@@ -276,7 +276,7 @@ const AdminModule = (() => {
         localStorage.removeItem('nepem-publications-v4');
         await preloadBaseData();
       } else {
-        const res = await fetch(`data/${type}.json`);
+        const res = await fetch(`data/${type}.json?t=` + Date.now());
         const data = await res.json();
         localStorage.setItem(`nepem-${type}`, JSON.stringify(data));
         localStorage.setItem(`nepem-${type}-loaded`, 'true');
@@ -612,12 +612,12 @@ const AdminModule = (() => {
             <div class="col-md-4">
               <label class="form-label small mb-1">Categoria (Grupo)</label>
               <select class="form-control form-control-nepem" id="memberGroup">
-                <option value="Coordenador geral" ${member.group === 'Coordenador geral' ? 'selected' : ''}>Coordenador geral</option>
-                <option value="Pesquisadores" ${member.group === 'Pesquisadores' ? 'selected' : ''}>Pesquisadores</option>
-                <option value="Estudantes de Pós-Doutorado" ${member.group === 'Estudantes de Pós-Doutorado' ? 'selected' : ''}>Pós-Doutorado</option>
-                <option value="Estudantes de Doutorado" ${member.group === 'Estudantes de Doutorado' ? 'selected' : ''}>Doutorado</option>
-                <option value="Estudantes de Mestrado" ${member.group === 'Estudantes de Mestrado' ? 'selected' : ''}>Mestrado</option>
-                <option value="Estudantes de Graduação" ${member.group === 'Estudantes de Graduação' ? 'selected' : ''}>Graduação</option>
+                <option value="Professor" ${member.group === 'Professor' ? 'selected' : ''}>Professor</option>
+                <option value="Pós-Doutorando" ${member.group === 'Pós-Doutorando' ? 'selected' : ''}>Pós-Doutorando</option>
+                <option value="Doutorando" ${member.group === 'Doutorando' ? 'selected' : ''}>Doutorando</option>
+                <option value="Mestrando" ${member.group === 'Mestrando' ? 'selected' : ''}>Mestrando</option>
+                <option value="Graduando" ${member.group === 'Graduando' ? 'selected' : ''}>Graduando</option>
+                <option value="TAE" ${member.group === 'TAE' ? 'selected' : ''}>TAE</option>
                 <option value="Ex-alunos" ${member.group === 'Ex-alunos' ? 'selected' : ''}>Ex-alunos (Alumni)</option>
               </select>
             </div>
@@ -793,30 +793,42 @@ const AdminModule = (() => {
       <div id="projectFormArea"></div>
       <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
         <table class="table admin-table table-hover align-middle">
-          <thead class="sticky-top bg-body"><tr><th>Logo/Imagem</th><th>Título</th><th>Tags</th><th>Ações</th></tr></thead>
+          <thead class="sticky-top bg-body"><tr><th>Logo/Imagem</th><th>Título</th><th>Tipo</th><th>Registro/Link</th><th>Tags</th><th>Ações</th></tr></thead>
           <tbody>
-            ${projects.length === 0 ? '<tr><td colspan="4" class="text-center text-muted py-4">Nenhum projeto cadastrado.</td></tr>' : ''}
-            ${projects.map(p => `
-              <tr class="project-row" data-search="${(p.title || '').toLowerCase()} ${(p.tags || []).join(' ').toLowerCase()}">
-                <td>
-                  ${p.image
-        ? `<img src="${p.image}" alt="${p.title}" style="width: 32px; height: 32px; object-fit: contain;">`
-        : `<i class="bi bi-folder2-open text-success fs-5"></i>`
-      }
-                </td>
-                <td><strong>${p.title}</strong></td>
-                <td>${(p.tags || []).map(t => `<span class="badge bg-info me-1 text-dark">${t}</span>`).join('')}</td>
-                <td>
-                  <div class="d-flex gap-1">
-                    <button class="btn btn-sm btn-outline-primary" onclick="AdminModule.editItem('projects', '${p.id}')" title="Editar">
-                      <i class="bi bi-pencil"></i>
-                    </button>
-                    <button class="btn btn-sm btn-outline-danger" onclick="AdminModule.deleteItem('projects', '${p.id}')" title="Excluir">
-                      <i class="bi bi-trash"></i>
-                    </button>
-                  </div>
-                </td>
-              </tr>`).join('')}
+            ${projects.length === 0 ? '<tr><td colspan="6" class="text-center text-muted py-4">Nenhum projeto cadastrado.</td></tr>' : ''}
+            ${projects.map(p => {
+      const hasLink = p.project_number && (p.project_number.startsWith('http://') || p.project_number.startsWith('https://'));
+      const regDisplay = p.project_number
+        ? (hasLink
+          ? `<a href="${p.project_number}" target="_blank" class="btn btn-xs btn-outline-info py-0 px-2" style="font-size:0.75rem;"><i class="bi bi-link-45deg"></i> Link</a>`
+          : `<code class="small bg-light border text-dark py-1 px-2 rounded">${p.project_number}</code>`
+        )
+        : '<span class="text-muted small">—</span>';
+
+      return `
+                <tr class="project-row" data-search="${(p.title || '').toLowerCase()} ${(p.tags || []).join(' ').toLowerCase()}">
+                  <td>
+                    ${p.image
+          ? `<img src="${p.image}" alt="${p.title}" style="width: 32px; height: 32px; object-fit: contain;">`
+          : `<i class="bi bi-folder2-open text-success fs-5"></i>`
+        }
+                  </td>
+                  <td><strong>${p.title}</strong></td>
+                  <td><span class="badge bg-secondary text-light">${p.tipo || 'Pesquisa'}</span></td>
+                  <td>${regDisplay}</td>
+                  <td>${(p.tags || []).map(t => `<span class="badge bg-info me-1 text-dark">${t}</span>`).join('')}</td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <button class="btn btn-sm btn-outline-primary" onclick="AdminModule.editItem('projects', '${p.id}')" title="Editar">
+                        <i class="bi bi-pencil"></i>
+                      </button>
+                      <button class="btn btn-sm btn-outline-danger" onclick="AdminModule.deleteItem('projects', '${p.id}')" title="Excluir">
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>`;
+    }).join('')}
           </tbody>
         </table>
       </div>`;
@@ -829,14 +841,16 @@ const AdminModule = (() => {
     let project = {
       id: '', title: '', tags: [],
       description: { pt: '', en: '', es: '' },
-      url: '', github: '', image: ''
+      url: '', github: '', image: '',
+      tipo: 'Pesquisa',
+      project_number: ''
     };
 
     if (id) {
       const projects = JSON.parse(localStorage.getItem('nepem-projects') || '[]');
       const found = projects.find(p => p.id === id);
       if (found) {
-        project = found;
+        project = { ...project, ...found };
         if (typeof project.description === 'string') {
           project.description = { pt: project.description, en: '', es: '' };
         }
@@ -875,12 +889,20 @@ const AdminModule = (() => {
             </div>
 
             <div class="col-md-4">
-              <label class="form-label small mb-1">URL do Site Oficial</label>
-              <input class="form-control form-control-nepem" id="projUrl" placeholder="Ex: https://..." value="${project.url || ''}">
+              <label class="form-label small mb-1">Tipo de Projeto</label>
+              <select class="form-select form-control-nepem" id="projTipo">
+                <option value="Pesquisa" ${project.tipo === 'Pesquisa' ? 'selected' : ''}>Pesquisa</option>
+                <option value="Extensão" ${project.tipo === 'Extensão' ? 'selected' : ''}>Extensão</option>
+                <option value="Aplicativos" ${project.tipo === 'Aplicativos' ? 'selected' : ''}>Aplicativos</option>
+                <option value="Bibliotecas de código" ${project.tipo === 'Bibliotecas de código' ? 'selected' : ''}>Bibliotecas de código</option>
+                <option value="Material didático" ${project.tipo === 'Material didático' ? 'selected' : ''}>Material didático</option>
+                <option value="Livros" ${project.tipo === 'Livros' ? 'selected' : ''}>Livros</option>
+                <option value="Outro" ${project.tipo === 'Outro' ? 'selected' : ''}>Outro</option>
+              </select>
             </div>
             <div class="col-md-4">
-              <label class="form-label small mb-1">URL do GitHub (código)</label>
-              <input class="form-control form-control-nepem" id="projGithub" placeholder="Ex: https://github.com/..." value="${project.github || ''}">
+              <label class="form-label small mb-1">Número de Registro ou Link para Página Oficial</label>
+              <input class="form-control form-control-nepem" id="projNumber" placeholder="Ex: SIGPEX 2026... ou https://..." value="${project.project_number || ''}">
             </div>
             <div class="col-md-4">
               <label class="form-label small mb-1">Imagem / Logo (Upload Local ou URL)</label>
@@ -894,6 +916,15 @@ const AdminModule = (() => {
               <div id="projImagePreview" class="mt-2 text-center" style="display: ${project.image ? 'block' : 'none'};">
                 <img src="${project.image || ''}" style="max-height: 80px; border-radius: 8px; border: 1px solid var(--border-color);" id="projImageImg">
               </div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label small mb-1">URL do Site de Demonstração / Documentação</label>
+              <input class="form-control form-control-nepem" id="projUrl" placeholder="Ex: https://..." value="${project.url || ''}">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label small mb-1">URL do GitHub (código)</label>
+              <input class="form-control form-control-nepem" id="projGithub" placeholder="Ex: https://github.com/..." value="${project.github || ''}">
             </div>
 
             <div class="col-12 d-flex gap-2 mt-3">
@@ -928,7 +959,9 @@ const AdminModule = (() => {
       },
       url: document.getElementById('projUrl').value.trim(),
       github: document.getElementById('projGithub').value.trim(),
-      image: document.getElementById('projImage').value.trim()
+      image: document.getElementById('projImage').value.trim(),
+      tipo: document.getElementById('projTipo').value,
+      project_number: document.getElementById('projNumber').value.trim()
     };
 
     const projects = JSON.parse(localStorage.getItem('nepem-projects') || '[]');

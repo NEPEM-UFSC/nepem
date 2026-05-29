@@ -1,6 +1,17 @@
 {
   "githubRepos": [
     {
+      "name": "nepem",
+      "html_url": "https://github.com/NEPEM-UFSC/nepem",
+      "homepage": "https://NEPEM-UFSC.github.io/nepem/",
+      "description": "null",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 8,
+      "updated_at": "2026-05-28T20:37:32Z",
+      "topics": []
+    },
+    {
       "name": "metan",
       "html_url": "https://github.com/NEPEM-UFSC/metan",
       "homepage": "https://nepem-ufsc.github.io/metan/",
@@ -53,17 +64,6 @@
       "stargazers_count": 0,
       "forks_count": 0,
       "updated_at": "2026-04-24T20:30:59Z",
-      "topics": []
-    },
-    {
-      "name": "nepem",
-      "html_url": "https://github.com/NEPEM-UFSC/nepem",
-      "homepage": "https://NEPEM-UFSC.github.io/nepem/",
-      "description": "null",
-      "language": "JavaScript",
-      "stargazers_count": 0,
-      "forks_count": 8,
-      "updated_at": "2026-03-28T15:11:12Z",
       "topics": []
     },
     {
@@ -771,8 +771,8 @@
         "table": [
           {
             "citations": {
-              "all": 4930,
-              "desde_2021": 4576
+              "all": 4935,
+              "desde_2021": 4580
             }
           },
           {
@@ -807,7 +807,7 @@
           },
           {
             "year": 2021,
-            "citations": 377
+            "citations": 378
           },
           {
             "year": 2022,
@@ -823,11 +823,11 @@
           },
           {
             "year": 2025,
-            "citations": 1338
+            "citations": 1336
           },
           {
             "year": 2026,
-            "citations": 562
+            "citations": 567
           }
         ]
       }
@@ -840,7 +840,7 @@
         "authors": "T Olivoto, ADC Lúcio",
         "publication": "Methods in Ecology and Evolution 11 (6), 783-789, 2020",
         "cited_by": {
-          "value": 1247,
+          "value": 1249,
           "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=7434043990981196599",
           "serpapi_link": "https://serpapi.com/search.json?cites=7434043990981196599&engine=google_scholar&hl=pt-br",
           "cites_id": "7434043990981196599"
@@ -857,7 +857,7 @@
         "authors": "T Olivoto, ADC Lúcio, JAG da Silva, VS Marchioro, VQ de Souza, E Jost",
         "publication": "Agronomy journal 111 (6), 2949-2960, 2019",
         "cited_by": {
-          "value": 537,
+          "value": 538,
           "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=8780929387939413023",
           "serpapi_link": "https://serpapi.com/search.json?cites=8780929387939413023&engine=google_scholar&hl=pt-br",
           "cites_id": "8780929387939413023"
@@ -874,7 +874,7 @@
         "authors": "T Olivoto, ADC Lúcio, JAG da Silva, BG Sari, MI Diel",
         "publication": "Agronomy Journal 111 (6), 2961-2969, 2019",
         "cited_by": {
-          "value": 417,
+          "value": 418,
           "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=9787619337169825913",
           "serpapi_link": "https://serpapi.com/search.json?cites=9787619337169825913&engine=google_scholar&hl=pt-br",
           "cites_id": "9787619337169825913"
@@ -976,7 +976,7 @@
         "authors": "T Olivoto, VQ de Souza, M Nardino, IR Carvalho, M Ferrari, ...",
         "publication": "Agronomy journal 109 (1), 131-142, 2017",
         "cited_by": {
-          "value": 100,
+          "value": 101,
           "link": "https://scholar.google.com/scholar?oi=bibs&hl=pt-BR&cites=17791843996381987107",
           "serpapi_link": "https://serpapi.com/search.json?cites=17791843996381987107&engine=google_scholar&hl=pt-br",
           "cites_id": "17791843996381987107"
@@ -2866,6 +2866,16 @@
         "journalTitle": "AgrriaRevista Brasileira de Cincias Agrrias   ee"
       },
       {
+        "title": "Multi-trait selection in multi-environments for performance and stability in cassava genotypes.",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:z_wVstp3MssC",
+        "citation_id": "QjxIJkcAAAAJ:z_wVstp3MssC",
+        "authors": "JSS Filho, T Olivoto, MS Campos, EJ de Oliveira",
+        "cited_by": {
+          "value": {}
+        },
+        "year": "2023"
+      },
+      {
         "title": "Path analysis associated with fungicide use in corn hybrids.",
         "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:JoZmwDi-zQgC",
         "citation_id": "QjxIJkcAAAAJ:JoZmwDi-zQgC",
@@ -3082,16 +3092,6 @@
         "journalTitle": "Revista SODEBRASVolume"
       },
       {
-        "title": "Path analysis associated with fungicide use in corn hybrids",
-        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:uJ-U7cs_P_0C",
-        "citation_id": "QjxIJkcAAAAJ:uJ-U7cs_P_0C",
-        "authors": "DN Follmann, HS Eggers, GB da Rosa, F Bolzan, ADC Lucio, ...",
-        "cited_by": {
-          "value": {}
-        },
-        "year": "2000"
-      },
-      {
         "title": "metan: an R package for multi-environment",
         "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:uLbwQdceFCQC",
         "citation_id": "QjxIJkcAAAAJ:uLbwQdceFCQC",
@@ -3299,6 +3299,16 @@
         "doi": "null",
         "doiLink": "null",
         "journalTitle": "XII ENCONTRO BRASILEIRO DE HIDROPONIA IV SIMPSIO BRASILEIRO DE HIDROPONIA"
+      },
+      {
+        "title": "Path analysis associated with fungicide use in corn hybrids",
+        "link": "https://scholar.google.com/citations?view_op=view_citation&hl=pt-BR&user=QjxIJkcAAAAJ&cstart=100&pagesize=100&citation_for_view=QjxIJkcAAAAJ:uJ-U7cs_P_0C",
+        "citation_id": "QjxIJkcAAAAJ:uJ-U7cs_P_0C",
+        "authors": "DN Follmann, HS Eggers, GB da Rosa, F Bolzan, ADC Lucio, ...",
+        "cited_by": {
+          "value": {}
+        },
+        "year": ""
       }
     ]
   }

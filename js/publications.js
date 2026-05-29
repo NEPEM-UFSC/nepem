@@ -28,7 +28,7 @@ const PublicationsModule = (() => {
   async function init(options = {}) {
     try {
       // Always fetch fresh publications database from the server for public pages
-      publications = await (await fetch('data/publications.json')).json();
+      publications = await (await fetch('data/publications.json?t=' + Date.now())).json();
       // Fix encoding issues & clean up
       publications = publications.map(p => ({
         ...p,
@@ -40,7 +40,7 @@ const PublicationsModule = (() => {
 
       // Attempt to load rich citation counts from fallback-data.json (Scholar data)
       try {
-        const fallbackResp = await fetch('data/fallback-data.json');
+        const fallbackResp = await fetch('data/fallback-data.json?t=' + Date.now());
         if (fallbackResp.ok) {
           const fallbackData = await fallbackResp.json();
           if (fallbackData && fallbackData.scholarData) {
