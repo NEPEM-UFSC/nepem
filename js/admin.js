@@ -500,7 +500,7 @@ const AdminModule = (() => {
     localStorage.setItem('nepem-publications-v4', JSON.stringify(pubs));
     editingId = null;
     renderTab('publications');
-    syncToGithub('publications');
+    saveLocally('publications');
   }
 
   /* ---- MEMBERS ---- */
@@ -758,7 +758,7 @@ const AdminModule = (() => {
     localStorage.setItem('nepem-members', JSON.stringify(members));
     editingId = null;
     renderTab('members');
-    syncToGithub('members');
+    saveLocally('members');
   }
 
   /* ---- PROJECTS ---- */
@@ -980,7 +980,7 @@ const AdminModule = (() => {
     localStorage.setItem('nepem-projects', JSON.stringify(projects));
     editingId = null;
     renderTab('projects');
-    syncToGithub('projects');
+    saveLocally('projects');
   }
 
   /* ---- BLOG POSTS ---- */
@@ -1178,7 +1178,7 @@ const AdminModule = (() => {
     localStorage.setItem('nepem-posts', JSON.stringify(posts));
     editingId = null;
     renderTab('posts');
-    syncToGithub('posts');
+    saveLocally('posts');
   }
 
   function insertFormat(tag) {
@@ -1450,6 +1450,25 @@ const AdminModule = (() => {
     });
   }
 
+  async function saveLocally(type) {
+    const key = type === 'publications' ? 'nepem-publications-v4' : `nepem-${type}`;
+    const data = localStorage.getItem(key) || '[]';
+    const formattedData = JSON.stringify(JSON.parse(data), null, 2);
+
+    try {
+      const response = await fetch(`/api/save/${type}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: formattedData
+      });
+      if (response.ok) {
+        showToast(`Salvo localmente em data/${type}.json`);
+      }
+    } catch (e) {
+      console.log("Local backend save not available. Data saved in localStorage.");
+    }
+  }
+
   /* ---- COMMON ---- */
   function deleteItem(type, id) {
     const labels = {
@@ -1464,7 +1483,7 @@ const AdminModule = (() => {
     const filtered = items.filter(item => item.id !== id);
     localStorage.setItem(key, JSON.stringify(filtered));
     renderTab(currentTab);
-    syncToGithub(type);
+    saveLocally(type);
   }
 
   function editItem(type, id) {
@@ -1659,6 +1678,87 @@ const AdminModule = (() => {
     }
   }
 
+  async function deploySite() {
+    const configStr = localStorage.getItem('nepem-github-config');
+    if (!configStr) {
+      alert("Por favor, configure as credenciais do GitHub primeiro na opção 'Sincronização GitHub' na barra lateral.");
+      openGithubSettings();
+      return;
+    }
+
+    const config = JSON.parse(configStr);
+    if (!config.token || !config.owner || !config.repo) {
+      alert("Por favor, preencha as credenciais do GitHub na opção 'Sincronização GitHub' na barra lateral.");
+      openGithubSettings();
+      return;
+    }
+
+    if (!confirm("Deseja enviar todas as alterações salvas localmente para o GitHub e iniciar o deploy do site?")) return;
+
+    const types = ['publications', 'members', 'projects', 'posts'];
+    let successCount = 0;
+    
+    showToast("Iniciando deploy de todas as alterações...");
+
+    for (const type of types) {
+      try {
+        const key = type === 'publications' ? 'nepem-publications-v4' : `nepem-${type}`;
+        const data = localStorage.getItem(key);
+        if (!data) continue;
+        
+        const formattedData = JSON.stringify(JSON.parse(data), null, 2);
+        const contentEncoded = btoa(unescape(encodeURIComponent(formattedData)));
+        const path = `data/${type}.json`;
+        const url = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${path}`;
+
+        showToast(`Enviando ${type}.json para o GitHub...`);
+
+        // 1. Get current SHA
+        let currentSha = null;
+        const getRes = await fetch(`${url}?ref=${config.branch}`, {
+          headers: { 'Authorization': `token ${config.token}`, 'Accept': 'application/vnd.github.v3+json' }
+        });
+
+        if (getRes.ok) {
+          const fileInfo = await getRes.json();
+          currentSha = fileInfo.sha;
+        }
+
+        // 2. Update File
+        const putRes = await fetch(url, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `token ${config.token}`,
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            message: `Deploy updates for ${type}.json via Admin Panel`,
+            content: contentEncoded,
+            sha: currentSha,
+            branch: config.branch
+          })
+        });
+
+        if (putRes.ok) {
+          successCount++;
+        } else {
+          const errorData = await putRes.json();
+          console.error(`Error deploying ${type}:`, errorData);
+        }
+      } catch (err) {
+        console.error(`Failed to deploy ${type}:`, err);
+      }
+    }
+
+    if (successCount > 0) {
+      showToast(`Sucesso! Deploy concluído com ${successCount} arquivos atualizados.`);
+      alert(`Deploy enviado com sucesso! O GitHub foi atualizado com ${successCount} arquivos de dados e o Netlify iniciará a publicação em instantes.`);
+    } else {
+      alert("Nenhum arquivo pôde ser enviado. Verifique se as credenciais do GitHub estão corretas ou se há conexão com a internet.");
+    }
+  }
+
   function showToast(msg) {
     const toastEl = document.getElementById('githubToast');
     const msgEl = document.getElementById('githubToastMsg');
@@ -1678,6 +1778,7 @@ const AdminModule = (() => {
     exportData, importData, resetToDefault,
     handlePhotoUpload, handleLogin,
     insertFormat, updatePostPreview,
-    openGithubSettings, saveGithubSettings, clearGithubSettings
+    openGithubSettings, saveGithubSettings, clearGithubSettings,
+    deploySite
   };
 })();
