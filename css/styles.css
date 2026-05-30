@@ -95,6 +95,10 @@ html {
   scroll-padding-top: 80px;
 }
 
+html.nepem-prod .admin-only {
+  display: none !important;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--bg-primary);
