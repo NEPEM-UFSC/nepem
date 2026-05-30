@@ -13,3 +13,4 @@ write_md.R
 node_modules/
 sort_authors_by_name.R
 keys.json
+.jules/sentinel.md
