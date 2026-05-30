@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "NEPEM",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js",
+    "start": "node scripts/start.js",
+    "start:prod": "node scripts/start.js --prod",
+    "dev": "node scripts/start.js",
     "update:bases": "node scripts/update-bases.js",
     "lint": "npm run lint:format && npm run lint:js",
     "lint:js": "eslint .",

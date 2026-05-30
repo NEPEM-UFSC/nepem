@@ -6,6 +6,17 @@ const AdminModule = (() => {
   let currentTab = 'publications';
   let editingId = null;
 
+  function isAuthorized() {
+    return sessionStorage.getItem('nepem-admin-authorized') === 'true';
+  }
+
+  function showLoginGate() {
+    const container = document.getElementById('adminContent');
+    if (container) {
+      renderLoginGate(container);
+    }
+  }
+
   function normalizeTitle(title) {
     if (!title || typeof title !== 'string') return '';
     return title
@@ -82,7 +93,7 @@ const AdminModule = (() => {
     if (!container) return;
 
     // Check Password Protection Gate
-    if (localStorage.getItem('nepem-admin-authorized') !== 'true') {
+    if (!isAuthorized()) {
       renderLoginGate(container);
       return;
     }
@@ -147,7 +158,7 @@ const AdminModule = (() => {
     const hash = await sha256(pass);
     // SHA-256 hash of 'nepem@flax2022'
     if (hash === '981ce567c534bf51407761e25bdfd0ccb34501730d84cd112f07eb6c13cd9619') {
-      localStorage.setItem('nepem-admin-authorized', 'true');
+      sessionStorage.setItem('nepem-admin-authorized', 'true');
       init();
     } else {
       alert('Senha incorreta! Tente novamente.');
@@ -279,6 +290,7 @@ const AdminModule = (() => {
   }
 
   async function resetToDefault(type) {
+    if (!isAuthorized()) return showLoginGate();
     const labels = {
       publications: 'publicações',
       members: 'membros',
@@ -312,6 +324,10 @@ const AdminModule = (() => {
   }
 
   function setTab(tab) {
+    if (!isAuthorized()) {
+      showLoginGate();
+      return;
+    }
     currentTab = tab;
     editingId = null;
     renderTab(tab);
@@ -321,6 +337,10 @@ const AdminModule = (() => {
   }
 
   function renderTab(tab) {
+    if (!isAuthorized()) {
+      showLoginGate();
+      return;
+    }
     const container = document.getElementById('adminContent');
     if (!container) return;
 
@@ -422,6 +442,7 @@ const AdminModule = (() => {
   }
 
   function showPubForm(id = null) {
+    if (!isAuthorized()) return showLoginGate();
     const area = document.getElementById('pubFormArea');
     if (!area) return;
 
@@ -510,6 +531,7 @@ const AdminModule = (() => {
   }
 
   function savePub(e) {
+    if (!isAuthorized()) return showLoginGate();
     e.preventDefault();
     const id = document.getElementById('pubId').value;
     const isEdit = !!id;
@@ -624,6 +646,7 @@ const AdminModule = (() => {
   }
 
   function showMemberForm(id = null) {
+    if (!isAuthorized()) return showLoginGate();
     const area = document.getElementById('memberFormArea');
     if (!area) return;
 
@@ -767,6 +790,7 @@ const AdminModule = (() => {
   }
 
   function saveMember(e) {
+    if (!isAuthorized()) return showLoginGate();
     e.preventDefault();
     const id = document.getElementById('memberId').value;
     const isEdit = !!id;
@@ -911,6 +935,7 @@ const AdminModule = (() => {
   }
 
   function showProjectForm(id = null) {
+    if (!isAuthorized()) return showLoginGate();
     const area = document.getElementById('projectFormArea');
     if (!area) return;
 
@@ -1018,6 +1043,7 @@ const AdminModule = (() => {
   }
 
   function saveProject(e) {
+    if (!isAuthorized()) return showLoginGate();
     e.preventDefault();
     const id = document.getElementById('projId').value;
     const isEdit = !!id;
@@ -1143,6 +1169,7 @@ const AdminModule = (() => {
   }
 
   function showPostForm(id = null) {
+    if (!isAuthorized()) return showLoginGate();
     const area = document.getElementById('postFormArea');
     if (!area) return;
 
@@ -1262,6 +1289,7 @@ const AdminModule = (() => {
   }
 
   function savePost(e) {
+    if (!isAuthorized()) return showLoginGate();
     e.preventDefault();
     const id = document.getElementById('postId').value;
     const isEdit = !!id;
@@ -1646,6 +1674,7 @@ const AdminModule = (() => {
 
   /* ---- COMMON ---- */
   function deleteItem(type, id) {
+    if (!isAuthorized()) return showLoginGate();
     const labels = {
       publications: 'esta publicação',
       members: 'este membro',
@@ -1662,6 +1691,7 @@ const AdminModule = (() => {
   }
 
   function editItem(type, id) {
+    if (!isAuthorized()) return showLoginGate();
     if (type === 'publications') showPubForm(id);
     if (type === 'members') showMemberForm(id);
     if (type === 'projects') showProjectForm(id);
@@ -1677,6 +1707,7 @@ const AdminModule = (() => {
   }
 
   async function exportData(type) {
+    if (!isAuthorized()) return showLoginGate();
     const key = type === 'publications' ? 'nepem-publications-v4' : `nepem-${type}`;
     const data = localStorage.getItem(key) || '[]';
     // Format JSON with 2-space indentation to make it pretty and easy to replace in repository!
@@ -1709,6 +1740,7 @@ const AdminModule = (() => {
   }
 
   function importData(event, type) {
+    if (!isAuthorized()) return showLoginGate();
     const file = event.target.files[0];
     if (!file) return;
     const reader = new FileReader();
@@ -1737,6 +1769,7 @@ const AdminModule = (() => {
   }
 
   function setupSidebarLogout() {
+    if (!isAuthorized()) return;
     const nav = document.querySelector('.admin-sidebar nav');
     if (nav && !document.getElementById('adminLogoutBtn')) {
       const btn = document.createElement('button');
@@ -1746,7 +1779,7 @@ const AdminModule = (() => {
       btn.innerHTML = `<i class="bi bi-box-arrow-right me-2"></i>Bloquear Painel`;
       btn.onclick = () => {
         if (confirm('Deseja sair e bloquear o painel de administração?')) {
-          localStorage.removeItem('nepem-admin-authorized');
+          sessionStorage.removeItem('nepem-admin-authorized');
           window.location.reload();
         }
       };
@@ -1756,6 +1789,7 @@ const AdminModule = (() => {
 
   /* ---- GITHUB SYNC ---- */
   function openGithubSettings() {
+    if (!isAuthorized()) return showLoginGate();
     const config = JSON.parse(localStorage.getItem('nepem-github-config') || '{}');
     if (config.token) document.getElementById('ghToken').value = config.token;
     if (config.owner) document.getElementById('ghOwner').value = config.owner;
@@ -1766,6 +1800,7 @@ const AdminModule = (() => {
   }
 
   function saveGithubSettings(e) {
+    if (!isAuthorized()) return showLoginGate();
     e.preventDefault();
     const config = {
       token: document.getElementById('ghToken').value.trim(),
@@ -1781,6 +1816,7 @@ const AdminModule = (() => {
   }
 
   function clearGithubSettings() {
+    if (!isAuthorized()) return showLoginGate();
     if (
       confirm('Deseja realmente desvincular sua conta do GitHub? O auto-save deixará de funcionar.')
     ) {
@@ -1793,6 +1829,7 @@ const AdminModule = (() => {
   }
 
   async function syncToGithub(type) {
+    if (!isAuthorized()) return showLoginGate();
     const configStr = localStorage.getItem('nepem-github-config');
     if (!configStr) {
       exportData(type);
@@ -1866,6 +1903,7 @@ const AdminModule = (() => {
   }
 
   async function deploySite() {
+    if (!isAuthorized()) return showLoginGate();
     const configStr = localStorage.getItem('nepem-github-config');
     if (!configStr) {
       alert(
