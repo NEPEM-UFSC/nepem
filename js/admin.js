@@ -893,35 +893,55 @@ const AdminModule = (() => {
             ${projects.length === 0 ? '<tr><td colspan="6" class="text-center text-muted py-4">Nenhum projeto cadastrado.</td></tr>' : ''}
             ${projects
               .map((p) => {
-                const hasLink =
-                  p.project_number &&
-                  (p.project_number.startsWith('http://') ||
-                    p.project_number.startsWith('https://'));
-                const regDisplay = p.project_number
-                  ? hasLink
-                    ? `<a href="${p.project_number}" target="_blank" class="btn btn-xs btn-outline-info py-0 px-2" style="font-size:0.75rem;"><i class="bi bi-link-45deg"></i> Link</a>`
-                    : `<code class="small bg-light border text-dark py-1 px-2 rounded">${p.project_number}</code>`
+                const escapeHtml = (value) =>
+                  String(value ?? '')
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#39;');
+                const escapeJsSingleQuoted = (value) =>
+                  String(value ?? '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+                const safeUrl = (value) => {
+                  const s = String(value ?? '').trim();
+                  return s.startsWith('http://') || s.startsWith('https://') ? s : '';
+                };
+
+                const projectTitle = escapeHtml(p.title);
+                const projectTipo = escapeHtml(p.tipo || 'Pesquisa');
+                const projectIdJs = escapeJsSingleQuoted(p.id);
+                const projectTags = (p.tags || []).map((t) => escapeHtml(t));
+                const projectSearch = escapeHtml(
+                  `${(p.title || '').toLowerCase()} ${(p.tags || []).join(' ').toLowerCase()}`
+                );
+                const imageUrl = safeUrl(p.image);
+                const regRaw = String(p.project_number ?? '');
+                const regLink = safeUrl(regRaw);
+                const regDisplay = regRaw
+                  ? regLink
+                    ? `<a href="${escapeHtml(regLink)}" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-outline-info py-0 px-2" style="font-size:0.75rem;"><i class="bi bi-link-45deg"></i> Link</a>`
+                    : `<code class="small bg-light border text-dark py-1 px-2 rounded">${escapeHtml(regRaw)}</code>`
                   : '<span class="text-muted small">—</span>';
 
                 return `
-                <tr class="project-row" data-search="${(p.title || '').toLowerCase()} ${(p.tags || []).join(' ').toLowerCase()}">
+                <tr class="project-row" data-search="${projectSearch}">
                   <td>
                     ${
-                      p.image
-                        ? `<img src="${p.image}" alt="${p.title}" style="width: 32px; height: 32px; object-fit: contain;">`
+                      imageUrl
+                        ? `<img src="${escapeHtml(imageUrl)}" alt="${projectTitle}" style="width: 32px; height: 32px; object-fit: contain;">`
                         : `<i class="bi bi-folder2-open text-success fs-5"></i>`
                     }
                   </td>
-                  <td><strong>${p.title}</strong></td>
-                  <td><span class="badge bg-secondary text-light">${p.tipo || 'Pesquisa'}</span></td>
+                  <td><strong>${projectTitle}</strong></td>
+                  <td><span class="badge bg-secondary text-light">${projectTipo}</span></td>
                   <td>${regDisplay}</td>
-                  <td>${(p.tags || []).map((t) => `<span class="badge bg-info me-1 text-dark">${t}</span>`).join('')}</td>
+                  <td>${projectTags.map((t) => `<span class="badge bg-info me-1 text-dark">${t}</span>`).join('')}</td>
                   <td>
                     <div class="d-flex gap-1">
-                      <button class="btn btn-sm btn-outline-primary" onclick="AdminModule.editItem('projects', '${p.id}')" title="Editar">
+                      <button class="btn btn-sm btn-outline-primary" onclick="AdminModule.editItem('projects', '${projectIdJs}')" title="Editar">
                         <i class="bi bi-pencil"></i>
                       </button>
-                      <button class="btn btn-sm btn-outline-danger" onclick="AdminModule.deleteItem('projects', '${p.id}')" title="Excluir">
+                      <button class="btn btn-sm btn-outline-danger" onclick="AdminModule.deleteItem('projects', '${projectIdJs}')" title="Excluir">
                         <i class="bi bi-trash"></i>
                       </button>
                     </div>
