@@ -359,8 +359,7 @@ async function runUpdateBases(options = {}) {
   const config = await loadConfig();
   const workspaceEnv = await loadWorkspaceEnv();
   const apiKeys = workspaceEnv.SERPAPI_API_KEY || process.env.SERPAPI_API_KEY ? [workspaceEnv.SERPAPI_API_KEY || process.env.SERPAPI_API_KEY] : [];
-  const githubTokenNepem = workspaceEnv.GITHUB_TOKEN_NEPEM || process.env.GITHUB_TOKEN_NEPEM || '';
-  const githubToken = workspaceEnv.GITHUB_TOKEN || process.env.GITHUB_TOKEN || '';
+  const githubPat = workspaceEnv.NEPEMBOT_PAT || process.env.NEPEMBOT_PAT || '';
   const scholarAuthorId = config.scholar_author_id || '';
   const orcidId = config.orcid_id || '';
   const scholarOnly = ['1', 'true', 'yes'].includes(String(workspaceEnv.SCHOLAR_ONLY || process.env.SCHOLAR_ONLY || '').toLowerCase());
@@ -371,8 +370,8 @@ async function runUpdateBases(options = {}) {
   const githubRepos = skipGithubSync
     ? (existingFallback?.githubRepos || [])
     : [
-        ...(await fetchGithubRepos(config.github_username_nepem, githubTokenNepem)),
-        ...(await fetchGithubRepos(config.github_username, githubToken)),
+        ...(await fetchGithubRepos(config.github_username_nepem, githubPat)),
+        ...(await fetchGithubRepos(config.github_username, githubPat)),
       ];
 
   const orcidWorks = skipOrcidSync

@@ -15,8 +15,6 @@ jobs:
     env:
       SCHOLAR_AUTHOR_ID: QjxIJkcAAAAJ
       ORCID_ID: 0000-0002-0241-9636
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      GITHUB_TOKEN_NEPEM: ${{ secrets.GITHUB_TOKEN_NEPEM }}
       SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
       NEPEMBOT_PAT: ${{ secrets.NEPEMBOT_PAT }}
 
@@ -45,8 +43,6 @@ jobs:
           git config user.email "nepembot@users.noreply.github.com"
 
       - name: Commit refreshed data
-        env:
-          GITHUB_TOKEN: ${{ secrets.NEPEMBOT_PAT }}
         run: |
           if git diff --quiet -- data/fallback-data.json; then
             echo "No fallback data changes to commit."
