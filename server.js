@@ -75,13 +75,9 @@ async function main() {
     return next();
   });
 
-  app.use(
-    express.static(ROOT_DIR, {
-      dotfiles: 'deny',
-      extensions: ['html'],
-      index: false,
-    }),
-  );
+  app.use('/img', express.static(path.join(ROOT_DIR, 'img'), { dotfiles: 'deny', index: false }));
+  app.use('/css', express.static(path.join(ROOT_DIR, 'css'), { dotfiles: 'deny', index: false }));
+  app.use('/js', express.static(path.join(ROOT_DIR, 'js'), { dotfiles: 'deny', index: false }));
 
   app.get('/', (_req, res) => {
     res.sendFile(path.join(ROOT_DIR, 'index.html'));
