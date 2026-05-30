@@ -8,7 +8,7 @@
       "language": "JavaScript",
       "stargazers_count": 0,
       "forks_count": 8,
-      "updated_at": "2026-05-28T20:37:32Z",
+      "updated_at": "2026-05-29T19:43:29Z",
       "topics": []
     },
     {
@@ -152,9 +152,7 @@
       "stargazers_count": 0,
       "forks_count": 1,
       "updated_at": "2025-08-28T14:08:35Z",
-      "topics": [
-        "tcc"
-      ]
+      "topics": ["tcc"]
     },
     {
       "name": "capacicatao_experimentacao",
@@ -176,10 +174,7 @@
       "stargazers_count": 0,
       "forks_count": 3,
       "updated_at": "2025-08-19T19:39:19Z",
-      "topics": [
-        "ic",
-        "mgidi"
-      ]
+      "topics": ["ic", "mgidi"]
     },
     {
       "name": "flax_count_pliman",
@@ -325,443 +320,322 @@
       "topics": []
     },
     {
-      "name": "gxe_gscourse",
-      "html_url": "https://github.com/TiagoOlivoto/gxe_gscourse",
-      "homepage": "null",
-      "description": "null",
-      "language": "HTML",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2026-05-21T09:17:44Z",
-      "topics": []
-    },
-    {
-      "name": "classes",
-      "html_url": "https://github.com/TiagoOlivoto/classes",
-      "homepage": "https://tiagoolivoto.github.io/classes/",
-      "description": "Tutoriais (português) de apoio às disciplinas ministradas",
-      "language": "TeX",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2026-02-05T12:20:21Z",
-      "topics": []
-    },
-    {
-      "name": "images",
-      "html_url": "https://github.com/TiagoOlivoto/images",
-      "homepage": "null",
-      "description": "null",
-      "language": "null",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2026-02-04T19:36:17Z",
-      "topics": []
-    },
-    {
-      "name": "tiagoolivoto",
-      "html_url": "https://github.com/TiagoOlivoto/tiagoolivoto",
-      "homepage": "null",
-      "description": "Personal website of Tiago Olivoto",
-      "language": "JavaScript",
-      "stargazers_count": 0,
-      "forks_count": 1,
-      "updated_at": "2025-10-10T13:41:49Z",
-      "topics": []
-    },
-    {
-      "name": "htp_cbmp2025",
-      "html_url": "https://github.com/TiagoOlivoto/htp_cbmp2025",
-      "homepage": "null",
-      "description": "Repositório com scripts e imagens para o curso pliman e plimanshiny no 13º Congresso Brasileiro de Melhoramento de Plantas",
-      "language": "HTML",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2025-09-05T20:25:42Z",
-      "topics": []
-    },
-    {
-      "name": "fungal-colony-analysis",
-      "html_url": "https://github.com/TiagoOlivoto/fungal-colony-analysis",
-      "homepage": "null",
-      "description": "This document demonstrates an automated workflow for analyzing fungal colony images from Petri plates. The project is designed for fungicide resistance assays, where reliable colony size measurement is required to replace manual ruler-based approaches.",
-      "language": "HTML",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2025-08-26T18:19:43Z",
-      "topics": []
-    },
-    {
-      "name": "planejamento_esalq",
-      "html_url": "https://github.com/TiagoOlivoto/planejamento_esalq",
-      "homepage": "null",
-      "description": "Repositório com dados e scripts para a aula do dia 25/08/2025 - disciplina de  Pesquisa e Redação Científica",
-      "language": "R",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2025-08-25T15:34:30Z",
-      "topics": []
-    },
-    {
-      "name": "capacitacao_r",
-      "html_url": "https://github.com/TiagoOlivoto/capacitacao_r",
-      "homepage": "null",
+      "name": "nepem",
+      "html_url": "https://github.com/NEPEM-UFSC/nepem",
+      "homepage": "https://NEPEM-UFSC.github.io/nepem/",
       "description": "null",
       "language": "JavaScript",
       "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2025-06-26T01:12:14Z",
-      "topics": []
-    },
-    {
-      "name": "capacitacao-github",
-      "html_url": "https://github.com/TiagoOlivoto/capacitacao-github",
-      "homepage": "null",
-      "description": "null",
-      "language": "null",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2025-05-21T23:23:22Z",
+      "forks_count": 8,
+      "updated_at": "2026-05-29T19:43:29Z",
       "topics": []
     },
     {
       "name": "metan",
-      "html_url": "https://github.com/TiagoOlivoto/metan",
-      "homepage": "https://tiagoolivoto.github.io/metan/",
-      "description": "Package for multi-environment trial analysis",
+      "html_url": "https://github.com/NEPEM-UFSC/metan",
+      "homepage": "https://nepem-ufsc.github.io/metan/",
+      "description": "null",
       "language": "R",
-      "stargazers_count": 39,
-      "forks_count": 18,
-      "updated_at": "2026-04-27T16:51:10Z",
-      "topics": [
-        "ammi",
-        "ammi-model",
-        "biplots",
-        "gge",
-        "hmrpgv",
-        "mgidi",
-        "mtsi",
-        "rpgv",
-        "stability",
-        "waas",
-        "waasb"
-      ]
+      "stargazers_count": 8,
+      "forks_count": 2,
+      "updated_at": "2026-05-22T11:11:19Z",
+      "topics": []
     },
     {
-      "name": "ufprr",
-      "html_url": "https://github.com/TiagoOlivoto/ufprr",
+      "name": "AIpomoea",
+      "html_url": "https://github.com/NEPEM-UFSC/AIpomoea",
       "homepage": "null",
-      "description": "Repositório para hospedar o material do minicurso R ministrado na 50ª Semana de Estudos Florestais - UFPR",
-      "language": "HTML",
+      "description": "Plataforma de tecnologias uteis de I.A aplicadas a fenotipagem e classificação de Batata-doce (Ipomoea batatas)",
+      "language": "Python",
+      "stargazers_count": 2,
+      "forks_count": 0,
+      "updated_at": "2024-11-21T03:12:46Z",
+      "topics": []
+    },
+    {
+      "name": "69rbras21seagro",
+      "html_url": "https://github.com/NEPEM-UFSC/69rbras21seagro",
+      "homepage": "https://NEPEM-UFSC.github.io/69rbras21seagro/",
+      "description": "null",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 1,
+      "updated_at": "2026-05-06T17:28:45Z",
+      "topics": []
+    },
+    {
+      "name": "nepemregen",
+      "html_url": "https://github.com/NEPEM-UFSC/nepemregen",
+      "homepage": "null",
+      "description": "Repositório Códigos Automação de Estufa/Nursery de Linhaça",
+      "language": "C++",
       "stargazers_count": 0,
       "forks_count": 0,
-      "updated_at": "2024-09-27T10:17:33Z",
+      "updated_at": "2026-04-26T16:15:18Z",
+      "topics": []
+    },
+    {
+      "name": "paper_flax_growth",
+      "html_url": "https://github.com/NEPEM-UFSC/paper_flax_growth",
+      "homepage": "https://nepem-ufsc.github.io/paper_flax_growth/",
+      "description": "null",
+      "language": "SCSS",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-04-24T20:30:59Z",
+      "topics": []
+    },
+    {
+      "name": "plimanshiny",
+      "html_url": "https://github.com/NEPEM-UFSC/plimanshiny",
+      "homepage": "null",
+      "description": "null",
+      "language": "R",
+      "stargazers_count": 0,
+      "forks_count": 1,
+      "updated_at": "2026-03-26T16:38:03Z",
       "topics": []
     },
     {
       "name": "pliman",
-      "html_url": "https://github.com/TiagoOlivoto/pliman",
-      "homepage": "https://tiagoolivoto.github.io/pliman/",
-      "description": "Tools for Plant Image Analysis",
+      "html_url": "https://github.com/NEPEM-UFSC/pliman",
+      "homepage": "https://nepem-ufsc.github.io/pliman/",
+      "description": "pliman R package",
       "language": "R",
-      "stargazers_count": 55,
-      "forks_count": 8,
-      "updated_at": "2026-04-05T01:15:14Z",
-      "topics": [
-        "binary-image",
-        "count-objects",
-        "disease-severity",
-        "grains",
-        "image-analysis",
-        "image-manipulation",
-        "image-segmentation",
-        "leaf-area",
-        "leaf-area-index"
-      ]
+      "stargazers_count": 19,
+      "forks_count": 0,
+      "updated_at": "2026-05-19T18:13:14Z",
+      "topics": []
+    },
+    {
+      "name": "nepemcert",
+      "html_url": "https://github.com/NEPEM-UFSC/nepemcert",
+      "homepage": "null",
+      "description": "null",
+      "language": "Python",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "updated_at": "2025-10-11T16:30:36Z",
+      "topics": []
+    },
+    {
+      "name": "tsimg",
+      "html_url": "https://github.com/NEPEM-UFSC/tsimg",
+      "homepage": "null",
+      "description": "Temporal Seried Interactive Imager",
+      "language": "C++",
+      "stargazers_count": 3,
+      "forks_count": 0,
+      "updated_at": "2025-02-10T19:50:07Z",
+      "topics": []
+    },
+    {
+      "name": "certificados",
+      "html_url": "https://github.com/NEPEM-UFSC/certificados",
+      "homepage": "null",
+      "description": "Sistema de Validação de Certificados NEPEM-UFSC",
+      "language": "TypeScript",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2025-11-25T16:22:06Z",
+      "topics": []
+    },
+    {
+      "name": "capacitacao_htp",
+      "html_url": "https://github.com/NEPEM-UFSC/capacitacao_htp",
+      "homepage": "null",
+      "description": "null",
+      "language": "HTML",
+      "stargazers_count": 0,
+      "forks_count": 1,
+      "updated_at": "2025-10-10T13:32:16Z",
+      "topics": []
+    },
+    {
+      "name": "capacitacao_imganalise",
+      "html_url": "https://github.com/NEPEM-UFSC/capacitacao_imganalise",
+      "homepage": "null",
+      "description": "null",
+      "language": "HTML",
+      "stargazers_count": 0,
+      "forks_count": 3,
+      "updated_at": "2025-09-09T12:08:27Z",
+      "topics": []
+    },
+    {
+      "name": "tcc_felipe_flaxsalinity",
+      "html_url": "https://github.com/NEPEM-UFSC/tcc_felipe_flaxsalinity",
+      "homepage": "null",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 1,
+      "updated_at": "2025-08-28T14:08:35Z",
+      "topics": ["tcc"]
+    },
+    {
+      "name": "capacicatao_experimentacao",
+      "html_url": "https://github.com/NEPEM-UFSC/capacicatao_experimentacao",
+      "homepage": "null",
+      "description": "null",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 9,
+      "updated_at": "2025-08-24T22:44:32Z",
+      "topics": []
+    },
+    {
+      "name": "mgidi_pibic_2024",
+      "html_url": "https://github.com/NEPEM-UFSC/mgidi_pibic_2024",
+      "homepage": "null",
+      "description": "null",
+      "language": "HTML",
+      "stargazers_count": 0,
+      "forks_count": 3,
+      "updated_at": "2025-08-19T19:39:19Z",
+      "topics": ["ic", "mgidi"]
+    },
+    {
+      "name": "flax_count_pliman",
+      "html_url": "https://github.com/NEPEM-UFSC/flax_count_pliman",
+      "homepage": "null",
+      "description": "null",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2025-07-09T18:19:04Z",
+      "topics": []
     },
     {
       "name": "htp",
-      "html_url": "https://github.com/TiagoOlivoto/htp",
-      "homepage": "null",
-      "description": "null",
-      "language": "null",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2024-08-29T11:22:40Z",
-      "topics": []
-    },
-    {
-      "name": "conbraf2024",
-      "html_url": "https://github.com/TiagoOlivoto/conbraf2024",
+      "html_url": "https://github.com/NEPEM-UFSC/htp",
       "homepage": "null",
       "description": "null",
       "language": "R",
       "stargazers_count": 0,
       "forks_count": 0,
-      "updated_at": "2024-08-21T14:49:08Z",
+      "updated_at": "2025-07-03T21:20:20Z",
       "topics": []
     },
     {
-      "name": "68rbras",
-      "html_url": "https://github.com/TiagoOlivoto/68rbras",
-      "homepage": "https://tiagoolivoto.github.io/68rbras/",
+      "name": "capacitacao_r",
+      "html_url": "https://github.com/NEPEM-UFSC/capacitacao_r",
+      "homepage": "null",
+      "description": "null",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 11,
+      "updated_at": "2025-06-26T01:28:11Z",
+      "topics": []
+    },
+    {
+      "name": "capacitacao_ia_agricultura",
+      "html_url": "https://github.com/NEPEM-UFSC/capacitacao_ia_agricultura",
+      "homepage": "null",
+      "description": "null",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 2,
+      "updated_at": "2025-06-18T01:03:39Z",
+      "topics": []
+    },
+    {
+      "name": "capacitacao-github",
+      "html_url": "https://github.com/NEPEM-UFSC/capacitacao-github",
+      "homepage": "null",
       "description": "null",
       "language": "null",
       "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2024-05-26T14:29:18Z",
+      "forks_count": 12,
+      "updated_at": "2025-05-19T02:38:58Z",
       "topics": []
     },
     {
-      "name": "pliman_livefitop",
-      "html_url": "https://github.com/TiagoOlivoto/pliman_livefitop",
+      "name": "plimanshiny_tutorial",
+      "html_url": "https://github.com/NEPEM-UFSC/plimanshiny_tutorial",
       "homepage": "null",
       "description": "null",
       "language": "null",
       "stargazers_count": 0,
       "forks_count": 0,
-      "updated_at": "2023-12-05T12:40:13Z",
+      "updated_at": "2025-05-02T13:48:04Z",
       "topics": []
     },
     {
-      "name": "2nd_workshop_a4p0",
-      "html_url": "https://github.com/TiagoOlivoto/2nd_workshop_a4p0",
+      "name": "tsimgR",
+      "html_url": "https://github.com/NEPEM-UFSC/tsimgR",
       "homepage": "null",
-      "description": "null",
+      "description": "Pacote R que implementa tsimg para exportação dinâmicas e interativas de imagens seriadas.",
       "language": "R",
-      "stargazers_count": 0,
+      "stargazers_count": 2,
       "forks_count": 0,
-      "updated_at": "2023-11-24T20:01:28Z",
+      "updated_at": "2025-02-10T19:49:41Z",
       "topics": []
     },
     {
-      "name": "slides_R",
-      "html_url": "https://github.com/TiagoOlivoto/slides_R",
-      "homepage": "https://TiagoOlivoto.github.io/slides_R/",
-      "description": "https://tiagoolivoto.github.io/slides_R/",
-      "language": "HTML",
-      "stargazers_count": 0,
-      "forks_count": 1,
-      "updated_at": "2021-12-11T10:04:14Z",
-      "topics": []
-    },
-    {
-      "name": "pliman67rbras",
-      "html_url": "https://github.com/TiagoOlivoto/pliman67rbras",
-      "homepage": "null",
-      "description": "null",
-      "language": "HTML",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2023-07-25T14:28:24Z",
-      "topics": []
-    },
-    {
-      "name": "67rbras22seagro",
-      "html_url": "https://github.com/TiagoOlivoto/67rbras22seagro",
-      "homepage": "https://tiagoolivoto.github.io/67rbras22seagro/00_about.html",
-      "description": "null",
-      "language": "null",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2023-04-17T01:06:57Z",
-      "topics": []
-    },
-    {
-      "name": "pliman_tut",
-      "html_url": "https://github.com/TiagoOlivoto/pliman_tut",
-      "homepage": "https://tiagoolivoto.github.io/pliman_tut/",
-      "description": "Visit the website at",
-      "language": "CSS",
-      "stargazers_count": 0,
-      "forks_count": 1,
-      "updated_at": "2022-10-07T11:16:43Z",
-      "topics": []
-    },
-    {
-      "name": "flax_growth",
-      "html_url": "https://github.com/TiagoOlivoto/flax_growth",
-      "homepage": "null",
-      "description": "null",
-      "language": "null",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2023-04-28T16:16:19Z",
-      "topics": []
-    },
-    {
-      "name": "maize_41_locations",
-      "html_url": "https://github.com/TiagoOlivoto/maize_41_locations",
-      "homepage": "null",
-      "description": "maize_41_locations",
-      "language": "null",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2023-04-28T10:28:23Z",
-      "topics": []
-    },
-    {
-      "name": "paper_wheat",
-      "html_url": "https://github.com/TiagoOlivoto/paper_wheat",
-      "homepage": "https://tiagoolivoto.github.io/paper_wheat/",
-      "description": "null",
-      "language": "null",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2022-07-19T00:30:14Z",
-      "topics": []
-    },
-    {
-      "name": "paper_maize_huanghuaihai",
-      "html_url": "https://github.com/TiagoOlivoto/paper_maize_huanghuaihai",
-      "homepage": "https://tiagoolivoto.github.io/paper_maize_huanghuaihai/",
-      "description": "null",
-      "language": "null",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2022-07-11T13:37:16Z",
-      "topics": []
-    },
-    {
-      "name": "paper_mgidi_pm",
-      "html_url": "https://github.com/TiagoOlivoto/paper_mgidi_pm",
-      "homepage": "https://TiagoOlivoto.github.io/paper_mgidi_pm/",
-      "description": "https://tiagoolivoto.github.io/paper_mgidi_pm/",
-      "language": "null",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2021-12-29T20:11:24Z",
-      "topics": []
-    },
-    {
-      "name": "pliman_rbras2022",
-      "html_url": "https://github.com/TiagoOlivoto/pliman_rbras2022",
-      "homepage": "https://TiagoOlivoto.github.io/pliman_rbras2022/",
-      "description": "https://tiagoolivoto.github.io/pliman_rbras2022/",
-      "language": "null",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2022-10-28T21:29:55Z",
-      "topics": []
-    },
-    {
-      "name": "paper_flaxgrowth",
-      "html_url": "https://github.com/TiagoOlivoto/paper_flaxgrowth",
-      "homepage": "https://TiagoOlivoto.github.io/paper_flaxgrowth/",
-      "description": "https://tiagoolivoto.github.io/paper_flaxgrowth/",
-      "language": "null",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2022-11-09T12:15:38Z",
-      "topics": []
-    },
-    {
-      "name": "paper_barley",
-      "html_url": "https://github.com/TiagoOlivoto/paper_barley",
-      "homepage": "https://tiagoolivoto.github.io/paper_barley/",
-      "description": "null",
-      "language": "null",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2022-07-18T11:25:42Z",
-      "topics": []
-    },
-    {
-      "name": "quarto-web",
-      "html_url": "https://github.com/TiagoOlivoto/quarto-web",
-      "homepage": "null",
-      "description": "Quarto website",
-      "language": "null",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2022-05-12T06:17:05Z",
-      "topics": []
-    },
-    {
-      "name": "lattes",
-      "html_url": "https://github.com/TiagoOlivoto/lattes",
-      "homepage": "null",
-      "description": "null",
-      "language": "null",
-      "stargazers_count": 1,
-      "forks_count": 1,
-      "updated_at": "2022-01-19T08:36:58Z",
-      "topics": []
-    },
-    {
-      "name": "paper_pliman",
-      "html_url": "https://github.com/TiagoOlivoto/paper_pliman",
-      "homepage": "https://TiagoOlivoto.github.io/paper_pliman/",
-      "description": "Scripts used in the paper describing the R package pliman https://tiagoolivoto.github.io/paper_pliman/",
-      "language": "CSS",
+      "name": "shinycalendr",
+      "html_url": "https://github.com/NEPEM-UFSC/shinycalendr",
+      "homepage": "https://tiagoolivoto.shinyapps.io/shinycalendr/",
+      "description": "A shiny interface for the calendR package",
+      "language": "R",
       "stargazers_count": 1,
       "forks_count": 0,
-      "updated_at": "2022-06-01T06:50:28Z",
+      "updated_at": "2025-10-29T00:33:03Z",
       "topics": []
     },
     {
-      "name": "genomics",
-      "html_url": "https://github.com/TiagoOlivoto/genomics",
-      "homepage": "https://TiagoOlivoto.github.io/genomics/",
-      "description": "https://tiagoolivoto.github.io/genomics/",
+      "name": "agrodata",
+      "html_url": "https://github.com/NEPEM-UFSC/agrodata",
+      "homepage": "null",
+      "description": "Pacote R para disponibilização de conjuntos de dados característicos da área agronômica",
       "language": "R",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "updated_at": "2024-10-15T22:30:47Z",
+      "topics": []
+    },
+    {
+      "name": "nepemverser",
+      "html_url": "https://github.com/NEPEM-UFSC/nepemverser",
+      "homepage": "null",
+      "description": "Função serverless para disponibilização de versões e redirecionamentos de projetos NEPEM",
+      "language": "JavaScript",
       "stargazers_count": 0,
       "forks_count": 0,
-      "updated_at": "2021-11-24T10:55:39Z",
+      "updated_at": "2024-09-20T12:13:07Z",
       "topics": []
     },
     {
-      "name": "paper_gei",
-      "html_url": "https://github.com/TiagoOlivoto/paper_gei",
+      "name": "ProjetoMicrobiologia",
+      "html_url": "https://github.com/NEPEM-UFSC/ProjetoMicrobiologia",
+      "homepage": "null",
+      "description": "Projeto facilita a contagem de Unidades formadoras de colônia e quantificar o tamanho de fungos com o pacote pliman",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2024-09-14T15:25:31Z",
+      "topics": []
+    },
+    {
+      "name": "ProjetoMonitorAgricola",
+      "html_url": "https://github.com/NEPEM-UFSC/ProjetoMonitorAgricola",
+      "homepage": "null",
+      "description": "Projeto resolveu um problema no monitor da John deere, aonde este monitor não transferia os dados para o pendrive. Tendo assim se perdido a quantidade de sacos por tratamento, porem com o pacote pliman foi possivel estimar as produtividades assim resolvendo este problema.",
+      "language": "null",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2024-09-14T15:19:16Z",
+      "topics": []
+    },
+    {
+      "name": ".github",
+      "html_url": "https://github.com/NEPEM-UFSC/.github",
       "homepage": "null",
       "description": "null",
       "language": "null",
       "stargazers_count": 0,
       "forks_count": 0,
-      "updated_at": "2021-11-10T23:54:27Z",
-      "topics": []
-    },
-    {
-      "name": "paper_tpp",
-      "html_url": "https://github.com/TiagoOlivoto/paper_tpp",
-      "homepage": "https://TiagoOlivoto.github.io/paper_tpp/",
-      "description": "The website with supplementary material for the paper \"Measuring plant disease severity using R: introducing and evaluating the pliman package\" https://tiagoolivoto.github.io/paper_tpp/",
-      "language": "CSS",
-      "stargazers_count": 0,
-      "forks_count": 1,
-      "updated_at": "2021-11-08T21:18:09Z",
-      "topics": []
-    },
-    {
-      "name": "paper_coefvar",
-      "html_url": "https://github.com/TiagoOlivoto/paper_coefvar",
-      "homepage": "https://TiagoOlivoto.github.io/paper_coefvar/",
-      "description": "https://tiagoolivoto.github.io/paper_coefvar/",
-      "language": "CSS",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2021-07-26T13:47:15Z",
-      "topics": []
-    },
-    {
-      "name": "e-bookr",
-      "html_url": "https://github.com/TiagoOlivoto/e-bookr",
-      "homepage": "https://TiagoOlivoto.github.io/e-bookr/",
-      "description": "Código Ebook para Software R para avaliação de dados experimentais:Um foco em experimentos agronômicos",
-      "language": "TeX",
-      "stargazers_count": 1,
-      "forks_count": 4,
-      "updated_at": "2022-05-25T10:21:10Z",
-      "topics": []
-    },
-    {
-      "name": "cursoR",
-      "html_url": "https://github.com/TiagoOlivoto/cursoR",
-      "homepage": "null",
-      "description": "null",
-      "language": "R",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2018-10-24T22:29:11Z",
+      "updated_at": "2024-08-02T16:17:38Z",
       "topics": []
     }
   ],
@@ -846,8 +720,8 @@
           "cites_id": "7434043990981196599"
         },
         "year": "2020",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.1111/2041-210X.13384",
+        "doiLink": "https://doi.org/10.1111/2041-210X.13384",
         "journalTitle": "Methods in Ecology and Evolution"
       },
       {
@@ -863,9 +737,9 @@
           "cites_id": "8780929387939413023"
         },
         "year": "2019",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Agronomy journal"
+        "doi": "10.2134/agronj2019.03.0220",
+        "doiLink": "https://doi.org/10.2134/agronj2019.03.0220",
+        "journalTitle": "Agronomy Journal"
       },
       {
         "title": "Mean performance and stability in multi‐environment trials II: Selection based on multiple traits",
@@ -880,8 +754,8 @@
           "cites_id": "9787619337169825913"
         },
         "year": "2019",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "2-s2.0-85077534430",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85077534430&partnerID=MN8TOARS",
         "journalTitle": "Agronomy Journal"
       },
       {
@@ -897,8 +771,8 @@
           "cites_id": "16989222218416855967"
         },
         "year": "2021",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "33226063",
+        "doiLink": "https://doi.org/10.1093/bioinformatics/btaa981",
         "journalTitle": "Bioinformatics"
       },
       {
@@ -914,8 +788,8 @@
           "cites_id": "16171281041334699878"
         },
         "year": "2022",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.3390/plants11030414",
+        "doiLink": "https://doi.org/10.3390/plants11030414",
         "journalTitle": "Plants"
       },
       {
@@ -931,8 +805,8 @@
           "cites_id": "10143355156286794038"
         },
         "year": "2021",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.3390/agronomy11061221",
+        "doiLink": "https://doi.org/10.3390/agronomy11061221",
         "journalTitle": "Agronomy"
       },
       {
@@ -948,8 +822,8 @@
           "cites_id": "2881185528198539024"
         },
         "year": "2017",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.5897/AJAR2016.11677",
+        "doiLink": "https://doi.org/10.5897/AJAR2016.11677",
         "journalTitle": "African Journal of Agricultural Research"
       },
       {
@@ -965,8 +839,8 @@
           "cites_id": "4514428932631641747"
         },
         "year": "2022",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.1186/s13007-022-00952-5",
+        "doiLink": "https://doi.org/10.1186/s13007-022-00952-5",
         "journalTitle": "Plant Methods"
       },
       {
@@ -982,9 +856,9 @@
           "cites_id": "17791843996381987107"
         },
         "year": "2017",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Agronomy journal"
+        "doi": "2-s2.0-85010444992",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85010444992&partnerID=MN8TOARS",
+        "journalTitle": "Agronomy Journal"
       },
       {
         "title": "Genetic gains in tropical maize hybrids across moisture regimes with multi-trait-based index selection",
@@ -999,8 +873,8 @@
           "cites_id": "11932065436384987380"
         },
         "year": "2023",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.3389/fpls.2023.1147424",
+        "doiLink": "https://doi.org/10.3389/fpls.2023.1147424",
         "journalTitle": "Frontiers in Plant Science"
       },
       {
@@ -1032,8 +906,8 @@
           "cites_id": "15601436863111771555"
         },
         "year": "2022",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.1111/2041-210X.13803",
+        "doiLink": "https://doi.org/10.1111/2041-210X.13803",
         "journalTitle": "Methods in Ecology and Evolution"
       },
       {
@@ -1066,8 +940,8 @@
           "cites_id": "14949664674412521408"
         },
         "year": "2021",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "2-s2.0-85113734728",
+        "doiLink": "https://doi.org/10.1002/agj2.20741",
         "journalTitle": "Agronomy Journal"
       },
       {
@@ -1083,8 +957,8 @@
           "cites_id": "2841347758487102069"
         },
         "year": "2022",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.3389/fpls.2022.1030521",
+        "doiLink": "https://doi.org/10.3389/fpls.2022.1030521",
         "journalTitle": "Frontiers in Plant Science"
       },
       {
@@ -1100,8 +974,8 @@
           "cites_id": "14128227557738779184"
         },
         "year": "2017",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "2-s2.0-85021308417",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85021308417&partnerID=MN8TOARS",
         "journalTitle": "Genetics and Molecular Research"
       },
       {
@@ -1117,8 +991,8 @@
           "cites_id": "13410805514464192034"
         },
         "year": "2019",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "2-s2.0-85059446796",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85059446796&partnerID=MN8TOARS",
         "journalTitle": "European Journal of Agronomy"
       },
       {
@@ -1134,8 +1008,8 @@
           "cites_id": "6848310920533185547"
         },
         "year": "2018",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.21475/ajcs.18.12.02.pne488",
+        "doiLink": "https://doi.org/10.21475/ajcs.18.12.02.pne488",
         "journalTitle": "Australian Journal of Crop Science"
       },
       {
@@ -1151,8 +1025,8 @@
           "cites_id": "11853558958055374692"
         },
         "year": "2018",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "WOS:000449667800026",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85056653521&partnerID=MN8TOARS",
         "journalTitle": "Agronomy Journal"
       },
       {
@@ -1168,8 +1042,8 @@
           "cites_id": "13196847501647910598"
         },
         "year": "2019",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "WOS:000458521800013",
+        "doiLink": "https://doi.org/10.1080/14620316.2018.1472045",
         "journalTitle": "The Journal of Horticultural Science and Biotechnology"
       },
       {
@@ -1185,9 +1059,9 @@
           "cites_id": "1798344048499026734"
         },
         "year": "2021",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "BioRxiv"
+        "doi": "10.1101/2020.12.30.424876",
+        "doiLink": "https://doi.org/10.1101/2020.12.30.424876",
+        "journalTitle": "null"
       },
       {
         "title": "Multi-trait selection in multi-environments for performance and stability in cassava genotypes",
@@ -1202,8 +1076,8 @@
           "cites_id": "15390167804260252701"
         },
         "year": "2023",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "2-s2.0-85176413033",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85176413033&partnerID=MN8TOARS",
         "journalTitle": "Frontiers in Plant Science"
       },
       {
@@ -1219,8 +1093,8 @@
           "cites_id": "10352117171520449708"
         },
         "year": "2022",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.1002/agj2.20991",
+        "doiLink": "https://doi.org/10.1002/agj2.20991",
         "journalTitle": "Agronomy Journal"
       },
       {
@@ -1252,9 +1126,9 @@
           "cites_id": "12411179411147067974"
         },
         "year": "2021",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Pesquisa Agropecu ria Tropical     e"
+        "doi": "2-s2.0-85111675742",
+        "doiLink": "https://doi.org/10.1590/1983-40632021v5167996",
+        "journalTitle": "Pesquisa Agropecuária Tropical"
       },
       {
         "title": "RGB image-based method for phenotyping rust disease progress in pea leaves using R",
@@ -1269,8 +1143,8 @@
           "cites_id": "4809031544199978006"
         },
         "year": "2023",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "2-s2.0-85168527351",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85168527351&partnerID=MN8TOARS",
         "journalTitle": "Plant Methods"
       },
       {
@@ -1320,9 +1194,9 @@
           "cites_id": "180822783028407651"
         },
         "year": "2023",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Crop Breeding and Applied Biotechnology         e"
+        "doi": "2-s2.0-85175192042",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85175192042&partnerID=MN8TOARS",
+        "journalTitle": "Crop Breeding and Applied Biotechnology"
       },
       {
         "title": "Interference of sample size on multicollinearity diagnosis in path analysis",
@@ -1354,8 +1228,8 @@
           "cites_id": "11931287973060433668"
         },
         "year": "2022",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.1007/s40858-021-00487-5",
+        "doiLink": "https://doi.org/10.1007/s40858-021-00487-5",
         "journalTitle": "Tropical Plant Pathology"
       },
       {
@@ -1405,8 +1279,8 @@
           "cites_id": "13158277776028803398"
         },
         "year": "2019",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "2-s2.0-85074474532",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85074474532&partnerID=MN8TOARS",
         "journalTitle": "Revista Ceres"
       },
       {
@@ -1422,8 +1296,8 @@
           "cites_id": "10117562142148872846"
         },
         "year": "2019",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.1590/1678-4499.20180194",
+        "doiLink": "https://doi.org/10.1590/1678-4499.20180194",
         "journalTitle": "Bragantia"
       },
       {
@@ -1456,9 +1330,9 @@
           "cites_id": "2310891082046370928"
         },
         "year": "2021",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Acta Scientiarum  Agronomy     e"
+        "doi": "2-s2.0-85099126767",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85099126767&partnerID=MN8TOARS",
+        "journalTitle": "Acta Scientiarum - Agronomy"
       },
       {
         "title": "Pearson correlation coefficient and accuracy of path analysis used in maize breeding: a critical review",
@@ -1490,8 +1364,8 @@
           "cites_id": "9436359974079777763"
         },
         "year": "2024",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "2-s2.0-85183616250",
+        "doiLink": "https://doi.org/10.1007/s10681-023-03286-y",
         "journalTitle": "Euphytica"
       },
       {
@@ -1507,8 +1381,8 @@
           "cites_id": "681114155266594397"
         },
         "year": "2017",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "2-s2.0-85035040115",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85035040115&partnerID=MN8TOARS",
         "journalTitle": "Australian Journal of Crop Science"
       },
       {
@@ -1541,8 +1415,8 @@
           "cites_id": "12921893952526341270"
         },
         "year": "2018",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.2134/agronj2017.09.0566",
+        "doiLink": "https://doi.org/10.2134/agronj2017.09.0566",
         "journalTitle": "Agronomy Journal"
       },
       {
@@ -1558,8 +1432,8 @@
           "cites_id": "8060569516182253406"
         },
         "year": "2025",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.1186/s12870-025-06158-w",
+        "doiLink": "https://doi.org/10.1186/s12870-025-06158-w",
         "journalTitle": "BMC Plant Biology"
       },
       {
@@ -1575,9 +1449,9 @@
           "cites_id": "6419517932195280611"
         },
         "year": "2020",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Anais da Academia Brasileira de Ciencias     e"
+        "doi": "10.1590/0001-3765202020180874",
+        "doiLink": "https://doi.org/10.1590/0001-3765202020180874",
+        "journalTitle": "Anais da Academia Brasileira de Ciências"
       },
       {
         "title": "Sample size, plot size and number of replications for trials with Solanum melongena L.",
@@ -1592,8 +1466,8 @@
           "cites_id": "5238172433012756083"
         },
         "year": "2018",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "WOS:000428605600025",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85044448797&partnerID=MN8TOARS",
         "journalTitle": "Scientia Horticulturae"
       },
       {
@@ -1609,9 +1483,9 @@
           "cites_id": "14066189375368430133"
         },
         "year": "2022",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Scientia Agricola     e"
+        "doi": "2-s2.0-85133751529",
+        "doiLink": "https://doi.org/10.1590/1678-992x-2021-0190",
+        "journalTitle": "Scientia Agricola"
       },
       {
         "title": "Caracteres morfológicos e rendimento de grãos de híbridos simples de milho em diferentes ambienteso em diferentes ambientes",
@@ -1694,8 +1568,8 @@
           "cites_id": "12462058125451377335"
         },
         "year": "2024",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.1016/j.sajb.2024.09.048",
+        "doiLink": "https://doi.org/10.1016/j.sajb.2024.09.048",
         "journalTitle": "South African Journal of Botany"
       },
       {
@@ -1711,9 +1585,9 @@
           "cites_id": "17939053617827423693"
         },
         "year": "2020",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Acta Scientiarum  Agronomy     e"
+        "doi": "2-s2.0-85086849442",
+        "doiLink": "https://doi.org/10.4025/actasciagron.v42i1.43357",
+        "journalTitle": "Acta Scientiarum. Agronomy"
       },
       {
         "title": "Multivariate analysis revealed genetic divergence and promising traits for indirect selection in black oat",
@@ -1728,9 +1602,9 @@
           "cites_id": "3990507856032827080"
         },
         "year": "2019",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Agr ria Revista Brasileira de Ci ncias Agr rias"
+        "doi": "2-s2.0-85077551402",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85077551402&partnerID=MN8TOARS",
+        "journalTitle": "Revista Brasileirade Ciencias Agrarias"
       },
       {
         "title": "Optimal sample size and data arrangement method in estimating correlation matrices with lesser collinearity: A statistical focus in maize breeding",
@@ -1745,8 +1619,8 @@
           "cites_id": "2759384596381815097"
         },
         "year": "2017",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.5897/AJAR2016.11799",
+        "doiLink": "https://doi.org/10.5897/AJAR2016.11799",
         "journalTitle": "African Journal of Agricultural Research"
       },
       {
@@ -1779,8 +1653,8 @@
           "cites_id": "52866443288172886"
         },
         "year": "2024",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.1016/j.heliyon.2024.e32763",
+        "doiLink": "https://doi.org/10.1016/j.heliyon.2024.e32763",
         "journalTitle": "Heliyon"
       },
       {
@@ -1830,9 +1704,9 @@
           "cites_id": "8689014200449594738"
         },
         "year": "2022",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Acta Scientiarum  Agronomy     e"
+        "doi": "10.4025/actasciagron.v44i1.54249",
+        "doiLink": "https://doi.org/10.4025/actasciagron.v44i1.54249",
+        "journalTitle": "Acta Scientiarum - Agronomy"
       },
       {
         "title": "Relationship between morpho-agronomic traits in tomato hybrids",
@@ -1847,9 +1721,9 @@
           "cites_id": "17284906788608642223"
         },
         "year": "2019",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Revista Colombiana de Ciencias Horticolas"
+        "doi": "10.17584/rcch.2019v13i1.7967",
+        "doiLink": "https://doi.org/10.17584/rcch.2019v13i1.7967",
+        "journalTitle": "Revista Colombiana de Ciencias Hortícolas"
       },
       {
         "title": "Correlations and path analysis in sunflower grown at lower elevations.",
@@ -1863,9 +1737,9 @@
           "cites_id": "12094620120071982094"
         },
         "year": "2019",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "null"
+        "doi": "10.5539/JAS.V11N2P445",
+        "doiLink": "https://doi.org/10.5539/JAS.V11N2P445",
+        "journalTitle": "Journal of Agricultural Science"
       },
       {
         "title": "Physiological traits and their relationships in black oat populations",
@@ -1879,9 +1753,9 @@
           "cites_id": "14225304378808391515"
         },
         "year": "2017",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "null"
+        "doi": "10.4238/gmr16039814",
+        "doiLink": "https://doi.org/10.4238/gmr16039814",
+        "journalTitle": "Genetics and Molecular Research"
       },
       {
         "title": "Sulfur and nitrogen effects on industrial quality and grain yield of wheat",
@@ -1913,9 +1787,9 @@
           "cites_id": "11057123481553245778"
         },
         "year": "2018",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "J  Agric  Sci"
+        "doi": "10.5539/JAS.V10N10P333",
+        "doiLink": "https://doi.org/10.5539/JAS.V10N10P333",
+        "journalTitle": "Journal of Agricultural Science"
       },
       {
         "title": "Solar radiation levels modify the growth traits and bromatological composition of Cichorium intybus",
@@ -1930,8 +1804,8 @@
           "cites_id": "9060891614885339327"
         },
         "year": "2017",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.13128/ahs-20832",
+        "doiLink": "https://doi.org/10.13128/ahs-20832",
         "journalTitle": "Advances in Horticultural Science"
       },
       {
@@ -1964,8 +1838,8 @@
           "cites_id": "10670350811418235214"
         },
         "year": "2019",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "2-s2.0-85065338315",
+        "doiLink": "https://doi.org/10.1590/1678-4499.2018116",
         "journalTitle": "Bragantia"
       },
       {
@@ -1981,8 +1855,8 @@
           "cites_id": "3316128233558892377"
         },
         "year": "2018",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.1016/j.scienta.2017.11.031",
+        "doiLink": "https://doi.org/10.1016/j.scienta.2017.11.031",
         "journalTitle": "Scientia Horticulturae"
       },
       {
@@ -2014,9 +1888,9 @@
           "cites_id": "5577710615745378070"
         },
         "year": "2025",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Crop Science         e"
+        "doi": "10.1002/csc2.70175",
+        "doiLink": "https://doi.org/10.1002/csc2.70175",
+        "journalTitle": "Crop Science"
       },
       {
         "title": "Canonical correlations in agricultural research: Method of interpretation used leads to greater reliability of results",
@@ -2048,9 +1922,9 @@
           "cites_id": "11133960036942430326"
         },
         "year": "2019",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Anais da Academia Brasileira de Ci ncias          e"
+        "doi": "2-s2.0-85072599005",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85072599005&partnerID=MN8TOARS",
+        "journalTitle": "Anais da Academia Brasileira de Ciencias"
       },
       {
         "title": "Grain yield and its associations with pre-harvest sprouting in wheat",
@@ -2065,8 +1939,8 @@
           "cites_id": "17087351938566404000"
         },
         "year": "2019",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.5539/JAS.V11N4P142",
+        "doiLink": "https://doi.org/10.5539/JAS.V11N4P142",
         "journalTitle": "Journal of Agricultural Science"
       },
       {
@@ -2099,9 +1973,9 @@
           "cites_id": "12242850831553800398"
         },
         "year": "2024",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Crop   Pasture Science         CP"
+        "doi": "2-s2.0-85186660386",
+        "doiLink": "https://doi.org/10.1071/CP23135",
+        "journalTitle": "Crop & Pasture Science"
       },
       {
         "title": "Selection of tropical wheat lines based on classical and modern parameters of adaptability and stability.",
@@ -2116,8 +1990,8 @@
           "cites_id": "17484095291336381221"
         },
         "year": "2021",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "2-s2.0-85119580749",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85119580749&partnerID=MN8TOARS",
         "journalTitle": "Bulgarian Journal of Agricultural Science"
       },
       {
@@ -2166,8 +2040,8 @@
           "cites_id": "10220651648613681564"
         },
         "year": "2025",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "2-s2.0-105002919667",
+        "doiLink": "https://doi.org/10.1007/s10681-025-03513-8",
         "journalTitle": "Euphytica"
       },
       {
@@ -2183,8 +2057,8 @@
           "cites_id": "13316192015149339969"
         },
         "year": "2024",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.1007/s42535-023-00699-x",
+        "doiLink": "https://doi.org/10.1007/s42535-023-00699-x",
         "journalTitle": "Vegetos"
       },
       {
@@ -2200,8 +2074,8 @@
           "cites_id": "11160092971791105250"
         },
         "year": "2023",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "2-s2.0-85143124691",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85143124691&partnerID=MN8TOARS",
         "journalTitle": "Journal of Plant Pathology"
       },
       {
@@ -2233,9 +2107,9 @@
           "cites_id": "17231588879691466431"
         },
         "year": "2018",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Pesquisa Agropecu ria Brasileira"
+        "doi": "2-s2.0-85042607998",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85042607998&partnerID=MN8TOARS",
+        "journalTitle": "Pesquisa Agropecuaria Brasileira"
       },
       {
         "title": "Script and images for\" RGB image-based method for phenotyping rust disease progress in pea leaves using R\"",
@@ -2300,9 +2174,9 @@
           "cites_id": "9504815910258991732"
         },
         "year": "2018",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "null"
+        "doi": "10.5539/JAS.V10N11P510",
+        "doiLink": "https://doi.org/10.5539/JAS.V10N11P510",
+        "journalTitle": "Journal of Agricultural Science"
       },
       {
         "title": "Morphological characteristics and grain yield of simple corn hybrids in different environments.",
@@ -2333,8 +2207,8 @@
           "cites_id": "3417205606856712709"
         },
         "year": "2018",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.2134/agronj2017.05.0297",
+        "doiLink": "https://doi.org/10.2134/agronj2017.05.0297",
         "journalTitle": "Agronomy Journal"
       },
       {
@@ -2350,9 +2224,9 @@
           "cites_id": "18289501092669240661,4132156547408954395"
         },
         "year": "2017",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Revista de Ci ncias Agroveterin rias"
+        "doi": "10.5965/10.5965/223811711642017345",
+        "doiLink": "https://doi.org/10.5965/10.5965/223811711642017345",
+        "journalTitle": "Revista de Ciências Agroveterinárias"
       },
       {
         "title": "Bayesian AMMI‐based indexes for genotype selection: Integrating novel stability measures for enhanced G× E inference",
@@ -2367,9 +2241,9 @@
           "cites_id": "8763558241460804817"
         },
         "year": "2025",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Crop Science         e"
+        "doi": "2-s2.0-105014607524",
+        "doiLink": "https://doi.org/10.1002/csc2.70140",
+        "journalTitle": "Crop Science"
       },
       {
         "title": "Evaluation of wheat recombinant inbred lines compared to control cultivars in terms of different germination components based on multi-trait indices",
@@ -2417,8 +2291,8 @@
           "cites_id": "6606606414923762074"
         },
         "year": "2018",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.1590/1678-4499.2017165",
+        "doiLink": "https://doi.org/10.1590/1678-4499.2017165",
         "journalTitle": "Bragantia"
       },
       {
@@ -2451,8 +2325,8 @@
           "cites_id": "6145495952121017382"
         },
         "year": "2017",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "2-s2.0-85038869203",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85038869203&partnerID=MN8TOARS",
         "journalTitle": "Australian Journal of Crop Science"
       },
       {
@@ -2467,9 +2341,9 @@
           "cites_id": "5687668803550355099"
         },
         "year": "2016",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "null"
+        "doi": "10.5965/223811711512016024",
+        "doiLink": "https://doi.org/10.5965/223811711512016024",
+        "journalTitle": "Revista de Ciências Agroveterinárias"
       },
       {
         "title": "Efeitos fenotípicos e dissimilaridade genética em milho",
@@ -2501,9 +2375,9 @@
           "cites_id": "15391695942936337511"
         },
         "year": "2024",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Pesquisa Agropecu ria Brasileira     e"
+        "doi": "10.1590/s1678-3921.pab2024.v59.03483",
+        "doiLink": "https://doi.org/10.1590/s1678-3921.pab2024.v59.03483",
+        "journalTitle": "Pesquisa Agropecuária Brasileira"
       },
       {
         "title": "Genetic dissimilarity between sugarcane genotypes at different harvest period for brown sugar production",
@@ -2518,8 +2392,8 @@
           "cites_id": "202979412835149984"
         },
         "year": "2024",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.28951/bjb.v42i1.651",
+        "doiLink": "https://doi.org/10.28951/bjb.v42i1.651",
         "journalTitle": "Brazilian Journal of Biometrics"
       },
       {
@@ -2535,9 +2409,9 @@
           "cites_id": "9443031849285313166"
         },
         "year": "2023",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Ci ncia Rural         e"
+        "doi": "10.1590/0103-8478cr20220239",
+        "doiLink": "https://doi.org/10.1590/0103-8478cr20220239",
+        "journalTitle": "Ciência Rural"
       },
       {
         "title": "New agricultural wheat frontier in Brazil: Envirotypes applied in the adaptability and stability of wheat genotypes in contrasting environments",
@@ -2568,9 +2442,9 @@
           "cites_id": "13386724232903412845"
         },
         "year": "2022",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Crop Breeding and Applied Biotechnology         e"
+        "doi": "10.1590/1984-70332022v22n4c41",
+        "doiLink": "https://doi.org/10.1590/1984-70332022v22n4c41",
+        "journalTitle": "Crop Breeding and Applied Biotechnology"
       },
       {
         "title": "Correlation and selection gains in F6 wheat genotypes",
@@ -2585,8 +2459,8 @@
           "cites_id": "17208579973141832816"
         },
         "year": "2022",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.1590/0034-737X202269050003",
+        "doiLink": "https://doi.org/10.1590/0034-737X202269050003",
         "journalTitle": "Revista Ceres"
       },
       {
@@ -2681,9 +2555,9 @@
           "value": null
         },
         "year": "2026",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Journal of Evolutionary Biology  voag"
+        "doi": "10.1093/jeb/voag035",
+        "doiLink": "https://doi.org/10.1093/jeb/voag035",
+        "journalTitle": "Journal of Evolutionary Biology"
       },
       {
         "title": "Optimizing indirect selection of tropical wheat genotypes using high-throughput longitudinal phenotyping and trait relationships",
@@ -2695,9 +2569,9 @@
           "value": null
         },
         "year": "2026",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Remote Sensing Applications  Society and Environment"
+        "doi": "10.1016/j.rsase.2026.101892",
+        "doiLink": "https://doi.org/10.1016/j.rsase.2026.101892",
+        "journalTitle": "Remote Sensing Applications: Society and Environment"
       },
       {
         "title": "Multicharacteristic Selection of Purple-Flesh Sweetpotato Genotypes with High Productivity and Anthocyanin Content",
@@ -2709,8 +2583,8 @@
           "value": null
         },
         "year": "2025",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "10.3390/horticulturae11121486",
+        "doiLink": "https://doi.org/10.3390/horticulturae11121486",
         "journalTitle": "Horticulturae"
       },
       {
@@ -2723,9 +2597,9 @@
           "value": null
         },
         "year": "2025",
-        "doi": "null",
+        "doi": "2-s2.0-105010151139",
         "doiLink": "null",
-        "journalTitle": "Vitis"
+        "journalTitle": "VITIS - Journal of Grapevine Research"
       },
       {
         "title": "Nitrogen management in golden and brown flax crops",
@@ -2737,8 +2611,8 @@
           "value": null
         },
         "year": "2024",
-        "doi": "null",
-        "doiLink": "null",
+        "doi": "2-s2.0-85214679967",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85214679967&partnerID=MN8TOARS",
         "journalTitle": "Australian Journal of Crop Science"
       },
       {
@@ -2805,9 +2679,9 @@
           "value": null
         },
         "year": "2024",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Agronom a Colombiana"
+        "doi": "2-s2.0-85218766885",
+        "doiLink": "https://doi.org/10.15446/agron.colomb.v42n3.114923",
+        "journalTitle": "Agronomía Colombiana"
       },
       {
         "title": "Digital assessment of Helminthosporium disease in maize cultivation, in a subtropical environment in Brazil",
@@ -2819,9 +2693,9 @@
           "value": null
         },
         "year": "2024",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "GENETICS AND MOLECULAR RESEARCH"
+        "doi": "10.4238/gmr2356",
+        "doiLink": "https://doi.org/10.4238/gmr2356",
+        "journalTitle": "Genetics and Molecular Research"
       },
       {
         "title": "Adaptabilidade e estabilidade de genótipos de aveia-preta com uso da análise GGE biplot",
@@ -2874,9 +2748,9 @@
           "value": null
         },
         "year": "2023",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "null"
+        "doi": "2-s2.0-85176413033",
+        "doiLink": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85176413033&partnerID=MN8TOARS",
+        "journalTitle": "Frontiers in Plant Science"
       },
       {
         "title": "Path analysis associated with fungicide use in corn hybrids.",
@@ -2916,9 +2790,9 @@
           "value": null
         },
         "year": "2022",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "Crop Breeding and Applied Biotechnology         e"
+        "doi": "10.1590/1984-70332022v22n4c49",
+        "doiLink": "https://doi.org/10.1590/1984-70332022v22n4c49",
+        "journalTitle": "Crop Breeding and Applied Biotechnology"
       },
       {
         "title": "Genetic parameters and selection of multiple traits in wheat genotypes.",
@@ -3050,9 +2924,9 @@
           "value": null
         },
         "year": "2017",
-        "doi": "null",
-        "doiLink": "null",
-        "journalTitle": "null"
+        "doi": "10.5539/JAS.V9N11P58",
+        "doiLink": "https://doi.org/10.5539/JAS.V9N11P58",
+        "journalTitle": "Journal of Agricultural Science"
       },
       {
         "title": "Viés associado ao arranjo de dados e tamanho amostral e suas implicações na acurácia da seleção indireta no melhoramento de plantas",
