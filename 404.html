@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const requestedEnv = (params.get('nepem-env') || '').toLowerCase();
+        if (requestedEnv) {
+          localStorage.setItem('nepem-env', requestedEnv);
+        }
+        const savedEnv = localStorage.getItem('nepem-env') || '';
+        const env = (requestedEnv || savedEnv || 'dev').toLowerCase();
+        const isDev = env !== 'prod';
+        const isAdminPath =
+          window.location.pathname.endsWith('/admin.html') || window.location.pathname === '/admin';
+
+        document.documentElement.classList.toggle('nepem-dev', isDev);
+        document.documentElement.classList.toggle('nepem-prod', !isDev);
+
+        if (!isDev && isAdminPath) {
+          document.open();
+          document.write(
+            '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Página não encontrada</title></head><body><main style="font-family:Arial,sans-serif;max-width:32rem;margin:4rem auto;text-align:center;padding:2rem"><h1>Página não encontrada</h1><p>A página solicitada não foi encontrada.</p><a href="index.html">Voltar para a página inicial</a></main></body></html>',
+          );
+          document.close();
+          return;
+        }
+
+        window.NEPEM_ENV = { mode: isDev ? 'dev' : 'prod', isDev };
+      })();
+    </script>
+    <title>Página não encontrada</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f6f7f8;
+        color: #1f2937;
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+      main {
+        max-width: 32rem;
+        padding: 2rem;
+        text-align: center;
+      }
+      a {
+        color: #0f766e;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>404</h1>
+      <p>A página solicitada não foi encontrada.</p>
+      <p><a href="/">Voltar para a página inicial</a></p>
+    </main>
+  </body>
+</html>

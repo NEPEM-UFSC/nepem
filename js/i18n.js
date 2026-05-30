@@ -40,7 +40,7 @@ const I18n = (() => {
   }
 
   function updateUI() {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
       const text = t(key);
       if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
@@ -56,7 +56,7 @@ const I18n = (() => {
     const flags = {
       pt: 'https://flagcdn.com/w40/br.png',
       en: 'https://flagcdn.com/w40/us.png',
-      es: 'https://flagcdn.com/w40/es.png'
+      es: 'https://flagcdn.com/w40/es.png',
     };
     const btn = document.getElementById('langToggle');
     if (btn) {

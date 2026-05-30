@@ -2,10 +2,7 @@
   {
     "id": "metan",
     "title": "R package metan",
-    "tags": [
-      "Pacotes R",
-      "Pesquisa"
-    ],
+    "tags": ["Pacotes R", "Pesquisa"],
     "description": {
       "pt": "Pacote R para análise de ensaios multi-ambientes (MET). Fornece funções para análise AMMI, BLUP, GGE biplot e índices de estabilidade.",
       "en": "R package for multi-environment trial (MET) analysis. Provides functions for AMMI, BLUP, GGE biplot analysis, and stability indices.",
@@ -18,10 +15,7 @@
   {
     "id": "pliman",
     "title": "R package pliman",
-    "tags": [
-      "Pacotes R",
-      "Pesquisa"
-    ],
+    "tags": ["Pacotes R", "Pesquisa"],
     "description": {
       "pt": "Pacote R para análise de imagens de plantas. Permite medir área foliar, contar lesões, objetos e grãos, e extrair características de cor e forma.",
       "en": "R package for plant image analysis. Allows measuring leaf area, counting lesions, objects, and grains, and extracting color and shape features.",
@@ -34,10 +28,7 @@
   {
     "id": "plimanshiny",
     "title": "plimanshiny",
-    "tags": [
-      "Aplicativos",
-      "Pesquisa"
-    ],
+    "tags": ["Aplicativos", "Pesquisa"],
     "description": {
       "pt": "Interface Shiny interativa para o pacote pliman. Fenotipagem de alto rendimento com interface gráfica amigável.",
       "en": "Interactive Shiny interface for the pliman package. High-throughput phenotyping with a user-friendly graphical interface.",
@@ -55,9 +46,7 @@
       "en": "Flaxseed breeding program for southern Brazil, focused on productivity, nutraceutical quality, and adaptation.",
       "es": "Programa de mejoramiento genético de lino para el sur de Brasil, enfocado en productividad, calidad nutracéutica y adaptación."
     },
-    "tags": [
-      "Pesquisa"
-    ],
+    "tags": ["Pesquisa"],
     "url": "",
     "github": "",
     "image": ""
@@ -70,9 +59,7 @@
       "en": "Research on management practices and cultivation techniques for optimizing flaxseed production in southern Brazil.",
       "es": "Investigación sobre prácticas de manejo y técnicas de cultivo para la optimización de la producción de lino en el sur de Brasil."
     },
-    "tags": [
-      "Pesquisa"
-    ],
+    "tags": ["Pesquisa"],
     "url": "",
     "github": "",
     "image": ""
@@ -80,10 +67,7 @@
   {
     "id": "AIpomoea",
     "title": "AIpomoea",
-    "tags": [
-      "Pesquisa",
-      "Aplicativos"
-    ],
+    "tags": ["Pesquisa", "Aplicativos"],
     "description": {
       "pt": "Uso de Inteligência Artificial para fenotipagem e classificação de batata-doce (Ipomoea batatas).",
       "en": "Use of Artificial Intelligence for phenotyping and classification of sweet potato (Ipomoea batatas).",
@@ -101,9 +85,7 @@
       "en": "Interactive educational material for learning experimental statistics applied to agronomy.",
       "es": "Material didáctico interactivo para el aprendizaje de estadística experimental aplicada a la agronomía."
     },
-    "tags": [
-      "Livros"
-    ],
+    "tags": ["Livros"],
     "url": "",
     "github": "",
     "image": ""
@@ -116,9 +98,7 @@
       "en": "Book on using R software for data analysis in agricultural sciences, with practical and reproducible examples.",
       "es": "Libro sobre el uso del software R para análisis de datos en ciencias agrarias, con ejemplos prácticos y reproducibles."
     },
-    "tags": [
-      "Livros"
-    ],
+    "tags": ["Livros"],
     "url": "",
     "github": "",
     "image": ""

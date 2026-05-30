@@ -9,10 +9,10 @@
 /* ---------- CSS Custom Properties ---------- */
 :root {
   /* Brand Colors */
-  --nepem-green: #1AB281;
-  --nepem-green-dark: #158F68;
-  --nepem-green-light: #34D399;
-  --nepem-teal: #0D9488;
+  --nepem-green: #1ab281;
+  --nepem-green-dark: #158f68;
+  --nepem-green-light: #34d399;
+  --nepem-teal: #0d9488;
   --nepem-emerald: #059669;
 
   /* Light Theme (default) */
@@ -30,7 +30,7 @@
   --text-secondary: #475569;
   --text-tertiary: #94a3b8;
   --text-inverse: #ffffff;
-  --text-accent: #1AB281;
+  --text-accent: #1ab281;
 
   --border-color: #e2e8f0;
   --border-light: #f1f5f9;
@@ -56,7 +56,7 @@
 }
 
 /* ---------- Dark Theme ---------- */
-[data-theme="dark"] {
+[data-theme='dark'] {
   --bg-primary: #0f172a;
   --bg-secondary: #1e293b;
   --bg-tertiary: #334155;
@@ -71,7 +71,7 @@
   --text-secondary: #94a3b8;
   --text-tertiary: #64748b;
   --text-inverse: #0f172a;
-  --text-accent: #34D399;
+  --text-accent: #34d399;
 
   --border-color: #334155;
   --border-light: #1e293b;
@@ -95,12 +95,22 @@ html {
   scroll-padding-top: 80px;
 }
 
+html.nepem-prod .admin-only {
+  display: none !important;
+}
+
+html.nepem-prod .admin-prod-only {
+  display: none !important;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.7;
-  transition: background-color var(--transition-base), color var(--transition-base);
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base);
   overflow-x: hidden;
 }
 
@@ -252,7 +262,7 @@ img {
   filter: var(--text-primary);
 }
 
-[data-theme="dark"] .navbar-toggler-icon {
+[data-theme='dark'] .navbar-toggler-icon {
   filter: invert(1);
 }
 
@@ -333,7 +343,7 @@ img {
   gap: 0.5rem;
   background: rgba(52, 211, 153, 0.15);
   border: 1px solid rgba(52, 211, 153, 0.3);
-  color: #34D399;
+  color: #34d399;
   padding: 0.5rem 1.25rem;
   border-radius: var(--radius-full);
   font-size: 0.85rem;
@@ -353,7 +363,7 @@ img {
 }
 
 .hero-title .title-accent {
-  background: linear-gradient(135deg, #34D399, #0D9488);
+  background: linear-gradient(135deg, #34d399, #0d9488);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -397,7 +407,7 @@ img {
   font-family: var(--font-display);
   font-size: 2.5rem;
   font-weight: 800;
-  color: #34D399;
+  color: #34d399;
   line-height: 1;
 }
 
@@ -433,7 +443,6 @@ img {
 }
 
 @keyframes pulse-glow {
-
   0%,
   100% {
     transform: scale(1);
@@ -850,18 +859,25 @@ img {
   /* A smooth, slightly organic irregular border-radius */
   border-radius: 24px 20px 22px 24px / 20px 24px 20px 22px;
   overflow: hidden;
-  transition: all var(--transition-base), transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.5s ease;
+  transition:
+    all var(--transition-base),
+    transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+    box-shadow 0.5s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.04),
+    0 2px 8px rgba(0, 0, 0, 0.02);
   transform-style: preserve-3d;
   perspective: 1000px;
 }
 
 .project-card:hover {
   transform: translateY(-10px) rotateX(2deg) rotateY(-1deg);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(26, 178, 129, 0.06);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 8px 16px rgba(26, 178, 129, 0.06);
   border-color: var(--nepem-green);
 }
 
@@ -982,14 +998,14 @@ img {
   padding: 0.2rem 0.6rem;
   border-radius: var(--radius-sm);
   background: rgba(66, 133, 244, 0.08);
-  color: #4285F4;
+  color: #4285f4;
   border: 1px solid rgba(66, 133, 244, 0.15);
   margin-left: 0.5rem;
   text-transform: uppercase;
   vertical-align: top;
 }
 
-[data-theme="dark"] .publication-citation-badge {
+[data-theme='dark'] .publication-citation-badge {
   background: rgba(66, 133, 244, 0.15);
   color: #6ea5ff;
   border-color: rgba(66, 133, 244, 0.25);
@@ -1096,7 +1112,7 @@ img {
   -webkit-appearance: none;
 }
 
-[data-theme="dark"] .form-select-nepem {
+[data-theme='dark'] .form-select-nepem {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%2394a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
 }
 
@@ -1154,7 +1170,14 @@ img {
 
 /* Hero branding details on hover */
 .hero-social-links .social-btn.instagram:hover {
-  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
   border-color: transparent;
   box-shadow: 0 8px 25px rgba(220, 39, 67, 0.35);
 }
@@ -1223,7 +1246,14 @@ img {
 }
 
 .social-links-footer a.instagram:hover {
-  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
   border-color: transparent;
   box-shadow: 0 6px 15px rgba(220, 39, 67, 0.3);
 }
@@ -1302,7 +1332,8 @@ img {
 .fade-in-up {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+  transition:
+    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1314,7 +1345,8 @@ img {
 .fade-in-left {
   opacity: 0;
   transform: translateX(-30px);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+  transition:
+    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1326,7 +1358,8 @@ img {
 .fade-in-right {
   opacity: 0;
   transform: translateX(30px);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+  transition:
+    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1523,7 +1556,12 @@ img {
    LOADING SKELETON
    ============================================ */
 .skeleton {
-  background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--bg-tertiary) 50%, var(--bg-secondary) 75%);
+  background: linear-gradient(
+    90deg,
+    var(--bg-secondary) 25%,
+    var(--bg-tertiary) 50%,
+    var(--bg-secondary) 75%
+  );
   background-size: 200% 100%;
   animation: skeleton-loading 1.5s infinite;
   border-radius: var(--radius-sm);
@@ -1638,7 +1676,9 @@ img {
 }
 
 #membersGrid {
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  transition:
+    transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   opacity: 1;
   transform: translateZ(0) rotateY(0);
   transform-style: preserve-3d;
@@ -1673,7 +1713,9 @@ img {
 #membersGrid.filter-exit {
   transform: scale(0.92) translateZ(-150px) rotateX(6deg);
   opacity: 0;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  transition:
+    transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 #membersGrid.filter-enter {

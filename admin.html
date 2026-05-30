@@ -1,172 +1,301 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Admin — NEPEM/UFSC</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const requestedEnv = (params.get('nepem-env') || '').toLowerCase();
+        if (requestedEnv) {
+          localStorage.setItem('nepem-env', requestedEnv);
+        }
+        const savedEnv = localStorage.getItem('nepem-env') || '';
+        const env = (requestedEnv || savedEnv || 'dev').toLowerCase();
+        const isDev = env !== 'prod';
+        const isAdminPath =
+          window.location.pathname.endsWith('/admin.html') || window.location.pathname === '/admin';
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-</head>
-<body>
+        document.documentElement.classList.toggle('nepem-dev', isDev);
+        document.documentElement.classList.toggle('nepem-prod', !isDev);
 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-nepem fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">NEPEM<span class="brand-accent">/UFSC</span></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarContent">
-        <ul class="navbar-nav ms-auto me-3">
-          <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav.home">Início</a></li>
-          <li class="nav-item"><a class="nav-link active" href="admin.html" data-i18n="nav.admin">Admin</a></li>
-        </ul>
-        <div class="navbar-controls">
-          <button class="btn-navbar-control" id="themeToggle" title="Theme" onclick="ThemeManager.toggle()">
-            <i class="bi bi-circle-half"></i>
-          </button>
-          <button class="btn-navbar-control lang-selector" id="langToggle" title="Language" onclick="I18n.cycleLang()">
-            🇧🇷
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
+        if (!isDev && isAdminPath) {
+          document.open();
+          document.write(
+            '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Página não encontrada</title></head><body><main style="font-family:Arial,sans-serif;max-width:32rem;margin:4rem auto;text-align:center;padding:2rem"><h1>Página não encontrada</h1><p>A página solicitada não foi encontrada.</p><a href="index.html">Voltar para a página inicial</a></main></body></html>',
+          );
+          document.close();
+          return;
+        }
 
-  <!-- CONTENT -->
-  <div class="section-nepem" style="padding-top: 120px; min-height: 100vh;">
-    <div class="container">
-      <div class="section-header fade-in-up">
-        <div class="section-label"><i class="bi bi-circle-fill"></i> Admin</div>
-        <h2 data-i18n="admin.title">Painel de Administração</h2>
-        <p class="text-secondary">Gerencie publicações, membros e projetos. Os dados são armazenados no <code>localStorage</code> do navegador e podem ser exportados como JSON.</p>
-      </div>
+        window.NEPEM_ENV = { mode: isDev ? 'dev' : 'prod', isDev };
+      })();
+    </script>
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Admin — NEPEM/UFSC</title>
 
-      <div class="row g-4">
-        <!-- Sidebar -->
-        <div class="col-lg-3 fade-in-left">
-          <div class="admin-sidebar">
-            <nav class="nav flex-column">
-              <button class="nav-link active" data-tab="publications" onclick="AdminModule.setTab('publications')">
-                <i class="bi bi-journal-text me-2"></i><span data-i18n="admin.publications">Publicações</span>
-              </button>
-              <button class="nav-link" data-tab="members" onclick="AdminModule.setTab('members')">
-                <i class="bi bi-people me-2"></i><span data-i18n="admin.members">Membros</span>
-              </button>
-              <button class="nav-link" data-tab="projects" onclick="AdminModule.setTab('projects')">
-                <i class="bi bi-folder me-2"></i><span data-i18n="admin.projects">Projetos</span>
-              </button>
-              <button class="nav-link" data-tab="posts" onclick="AdminModule.setTab('posts')">
-                <i class="bi bi-postcard me-2"></i><span>Blog / Postagens</span>
-              </button>
-              <hr class="text-secondary opacity-25">
-              <button class="nav-link text-info" onclick="AdminModule.openGithubSettings()">
-                <i class="bi bi-github me-2"></i><span>Sincronização GitHub</span>
-              </button>
-              <button class="nav-link text-success" id="btnDeploySite" onclick="AdminModule.deploySite()" style="font-weight: 600;">
-                <i class="bi bi-cloud-arrow-up-fill me-2"></i><span>Fazer Deploy do Site</span>
-              </button>
-            </nav>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-nepem fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">NEPEM<span class="brand-accent">/UFSC</span></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" data-i18n="nav.home">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="admin.html" data-i18n="nav.admin">Admin</a>
+            </li>
+          </ul>
+          <div class="navbar-controls">
+            <button
+              class="btn-navbar-control"
+              id="themeToggle"
+              title="Theme"
+              onclick="ThemeManager.toggle()"
+            >
+              <i class="bi bi-circle-half"></i>
+            </button>
+            <button
+              class="btn-navbar-control lang-selector"
+              id="langToggle"
+              title="Language"
+              onclick="I18n.cycleLang()"
+            >
+              🇧🇷
+            </button>
           </div>
-
-          <!-- Quick info -->
-          <div class="admin-sidebar mt-3">
-            <h6 class="text-secondary mb-3"><i class="bi bi-info-circle me-1"></i> Info</h6>
-            <p class="small text-secondary mb-2">Os dados adicionados aqui são salvos no <strong>localStorage</strong> e serão mesclados com os dados base do site.</p>
-            <p class="small text-secondary mb-0">Use <strong>Exportar JSON</strong> para fazer backup e <strong>Importar JSON</strong> para restaurar.</p>
-          </div>
-        </div>
-
-        <!-- Main Content -->
-        <div class="col-lg-9 fade-in-right">
-          <div id="adminContent">
-            <!-- Rendered by AdminModule.js -->
-          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </nav>
 
-  <!-- FOOTER -->
-  <footer class="footer-nepem">
-    <div class="container">
-      <div class="footer-bottom">
-        <span><span data-i18n="footer.copyright">© NEPEM/UFSC</span> 2024–2026.</span>
-        <span><a href="index.html" class="text-secondary"><i class="bi bi-arrow-left me-1"></i>Voltar ao site</a></span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/i18n.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/admin.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-      ThemeManager.init();
-      await I18n.init();
-      AdminModule.init();
-    });
-  </script>
-
-  <!-- GitHub Settings Modal -->
-  <div class="modal fade" id="githubConfigModal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content border-0 shadow-lg">
-        <div class="modal-header border-bottom-0">
-          <h5 class="modal-title"><i class="bi bi-github me-2"></i>Sincronização com o GitHub</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    <!-- CONTENT -->
+    <div class="section-nepem" style="padding-top: 120px; min-height: 100vh">
+      <div class="container">
+        <div class="section-header fade-in-up">
+          <div class="section-label"><i class="bi bi-circle-fill"></i> Admin</div>
+          <h2 data-i18n="admin.title">Painel de Administração</h2>
+          <p class="text-secondary">
+            Edite publicações, membros e projetos. Os dados ficam salvos no
+            <code>localStorage</code> do navegador e podem ser exportados em JSON.
+          </p>
         </div>
-        <div class="modal-body">
-          <form id="githubConfigForm" onsubmit="AdminModule.saveGithubSettings(event)">
-            <p class="small text-secondary mb-4">Insira os dados do seu repositório. O token de acesso ficará salvo <strong>apenas no seu navegador local</strong>. Quando preenchido, os itens criados ou editados no painel serão atualizados automaticamente direto no site.</p>
-            
-            <div class="mb-3">
-              <label class="form-label small">GitHub Token (Classic com escopo 'repo')</label>
-              <input type="password" id="ghToken" class="form-control form-control-nepem" placeholder="ghp_xxxxxxxxxxxxxxxxxxxxx" required>
+
+        <div class="row g-4">
+          <!-- Sidebar -->
+          <div class="col-lg-3 fade-in-left">
+            <div class="admin-sidebar">
+              <nav class="nav flex-column">
+                <button
+                  class="nav-link active"
+                  data-tab="publications"
+                  onclick="AdminModule.setTab('publications')"
+                >
+                  <i class="bi bi-journal-text me-2"></i
+                  ><span data-i18n="admin.publications">Publicações</span>
+                </button>
+                <button class="nav-link" data-tab="members" onclick="AdminModule.setTab('members')">
+                  <i class="bi bi-people me-2"></i><span data-i18n="admin.members">Membros</span>
+                </button>
+                <button
+                  class="nav-link"
+                  data-tab="projects"
+                  onclick="AdminModule.setTab('projects')"
+                >
+                  <i class="bi bi-folder me-2"></i><span data-i18n="admin.projects">Projetos</span>
+                </button>
+                <button class="nav-link" data-tab="posts" onclick="AdminModule.setTab('posts')">
+                  <i class="bi bi-postcard me-2"></i><span>Blog / Postagens</span>
+                </button>
+                <hr class="text-secondary opacity-25" />
+                <button class="nav-link text-info" onclick="AdminModule.openGithubSettings()">
+                  <i class="bi bi-github me-2"></i><span>Sincronização GitHub</span>
+                </button>
+                <button
+                  class="nav-link text-success"
+                  id="btnDeploySite"
+                  onclick="AdminModule.deploySite()"
+                  style="font-weight: 600"
+                >
+                  <i class="bi bi-cloud-arrow-up-fill me-2"></i><span>Fazer Deploy do Site</span>
+                </button>
+              </nav>
             </div>
-            
-            <div class="row mb-3">
-              <div class="col-6">
-                <label class="form-label small">Owner (Dono/Organização)</label>
-                <input type="text" id="ghOwner" class="form-control form-control-nepem" placeholder="Ex: NEPEM-UFSC" value="NEPEM-UFSC" required>
+
+            <!-- Quick info -->
+            <div class="admin-sidebar mt-3">
+              <h6 class="text-secondary mb-3"><i class="bi bi-info-circle me-1"></i> Info</h6>
+              <p class="small text-secondary mb-2">
+                As alterações feitas aqui ficam salvas no <strong>localStorage</strong> deste
+                navegador e são combinadas com os dados base do site.
+              </p>
+              <p class="small text-secondary mb-0">
+                Use <strong>Exportar JSON</strong> para salvar um backup e
+                <strong>Importar JSON</strong> para restaurar o conteúdo.
+              </p>
+            </div>
+          </div>
+
+          <!-- Main Content -->
+          <div class="col-lg-9 fade-in-right">
+            <div id="adminContent">
+              <!-- Rendered by AdminModule.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer-nepem">
+      <div class="container">
+        <div class="footer-bottom">
+          <span><span data-i18n="footer.copyright">© NEPEM/UFSC</span> 2024–2026.</span>
+          <span
+            ><a href="index.html" class="text-secondary"
+              ><i class="bi bi-arrow-left me-1"></i>Voltar ao site</a
+            ></span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+        ThemeManager.init();
+        await I18n.init();
+        AdminModule.init();
+      });
+    </script>
+
+    <!-- GitHub Settings Modal -->
+    <div class="modal fade" id="githubConfigModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content border-0 shadow-lg">
+          <div class="modal-header border-bottom-0">
+            <h5 class="modal-title"><i class="bi bi-github me-2"></i>Sincronização com o GitHub</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <form id="githubConfigForm" onsubmit="AdminModule.saveGithubSettings(event)">
+              <p class="small text-secondary mb-4">
+                Insira os dados do seu repositório. O token de acesso ficará salvo
+                <strong>apenas no seu navegador local</strong>. Quando preenchido, os itens criados
+                ou editados no painel serão atualizados automaticamente direto no site.
+              </p>
+
+              <div class="mb-3">
+                <label class="form-label small">GitHub Token (Classic com escopo 'repo')</label>
+                <input
+                  type="password"
+                  id="ghToken"
+                  class="form-control form-control-nepem"
+                  placeholder="ghp_xxxxxxxxxxxxxxxxxxxxx"
+                  required
+                />
               </div>
-              <div class="col-6">
-                <label class="form-label small">Repositório</label>
-                <input type="text" id="ghRepo" class="form-control form-control-nepem" placeholder="Ex: nepem" value="nepem" required>
+
+              <div class="row mb-3">
+                <div class="col-6">
+                  <label class="form-label small">Owner (Dono/Organização)</label>
+                  <input
+                    type="text"
+                    id="ghOwner"
+                    class="form-control form-control-nepem"
+                    placeholder="Ex: NEPEM-UFSC"
+                    value="NEPEM-UFSC"
+                    required
+                  />
+                </div>
+                <div class="col-6">
+                  <label class="form-label small">Repositório</label>
+                  <input
+                    type="text"
+                    id="ghRepo"
+                    class="form-control form-control-nepem"
+                    placeholder="Ex: nepem"
+                    value="nepem"
+                    required
+                  />
+                </div>
               </div>
-            </div>
-            
-            <div class="mb-4">
-              <label class="form-label small">Branch (ramificação principal)</label>
-              <input type="text" id="ghBranch" class="form-control form-control-nepem" placeholder="Ex: main" value="main" required>
-            </div>
 
-            <div class="d-flex gap-2 justify-content-end">
-              <button type="button" class="btn btn-outline-danger" onclick="AdminModule.clearGithubSettings()">Desvincular</button>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn btn-nepem-primary">Salvar Credenciais</button>
-            </div>
-          </form>
+              <div class="mb-4">
+                <label class="form-label small">Branch (ramificação principal)</label>
+                <input
+                  type="text"
+                  id="ghBranch"
+                  class="form-control form-control-nepem"
+                  placeholder="Ex: main"
+                  value="main"
+                  required
+                />
+              </div>
+
+              <div class="d-flex gap-2 justify-content-end">
+                <button
+                  type="button"
+                  class="btn btn-outline-danger"
+                  onclick="AdminModule.clearGithubSettings()"
+                >
+                  Desvincular
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Cancelar
+                </button>
+                <button type="submit" class="btn btn-nepem-primary">Salvar Credenciais</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Toast Container -->
-  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
-    <div id="githubToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="d-flex">
-        <div class="toast-body" id="githubToastMsg">
-          Sincronizando com GitHub...
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100">
+      <div
+        id="githubToast"
+        class="toast align-items-center text-bg-primary border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body" id="githubToastMsg">Sincronizando com GitHub...</div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+          ></button>
         </div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
       </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>

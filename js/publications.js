@@ -30,11 +30,11 @@ const PublicationsModule = (() => {
       // Always fetch fresh publications database from the server for public pages
       publications = await (await fetch('data/publications.json?t=' + Date.now())).json();
       // Fix encoding issues & clean up
-      publications = publications.map(p => ({
+      publications = publications.map((p) => ({
         ...p,
         title: cleanText(p.title),
         journal: cleanText(p.journal),
-        doi: p.doi === 'NA' ? '' : p.doi
+        doi: p.doi === 'NA' ? '' : p.doi,
       }));
       // Default sorting is applied after citation maps are loaded
 
@@ -51,7 +51,7 @@ const PublicationsModule = (() => {
               // Build lookups for existing curated publications to avoid duplicates
               const existingDois = new Set();
               const existingTitles = new Set();
-              publications.forEach(p => {
+              publications.forEach((p) => {
                 if (p.doi) existingDois.add(p.doi.toLowerCase().trim());
                 const key = normalizeTitle(p.title);
                 if (key) existingTitles.add(key);
@@ -82,7 +82,7 @@ const PublicationsModule = (() => {
 
               fallbackData.scholarData.articles.forEach((art, idx) => {
                 const artTitle = cleanText(art.title);
-                const doiKey = (art.doi && art.doi !== 'null') ? art.doi.toLowerCase().trim() : '';
+                const doiKey = art.doi && art.doi !== 'null' ? art.doi.toLowerCase().trim() : '';
                 const titleKey = normalizeTitle(artTitle);
                 const citesVal = (art.cited_by && art.cited_by.value) || 0;
 
@@ -107,14 +107,18 @@ const PublicationsModule = (() => {
                   } else {
                     for (const existing of existingTitles) {
                       // 2a. Substring matching for truncation or prefixes (minimum 15 characters overlap)
-                      if (existing.length > 15 && titleKey.length > 15 && (existing.includes(titleKey) || titleKey.includes(existing))) {
+                      if (
+                        existing.length > 15 &&
+                        titleKey.length > 15 &&
+                        (existing.includes(titleKey) || titleKey.includes(existing))
+                      ) {
                         existsByTitle = true;
                         matchedCuratedKey = existing;
                         break;
                       }
                       // 2b. Jaccard similarity of 3-grams for slight spelling or phrasing differences
                       const sim = getJaccardSimilarity(titleKey, existing);
-                      if (sim > 0.70) {
+                      if (sim > 0.7) {
                         existsByTitle = true;
                         matchedCuratedKey = existing;
                         break;
@@ -133,16 +137,18 @@ const PublicationsModule = (() => {
 
                 if (!existsByDoi && !existsByTitle) {
                   // Dynamically merge new Scholar articles not present in publications.json
-                  const journalName = art.journalTitle || (art.publication ? art.publication.split(',')[0] : 'Google Scholar');
+                  const journalName =
+                    art.journalTitle ||
+                    (art.publication ? art.publication.split(',')[0] : 'Google Scholar');
                   const mergedPub = {
                     id: `scholar_auto_${idx}`,
                     title: artTitle,
                     authors: art.authors || '',
                     year: parseInt(art.year) || 2000,
                     type: 'journal', // Default to journal
-                    doi: (art.doi && art.doi !== 'null') ? art.doi : '',
+                    doi: art.doi && art.doi !== 'null' ? art.doi : '',
                     journal: cleanText(journalName),
-                    abstract: ''
+                    abstract: '',
                   };
                   publications.push(mergedPub);
 
@@ -204,35 +210,46 @@ const PublicationsModule = (() => {
 
   function cleanText(text) {
     if (!text) return '';
-    return text
-      // UTF-8 corrupted hyphens, dashes, and control codes
-      .replace(/â\x80\x90/g, '-')
-      .replace(/â\x80\x93/g, '-')
-      .replace(/â\x80\x94/g, '-')
-      .replace(/â€\x90/g, '-')
-      .replace(/â€/g, '-')
-      .replace(/\x90/g, '')
-      // UTF-8 corrupted quotes/apostrophes
-      .replace(/â\x80\x99/g, "'")
-      .replace(/â\x80\x9c/g, '"')
-      .replace(/â\x80\x9d/g, '"')
-      // Standard accents and html-escaped values
-      .replace(/Ã§Ã£/g, 'çã').replace(/Ã£/g, 'ã').replace(/Ã§/g, 'ç')
-      .replace(/Ã©/g, 'é').replace(/Ã´/g, 'ô').replace(/Ãª/g, 'ê')
-      .replace(/Ã­/g, 'í').replace(/Ãº/g, 'ú').replace(/Ã¡/g, 'á')
-      .replace(/Ã³/g, 'ó').replace(/Ã¢/g, 'â').replace(/Ãµ/g, 'õ')
-      .replace(/Ã¼/g, 'ü').replace(/Ã/g, 'À')
-      .replace(/\\u0026/g, '&');
+    return (
+      text
+        // UTF-8 corrupted hyphens, dashes, and control codes
+        .replace(/â\x80\x90/g, '-')
+        .replace(/â\x80\x93/g, '-')
+        .replace(/â\x80\x94/g, '-')
+        .replace(/â€\x90/g, '-')
+        .replace(/â€/g, '-')
+        .replace(/\x90/g, '')
+        // UTF-8 corrupted quotes/apostrophes
+        .replace(/â\x80\x99/g, "'")
+        .replace(/â\x80\x9c/g, '"')
+        .replace(/â\x80\x9d/g, '"')
+        // Standard accents and html-escaped values
+        .replace(/Ã§Ã£/g, 'çã')
+        .replace(/Ã£/g, 'ã')
+        .replace(/Ã§/g, 'ç')
+        .replace(/Ã©/g, 'é')
+        .replace(/Ã´/g, 'ô')
+        .replace(/Ãª/g, 'ê')
+        .replace(/Ã­/g, 'í')
+        .replace(/Ãº/g, 'ú')
+        .replace(/Ã¡/g, 'á')
+        .replace(/Ã³/g, 'ó')
+        .replace(/Ã¢/g, 'â')
+        .replace(/Ãµ/g, 'õ')
+        .replace(/Ã¼/g, 'ü')
+        .replace(/Ã/g, 'À')
+        .replace(/\\u0026/g, '&')
+    );
   }
 
   function getFiltered() {
     let result = [...publications]; // Clone so sorting doesn't modify the master array
     if (currentFilter !== 'all') {
-      result = result.filter(p => p.type === currentFilter);
+      result = result.filter((p) => p.type === currentFilter);
     }
     if (currentSearch) {
       const q = currentSearch.toLowerCase();
-      result = result.filter(p => {
+      result = result.filter((p) => {
         const title = (p.title || '').toLowerCase();
         const journal = (p.journal || '').toLowerCase();
         let authorsStr = '';
@@ -286,7 +303,7 @@ const PublicationsModule = (() => {
           const yearB = (b && parseInt(b.year)) || 0;
           return yearB - yearA;
         } catch (err) {
-          console.error("Error sorting publications by citation:", err, a, b);
+          console.error('Error sorting publications by citation:', err, a, b);
           return 0; // Safe fallback
         }
       });
@@ -325,7 +342,7 @@ const PublicationsModule = (() => {
 
     // Animate
     requestAnimationFrame(() => {
-      container.querySelectorAll('.fade-in-up').forEach(el => el.classList.add('visible'));
+      container.querySelectorAll('.fade-in-up').forEach((el) => el.classList.add('visible'));
     });
   }
 
@@ -358,14 +375,22 @@ const PublicationsModule = (() => {
 
     // Animate
     requestAnimationFrame(() => {
-      container.querySelectorAll('.fade-in-up').forEach(el => el.classList.add('visible'));
+      container.querySelectorAll('.fade-in-up').forEach((el) => el.classList.add('visible'));
     });
   }
 
   function renderCard(pub, index, colLayout = false) {
     const stagger = `stagger-${(index % 6) + 1}`;
-    const typeLabels = { journal: 'Journal', conference: 'Conference', book: 'Book', book_chapter: 'Book Chapter', other: 'Other' };
-    const doiLink = pub.doi ? `<a href="https://doi.org/${pub.doi}" target="_blank" class="publication-doi"><i class="bi bi-box-arrow-up-right me-1"></i>${pub.doi}</a>` : '';
+    const typeLabels = {
+      journal: 'Journal',
+      conference: 'Conference',
+      book: 'Book',
+      book_chapter: 'Book Chapter',
+      other: 'Other',
+    };
+    const doiLink = pub.doi
+      ? `<a href="https://doi.org/${pub.doi}" target="_blank" class="publication-doi"><i class="bi bi-box-arrow-up-right me-1"></i>${pub.doi}</a>`
+      : '';
 
     let authorsStr = '';
     if (Array.isArray(pub.authors)) {
@@ -387,7 +412,10 @@ const PublicationsModule = (() => {
       cites = citationMapByTitle[key] || 0;
     }
 
-    const citesBadge = cites > 0 ? `<span class="publication-citation-badge" title="Citações no Google Scholar"><i class="ai ai-google-scholar me-1"></i>${cites}</span>` : '';
+    const citesBadge =
+      cites > 0
+        ? `<span class="publication-citation-badge" title="Citações no Google Scholar"><i class="ai ai-google-scholar me-1"></i>${cites}</span>`
+        : '';
 
     const cardHtml = `
       <div class="publication-card ${colLayout ? 'h-100 mb-0' : ''} ${!colLayout ? `fade-in-up ${stagger}` : ''}">
@@ -429,7 +457,8 @@ const PublicationsModule = (() => {
 
     if (startPage > 1) {
       html += `<li class="page-item"><a class="page-link" href="#" onclick="PublicationsModule.goToPage(1); return false;">1</a></li>`;
-      if (startPage > 2) html += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
+      if (startPage > 2)
+        html += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
     }
 
     for (let i = startPage; i <= endPage; i++) {
@@ -439,7 +468,8 @@ const PublicationsModule = (() => {
     }
 
     if (endPage < totalPages) {
-      if (endPage < totalPages - 1) html += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
+      if (endPage < totalPages - 1)
+        html += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
       html += `<li class="page-item"><a class="page-link" href="#" onclick="PublicationsModule.goToPage(${totalPages}); return false;">${totalPages}</a></li>`;
     }
 
@@ -465,7 +495,7 @@ const PublicationsModule = (() => {
     currentFilter = filter;
     currentPage = 1;
     renderCurrentView();
-    document.querySelectorAll('#pubFilters .btn-filter').forEach(btn => {
+    document.querySelectorAll('#pubFilters .btn-filter').forEach((btn) => {
       btn.classList.toggle('active', btn.dataset.filter === filter);
     });
   }
@@ -489,14 +519,14 @@ const PublicationsModule = (() => {
     if (!canvas || typeof Chart === 'undefined') return;
 
     const yearCounts = {};
-    publications.forEach(p => {
+    publications.forEach((p) => {
       if (p.year && p.year > 2000) {
         yearCounts[p.year] = (yearCounts[p.year] || 0) + 1;
       }
     });
 
     const years = Object.keys(yearCounts).sort();
-    const counts = years.map(y => yearCounts[y]);
+    const counts = years.map((y) => yearCounts[y]);
 
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     const textColor = isDark ? '#94a3b8' : '#475569';
@@ -508,15 +538,17 @@ const PublicationsModule = (() => {
       type: 'bar',
       data: {
         labels: years,
-        datasets: [{
-          label: 'Publications',
-          data: counts,
-          backgroundColor: 'rgba(26, 178, 129, 0.6)',
-          borderColor: '#1AB281',
-          borderWidth: 1,
-          borderRadius: 6,
-          borderSkipped: false
-        }]
+        datasets: [
+          {
+            label: 'Publications',
+            data: counts,
+            backgroundColor: 'rgba(26, 178, 129, 0.6)',
+            borderColor: '#1AB281',
+            borderWidth: 1,
+            borderRadius: 6,
+            borderSkipped: false,
+          },
+        ],
       },
       options: {
         responsive: true,
@@ -530,30 +562,31 @@ const PublicationsModule = (() => {
             borderColor: isDark ? '#334155' : '#e2e8f0',
             borderWidth: 1,
             cornerRadius: 8,
-            padding: 12
-          }
+            padding: 12,
+          },
         },
         scales: {
           x: {
             ticks: { color: textColor, font: { size: 11 } },
-            grid: { display: false }
+            grid: { display: false },
           },
           y: {
             beginAtZero: true,
             ticks: { color: textColor, stepSize: 5, font: { size: 11 } },
-            grid: { color: gridColor }
-          }
-        }
-      }
+            grid: { color: gridColor },
+          },
+        },
+      },
     });
   }
 
   function renderCitesChart(canvasId = 'citesChart') {
     let canvas = document.getElementById(canvasId);
-    if (!canvas || typeof Chart === 'undefined' || !citationGraph || citationGraph.length === 0) return;
+    if (!canvas || typeof Chart === 'undefined' || !citationGraph || citationGraph.length === 0)
+      return;
 
-    const years = citationGraph.map(item => item.year);
-    const cites = citationGraph.map(item => item.citations);
+    const years = citationGraph.map((item) => item.year);
+    const cites = citationGraph.map((item) => item.citations);
 
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     const textColor = isDark ? '#94a3b8' : '#475569';
@@ -565,18 +598,20 @@ const PublicationsModule = (() => {
       type: 'line',
       data: {
         labels: years,
-        datasets: [{
-          label: 'Citações',
-          data: cites,
-          borderColor: '#1AB281',
-          backgroundColor: 'rgba(26, 178, 129, 0.08)',
-          borderWidth: 2.5,
-          fill: true,
-          tension: 0.35,
-          pointBackgroundColor: '#1AB281',
-          pointHoverRadius: 6,
-          pointRadius: 3
-        }]
+        datasets: [
+          {
+            label: 'Citações',
+            data: cites,
+            borderColor: '#1AB281',
+            backgroundColor: 'rgba(26, 178, 129, 0.08)',
+            borderWidth: 2.5,
+            fill: true,
+            tension: 0.35,
+            pointBackgroundColor: '#1AB281',
+            pointHoverRadius: 6,
+            pointRadius: 3,
+          },
+        ],
       },
       options: {
         responsive: true,
@@ -590,21 +625,21 @@ const PublicationsModule = (() => {
             borderColor: isDark ? '#334155' : '#e2e8f0',
             borderWidth: 1,
             cornerRadius: 8,
-            padding: 12
-          }
+            padding: 12,
+          },
         },
         scales: {
           x: {
             ticks: { color: textColor, font: { size: 11 } },
-            grid: { display: false }
+            grid: { display: false },
           },
           y: {
             beginAtZero: true,
             ticks: { color: textColor, font: { size: 11 } },
-            grid: { color: gridColor }
-          }
-        }
-      }
+            grid: { color: gridColor },
+          },
+        },
+      },
     });
   }
 

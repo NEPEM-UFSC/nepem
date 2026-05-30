@@ -6,6 +6,17 @@ const AdminModule = (() => {
   let currentTab = 'publications';
   let editingId = null;
 
+  function isAuthorized() {
+    return sessionStorage.getItem('nepem-admin-authorized') === 'true';
+  }
+
+  function showLoginGate() {
+    const container = document.getElementById('adminContent');
+    if (container) {
+      renderLoginGate(container);
+    }
+  }
+
   function normalizeTitle(title) {
     if (!title || typeof title !== 'string') return '';
     return title
@@ -18,25 +29,36 @@ const AdminModule = (() => {
 
   function cleanText(text) {
     if (!text) return '';
-    return text
-      // UTF-8 corrupted hyphens, dashes, and control codes
-      .replace(/â\x80\x90/g, '-')
-      .replace(/â\x80\x93/g, '-')
-      .replace(/â\x80\x94/g, '-')
-      .replace(/â€\x90/g, '-')
-      .replace(/â€/g, '-')
-      .replace(/\x90/g, '')
-      // UTF-8 corrupted quotes/apostrophes
-      .replace(/â\x80\x99/g, "'")
-      .replace(/â\x80\x9c/g, '"')
-      .replace(/â\x80\x9d/g, '"')
-      // Standard accents and html-escaped values
-      .replace(/Ã§Ã£/g, 'çã').replace(/Ã£/g, 'ã').replace(/Ã§/g, 'ç')
-      .replace(/Ã©/g, 'é').replace(/Ã´/g, 'ô').replace(/Ãª/g, 'ê')
-      .replace(/Ã­/g, 'í').replace(/Ãº/g, 'ú').replace(/Ã¡/g, 'á')
-      .replace(/Ã³/g, 'ó').replace(/Ã¢/g, 'â').replace(/Ãµ/g, 'õ')
-      .replace(/Ã¼/g, 'ü').replace(/Ã/g, 'À')
-      .replace(/\\u0026/g, '&');
+    return (
+      text
+        // UTF-8 corrupted hyphens, dashes, and control codes
+        .replace(/â\x80\x90/g, '-')
+        .replace(/â\x80\x93/g, '-')
+        .replace(/â\x80\x94/g, '-')
+        .replace(/â€\x90/g, '-')
+        .replace(/â€/g, '-')
+        .replace(/\x90/g, '')
+        // UTF-8 corrupted quotes/apostrophes
+        .replace(/â\x80\x99/g, "'")
+        .replace(/â\x80\x9c/g, '"')
+        .replace(/â\x80\x9d/g, '"')
+        // Standard accents and html-escaped values
+        .replace(/Ã§Ã£/g, 'çã')
+        .replace(/Ã£/g, 'ã')
+        .replace(/Ã§/g, 'ç')
+        .replace(/Ã©/g, 'é')
+        .replace(/Ã´/g, 'ô')
+        .replace(/Ãª/g, 'ê')
+        .replace(/Ã­/g, 'í')
+        .replace(/Ãº/g, 'ú')
+        .replace(/Ã¡/g, 'á')
+        .replace(/Ã³/g, 'ó')
+        .replace(/Ã¢/g, 'â')
+        .replace(/Ãµ/g, 'õ')
+        .replace(/Ã¼/g, 'ü')
+        .replace(/Ã/g, 'À')
+        .replace(/\\u0026/g, '&')
+    );
   }
 
   const getTrigrams = (str) => {
@@ -63,7 +85,7 @@ const AdminModule = (() => {
 
   async function init() {
     // Ensure all animation containers are visible immediately on the admin page
-    document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
+    document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach((el) => {
       el.classList.add('visible');
     });
 
@@ -71,7 +93,7 @@ const AdminModule = (() => {
     if (!container) return;
 
     // Check Password Protection Gate
-    if (localStorage.getItem('nepem-admin-authorized') !== 'true') {
+    if (!isAuthorized()) {
       renderLoginGate(container);
       return;
     }
@@ -101,8 +123,8 @@ const AdminModule = (() => {
               <div class="d-inline-flex align-items-center justify-content-center bg-success bg-opacity-10 text-success rounded-circle p-3 mb-2" style="width: 70px; height: 70px;">
                 <i class="bi bi-shield-lock fs-2"></i>
               </div>
-              <h4 class="mt-2 fw-bold">Painel Restrito</h4>
-              <p class="small text-secondary">Insira a senha de administrador para acessar o painel do NEPEM/UFSC.</p>
+              <h4 class="mt-2 fw-bold">Área restrita</h4>
+              <p class="small text-secondary">Informe a senha de administrador para acessar o painel do NEPEM/UFSC.</p>
             </div>
             <form onsubmit="AdminModule.handleLogin(event)">
               <div class="mb-3">
@@ -115,7 +137,7 @@ const AdminModule = (() => {
             <div class="mt-3 text-start small border-top pt-3">
               <span class="text-secondary d-block mb-1">🔑 <strong>Nota de Segurança:</strong></span>
               <span class="text-muted d-block" style="font-size: 0.8rem; line-height: 1.4;">
-                Como este é um site estático, as alterações feitas aqui ficam guardadas apenas no seu navegador local até que você exporte o JSON e o atualize no Git. A senha está protegida por um hash criptográfico seguro.
+                Este painel grava as alterações apenas neste navegador até que você exporte o JSON e publique a atualização no repositório. A senha é validada com hash SHA-256.
               </span>
             </div>
           </div>
@@ -127,7 +149,7 @@ const AdminModule = (() => {
     const msgBuffer = new TextEncoder().encode(message);
     const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
     const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('');
   }
 
   async function handleLogin(e) {
@@ -136,7 +158,7 @@ const AdminModule = (() => {
     const hash = await sha256(pass);
     // SHA-256 hash of 'nepem@flax2022'
     if (hash === '981ce567c534bf51407761e25bdfd0ccb34501730d84cd112f07eb6c13cd9619') {
-      localStorage.setItem('nepem-admin-authorized', 'true');
+      sessionStorage.setItem('nepem-admin-authorized', 'true');
       init();
     } else {
       alert('Senha incorreta! Tente novamente.');
@@ -151,11 +173,11 @@ const AdminModule = (() => {
         let publications = await res.json();
 
         // Clean text encodings in publications database first
-        publications = publications.map(p => ({
+        publications = publications.map((p) => ({
           ...p,
           title: cleanText(p.title),
           journal: cleanText(p.journal),
-          doi: p.doi === 'NA' ? '' : p.doi
+          doi: p.doi === 'NA' ? '' : p.doi,
         }));
 
         // Load fallback-data.json (Google Scholar data) and dynamically auto-merge missing articles
@@ -166,7 +188,7 @@ const AdminModule = (() => {
             if (fallbackData && fallbackData.scholarData && fallbackData.scholarData.articles) {
               const existingDois = new Set();
               const existingTitles = new Set();
-              publications.forEach(p => {
+              publications.forEach((p) => {
                 if (p.doi) existingDois.add(p.doi.toLowerCase().trim());
                 const key = normalizeTitle(p.title);
                 if (key) existingTitles.add(key);
@@ -174,7 +196,7 @@ const AdminModule = (() => {
 
               fallbackData.scholarData.articles.forEach((art, idx) => {
                 const artTitle = cleanText(art.title);
-                const doiKey = (art.doi && art.doi !== 'null') ? art.doi.toLowerCase().trim() : '';
+                const doiKey = art.doi && art.doi !== 'null' ? art.doi.toLowerCase().trim() : '';
                 const titleKey = normalizeTitle(artTitle);
 
                 const existsByDoi = doiKey && existingDois.has(doiKey);
@@ -185,13 +207,17 @@ const AdminModule = (() => {
                   } else {
                     for (const existing of existingTitles) {
                       // Substring prefix/suffix matching
-                      if (existing.length > 15 && titleKey.length > 15 && (existing.includes(titleKey) || titleKey.includes(existing))) {
+                      if (
+                        existing.length > 15 &&
+                        titleKey.length > 15 &&
+                        (existing.includes(titleKey) || titleKey.includes(existing))
+                      ) {
                         existsByTitle = true;
                         break;
                       }
                       // Trigrams Jaccard fuzzy similarity
                       const sim = getJaccardSimilarity(titleKey, existing);
-                      if (sim > 0.70) {
+                      if (sim > 0.7) {
                         existsByTitle = true;
                         break;
                       }
@@ -200,16 +226,18 @@ const AdminModule = (() => {
                 }
 
                 if (!existsByDoi && !existsByTitle) {
-                  const journalName = art.journalTitle || (art.publication ? art.publication.split(',')[0] : 'Google Scholar');
+                  const journalName =
+                    art.journalTitle ||
+                    (art.publication ? art.publication.split(',')[0] : 'Google Scholar');
                   const mergedPub = {
                     id: `scholar_auto_${idx}`,
                     title: artTitle,
                     authors: art.authors || '',
                     year: parseInt(art.year) || 2000,
                     type: 'journal',
-                    doi: (art.doi && art.doi !== 'null') ? art.doi : '',
+                    doi: art.doi && art.doi !== 'null' ? art.doi : '',
                     journal: cleanText(journalName),
-                    abstract: ''
+                    abstract: '',
                   };
                   publications.push(mergedPub);
 
@@ -220,7 +248,7 @@ const AdminModule = (() => {
             }
           }
         } catch (err) {
-          console.warn("Failed to load or merge fallback data in admin preload:", err);
+          console.warn('Failed to load or merge fallback data in admin preload:', err);
         }
 
         localStorage.setItem('nepem-publications-v4', JSON.stringify(publications));
@@ -262,13 +290,19 @@ const AdminModule = (() => {
   }
 
   async function resetToDefault(type) {
+    if (!isAuthorized()) return showLoginGate();
     const labels = {
       publications: 'publicações',
       members: 'membros',
       projects: 'projetos',
-      posts: 'postagens'
+      posts: 'postagens',
     };
-    if (!confirm(`Tem certeza que deseja restaurar as ${labels[type]} para a versão padrão do servidor? Suas alterações locais não salvas em arquivo serão perdidas.`)) return;
+    if (
+      !confirm(
+        `Tem certeza que deseja restaurar as ${labels[type]} para a versão padrão do servidor? Suas alterações locais não salvas em arquivo serão perdidas.`,
+      )
+    )
+      return;
 
     try {
       if (type === 'publications') {
@@ -290,15 +324,23 @@ const AdminModule = (() => {
   }
 
   function setTab(tab) {
+    if (!isAuthorized()) {
+      showLoginGate();
+      return;
+    }
     currentTab = tab;
     editingId = null;
     renderTab(tab);
-    document.querySelectorAll('.admin-sidebar .nav-link').forEach(link => {
+    document.querySelectorAll('.admin-sidebar .nav-link').forEach((link) => {
       link.classList.toggle('active', link.dataset.tab === tab);
     });
   }
 
   function renderTab(tab) {
+    if (!isAuthorized()) {
+      showLoginGate();
+      return;
+    }
     const container = document.getElementById('adminContent');
     if (!container) return;
 
@@ -321,7 +363,9 @@ const AdminModule = (() => {
   /* ---- PUBLICATIONS ---- */
   function renderPublicationsAdmin(container) {
     const pubs = JSON.parse(localStorage.getItem('nepem-publications-v4') || '[]') || [];
-    const sortedPubs = Array.isArray(pubs) ? [...pubs].sort((a, b) => (b.year || 0) - (a.year || 0)) : [];
+    const sortedPubs = Array.isArray(pubs)
+      ? [...pubs].sort((a, b) => (b.year || 0) - (a.year || 0))
+      : [];
 
     container.innerHTML = `
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
@@ -354,22 +398,26 @@ const AdminModule = (() => {
           <thead class="sticky-top bg-body"><tr><th>Ano</th><th>Título</th><th>Autores</th><th>Tipo</th><th>Ações</th></tr></thead>
           <tbody>
             ${sortedPubs.length === 0 ? '<tr><td colspan="5" class="text-center text-muted py-4">Nenhuma publicação cadastrada.</td></tr>' : ''}
-            ${sortedPubs.map(p => {
-      const pId = p.id || ('pub_' + Math.random().toString(36).substr(2, 9));
-      const pTitle = p.title || 'Sem Título';
-      const pYear = p.year || 'S/A';
-      const pType = p.type || 'journal';
+            ${sortedPubs
+              .map((p) => {
+                const pId = p.id || 'pub_' + Math.random().toString(36).substr(2, 9);
+                const pTitle = p.title || 'Sem Título';
+                const pYear = p.year || 'S/A';
+                const pType = p.type || 'journal';
 
-      // Safely handle authors as string, array or undefined
-      let authorsArr = [];
-      if (Array.isArray(p.authors)) {
-        authorsArr = p.authors;
-      } else if (typeof p.authors === 'string') {
-        authorsArr = p.authors.split(',').map(a => a.trim()).filter(Boolean);
-      }
-      const pAuthorsStr = authorsArr.join(', ') || 'Autores não especificados';
+                // Safely handle authors as string, array or undefined
+                let authorsArr = [];
+                if (Array.isArray(p.authors)) {
+                  authorsArr = p.authors;
+                } else if (typeof p.authors === 'string') {
+                  authorsArr = p.authors
+                    .split(',')
+                    .map((a) => a.trim())
+                    .filter(Boolean);
+                }
+                const pAuthorsStr = authorsArr.join(', ') || 'Autores não especificados';
 
-      return `
+                return `
               <tr class="pub-row" data-search="${pTitle.replace(/"/g, '').toLowerCase()} ${pAuthorsStr.replace(/"/g, '').toLowerCase()} ${pYear}">
                 <td><strong>${pYear}</strong></td>
                 <td style="max-width:320px" class="text-truncate" title="${pTitle.replace(/"/g, '&quot;')}">${pTitle}</td>
@@ -386,20 +434,31 @@ const AdminModule = (() => {
                   </div>
                 </td>
               </tr>`;
-    }).join('')}
+              })
+              .join('')}
           </tbody>
         </table>
       </div>`;
   }
 
   function showPubForm(id = null) {
+    if (!isAuthorized()) return showLoginGate();
     const area = document.getElementById('pubFormArea');
     if (!area) return;
 
-    let pub = { id: '', title: '', year: new Date().getFullYear(), type: 'journal', authors: [], journal: '', doi: '', abstract: '' };
+    let pub = {
+      id: '',
+      title: '',
+      year: new Date().getFullYear(),
+      type: 'journal',
+      authors: [],
+      journal: '',
+      doi: '',
+      abstract: '',
+    };
     if (id) {
       const pubs = JSON.parse(localStorage.getItem('nepem-publications-v4') || '[]') || [];
-      const found = pubs.find(p => p.id === id);
+      const found = pubs.find((p) => p.id === id);
       if (found) pub = found;
     }
 
@@ -414,7 +473,10 @@ const AdminModule = (() => {
     if (Array.isArray(pub.authors)) {
       authorsArr = pub.authors;
     } else if (typeof pub.authors === 'string') {
-      authorsArr = pub.authors.split(',').map(a => a.trim()).filter(Boolean);
+      authorsArr = pub.authors
+        .split(',')
+        .map((a) => a.trim())
+        .filter(Boolean);
     }
     const pAuthorsStr = authorsArr.join(', ');
 
@@ -469,6 +531,7 @@ const AdminModule = (() => {
   }
 
   function savePub(e) {
+    if (!isAuthorized()) return showLoginGate();
     e.preventDefault();
     const id = document.getElementById('pubId').value;
     const isEdit = !!id;
@@ -478,16 +541,20 @@ const AdminModule = (() => {
       title: document.getElementById('pubTitle').value.trim(),
       year: parseInt(document.getElementById('pubYear').value.trim()),
       type: document.getElementById('pubType').value,
-      authors: document.getElementById('pubAuthors').value.split(',').map(a => a.trim()).filter(Boolean),
+      authors: document
+        .getElementById('pubAuthors')
+        .value.split(',')
+        .map((a) => a.trim())
+        .filter(Boolean),
       journal: document.getElementById('pubJournal').value.trim() || 'NA',
       doi: document.getElementById('pubDoi').value.trim() || '',
-      abstract: document.getElementById('pubAbstract').value.trim()
+      abstract: document.getElementById('pubAbstract').value.trim(),
     };
 
     const pubs = JSON.parse(localStorage.getItem('nepem-publications-v4') || '[]');
 
     if (isEdit) {
-      const idx = pubs.findIndex(p => p.id === id);
+      const idx = pubs.findIndex((p) => p.id === id);
       if (idx !== -1) {
         pubs[idx] = pub;
       } else {
@@ -506,7 +573,11 @@ const AdminModule = (() => {
   /* ---- MEMBERS ---- */
   function renderMembersAdmin(container) {
     const members = JSON.parse(localStorage.getItem('nepem-members') || '[]');
-    const sortedMembers = [...members].sort((a, b) => (a.weight || 99) - (b.weight || 99) || a.name.localeCompare(b.name, 'pt', { sensitivity: 'base' }));
+    const sortedMembers = [...members].sort(
+      (a, b) =>
+        (a.weight || 99) - (b.weight || 99) ||
+        a.name.localeCompare(b.name, 'pt', { sensitivity: 'base' }),
+    );
 
     container.innerHTML = `
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
@@ -539,7 +610,9 @@ const AdminModule = (() => {
           <thead class="sticky-top bg-body"><tr><th>Foto</th><th>Nome</th><th>Categoria / Cargo</th><th>Status</th><th>Ordenação</th><th>Ações</th></tr></thead>
           <tbody>
             ${sortedMembers.length === 0 ? '<tr><td colspan="6" class="text-center text-muted py-4">Nenhum membro cadastrado.</td></tr>' : ''}
-            ${sortedMembers.map(m => `
+            ${sortedMembers
+              .map(
+                (m) => `
               <tr class="member-row" data-search="${(m.name || '').toLowerCase()} ${(m.role || '').toLowerCase()} ${(m.group || '').toLowerCase()}">
                 <td>
                   <img src="${m.photo || 'img/members/admin.png'}" 
@@ -564,26 +637,36 @@ const AdminModule = (() => {
                     </button>
                   </div>
                 </td>
-              </tr>`).join('')}
+              </tr>`,
+              )
+              .join('')}
           </tbody>
         </table>
       </div>`;
   }
 
   function showMemberForm(id = null) {
+    if (!isAuthorized()) return showLoginGate();
     const area = document.getElementById('memberFormArea');
     if (!area) return;
 
     let member = {
-      id: '', name: '', role: '', group: 'Estudantes de Graduação',
-      bio: { pt: '', en: '', es: '' }, photo: '', email: '', interests: [],
+      id: '',
+      name: '',
+      role: '',
+      group: 'Estudantes de Graduação',
+      bio: { pt: '', en: '', es: '' },
+      photo: '',
+      email: '',
+      interests: [],
       links: { lattes: '', github: '', linkedin: '', researchgate: '', orcid: '', scholar: '' },
-      status: 'active', weight: 50
+      status: 'active',
+      weight: 50,
     };
 
     if (id) {
       const members = JSON.parse(localStorage.getItem('nepem-members') || '[]');
-      const found = members.find(m => m.id === id);
+      const found = members.find((m) => m.id === id);
       if (found) {
         member = found;
         if (typeof member.bio === 'string') {
@@ -707,15 +790,23 @@ const AdminModule = (() => {
   }
 
   function saveMember(e) {
+    if (!isAuthorized()) return showLoginGate();
     e.preventDefault();
     const id = document.getElementById('memberId').value;
     const isEdit = !!id;
 
     const generateId = (name) => {
-      return name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+      return name
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '');
     };
 
-    const finalId = isEdit ? id : generateId(document.getElementById('memberName').value.trim()) || 'member_' + Date.now();
+    const finalId = isEdit
+      ? id
+      : generateId(document.getElementById('memberName').value.trim()) || 'member_' + Date.now();
 
     const member = {
       id: finalId,
@@ -725,27 +816,31 @@ const AdminModule = (() => {
       bio: {
         pt: document.getElementById('memberBioPt').value.trim(),
         en: document.getElementById('memberBioEn').value.trim(),
-        es: document.getElementById('memberBioEs').value.trim()
+        es: document.getElementById('memberBioEs').value.trim(),
       },
       photo: document.getElementById('memberPhoto').value.trim() || 'img/members/admin.png',
       email: document.getElementById('memberEmail').value.trim(),
-      interests: document.getElementById('memberInterests').value.split(',').map(i => i.trim()).filter(Boolean),
+      interests: document
+        .getElementById('memberInterests')
+        .value.split(',')
+        .map((i) => i.trim())
+        .filter(Boolean),
       links: {
         lattes: document.getElementById('memberLattes').value.trim(),
         linkedin: document.getElementById('memberLinkedin').value.trim(),
         github: document.getElementById('memberGithub').value.trim(),
         researchgate: document.getElementById('memberResearchgate').value.trim(),
         orcid: document.getElementById('memberOrcid').value.trim(),
-        scholar: document.getElementById('memberScholar').value.trim()
+        scholar: document.getElementById('memberScholar').value.trim(),
       },
       status: document.getElementById('memberStatus').value,
-      weight: parseInt(document.getElementById('memberWeight').value.trim() || '50')
+      weight: parseInt(document.getElementById('memberWeight').value.trim() || '50'),
     };
 
     const members = JSON.parse(localStorage.getItem('nepem-members') || '[]');
 
     if (isEdit) {
-      const idx = members.findIndex(m => m.id === id);
+      const idx = members.findIndex((m) => m.id === id);
       if (idx !== -1) {
         members[idx] = member;
       } else {
@@ -796,59 +891,89 @@ const AdminModule = (() => {
           <thead class="sticky-top bg-body"><tr><th>Logo/Imagem</th><th>Título</th><th>Tipo</th><th>Registro/Link</th><th>Tags</th><th>Ações</th></tr></thead>
           <tbody>
             ${projects.length === 0 ? '<tr><td colspan="6" class="text-center text-muted py-4">Nenhum projeto cadastrado.</td></tr>' : ''}
-            ${projects.map(p => {
-      const hasLink = p.project_number && (p.project_number.startsWith('http://') || p.project_number.startsWith('https://'));
-      const regDisplay = p.project_number
-        ? (hasLink
-          ? `<a href="${p.project_number}" target="_blank" class="btn btn-xs btn-outline-info py-0 px-2" style="font-size:0.75rem;"><i class="bi bi-link-45deg"></i> Link</a>`
-          : `<code class="small bg-light border text-dark py-1 px-2 rounded">${p.project_number}</code>`
-        )
-        : '<span class="text-muted small">—</span>';
+            ${projects
+              .map((p) => {
+                const escapeHtml = (value) =>
+                  String(value ?? '')
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#39;');
+                const escapeJsSingleQuoted = (value) =>
+                  String(value ?? '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+                const safeUrl = (value) => {
+                  const s = String(value ?? '').trim();
+                  return s.startsWith('http://') || s.startsWith('https://') ? s : '';
+                };
 
-      return `
-                <tr class="project-row" data-search="${(p.title || '').toLowerCase()} ${(p.tags || []).join(' ').toLowerCase()}">
+                const projectTitle = escapeHtml(p.title);
+                const projectTipo = escapeHtml(p.tipo || 'Pesquisa');
+                const projectIdJs = escapeJsSingleQuoted(p.id);
+                const projectTags = (p.tags || []).map((t) => escapeHtml(t));
+                const projectSearch = escapeHtml(
+                  `${(p.title || '').toLowerCase()} ${(p.tags || []).join(' ').toLowerCase()}`
+                );
+                const imageUrl = safeUrl(p.image);
+                const regRaw = String(p.project_number ?? '');
+                const regLink = safeUrl(regRaw);
+                const regDisplay = regRaw
+                  ? regLink
+                    ? `<a href="${escapeHtml(regLink)}" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-outline-info py-0 px-2" style="font-size:0.75rem;"><i class="bi bi-link-45deg"></i> Link</a>`
+                    : `<code class="small bg-light border text-dark py-1 px-2 rounded">${escapeHtml(regRaw)}</code>`
+                  : '<span class="text-muted small">—</span>';
+
+                return `
+                <tr class="project-row" data-search="${projectSearch}">
                   <td>
-                    ${p.image
-          ? `<img src="${p.image}" alt="${p.title}" style="width: 32px; height: 32px; object-fit: contain;">`
-          : `<i class="bi bi-folder2-open text-success fs-5"></i>`
-        }
+                    ${
+                      imageUrl
+                        ? `<img src="${escapeHtml(imageUrl)}" alt="${projectTitle}" style="width: 32px; height: 32px; object-fit: contain;">`
+                        : `<i class="bi bi-folder2-open text-success fs-5"></i>`
+                    }
                   </td>
-                  <td><strong>${p.title}</strong></td>
-                  <td><span class="badge bg-secondary text-light">${p.tipo || 'Pesquisa'}</span></td>
+                  <td><strong>${projectTitle}</strong></td>
+                  <td><span class="badge bg-secondary text-light">${projectTipo}</span></td>
                   <td>${regDisplay}</td>
-                  <td>${(p.tags || []).map(t => `<span class="badge bg-info me-1 text-dark">${t}</span>`).join('')}</td>
+                  <td>${projectTags.map((t) => `<span class="badge bg-info me-1 text-dark">${t}</span>`).join('')}</td>
                   <td>
                     <div class="d-flex gap-1">
-                      <button class="btn btn-sm btn-outline-primary" onclick="AdminModule.editItem('projects', '${p.id}')" title="Editar">
+                      <button class="btn btn-sm btn-outline-primary" onclick="AdminModule.editItem('projects', '${projectIdJs}')" title="Editar">
                         <i class="bi bi-pencil"></i>
                       </button>
-                      <button class="btn btn-sm btn-outline-danger" onclick="AdminModule.deleteItem('projects', '${p.id}')" title="Excluir">
+                      <button class="btn btn-sm btn-outline-danger" onclick="AdminModule.deleteItem('projects', '${projectIdJs}')" title="Excluir">
                         <i class="bi bi-trash"></i>
                       </button>
                     </div>
                   </td>
                 </tr>`;
-    }).join('')}
+              })
+              .join('')}
           </tbody>
         </table>
       </div>`;
   }
 
   function showProjectForm(id = null) {
+    if (!isAuthorized()) return showLoginGate();
     const area = document.getElementById('projectFormArea');
     if (!area) return;
 
     let project = {
-      id: '', title: '', tags: [],
+      id: '',
+      title: '',
+      tags: [],
       description: { pt: '', en: '', es: '' },
-      url: '', github: '', image: '',
+      url: '',
+      github: '',
+      image: '',
       tipo: 'Pesquisa',
-      project_number: ''
+      project_number: '',
     };
 
     if (id) {
       const projects = JSON.parse(localStorage.getItem('nepem-projects') || '[]');
-      const found = projects.find(p => p.id === id);
+      const found = projects.find((p) => p.id === id);
       if (found) {
         project = { ...project, ...found };
         if (typeof project.description === 'string') {
@@ -938,36 +1063,48 @@ const AdminModule = (() => {
   }
 
   function saveProject(e) {
+    if (!isAuthorized()) return showLoginGate();
     e.preventDefault();
     const id = document.getElementById('projId').value;
     const isEdit = !!id;
 
     const generateId = (title) => {
-      return title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+      return title
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '');
     };
 
-    const finalId = isEdit ? id : generateId(document.getElementById('projTitle').value.trim()) || 'proj_' + Date.now();
+    const finalId = isEdit
+      ? id
+      : generateId(document.getElementById('projTitle').value.trim()) || 'proj_' + Date.now();
 
     const project = {
       id: finalId,
       title: document.getElementById('projTitle').value.trim(),
-      tags: document.getElementById('projTags').value.split(',').map(t => t.trim()).filter(Boolean),
+      tags: document
+        .getElementById('projTags')
+        .value.split(',')
+        .map((t) => t.trim())
+        .filter(Boolean),
       description: {
         pt: document.getElementById('projDescPt').value.trim(),
         en: document.getElementById('projDescEn').value.trim(),
-        es: document.getElementById('projDescEs').value.trim()
+        es: document.getElementById('projDescEs').value.trim(),
       },
       url: document.getElementById('projUrl').value.trim(),
       github: document.getElementById('projGithub').value.trim(),
       image: document.getElementById('projImage').value.trim(),
       tipo: document.getElementById('projTipo').value,
-      project_number: document.getElementById('projNumber').value.trim()
+      project_number: document.getElementById('projNumber').value.trim(),
     };
 
     const projects = JSON.parse(localStorage.getItem('nepem-projects') || '[]');
 
     if (isEdit) {
-      const idx = projects.findIndex(p => p.id === id);
+      const idx = projects.findIndex((p) => p.id === id);
       if (idx !== -1) {
         projects[idx] = project;
       } else {
@@ -986,7 +1123,9 @@ const AdminModule = (() => {
   /* ---- BLOG POSTS ---- */
   function renderPostsAdmin(container) {
     const posts = JSON.parse(localStorage.getItem('nepem-posts') || '[]') || [];
-    const sortedPosts = Array.isArray(posts) ? [...posts].sort((a, b) => new Date(b.date) - new Date(a.date)) : [];
+    const sortedPosts = Array.isArray(posts)
+      ? [...posts].sort((a, b) => new Date(b.date) - new Date(a.date))
+      : [];
 
     container.innerHTML = `
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
@@ -1019,7 +1158,9 @@ const AdminModule = (() => {
           <thead class="sticky-top bg-body"><tr><th>Banner</th><th>Data</th><th>Título</th><th>Ações</th></tr></thead>
           <tbody>
             ${sortedPosts.length === 0 ? '<tr><td colspan="4" class="text-center text-muted py-4">Nenhum post cadastrado.</td></tr>' : ''}
-            ${sortedPosts.map(p => `
+            ${sortedPosts
+              .map(
+                (p) => `
               <tr class="post-row" data-search="${(p.title || '').toLowerCase()}">
                 <td>
                   <img src="${p.banner || 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=64&q=80'}" 
@@ -1039,24 +1180,31 @@ const AdminModule = (() => {
                     </button>
                   </div>
                 </td>
-              </tr>`).join('')}
+              </tr>`,
+              )
+              .join('')}
           </tbody>
         </table>
       </div>`;
   }
 
   function showPostForm(id = null) {
+    if (!isAuthorized()) return showLoginGate();
     const area = document.getElementById('postFormArea');
     if (!area) return;
 
     let post = {
-      id: '', title: '', date: new Date().toISOString().slice(0, 10),
-      excerpt: '', banner: '', content: ''
+      id: '',
+      title: '',
+      date: new Date().toISOString().slice(0, 10),
+      excerpt: '',
+      banner: '',
+      content: '',
     };
 
     if (id) {
       const posts = JSON.parse(localStorage.getItem('nepem-posts') || '[]');
-      const found = posts.find(p => p.id === id);
+      const found = posts.find((p) => p.id === id);
       if (found) post = found;
     }
 
@@ -1111,9 +1259,27 @@ const AdminModule = (() => {
                   <button type="button" class="btn btn-sm btn-light border dropdown-toggle" data-bs-toggle="dropdown" title="Inserir Emoji"><i class="bi bi-emoji-smile"></i></button>
                   <ul class="dropdown-menu p-2" style="min-width: 180px; max-height: 200px; overflow-y: auto;">
                     <li class="d-flex flex-wrap gap-1">
-                      ${['🌾', '🌱', '🧬', '📊', '📈', '🎓', '🔬', '💻', '💚', '🚀', '🌻', '💡', '🔥'].map(emoji => `
+                      ${[
+                        '🌾',
+                        '🌱',
+                        '🧬',
+                        '📊',
+                        '📈',
+                        '🎓',
+                        '🔬',
+                        '💻',
+                        '💚',
+                        '🚀',
+                        '🌻',
+                        '💡',
+                        '🔥',
+                      ]
+                        .map(
+                          (emoji) => `
                         <button type="button" class="btn btn-sm btn-light p-1" style="font-size: 1.2rem; width: 32px; height: 32px;" onclick="AdminModule.insertFormat('${emoji}')">${emoji}</button>
-                      `).join('')}
+                      `,
+                        )
+                        .join('')}
                     </li>
                   </ul>
                 </div>
@@ -1143,15 +1309,23 @@ const AdminModule = (() => {
   }
 
   function savePost(e) {
+    if (!isAuthorized()) return showLoginGate();
     e.preventDefault();
     const id = document.getElementById('postId').value;
     const isEdit = !!id;
 
     const generateId = (title) => {
-      return title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+      return title
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '');
     };
 
-    const finalId = isEdit ? id : generateId(document.getElementById('postTitle').value.trim()) || 'post_' + Date.now();
+    const finalId = isEdit
+      ? id
+      : generateId(document.getElementById('postTitle').value.trim()) || 'post_' + Date.now();
 
     const post = {
       id: finalId,
@@ -1159,13 +1333,13 @@ const AdminModule = (() => {
       date: document.getElementById('postDate').value,
       excerpt: document.getElementById('postExcerpt').value.trim(),
       banner: document.getElementById('postBanner').value.trim(),
-      content: document.getElementById('postContent').value
+      content: document.getElementById('postContent').value,
     };
 
     const posts = JSON.parse(localStorage.getItem('nepem-posts') || '[]');
 
     if (isEdit) {
-      const idx = posts.findIndex(p => p.id === id);
+      const idx = posts.findIndex((p) => p.id === id);
       if (idx !== -1) {
         posts[idx] = post;
       } else {
@@ -1223,17 +1397,16 @@ const AdminModule = (() => {
     const content = document.getElementById('postContent')?.value || '';
     const previewArea = document.getElementById('postPreviewArea');
     if (previewArea) {
-      previewArea.innerHTML = parseMarkdown(content) || '<p class="text-muted small">Digite o conteúdo acima para ver a pré-visualização...</p>';
+      previewArea.innerHTML =
+        parseMarkdown(content) ||
+        '<p class="text-muted small">Digite o conteúdo acima para ver a pré-visualização...</p>';
     }
   }
 
   function parseMarkdown(text) {
     if (!text) return '';
 
-    let html = text
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
+    let html = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
     // 1. Headings
     html = html.replace(/^### (.*?)$/gm, '<h5 class="fw-bold mt-4 mb-2 text-gradient">$1</h5>');
@@ -1245,31 +1418,60 @@ const AdminModule = (() => {
 
     // 3. Lists
     html = html.replace(/^\* (.*?)$/gm, '<li>$1</li>');
-    html = html.replace(/(<li>.*?<\/li>)+/gs, (match) => `<ul class="text-secondary ps-3 my-2" style="list-style-type: disc;">${match}</ul>`);
+    html = html.replace(
+      /(<li>.*?<\/li>)+/gs,
+      (match) =>
+        `<ul class="text-secondary ps-3 my-2" style="list-style-type: disc;">${match}</ul>`,
+    );
 
     // 4. Tables
-    html = html.replace(/\|(.*?)\|\r?\n\|[ -:|]*?\|\r?\n((?:\|.*?\|\r?\n?)*)/g, (match, header, body) => {
-      const headers = header.split('|').map(h => h.trim()).filter(Boolean);
-      const rows = body.trim().split('\n').map(r => r.split('|').map(c => c.trim()).filter(Boolean));
+    html = html.replace(
+      /\|(.*?)\|\r?\n\|[ -:|]*?\|\r?\n((?:\|.*?\|\r?\n?)*)/g,
+      (match, header, body) => {
+        const headers = header
+          .split('|')
+          .map((h) => h.trim())
+          .filter(Boolean);
+        const rows = body
+          .trim()
+          .split('\n')
+          .map((r) =>
+            r
+              .split('|')
+              .map((c) => c.trim())
+              .filter(Boolean),
+          );
 
-      const thHtml = headers.map(h => `<th class="bg-light text-secondary font-semibold p-2 border">${h}</th>`).join('');
-      const trHtml = rows.map(row => {
-        if (row.length === 0) return '';
-        return `<tr>${row.map(cell => `<td class="p-2 border text-secondary">${cell}</td>`).join('')}</tr>`;
-      }).join('');
+        const thHtml = headers
+          .map((h) => `<th class="bg-light text-secondary font-semibold p-2 border">${h}</th>`)
+          .join('');
+        const trHtml = rows
+          .map((row) => {
+            if (row.length === 0) return '';
+            return `<tr>${row.map((cell) => `<td class="p-2 border text-secondary">${cell}</td>`).join('')}</tr>`;
+          })
+          .join('');
 
-      return `<div class="table-responsive my-4"><table class="table border table-hover align-middle"><thead><tr>${thHtml}</tr></thead><tbody>${trHtml}</tbody></table></div>`;
-    });
+        return `<div class="table-responsive my-4"><table class="table border table-hover align-middle"><thead><tr>${thHtml}</tr></thead><tbody>${trHtml}</tbody></table></div>`;
+      },
+    );
 
     // 5. Paragraphs
     const paragraphs = html.split(/\n\n+/);
-    html = paragraphs.map(p => {
-      const trimmed = p.trim();
-      if (trimmed.startsWith('<ul') || trimmed.startsWith('<div class="table-responsive') || trimmed.startsWith('<h5') || trimmed.startsWith('<h6')) {
-        return trimmed;
-      }
-      return `<p class="mb-3">${trimmed.replace(/\n/g, '<br>')}</p>`;
-    }).join('');
+    html = paragraphs
+      .map((p) => {
+        const trimmed = p.trim();
+        if (
+          trimmed.startsWith('<ul') ||
+          trimmed.startsWith('<div class="table-responsive') ||
+          trimmed.startsWith('<h5') ||
+          trimmed.startsWith('<h6')
+        ) {
+          return trimmed;
+        }
+        return `<p class="mb-3">${trimmed.replace(/\n/g, '<br>')}</p>`;
+      })
+      .join('');
 
     return html;
   }
@@ -1279,30 +1481,37 @@ const AdminModule = (() => {
     const file = event.target.files[0];
     if (!file) return;
 
-    const isHeic = file.type === "image/heic" || file.type === "image/heif" || file.name.toLowerCase().endsWith('.heic');
+    const isHeic =
+      file.type === 'image/heic' ||
+      file.type === 'image/heif' ||
+      file.name.toLowerCase().endsWith('.heic');
 
     let fileToProcess = file;
     if (isHeic) {
-      alert("Formato HEIC (iPhone) detectado. O sistema vai converter automaticamente para JPG, isso pode levar alguns segundos...");
+      alert(
+        'Formato HEIC (iPhone) detectado. O sistema vai converter automaticamente para JPG, isso pode levar alguns segundos...',
+      );
       try {
         if (!window.heic2any) {
           await new Promise((resolve) => {
             const script = document.createElement('script');
-            script.src = "https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js";
+            script.src = 'https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js';
             script.onload = resolve;
             document.head.appendChild(script);
           });
         }
         const conversionResult = await heic2any({
           blob: file,
-          toType: "image/jpeg",
-          quality: 0.85
+          toType: 'image/jpeg',
+          quality: 0.85,
         });
         let blob = Array.isArray(conversionResult) ? conversionResult[0] : conversionResult;
-        fileToProcess = new File([blob], file.name.replace(/\.heic$/i, ".jpg"), { type: "image/jpeg" });
+        fileToProcess = new File([blob], file.name.replace(/\.heic$/i, '.jpg'), {
+          type: 'image/jpeg',
+        });
       } catch (e) {
         console.error(e);
-        alert("Erro ao converter arquivo HEIC. Por favor, envie como JPG ou PNG.");
+        alert('Erro ao converter arquivo HEIC. Por favor, envie como JPG ou PNG.');
         return;
       }
     }
@@ -1311,19 +1520,28 @@ const AdminModule = (() => {
     if (!processedBase64) return;
 
     // Show instant local preview in browser
-    const imgElId = type === 'member' ? 'memberPhotoImg' : (type === 'project' ? 'projImageImg' : 'postBannerImg');
-    const previewElId = type === 'member' ? 'memberPhotoPreview' : (type === 'project' ? 'projImagePreview' : 'postBannerPreview');
+    const imgElId =
+      type === 'member' ? 'memberPhotoImg' : type === 'project' ? 'projImageImg' : 'postBannerImg';
+    const previewElId =
+      type === 'member'
+        ? 'memberPhotoPreview'
+        : type === 'project'
+          ? 'projImagePreview'
+          : 'postBannerPreview';
     const imgEl = document.getElementById(imgElId);
     const previewEl = document.getElementById(previewElId);
     if (imgEl) imgEl.src = processedBase64;
     if (previewEl) previewEl.style.display = 'block';
 
     // Generate unique name for the file
-    const cleanExt = ".jpg";
-    const baseName = fileToProcess.name.toLowerCase().replace(/[^a-z0-9]/g, "_").substring(0, 15);
+    const cleanExt = '.jpg';
+    const baseName = fileToProcess.name
+      .toLowerCase()
+      .replace(/[^a-z0-9]/g, '_')
+      .substring(0, 15);
     const uniqueFilename = `${type}_${baseName}_${Date.now()}${cleanExt}`;
 
-    showToast("Fazendo upload da imagem...");
+    showToast('Fazendo upload da imagem...');
 
     let savedPath = null;
 
@@ -1335,15 +1553,15 @@ const AdminModule = (() => {
         body: JSON.stringify({
           filename: uniqueFilename,
           base64: processedBase64,
-          type: type
-        })
+          type: type,
+        }),
       });
       if (response.ok) {
         const resData = await response.json();
         savedPath = resData.path;
       }
     } catch (e) {
-      console.log("Local upload not available. Checking GitHub Sync...");
+      console.log('Local upload not available. Checking GitHub Sync...');
     }
 
     // 2. Try GitHub API direct upload if GitHub Sync is configured
@@ -1353,7 +1571,9 @@ const AdminModule = (() => {
         const config = JSON.parse(configStr);
         if (config.token && config.owner && config.repo) {
           try {
-            const rawBase64 = processedBase64.includes(",") ? processedBase64.split(",")[1] : processedBase64;
+            const rawBase64 = processedBase64.includes(',')
+              ? processedBase64.split(',')[1]
+              : processedBase64;
             const subfolder = type === 'member' ? 'members' : 'projects';
             const gitHubPath = `img/${subfolder}/${uniqueFilename}`;
             const putUrl = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${gitHubPath}`;
@@ -1361,29 +1581,30 @@ const AdminModule = (() => {
             const putRes = await fetch(putUrl, {
               method: 'PUT',
               headers: {
-                'Authorization': `token ${config.token}`,
-                'Accept': 'application/vnd.github.v3+json',
-                'Content-Type': 'application/json'
+                Authorization: `token ${config.token}`,
+                Accept: 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json',
               },
               body: JSON.stringify({
                 message: `Upload photo ${uniqueFilename} via Admin Panel`,
                 content: rawBase64,
-                branch: config.branch
-              })
+                branch: config.branch,
+              }),
             });
 
             if (putRes.ok) {
               savedPath = `img/${subfolder}/${uniqueFilename}`;
             }
           } catch (gitErr) {
-            console.error("GitHub upload failed:", gitErr);
+            console.error('GitHub upload failed:', gitErr);
           }
         }
       }
     }
 
     // 3. Set value of the corresponding text input field
-    const inputElId = type === 'member' ? 'memberPhoto' : (type === 'project' ? 'projImage' : 'postBanner');
+    const inputElId =
+      type === 'member' ? 'memberPhoto' : type === 'project' ? 'projImage' : 'postBanner';
     const inputEl = document.getElementById(inputElId);
 
     if (savedPath) {
@@ -1392,7 +1613,7 @@ const AdminModule = (() => {
     } else {
       // Fallback: use Base64 string directly inside JSON database if both offline & GitHub Sync are missing
       if (inputEl) inputEl.value = processedBase64;
-      showToast("Imagem vinculada via base64 (plano de backup).");
+      showToast('Imagem vinculada via base64 (plano de backup).');
     }
   }
 
@@ -1404,7 +1625,9 @@ const AdminModule = (() => {
         const img = new Image();
         img.src = e.target.result;
         img.onerror = () => {
-          alert("O formato dessa imagem não é suportado pelo navegador ou o arquivo está corrompido. Tente enviar como JPG ou PNG.");
+          alert(
+            'O formato dessa imagem não é suportado pelo navegador ou o arquivo está corrompido. Tente enviar como JPG ou PNG.',
+          );
           resolve(null);
         };
         img.onload = () => {
@@ -1418,12 +1641,12 @@ const AdminModule = (() => {
 
           if (width > height) {
             if (width > MAX_DIM) {
-              height = Math.round(height *= MAX_DIM / width);
+              height = Math.round((height *= MAX_DIM / width));
               width = MAX_DIM;
             }
           } else {
             if (height > MAX_DIM) {
-              width = Math.round(width *= MAX_DIM / height);
+              width = Math.round((width *= MAX_DIM / height));
               height = MAX_DIM;
             }
           }
@@ -1459,34 +1682,36 @@ const AdminModule = (() => {
       const response = await fetch(`/api/save/${type}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: formattedData
+        body: formattedData,
       });
       if (response.ok) {
         showToast(`Salvo localmente em data/${type}.json`);
       }
     } catch (e) {
-      console.log("Local backend save not available. Data saved in localStorage.");
+      console.log('Local backend save not available. Data saved in localStorage.');
     }
   }
 
   /* ---- COMMON ---- */
   function deleteItem(type, id) {
+    if (!isAuthorized()) return showLoginGate();
     const labels = {
       publications: 'esta publicação',
       members: 'este membro',
       projects: 'este projeto',
-      posts: 'esta postagem'
+      posts: 'esta postagem',
     };
     if (!confirm(`Tem certeza que deseja excluir ${labels[type]}?`)) return;
     const key = `nepem-${type}`;
     const items = JSON.parse(localStorage.getItem(key) || '[]');
-    const filtered = items.filter(item => item.id !== id);
+    const filtered = items.filter((item) => item.id !== id);
     localStorage.setItem(key, JSON.stringify(filtered));
     renderTab(currentTab);
     saveLocally(type);
   }
 
   function editItem(type, id) {
+    if (!isAuthorized()) return showLoginGate();
     if (type === 'publications') showPubForm(id);
     if (type === 'members') showMemberForm(id);
     if (type === 'projects') showProjectForm(id);
@@ -1495,13 +1720,14 @@ const AdminModule = (() => {
 
   function filterTable(rowClass) {
     const q = document.getElementById('adminSearch')?.value.toLowerCase().trim() || '';
-    document.querySelectorAll('.' + rowClass).forEach(row => {
+    document.querySelectorAll('.' + rowClass).forEach((row) => {
       const searchStr = row.dataset.search || '';
       row.style.display = searchStr.includes(q) ? '' : 'none';
     });
   }
 
   async function exportData(type) {
+    if (!isAuthorized()) return showLoginGate();
     const key = type === 'publications' ? 'nepem-publications-v4' : `nepem-${type}`;
     const data = localStorage.getItem(key) || '[]';
     // Format JSON with 2-space indentation to make it pretty and easy to replace in repository!
@@ -1512,7 +1738,7 @@ const AdminModule = (() => {
       const response = await fetch(`/api/save/${type}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: formattedData
+        body: formattedData,
       });
       if (response.ok) {
         showToast(`Salvo diretamente em data/${type}.json`);
@@ -1520,7 +1746,7 @@ const AdminModule = (() => {
         return;
       }
     } catch (e) {
-      console.log("Local backend save not available, falling back to download.");
+      console.log('Local backend save not available, falling back to download.');
     }
 
     // Fallback: standard browser download
@@ -1534,6 +1760,7 @@ const AdminModule = (() => {
   }
 
   function importData(event, type) {
+    if (!isAuthorized()) return showLoginGate();
     const file = event.target.files[0];
     if (!file) return;
     const reader = new FileReader();
@@ -1542,7 +1769,8 @@ const AdminModule = (() => {
         const data = JSON.parse(e.target.result);
         if (!Array.isArray(data)) throw new Error('O arquivo JSON deve conter uma lista (array).');
         const key = type === 'publications' ? 'nepem-publications-v4' : `nepem-${type}`;
-        const loadedKey = type === 'publications' ? 'nepem-publications-loaded-v4' : `nepem-${type}-loaded`;
+        const loadedKey =
+          type === 'publications' ? 'nepem-publications-loaded-v4' : `nepem-${type}-loaded`;
         localStorage.setItem(key, JSON.stringify(data));
         localStorage.setItem(loadedKey, 'true');
         renderTab(currentTab);
@@ -1561,6 +1789,7 @@ const AdminModule = (() => {
   }
 
   function setupSidebarLogout() {
+    if (!isAuthorized()) return;
     const nav = document.querySelector('.admin-sidebar nav');
     if (nav && !document.getElementById('adminLogoutBtn')) {
       const btn = document.createElement('button');
@@ -1570,7 +1799,7 @@ const AdminModule = (() => {
       btn.innerHTML = `<i class="bi bi-box-arrow-right me-2"></i>Bloquear Painel`;
       btn.onclick = () => {
         if (confirm('Deseja sair e bloquear o painel de administração?')) {
-          localStorage.removeItem('nepem-admin-authorized');
+          sessionStorage.removeItem('nepem-admin-authorized');
           window.location.reload();
         }
       };
@@ -1580,6 +1809,7 @@ const AdminModule = (() => {
 
   /* ---- GITHUB SYNC ---- */
   function openGithubSettings() {
+    if (!isAuthorized()) return showLoginGate();
     const config = JSON.parse(localStorage.getItem('nepem-github-config') || '{}');
     if (config.token) document.getElementById('ghToken').value = config.token;
     if (config.owner) document.getElementById('ghOwner').value = config.owner;
@@ -1590,27 +1820,36 @@ const AdminModule = (() => {
   }
 
   function saveGithubSettings(e) {
+    if (!isAuthorized()) return showLoginGate();
     e.preventDefault();
     const config = {
       token: document.getElementById('ghToken').value.trim(),
       owner: document.getElementById('ghOwner').value.trim(),
       repo: document.getElementById('ghRepo').value.trim(),
-      branch: document.getElementById('ghBranch').value.trim()
+      branch: document.getElementById('ghBranch').value.trim(),
     };
     localStorage.setItem('nepem-github-config', JSON.stringify(config));
     bootstrap.Modal.getInstance(document.getElementById('githubConfigModal')).hide();
-    alert('Configurações do GitHub salvas com sucesso! As próximas edições farão commit automático.');
+    alert(
+      'Configurações do GitHub salvas com sucesso! As próximas edições farão commit automático.',
+    );
   }
 
   function clearGithubSettings() {
-    if (confirm('Deseja realmente desvincular sua conta do GitHub? O auto-save deixará de funcionar.')) {
+    if (!isAuthorized()) return showLoginGate();
+    if (
+      confirm('Deseja realmente desvincular sua conta do GitHub? O auto-save deixará de funcionar.')
+    ) {
       localStorage.removeItem('nepem-github-config');
       bootstrap.Modal.getInstance(document.getElementById('githubConfigModal')).hide();
-      alert('Configurações removidas. O sistema voltará a baixar o JSON no seu computador ao salvar.');
+      alert(
+        'Configurações removidas. O sistema voltará a baixar o JSON no seu computador ao salvar.',
+      );
     }
   }
 
   async function syncToGithub(type) {
+    if (!isAuthorized()) return showLoginGate();
     const configStr = localStorage.getItem('nepem-github-config');
     if (!configStr) {
       exportData(type);
@@ -1639,7 +1878,10 @@ const AdminModule = (() => {
       // 1. Get current SHA
       let currentSha = null;
       const getRes = await fetch(`${url}?ref=${config.branch}`, {
-        headers: { 'Authorization': `token ${config.token}`, 'Accept': 'application/vnd.github.v3+json' }
+        headers: {
+          Authorization: `token ${config.token}`,
+          Accept: 'application/vnd.github.v3+json',
+        },
       });
 
       if (getRes.ok) {
@@ -1653,16 +1895,16 @@ const AdminModule = (() => {
       const putRes = await fetch(url, {
         method: 'PUT',
         headers: {
-          'Authorization': `token ${config.token}`,
-          'Accept': 'application/vnd.github.v3+json',
-          'Content-Type': 'application/json'
+          Authorization: `token ${config.token}`,
+          Accept: 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           message: `Auto-update ${type}.json via Admin Panel`,
           content: contentEncoded,
           sha: currentSha, // Required if file exists
-          branch: config.branch
-        })
+          branch: config.branch,
+        }),
       });
 
       if (!putRes.ok) {
@@ -1673,39 +1915,51 @@ const AdminModule = (() => {
       showToast(`Sucesso! Atualizado no GitHub (${type}).`);
     } catch (err) {
       console.error(err);
-      alert(`Falha ao sincronizar com o GitHub: ${err.message}\nBaixando o arquivo localmente como plano B.`);
+      alert(
+        `Falha ao sincronizar com o GitHub: ${err.message}\nBaixando o arquivo localmente como plano B.`,
+      );
       exportData(type);
     }
   }
 
   async function deploySite() {
+    if (!isAuthorized()) return showLoginGate();
     const configStr = localStorage.getItem('nepem-github-config');
     if (!configStr) {
-      alert("Por favor, configure as credenciais do GitHub primeiro na opção 'Sincronização GitHub' na barra lateral.");
+      alert(
+        "Por favor, configure as credenciais do GitHub primeiro na opção 'Sincronização GitHub' na barra lateral.",
+      );
       openGithubSettings();
       return;
     }
 
     const config = JSON.parse(configStr);
     if (!config.token || !config.owner || !config.repo) {
-      alert("Por favor, preencha as credenciais do GitHub na opção 'Sincronização GitHub' na barra lateral.");
+      alert(
+        "Por favor, preencha as credenciais do GitHub na opção 'Sincronização GitHub' na barra lateral.",
+      );
       openGithubSettings();
       return;
     }
 
-    if (!confirm("Deseja enviar todas as alterações salvas localmente para o GitHub e iniciar o deploy do site?")) return;
+    if (
+      !confirm(
+        'Deseja enviar todas as alterações salvas localmente para o GitHub e iniciar o deploy do site?',
+      )
+    )
+      return;
 
     const types = ['publications', 'members', 'projects', 'posts'];
     let successCount = 0;
-    
-    showToast("Iniciando deploy de todas as alterações...");
+
+    showToast('Iniciando deploy de todas as alterações...');
 
     for (const type of types) {
       try {
         const key = type === 'publications' ? 'nepem-publications-v4' : `nepem-${type}`;
         const data = localStorage.getItem(key);
         if (!data) continue;
-        
+
         const formattedData = JSON.stringify(JSON.parse(data), null, 2);
         const contentEncoded = btoa(unescape(encodeURIComponent(formattedData)));
         const path = `data/${type}.json`;
@@ -1716,7 +1970,10 @@ const AdminModule = (() => {
         // 1. Get current SHA
         let currentSha = null;
         const getRes = await fetch(`${url}?ref=${config.branch}`, {
-          headers: { 'Authorization': `token ${config.token}`, 'Accept': 'application/vnd.github.v3+json' }
+          headers: {
+            Authorization: `token ${config.token}`,
+            Accept: 'application/vnd.github.v3+json',
+          },
         });
 
         if (getRes.ok) {
@@ -1728,16 +1985,16 @@ const AdminModule = (() => {
         const putRes = await fetch(url, {
           method: 'PUT',
           headers: {
-            'Authorization': `token ${config.token}`,
-            'Accept': 'application/vnd.github.v3+json',
-            'Content-Type': 'application/json'
+            Authorization: `token ${config.token}`,
+            Accept: 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({
             message: `Deploy updates for ${type}.json via Admin Panel`,
             content: contentEncoded,
             sha: currentSha,
-            branch: config.branch
-          })
+            branch: config.branch,
+          }),
         });
 
         if (putRes.ok) {
@@ -1753,9 +2010,13 @@ const AdminModule = (() => {
 
     if (successCount > 0) {
       showToast(`Sucesso! Deploy concluído com ${successCount} arquivos atualizados.`);
-      alert(`Deploy enviado com sucesso! O GitHub foi atualizado com ${successCount} arquivos de dados e o Netlify iniciará a publicação em instantes.`);
+      alert(
+        `Deploy enviado com sucesso! O GitHub foi atualizado com ${successCount} arquivos de dados e o Netlify iniciará a publicação em instantes.`,
+      );
     } else {
-      alert("Nenhum arquivo pôde ser enviado. Verifique se as credenciais do GitHub estão corretas ou se há conexão com a internet.");
+      alert(
+        'Nenhum arquivo pôde ser enviado. Verifique se as credenciais do GitHub estão corretas ou se há conexão com a internet.',
+      );
     }
   }
 
@@ -1769,16 +2030,29 @@ const AdminModule = (() => {
   }
 
   return {
-    init, setTab,
-    showPubForm, savePub,
-    showMemberForm, saveMember,
-    showProjectForm, saveProject,
-    showPostForm, savePost,
-    deleteItem, editItem, filterTable,
-    exportData, importData, resetToDefault,
-    handlePhotoUpload, handleLogin,
-    insertFormat, updatePostPreview,
-    openGithubSettings, saveGithubSettings, clearGithubSettings,
-    deploySite
+    init,
+    setTab,
+    showPubForm,
+    savePub,
+    showMemberForm,
+    saveMember,
+    showProjectForm,
+    saveProject,
+    showPostForm,
+    savePost,
+    deleteItem,
+    editItem,
+    filterTable,
+    exportData,
+    importData,
+    resetToDefault,
+    handlePhotoUpload,
+    handleLogin,
+    insertFormat,
+    updatePostPreview,
+    openGithubSettings,
+    saveGithubSettings,
+    clearGithubSettings,
+    deploySite,
   };
 })();
