@@ -23,9 +23,11 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+node_modules/
 
 # local env files
 .env*.local
+keys.json
 
 # vercel
 .vercel
@@ -188,6 +190,9 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# generated scholar sync temp file
+data/fallback-data-temp.json
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
