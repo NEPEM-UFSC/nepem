@@ -1,10 +1,22 @@
 import os
 import json
+import re
 import http.server
 import socketserver
 
 PORT = 8000
 DIRECTORY = "."
+
+_SAFE_FILENAME_RE = re.compile(r"^[A-Za-z0-9._-]+$")
+
+
+def _sanitize_filename(raw_filename):
+    filename = os.path.basename(str(raw_filename or "").replace("\\", "/"))
+    if not filename or filename in {".", ".."}:
+        return None
+    if filename != raw_filename or not _SAFE_FILENAME_RE.fullmatch(filename):
+        return None
+    return filename
 
 class DualServer(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
@@ -24,9 +36,12 @@ class DualServer(http.server.SimpleHTTPRequestHandler):
             post_data = self.rfile.read(content_length)
             try:
                 payload = json.loads(post_data.decode('utf-8'))
-                filename = payload.get("filename")
+                filename = _sanitize_filename(payload.get("filename"))
                 base64_data = payload.get("base64")
                 upload_type = payload.get("type", "member")
+
+                if not filename or not base64_data:
+                    raise ValueError("Invalid upload payload")
                 
                 if "," in base64_data:
                     base64_data = base64_data.split(",")[1]
@@ -58,12 +73,12 @@ class DualServer(http.server.SimpleHTTPRequestHandler):
                 print(f"[SUCCESS] Uploaded image saved to {file_path}")
                 return
             except Exception as e:
+                print(f"[ERROR] Failed to save uploaded image: {e}")
                 self.send_response(500)
                 self.send_header("Content-Type", "application/json")
                 self.send_header("Access-Control-Allow-Origin", "*")
                 self.end_headers()
-                self.wfile.write(json.dumps({"status": "error", "message": str(e)}).encode('utf-8'))
-                print(f"[ERROR] Failed to save uploaded image: {e}")
+                self.wfile.write(json.dumps({"status": "error", "message": "Upload failed"}).encode('utf-8'))
                 return
 
         if self.path.startswith("/api/save/"):
