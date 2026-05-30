@@ -14,7 +14,7 @@ const MembersModule = (() => {
     'Estudantes de Doutorado',
     'Estudantes de Mestrado',
     'Estudantes de Graduação',
-    'Ex-alunos'
+    'Ex-alunos',
   ];
 
   async function init() {
@@ -26,11 +26,11 @@ const MembersModule = (() => {
       members = [];
     }
     render();
-    
+
     // Set dynamic 3D badge count
     const badge = document.getElementById('badgeMembersCount');
     if (badge) {
-      badge.textContent = members.filter(m => m.status === 'active').length;
+      badge.textContent = members.filter((m) => m.status === 'active').length;
     }
 
     // Re-render on lang change
@@ -56,14 +56,14 @@ const MembersModule = (() => {
       render();
     }
     // Update filter button states
-    document.querySelectorAll('#teamFilters .btn-filter').forEach(btn => {
+    document.querySelectorAll('#teamFilters .btn-filter').forEach((btn) => {
       btn.classList.toggle('active', btn.dataset.filter === filter);
     });
   }
 
   function getFilteredMembers() {
-    if (currentFilter === 'all') return members.filter(m => m.status === 'active');
-    return members.filter(m => m.group === currentFilter);
+    if (currentFilter === 'all') return members.filter((m) => m.status === 'active');
+    return members.filter((m) => m.group === currentFilter);
   }
 
   function render() {
@@ -83,22 +83,30 @@ const MembersModule = (() => {
     }
 
     // Sort by weight first, then alphabetically by name within the same group
-    filtered.sort((a, b) => (a.weight || 99) - (b.weight || 99) || a.name.localeCompare(b.name, 'pt', { sensitivity: 'base' }));
+    filtered.sort(
+      (a, b) =>
+        (a.weight || 99) - (b.weight || 99) ||
+        a.name.localeCompare(b.name, 'pt', { sensitivity: 'base' }),
+    );
 
     // Pagination logic: limit to 8 items (exactly 2 rows of 4 cards on desktop)
     const itemsPerPage = 8;
     const totalPages = Math.ceil(filtered.length / itemsPerPage);
     if (currentPage >= totalPages) currentPage = Math.max(0, totalPages - 1);
 
-    const pageMembers = filtered.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
+    const pageMembers = filtered.slice(
+      currentPage * itemsPerPage,
+      (currentPage + 1) * itemsPerPage,
+    );
 
-    let html = pageMembers.map((m, i) => {
-      const globalIndex = currentPage * itemsPerPage + i;
-      const bio = typeof m.bio === 'object' ? (m.bio[lang] || m.bio.pt || '') : (m.bio || '');
-      const links = buildMemberLinks(m.links || {});
-      const stagger = `stagger-${(i % 6) + 1}`;
+    let html = pageMembers
+      .map((m, i) => {
+        const globalIndex = currentPage * itemsPerPage + i;
+        const bio = typeof m.bio === 'object' ? m.bio[lang] || m.bio.pt || '' : m.bio || '';
+        const links = buildMemberLinks(m.links || {});
+        const stagger = `stagger-${(i % 6) + 1}`;
 
-      return `
+        return `
         <div class="col-lg-3 col-md-4 col-sm-6 mb-4 fade-in-up ${stagger}" data-group="${m.group}">
           <div class="member-card">
             <img src="${m.photo || 'img/members/admin.png'}"
@@ -115,7 +123,8 @@ const MembersModule = (() => {
             </button>
           </div>
         </div>`;
-    }).join('');
+      })
+      .join('');
 
     // Update side pagination buttons dynamically
     const prevBtn = document.getElementById('teamPrevBtn');
@@ -124,8 +133,8 @@ const MembersModule = (() => {
       if (totalPages > 1) {
         prevBtn.classList.remove('d-none');
         nextBtn.classList.remove('d-none');
-        prevBtn.disabled = (currentPage === 0);
-        nextBtn.disabled = (currentPage === totalPages - 1);
+        prevBtn.disabled = currentPage === 0;
+        nextBtn.disabled = currentPage === totalPages - 1;
       } else {
         prevBtn.classList.add('d-none');
         nextBtn.classList.add('d-none');
@@ -146,7 +155,7 @@ const MembersModule = (() => {
 
     // Trigger animations
     requestAnimationFrame(() => {
-      container.querySelectorAll('.fade-in-up').forEach(el => {
+      container.querySelectorAll('.fade-in-up').forEach((el) => {
         el.classList.add('visible');
       });
     });
@@ -196,7 +205,7 @@ const MembersModule = (() => {
       scholar: { icon: 'ai ai-google-scholar', label: 'Google Scholar' },
       github: { icon: 'bi bi-github', label: 'GitHub' },
       linkedin: { icon: 'bi bi-linkedin', label: 'LinkedIn' },
-      email: { icon: 'bi bi-envelope', label: 'Email' }
+      email: { icon: 'bi bi-envelope', label: 'Email' },
     };
 
     return Object.entries(links)
@@ -207,19 +216,24 @@ const MembersModule = (() => {
         return `<a href="${href}" target="_blank" rel="noopener" title="${info.label}">
                   <i class="${info.icon}"></i>
                 </a>`;
-      }).join('');
+      })
+      .join('');
   }
 
   function showMemberModal(index) {
     const filtered = getFilteredMembers();
     // Sort logic identical to render() so indices match (weight then alphabetical)
-    filtered.sort((a, b) => (a.weight || 99) - (b.weight || 99) || a.name.localeCompare(b.name, 'pt', { sensitivity: 'base' }));
+    filtered.sort(
+      (a, b) =>
+        (a.weight || 99) - (b.weight || 99) ||
+        a.name.localeCompare(b.name, 'pt', { sensitivity: 'base' }),
+    );
 
     const m = filtered[index];
     if (!m) return;
 
     const lang = typeof I18n !== 'undefined' ? I18n.getLang() : 'pt';
-    const bio = typeof m.bio === 'object' ? (m.bio[lang] || m.bio.pt || '') : (m.bio || '');
+    const bio = typeof m.bio === 'object' ? m.bio[lang] || m.bio.pt || '' : m.bio || '';
     const links = buildMemberLinks(m.links || {});
 
     const modalBody = document.getElementById('memberModalBody');
@@ -234,7 +248,14 @@ const MembersModule = (() => {
       <h4 class="mb-1 fw-bold">${m.name}</h4>
       <div style="color: var(--text-accent); font-weight: 600; font-size: 0.95rem; margin-bottom: 1.5rem;">${m.group}</div>
       <div class="text-start mb-4" style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;">
-        ${bio ? bio.split('\n').map(p => `<p>${p}</p>`).join('') : '<p>Sem descrição detalhada disponível.</p>'}
+        ${
+          bio
+            ? bio
+                .split('\n')
+                .map((p) => `<p>${p}</p>`)
+                .join('')
+            : '<p>Sem descrição detalhada disponível.</p>'
+        }
       </div>
       <div class="member-links justify-content-center" style="gap: 0.75rem;">${links}</div>
     `;

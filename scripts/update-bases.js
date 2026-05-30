@@ -43,7 +43,10 @@ function parseEnvFile(content) {
     if (equalsIndex === -1) continue;
     const key = trimmed.slice(0, equalsIndex).trim();
     let value = trimmed.slice(equalsIndex + 1).trim();
-    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+    if (
+      (value.startsWith('"') && value.endsWith('"')) ||
+      (value.startsWith("'") && value.endsWith("'"))
+    ) {
       value = value.slice(1, -1);
     }
     result[key] = value;
@@ -73,10 +76,17 @@ async function loadConfig() {
     return {
       ...defaults,
       ...fileConfig,
-      github_username: workspaceEnv.GITHUB_USERNAME || fileConfig.github_username || defaults.github_username,
-      github_username_nepem: workspaceEnv.GITHUB_USERNAME_NEPEM || fileConfig.github_username_nepem || defaults.github_username_nepem,
+      github_username:
+        workspaceEnv.GITHUB_USERNAME || fileConfig.github_username || defaults.github_username,
+      github_username_nepem:
+        workspaceEnv.GITHUB_USERNAME_NEPEM ||
+        fileConfig.github_username_nepem ||
+        defaults.github_username_nepem,
       orcid_id: workspaceEnv.ORCID_ID || fileConfig.orcid_id || defaults.orcid_id,
-      scholar_author_id: workspaceEnv.SCHOLAR_AUTHOR_ID || fileConfig.scholar_author_id || defaults.scholar_author_id,
+      scholar_author_id:
+        workspaceEnv.SCHOLAR_AUTHOR_ID ||
+        fileConfig.scholar_author_id ||
+        defaults.scholar_author_id,
     };
   }
 
@@ -132,37 +142,40 @@ async function fetchOrcidWorks(orcidId) {
   const data = await fetchJson(
     `https://pub.orcid.org/v3.0/${encodeURIComponent(orcidId)}/works`,
     { headers: { Accept: 'application/json' } },
-    `ORCID works for ${orcidId}`
+    `ORCID works for ${orcidId}`,
   );
 
   const groups = Array.isArray(data.group) ? data.group : [];
-  return groups.map((group) => {
-    const summary = group?.['work-summary']?.[0] || {};
-    const extIds = group?.['external-ids']?.['external-id'] || [];
-    const extId = Array.isArray(extIds) ? extIds[0] : extIds;
-    const title = summary?.title?.title?.value || '';
-    const link = summary?.url?.value || null;
-    const year = summary?.['publication-date']?.year?.value || null;
-    const journalTitle = summary?.['journal-title']?.value || null;
+  return groups
+    .map((group) => {
+      const summary = group?.['work-summary']?.[0] || {};
+      const extIds = group?.['external-ids']?.['external-id'] || [];
+      const extId = Array.isArray(extIds) ? extIds[0] : extIds;
+      const title = summary?.title?.title?.value || '';
+      const link = summary?.url?.value || null;
+      const year = summary?.['publication-date']?.year?.value || null;
+      const journalTitle = summary?.['journal-title']?.value || null;
 
-    let doi = null;
-    let doiLink = null;
-    if (extId) {
-      doi = extId?.['external-id-value'] || null;
-      doiLink = (extId?.['external-id-type'] || '').toLowerCase() === 'doi'
-        ? `https://doi.org/${doi}`
-        : link;
-    }
+      let doi = null;
+      let doiLink = null;
+      if (extId) {
+        doi = extId?.['external-id-value'] || null;
+        doiLink =
+          (extId?.['external-id-type'] || '').toLowerCase() === 'doi'
+            ? `https://doi.org/${doi}`
+            : link;
+      }
 
-    return {
-      title,
-      doi,
-      doiLink,
-      year,
-      journalTitle,
-      link,
-    };
-  }).filter((item) => item.title);
+      return {
+        title,
+        doi,
+        doiLink,
+        year,
+        journalTitle,
+        link,
+      };
+    })
+    .filter((item) => item.title);
 }
 
 function standardizeScholarTable(table = []) {
@@ -229,7 +242,11 @@ async function fetchScholarProfile(authorId, apiKey) {
     hl: 'pt-br',
   });
 
-  const data = await fetchJson(`${process.env.SCHOLAR_API_BASE || 'https://serpapi.com/search.json'}?${params.toString()}`, {}, 'Scholar profile');
+  const data = await fetchJson(
+    `${process.env.SCHOLAR_API_BASE || 'https://serpapi.com/search.json'}?${params.toString()}`,
+    {},
+    'Scholar profile',
+  );
   if (data.error) {
     throw new Error(`Scholar profile error: ${data.error}`);
   }
@@ -255,7 +272,11 @@ async function fetchAllScholarArticles(authorId, apiKey) {
       num: '100',
     });
 
-    const data = await fetchJson(`https://serpapi.com/search.json?${params.toString()}`, {}, `Scholar articles page ${start}`);
+    const data = await fetchJson(
+      `https://serpapi.com/search.json?${params.toString()}`,
+      {},
+      `Scholar articles page ${start}`,
+    );
     if (data.error) {
       throw new Error(`Scholar articles error: ${data.error}`);
     }
@@ -296,7 +317,9 @@ function mergeOrcidAndScholar(orcidWorks, scholarArticles) {
     } else {
       merged.doi = 'null';
       merged.doiLink = 'null';
-      const publication = String(article.publication || '').replace(/[^A-Za-z\s]/g, ' ').trim();
+      const publication = String(article.publication || '')
+        .replace(/[^A-Za-z\s]/g, ' ')
+        .trim();
       merged.journalTitle = publication || 'null';
     }
 
@@ -358,17 +381,30 @@ function loadFallbackFromGit() {
 async function runUpdateBases(options = {}) {
   const config = await loadConfig();
   const workspaceEnv = await loadWorkspaceEnv();
-  const apiKeys = workspaceEnv.SERPAPI_API_KEY || process.env.SERPAPI_API_KEY ? [workspaceEnv.SERPAPI_API_KEY || process.env.SERPAPI_API_KEY] : [];
+  const apiKeys =
+    workspaceEnv.SERPAPI_API_KEY || process.env.SERPAPI_API_KEY
+      ? [workspaceEnv.SERPAPI_API_KEY || process.env.SERPAPI_API_KEY]
+      : [];
   const githubPat = workspaceEnv.NEPEMBOT_PAT || process.env.NEPEMBOT_PAT || '';
   const scholarAuthorId = config.scholar_author_id || '';
   const orcidId = config.orcid_id || '';
-  const scholarOnly = ['1', 'true', 'yes'].includes(String(workspaceEnv.SCHOLAR_ONLY || process.env.SCHOLAR_ONLY || '').toLowerCase());
-  const skipGithubSync = scholarOnly || ['1', 'true', 'yes'].includes(String(workspaceEnv.SKIP_GITHUB_SYNC || process.env.SKIP_GITHUB_SYNC || '').toLowerCase());
-  const skipOrcidSync = scholarOnly || ['1', 'true', 'yes'].includes(String(workspaceEnv.SKIP_ORCID_SYNC || process.env.SKIP_ORCID_SYNC || '').toLowerCase());
+  const scholarOnly = ['1', 'true', 'yes'].includes(
+    String(workspaceEnv.SCHOLAR_ONLY || process.env.SCHOLAR_ONLY || '').toLowerCase(),
+  );
+  const skipGithubSync =
+    scholarOnly ||
+    ['1', 'true', 'yes'].includes(
+      String(workspaceEnv.SKIP_GITHUB_SYNC || process.env.SKIP_GITHUB_SYNC || '').toLowerCase(),
+    );
+  const skipOrcidSync =
+    scholarOnly ||
+    ['1', 'true', 'yes'].includes(
+      String(workspaceEnv.SKIP_ORCID_SYNC || process.env.SKIP_ORCID_SYNC || '').toLowerCase(),
+    );
   const existingFallback = await loadExistingFallback();
 
   const githubRepos = skipGithubSync
-    ? (existingFallback?.githubRepos || [])
+    ? existingFallback?.githubRepos || []
     : [
         ...(await fetchGithubRepos(config.github_username_nepem, githubPat)),
         ...(await fetchGithubRepos(config.github_username, githubPat)),
@@ -397,7 +433,9 @@ async function runUpdateBases(options = {}) {
       }
     }
   } else {
-    console.warn('[update] Scholar sync skipped because scholar_author_id or SERPAPI_API_KEY is missing.');
+    console.warn(
+      '[update] Scholar sync skipped because scholar_author_id or SERPAPI_API_KEY is missing.',
+    );
   }
 
   if (!scholarProfile || scholarArticles.length === 0) {
@@ -431,7 +469,9 @@ async function runUpdateBases(options = {}) {
 if (require.main === module) {
   runUpdateBases({ reason: 'cli' })
     .then((result) => {
-      console.log(`Fallback data updated: ${result.githubRepos} repos, ${result.scholarArticles} articles`);
+      console.log(
+        `Fallback data updated: ${result.githubRepos} repos, ${result.scholarArticles} articles`,
+      );
     })
     .catch((error) => {
       console.error('Failed to update bases:', error);

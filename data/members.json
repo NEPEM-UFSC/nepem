@@ -11,11 +11,7 @@
     },
     "photo": "img/members/member_avatar_jpeg_1779995840425.jpg",
     "email": "tiago.olivoto@ufsc.br",
-    "interests": [
-      "Plant Breeding",
-      "High-throughput Phenotyping",
-      "Experimental Statistics"
-    ],
+    "interests": ["Plant Breeding", "High-throughput Phenotyping", "Experimental Statistics"],
     "links": {
       "lattes": "http://lattes.cnpq.br/2432360896340086",
       "linkedin": "https://www.linkedin.com/in/tiago-olivoto-49060531/",
@@ -150,11 +146,7 @@
     },
     "photo": "img/members/member_avatar_jpeg_1779994380319.jpg",
     "email": "hadanielfu@gmail.com",
-    "interests": [
-      "Plant Breeding",
-      "High-throughput Phenotyping",
-      "Bioinputs"
-    ],
+    "interests": ["Plant Breeding", "High-throughput Phenotyping", "Bioinputs"],
     "links": {
       "lattes": "http://lattes.cnpq.br/2778715590464122",
       "linkedin": "https://www.linkedin.com/in/jr-daniel-fumio-hada-0b379232b",
@@ -178,10 +170,7 @@
     },
     "photo": "img/members/member_foto_jpg_1779994301333.jpg",
     "email": "isacostabj@gmail.com",
-    "interests": [
-      "Plant Breeding",
-      "Field Experimentation"
-    ],
+    "interests": ["Plant Breeding", "Field Experimentation"],
     "links": {
       "lattes": "https://lattes.cnpq.br/9710647902255348",
       "linkedin": "https://www.linkedin.com/in/isabella-lisboa-da-costa",
@@ -205,10 +194,7 @@
     },
     "photo": "img/members/member_avatar_jpeg_1779992508049.jpg",
     "email": "fellipe_is@hotmail.com",
-    "interests": [
-      "Plant Breeding",
-      "High-throughput Phenotyping"
-    ],
+    "interests": ["Plant Breeding", "High-throughput Phenotyping"],
     "links": {
       "lattes": "https://lattes.cnpq.br/1068704666386119",
       "linkedin": "https://www.linkedin.com/in/luizfelipeinaciosantos",
@@ -232,10 +218,7 @@
     },
     "photo": "img/members/member_avatar_png__1___1779995566129.jpg",
     "email": "luizpaulo20022@gmail.com",
-    "interests": [
-      "Phytopathology",
-      "Digital agriculture"
-    ],
+    "interests": ["Phytopathology", "Digital agriculture"],
     "links": {
       "lattes": "https://lattes.cnpq.br/1739060070598762",
       "linkedin": "www.linkedin.com/in/ luiz-paulo-da-silva-b21a88251",
@@ -289,10 +272,7 @@
     },
     "photo": "img/members/member_avatar_jpeg_1779995824271.jpg",
     "email": "daniel.schmechel@grad.ufsc.br",
-    "interests": [
-      "Data Science for Agriculture",
-      "Plant Breeding"
-    ],
+    "interests": ["Data Science for Agriculture", "Plant Breeding"],
     "links": {
       "lattes": "https://lattes.cnpq.br/2935281406685997",
       "linkedin": "",
@@ -316,10 +296,7 @@
     },
     "photo": "img/members/member_avatar_jpeg_1779996018872.jpg",
     "email": "vanessaborges1312@gmail.com",
-    "interests": [
-      "Plant Breeding",
-      "Molecular Biology"
-    ],
+    "interests": ["Plant Breeding", "Molecular Biology"],
     "links": {
       "lattes": "https://lattes.cnpq.br/2795791686260523",
       "linkedin": "https://www.linkedin.com/in/vanessagabrielaborges",

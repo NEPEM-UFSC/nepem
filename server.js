@@ -42,7 +42,9 @@ function setApiHeaders(res) {
 }
 
 async function bootstrapUpdateIfNeeded() {
-  const isNetlify = Boolean(process.env.NETLIFY || process.env.BUILD_HOOK || process.env.CONTEXT === 'deploy-preview');
+  const isNetlify = Boolean(
+    process.env.NETLIFY || process.env.BUILD_HOOK || process.env.CONTEXT === 'deploy-preview',
+  );
   const isProduction = process.env.NODE_ENV === 'production';
   if (isNetlify || isProduction) return;
 
@@ -73,11 +75,17 @@ async function main() {
     return next();
   });
 
-  app.use(express.static(ROOT_DIR, {
-    dotfiles: 'deny',
-    extensions: ['html'],
-    index: false,
-  }));
+  app.use(
+    express.static(ROOT_DIR, {
+      dotfiles: 'deny',
+      extensions: ['html'],
+      index: false,
+    }),
+  );
+
+  app.get('/', (_req, res) => {
+    res.sendFile(path.join(ROOT_DIR, 'index.html'));
+  });
 
   app.post('/api/upload-image', async (req, res) => {
     try {
@@ -89,7 +97,9 @@ async function main() {
         return res.status(400).json({ status: 'error', message: 'Invalid upload payload' });
       }
 
-      const rawBase64 = String(base64Data).includes(',') ? String(base64Data).split(',')[1] : String(base64Data);
+      const rawBase64 = String(base64Data).includes(',')
+        ? String(base64Data).split(',')[1]
+        : String(base64Data);
       const imageBuffer = Buffer.from(rawBase64, 'base64');
       const folderMap = { member: 'members', project: 'projects', post: 'projects' };
       const subfolder = folderMap[uploadType] || 'members';
@@ -148,7 +158,7 @@ async function main() {
   await bootstrapUpdateIfNeeded();
 
   app.listen(PORT, () => {
-    console.log(`NEPEM Express monolith running at http://localhost:${PORT}`);
+    console.log(`NEPEM Express running at http://localhost:${PORT}`);
   });
 }
 

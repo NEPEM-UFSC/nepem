@@ -1,423 +1,697 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Informações institucionais, regimento, estrutura organizacional e manual de identidade visual do NEPEM/UFSC.">
-  <title>Institucional — NEPEM/UFSC</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Informações institucionais, regimento, estrutura organizacional e manual de identidade visual do NEPEM/UFSC."
+    />
+    <title>Institucional — NEPEM/UFSC</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <style>
-    .institucional-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem;
-      box-shadow: var(--shadow-md);
-      transition: background-color var(--transition-base), border-color var(--transition-base);
-    }
-    .color-swatch-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    .color-swatch-card {
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      background: var(--bg-primary);
-      text-align: center;
-      padding-bottom: 0.75rem;
-      font-size: 0.8rem;
-    }
-    .color-swatch-box {
-      height: 80px;
-      width: 100%;
-    }
-    .logo-table img {
-      max-height: 80px;
-      max-width: 100%;
-      object-fit: contain;
-    }
-    .logo-table-row {
-      transition: background-color var(--transition-fast);
-    }
-    .logo-table-row:hover {
-      background-color: var(--bg-secondary);
-    }
-    [data-theme="dark"] .logo-bg-transparent-dark-check {
-      background-color: #334155 !important;
-    }
-    .logo-bg-transparent-light-check {
-      background-color: #f8fafc;
-    }
-    .regimento-cover {
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-lg);
-      max-width: 100%;
-      height: auto;
-      transition: transform var(--transition-base);
-    }
-    .regimento-cover:hover {
-      transform: scale(1.02);
-    }
-  </style>
-</head>
-<body>
-
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-nepem fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">NEPEM<span class="brand-accent">/UFSC</span></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarContent">
-        <ul class="navbar-nav ms-auto me-3">
-          <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav.home">Início</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Sobre
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark bg-dark">
-              <li><a class="dropdown-item" href="index.html#about" data-i18n="about.tab_group">O Grupo</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#" onclick="switchTab('structure'); return false;">Estrutura</a></li>
-              <li><a class="dropdown-item" href="#" onclick="switchTab('regimento'); return false;">Regimento</a></li>
-              <li><a class="dropdown-item" href="#" onclick="switchTab('visual'); return false;">Identidade Visual</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="index.html#team" data-i18n="nav.team">Equipe</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#projects" data-i18n="nav.projects">Projetos</a></li>
-          <li class="nav-item"><a class="nav-link" href="publications.html" data-i18n="nav.publications">Publicações</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#contact" data-i18n="nav.contact">Contato</a></li>
-        </ul>
-        <div class="navbar-controls">
-          <button class="btn-navbar-control" id="themeToggle" title="Theme" onclick="ThemeManager.toggle()">
-            <i class="bi bi-circle-half"></i>
-          </button>
-          <button class="btn-navbar-control lang-selector" id="langToggle" title="Language" onclick="I18n.cycleLang()">
-            🇧🇷
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- CONTENT -->
-  <div class="section-nepem" style="padding-top: 120px; min-height: 100vh;">
-    <div class="container">
-      <div class="section-header fade-in-up visible">
-        <div class="section-label"><i class="bi bi-circle-fill"></i> Institucional</div>
-        <h2 id="pageTitle">Sobre o NEPEM</h2>
-        <p class="text-secondary" id="pageSub">Informações institucionais, manuais e regimentos organizados.</p>
-      </div>
-
-      <div class="row g-4">
-        <!-- Sidebar Navigation Pills -->
-        <div class="col-lg-3 fade-in-left visible">
-          <div class="about-tabs w-100">
-            <div class="nav flex-column nav-pills" id="institucionalTabs" role="tablist">
-              <button class="nav-link active text-start mb-2" id="tab-group-btn" data-bs-toggle="pill" data-bs-target="#tab-group" type="button" role="tab">
-                <i class="bi bi-info-circle me-2"></i>O Grupo
-              </button>
-              <button class="nav-link text-start mb-2" id="tab-structure-btn" data-bs-toggle="pill" data-bs-target="#tab-structure" type="button" role="tab">
-                <i class="bi bi-diagram-3 me-2"></i>Estrutura
-              </button>
-              <button class="nav-link text-start mb-2" id="tab-regimento-btn" data-bs-toggle="pill" data-bs-target="#tab-regimento" type="button" role="tab">
-                <i class="bi bi-file-earmark-pdf me-2"></i>Regimento
-              </button>
-              <button class="nav-link text-start mb-2" id="tab-visual-btn" data-bs-toggle="pill" data-bs-target="#tab-visual" type="button" role="tab">
-                <i class="bi bi-palette me-2"></i>Identidade Visual
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tab content area -->
-        <div class="col-lg-9 fade-in-right visible">
-          <div class="tab-content" id="institucionalTabContent">
-            
-            <!-- O Grupo -->
-            <div class="tab-pane fade show active" id="tab-group" role="tabpanel">
-              <div class="institucional-card">
-                <h4 class="mb-4 text-gradient"><i class="bi bi-mortarboard me-2"></i>NEPEM — Quem Somos</h4>
-                <p class="lead text-secondary mb-4" style="line-height: 1.8;">
-                  O <strong>NEPEM (Núcleo de Estudos e Pesquisas em Experimentação e Melhoramento Vegetal)</strong> é um núcleo vinculado ao Departamento de Fitotecnia do Centro de Ciências Agrárias da Universidade Federal de Santa Catarina (UFSC), campus de Florianópolis/SC.
-                </p>
-                <p class="text-secondary" style="line-height: 1.7;">
-                  Nosso núcleo desenvolve pesquisas de ponta nas áreas de estatística experimental e biometria vegetal, com foco no melhoramento genético de espécies funcionais e no desenvolvimento de novas ferramentas tecnológicas. Atualmente, o grupo coordena importantes programas de pesquisa, como o Programa de Melhoramento Genético de Linhaça no sul do Brasil.
-                </p>
-                <h5 class="mt-4 mb-3 fw-bold text-gradient">Nossos Objetivos Estratégicos</h5>
-                <ul class="text-secondary" style="line-height: 1.8;">
-                  <li>Formação de recursos humanos qualificados em nível de pós-graduação e graduação nas ciências agrárias.</li>
-                  <li>Inovação biométrica por meio do desenvolvimento de softwares abertos (pacotes R como <code>metan</code>, <code>pliman</code> e <code>plimanshiny</code>).</li>
-                  <li>Aplicação de fenotipagem digital de alto rendimento por meio de drones, Inteligência Artificial e processamento avançado de imagens agrícolas.</li>
-                  <li>Transferência de tecnologia e prestação de consultoria especializada a órgãos agrícolas e empresas do setor.</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Estrutura -->
-            <div class="tab-pane fade" id="tab-structure" role="tabpanel">
-              <div class="institucional-card">
-                <h4 class="mb-3 text-gradient"><i class="bi bi-diagram-3 me-2"></i>Estrutura Organizacional</h4>
-                <p class="text-secondary mb-4" style="line-height: 1.7;">
-                  A estrutura organizacional do NEPEM é composta por uma Coordenadoria Geral, uma Coordenadoria Científica e Assessorias de Apoio, conforme representado no fluxograma oficial abaixo:
-                </p>
-                <div class="text-center p-3 mb-4 rounded border logo-bg-transparent-light-check" style="background-color: #f8fafc;">
-                  <img src="img/structure.svg" alt="Fluxograma de Estrutura Organizacional" class="img-fluid" style="max-height: 480px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));">
-                </div>
-                <p class="text-secondary mt-4" style="line-height: 1.7;">
-                  A <strong>Coordenadoria Geral</strong> é exercida pelo <strong>Prof. Tiago Olivoto</strong>, responsável pela supervisão das atividades científicas, acadêmicas e de extensão do grupo, bem como sua representação junto a instâncias da UFSC e parceiros externos.
-                </p>
-                <p class="text-secondary" style="line-height: 1.7;">
-                  A <strong>Coordenadoria Científica</strong> é liderada por estudantes nomeados, sendo responsável por supervisionar a execução prática dos eixos científicos de atuação.
-                </p>
-                <h5 class="mt-4 mb-3 fw-bold text-gradient">Eixos Científicos de Atuação</h5>
-                <div class="row g-3">
-                  <div class="col-md-4">
-                    <div class="axis-card p-3 border rounded text-center h-100">
-                      <i class="bi bi-flower1 text-success fs-2 mb-2"></i>
-                      <h6 class="fw-bold mb-2">Melhoramento</h6>
-                      <p class="small text-muted mb-0">Desenvolvimento de espécies funcionais e genótipos de alta produtividade (linhaça e girassol).</p>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="axis-card p-3 border rounded text-center h-100">
-                      <i class="bi bi-clipboard-data text-success fs-2 mb-2"></i>
-                      <h6 class="fw-bold mb-2">Experimentação</h6>
-                      <p class="small text-muted mb-0">Condução de ensaios agrícolas rigorosos, envirotipagem e biometria estatística computacional.</p>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="axis-card p-3 border rounded text-center h-100">
-                      <i class="bi bi-cpu text-success fs-2 mb-2"></i>
-                      <h6 class="fw-bold mb-2">Tecnologia</h6>
-                      <p class="small text-muted mb-0">Fenotipagem de plantas com uso de sensoriamento remoto, inteligência artificial e visão computacional.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Regimento -->
-            <div class="tab-pane fade" id="tab-regimento" role="tabpanel">
-              <div class="institucional-card">
-                <h4 class="mb-3 text-gradient"><i class="bi bi-file-earmark-pdf me-2"></i>Regimento Interno</h4>
-                <p class="text-secondary mb-4" style="line-height: 1.7;">
-                  O funcionamento científico, administrativo e de parcerias do NEPEM/UFSC é regido por seu <strong>Regimento Interno oficial</strong>, aprovado pela coordenação e conselhos competentes. Ele disciplina as atribuições dos membros coordenadores, a entrada de novos integrantes e as diretrizes gerais de produção.
-                </p>
-                <div class="row align-items-center g-4">
-                  <div class="col-md-4 text-center">
-                    <img src="img/regimento.png" alt="Capa do Regimento Interno" class="regimento-cover shadow rounded img-fluid" style="max-height: 250px;">
-                  </div>
-                  <div class="col-md-8">
-                    <h5 class="fw-bold text-gradient mb-2">Consulte ou Baixe o Documento Completo</h5>
-                    <p class="text-secondary small mb-4">
-                      O arquivo PDF oficial contém todas as cláusulas e o estatuto do núcleo de pesquisas. Recomenda-se a leitura por todos os novos estudantes e parceiros institucionais.
-                    </p>
-                    <a href="img/regimento_nepem.pdf" download class="btn btn-nepem-primary">
-                      <i class="bi bi-download me-2"></i>Baixar Regimento Interno (PDF)
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Identidade Visual -->
-            <div class="tab-pane fade" id="tab-visual" role="tabpanel">
-              <div class="institucional-card">
-                <h4 class="mb-3 text-gradient"><i class="bi bi-palette me-2"></i>Manual de Identidade Visual</h4>
-                <p class="text-secondary mb-4" style="line-height: 1.7;">
-                  Este manual apresenta as diretrizes oficiais para o uso correto da marca do <strong>NEPEM/UFSC</strong>, visando garantir sua consistência e legibilidade em todas as suas publicações, cartazes, slides e mídias sociais.
-                </p>
-
-                <!-- Cores -->
-                <h5 class="fw-bold text-gradient mb-3">Paleta de Cores Oficial</h5>
-                <p class="text-secondary small">A marca é baseada primariamente em tons de verde ecológico, combinados com preto, branco e as cores acadêmicas oficiais da UFSC.</p>
-                <div class="color-swatch-container">
-                  <div class="color-swatch-card">
-                    <div class="color-swatch-box" style="background-color: #1AB281;"></div>
-                    <div class="pt-2 fw-semibold">Verde Escuro</div>
-                    <div class="text-muted">#1AB281</div>
-                  </div>
-                  <div class="color-swatch-card">
-                    <div class="color-swatch-box" style="background-color: #95C848;"></div>
-                    <div class="pt-2 fw-semibold">Verde Claro</div>
-                    <div class="text-muted">#95C848</div>
-                  </div>
-                  <div class="color-swatch-card">
-                    <div class="color-swatch-box" style="background-color: #003893;"></div>
-                    <div class="pt-2 fw-semibold">Azul UFSC</div>
-                    <div class="text-muted">#003893</div>
-                  </div>
-                  <div class="color-swatch-card">
-                    <div class="color-swatch-box" style="background-color: #FF0009;"></div>
-                    <div class="pt-2 fw-semibold">Vermelho UFSC</div>
-                    <div class="text-muted">#FF0009</div>
-                  </div>
-                  <div class="color-swatch-card">
-                    <div class="color-swatch-box" style="background-color: #FEE300;"></div>
-                    <div class="pt-2 fw-semibold">Amarelo UFSC</div>
-                    <div class="text-muted">#FEE300</div>
-                  </div>
-                </div>
-
-                <!-- Logotipos para Download -->
-                <h5 class="fw-bold text-gradient mt-5 mb-3">Versões do Logotipo (Download)</h5>
-                <div class="table-responsive">
-                  <table class="table align-middle logo-table border text-center">
-                    <thead class="bg-light">
-                      <tr>
-                        <th>Modelo</th>
-                        <th>Visualização</th>
-                        <th>Arquivos para Download</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr class="logo-table-row">
-                        <td class="fw-bold small text-start">Colorido Principal</td>
-                        <td class="logo-bg-transparent-light-check logo-bg-transparent-dark-check p-2">
-                          <img src="img/logo/logo_main.png" alt="Colored main logo">
-                        </td>
-                        <td>
-                          <a href="img/logo/logo_main.png" download class="btn btn-sm btn-outline-success me-1"><i class="bi bi-file-image"></i> PNG</a>
-                          <a href="img/logo/logo_main.svg" download class="btn btn-sm btn-outline-success"><i class="bi bi-filetype-svg"></i> SVG</a>
-                        </td>
-                      </tr>
-                      <tr class="logo-table-row">
-                        <td class="fw-bold small text-start">Ícone Isolado</td>
-                        <td class="logo-bg-transparent-light-check logo-bg-transparent-dark-check p-2">
-                          <img src="img/logo/icone.png" alt="NEPEM Icon" style="max-height: 60px;">
-                        </td>
-                        <td>
-                          <a href="img/logo/icone.png" download class="btn btn-sm btn-outline-success me-1"><i class="bi bi-file-image"></i> PNG</a>
-                          <a href="img/logo/icone.svg" download class="btn btn-sm btn-outline-success"><i class="bi bi-filetype-svg"></i> SVG</a>
-                        </td>
-                      </tr>
-                      <tr class="logo-table-row">
-                        <td class="fw-bold small text-start">Branco (Fundos Escuros)</td>
-                        <td class="p-2" style="background-color: #0f172a;">
-                          <img src="img/logo/logo_white.png" alt="White logo" style="filter: none;">
-                        </td>
-                        <td>
-                          <a href="img/logo/logo_white.png" download class="btn btn-sm btn-outline-success me-1"><i class="bi bi-file-image"></i> PNG</a>
-                          <a href="img/logo/logo_white.svg" download class="btn btn-sm btn-outline-success"><i class="bi bi-filetype-svg"></i> SVG</a>
-                        </td>
-                      </tr>
-                      <tr class="logo-table-row">
-                        <td class="fw-bold small text-start">Preto (Fundos Claros)</td>
-                        <td class="logo-bg-transparent-light-check logo-bg-transparent-dark-check p-2">
-                          <img src="img/logo/logo_black.png" alt="Black logo">
-                        </td>
-                        <td>
-                          <a href="img/logo/logo_black.png" download class="btn btn-sm btn-outline-success me-1"><i class="bi bi-file-image"></i> PNG</a>
-                          <a href="img/logo/logo_black.svg" download class="btn btn-sm btn-outline-success"><i class="bi bi-filetype-svg"></i> SVG</a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                <!-- Simbologia -->
-                <h5 class="fw-bold text-gradient mt-5 mb-3">Simbologia & Conceito</h5>
-                <p class="text-secondary small" style="line-height: 1.7;">
-                  A letra <strong>"P"</strong> de pesquisa do logotipo integra a dupla hélice de DNA (a base genética) fundindo-se a uma planta jovem (o fenótipo gerado). 
-                  As folhas representam a fotossíntese e o crescimento, enquanto as raízes simbolizam a absorção, o apoio mútuo do grupo e a base no solo. 
-                  A curva inferior em forma de <strong>épsilon (&epsilon;)</strong> remete ao erro estatístico experimental, um pilar central na atuação científica do NEPEM.
-                </p>
-
-                <!-- Espaço de Proteção -->
-                <h5 class="fw-bold text-gradient mt-5 mb-3">Espaço de Proteção e Tamanhos Mínimos</h5>
-                <p class="text-secondary small" style="line-height: 1.7;">
-                  Para garantir a legibilidade do logotipo, deve-se respeitar uma margem de segurança ao redor dele e não reduzir o tamanho abaixo de certos limites:
-                </p>
-                <ul class="text-secondary small" style="line-height: 1.7;">
-                  <li><strong>Margem de Segurança:</strong> Reserve um espaço equivalente a 10% da altura do logotipo ao redor.</li>
-                  <li><strong>Tamanho Mínimo:</strong> O logotipo deve ter no mínimo 3 cm de altura para impressos e 100 px para uso digital.</li>
-                </ul>
-
-                <!-- Tipografia -->
-                <h5 class="fw-bold text-gradient mt-5 mb-3">Tipografia</h5>
-                <p class="text-secondary small" style="line-height: 1.7;">
-                  A tipografia é parte fundamental da identidade da marca. As fontes utilizadas são:
-                </p>
-                <ul class="text-secondary small" style="line-height: 1.7;">
-                  <li><strong>Fonte Primária:</strong> A fonte utilizada no logotipo é `Sans-serif` (ou outra fonte geométrica sem serifa equivalente).</li>
-                  <li><strong>Fonte Secundária:</strong> Para textos corridos, recomenda-se o uso das fontes `Inter`, `Arial` ou `Open Sans`.</li>
-                </ul>
-
-                <!-- Uso Incorreto -->
-                <h5 class="fw-bold text-gradient mt-5 mb-3">Uso Incorreto</h5>
-                <p class="text-secondary small" style="line-height: 1.7;">
-                  Para manter a integridade visual da marca, evite os seguintes usos incorretos:
-                </p>
-                <ul class="text-secondary small" style="line-height: 1.7;">
-                  <li>Não distorça o logotipo (achatar ou esticar).</li>
-                  <li>Não altere as cores originais.</li>
-                  <li>Não adicione sombras, bordas ou outros efeitos visuais sobre o vetor da marca.</li>
-                  <li>Evite o uso do logotipo colorido em fundos que prejudiquem o contraste e a legibilidade.</li>
-                </ul>
-
-                <!-- Exemplos de Uso -->
-                <h5 class="fw-bold text-gradient mt-5 mb-3">Exemplos de uso</h5>
-                <div class="text-center p-3 mb-4 rounded border" style="background-color: var(--bg-tertiary);">
-                  <img src="img/logo/exemplos.png" alt="Exemplos de uso da marca NEPEM" class="img-fluid rounded shadow-sm" style="max-height: 400px; object-fit: contain;">
-                </div>
-
-                <!-- Aplicações Especiais e Contato -->
-                <h5 class="fw-bold text-gradient mt-5 mb-3">Aplicações Especiais</h5>
-                <p class="text-secondary small" style="line-height: 1.7;">
-                  Em casos como brindes, camisetas e materiais promocionais, siga as mesmas diretrizes de proporção, cor e tipografia mencionadas acima. Para dúvidas ou aprovações relacionadas ao uso da identidade visual do NEPEM, entre em contato por meio do email: <a href="mailto:contato@nepemufsc.com">contato@nepemufsc.com</a>.
-                </p>
-              </div>
-            </div>
-
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+      .institucional-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        padding: 2.5rem;
+        box-shadow: var(--shadow-md);
+        transition:
+          background-color var(--transition-base),
+          border-color var(--transition-base);
+      }
+      .color-swatch-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      .color-swatch-card {
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        background: var(--bg-primary);
+        text-align: center;
+        padding-bottom: 0.75rem;
+        font-size: 0.8rem;
+      }
+      .color-swatch-box {
+        height: 80px;
+        width: 100%;
+      }
+      .logo-table img {
+        max-height: 80px;
+        max-width: 100%;
+        object-fit: contain;
+      }
+      .logo-table-row {
+        transition: background-color var(--transition-fast);
+      }
+      .logo-table-row:hover {
+        background-color: var(--bg-secondary);
+      }
+      [data-theme='dark'] .logo-bg-transparent-dark-check {
+        background-color: #334155 !important;
+      }
+      .logo-bg-transparent-light-check {
+        background-color: #f8fafc;
+      }
+      .regimento-cover {
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-lg);
+        max-width: 100%;
+        height: auto;
+        transition: transform var(--transition-base);
+      }
+      .regimento-cover:hover {
+        transform: scale(1.02);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-nepem fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">NEPEM<span class="brand-accent">/UFSC</span></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ms-auto me-3">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" data-i18n="nav.home">Início</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle active"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Sobre
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark bg-dark">
+                <li>
+                  <a class="dropdown-item" href="index.html#about" data-i18n="about.tab_group"
+                    >O Grupo</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    onclick="
+                      switchTab('structure');
+                      return false;
+                    "
+                    >Estrutura</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    onclick="
+                      switchTab('regimento');
+                      return false;
+                    "
+                    >Regimento</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    onclick="
+                      switchTab('visual');
+                      return false;
+                    "
+                    >Identidade Visual</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#team" data-i18n="nav.team">Equipe</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#projects" data-i18n="nav.projects">Projetos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="publications.html" data-i18n="nav.publications"
+                >Publicações</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#contact" data-i18n="nav.contact">Contato</a>
+            </li>
+          </ul>
+          <div class="navbar-controls">
+            <button
+              class="btn-navbar-control"
+              id="themeToggle"
+              title="Theme"
+              onclick="ThemeManager.toggle()"
+            >
+              <i class="bi bi-circle-half"></i>
+            </button>
+            <button
+              class="btn-navbar-control lang-selector"
+              id="langToggle"
+              title="Language"
+              onclick="I18n.cycleLang()"
+            >
+              🇧🇷
+            </button>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </nav>
 
-  <!-- FOOTER -->
-  <footer class="footer-nepem">
-    <div class="container">
-      <div class="footer-bottom">
-        <span><span data-i18n="footer.copyright">© NEPEM/UFSC</span> 2024–2026.</span>
-        <span><a href="index.html" class="text-secondary"><i class="bi bi-arrow-left me-1"></i>Voltar ao site</a></span>
+    <!-- CONTENT -->
+    <div class="section-nepem" style="padding-top: 120px; min-height: 100vh">
+      <div class="container">
+        <div class="section-header fade-in-up visible">
+          <div class="section-label"><i class="bi bi-circle-fill"></i> Institucional</div>
+          <h2 id="pageTitle">Sobre o NEPEM</h2>
+          <p class="text-secondary" id="pageSub">
+            Informações institucionais, manuais e regimentos organizados.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Sidebar Navigation Pills -->
+          <div class="col-lg-3 fade-in-left visible">
+            <div class="about-tabs w-100">
+              <div class="nav flex-column nav-pills" id="institucionalTabs" role="tablist">
+                <button
+                  class="nav-link active text-start mb-2"
+                  id="tab-group-btn"
+                  data-bs-toggle="pill"
+                  data-bs-target="#tab-group"
+                  type="button"
+                  role="tab"
+                >
+                  <i class="bi bi-info-circle me-2"></i>O Grupo
+                </button>
+                <button
+                  class="nav-link text-start mb-2"
+                  id="tab-structure-btn"
+                  data-bs-toggle="pill"
+                  data-bs-target="#tab-structure"
+                  type="button"
+                  role="tab"
+                >
+                  <i class="bi bi-diagram-3 me-2"></i>Estrutura
+                </button>
+                <button
+                  class="nav-link text-start mb-2"
+                  id="tab-regimento-btn"
+                  data-bs-toggle="pill"
+                  data-bs-target="#tab-regimento"
+                  type="button"
+                  role="tab"
+                >
+                  <i class="bi bi-file-earmark-pdf me-2"></i>Regimento
+                </button>
+                <button
+                  class="nav-link text-start mb-2"
+                  id="tab-visual-btn"
+                  data-bs-toggle="pill"
+                  data-bs-target="#tab-visual"
+                  type="button"
+                  role="tab"
+                >
+                  <i class="bi bi-palette me-2"></i>Identidade Visual
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab content area -->
+          <div class="col-lg-9 fade-in-right visible">
+            <div class="tab-content" id="institucionalTabContent">
+              <!-- O Grupo -->
+              <div class="tab-pane fade show active" id="tab-group" role="tabpanel">
+                <div class="institucional-card">
+                  <h4 class="mb-4 text-gradient">
+                    <i class="bi bi-mortarboard me-2"></i>NEPEM — Quem Somos
+                  </h4>
+                  <p class="lead text-secondary mb-4" style="line-height: 1.8">
+                    O
+                    <strong
+                      >NEPEM (Núcleo de Estudos e Pesquisas em Experimentação e Melhoramento
+                      Vegetal)</strong
+                    >
+                    é um núcleo vinculado ao Departamento de Fitotecnia do Centro de Ciências
+                    Agrárias da Universidade Federal de Santa Catarina (UFSC), campus de
+                    Florianópolis/SC.
+                  </p>
+                  <p class="text-secondary" style="line-height: 1.7">
+                    Nosso núcleo desenvolve pesquisas de ponta nas áreas de estatística experimental
+                    e biometria vegetal, com foco no melhoramento genético de espécies funcionais e
+                    no desenvolvimento de novas ferramentas tecnológicas. Atualmente, o grupo
+                    coordena importantes programas de pesquisa, como o Programa de Melhoramento
+                    Genético de Linhaça no sul do Brasil.
+                  </p>
+                  <h5 class="mt-4 mb-3 fw-bold text-gradient">Nossos Objetivos Estratégicos</h5>
+                  <ul class="text-secondary" style="line-height: 1.8">
+                    <li>
+                      Formação de recursos humanos qualificados em nível de pós-graduação e
+                      graduação nas ciências agrárias.
+                    </li>
+                    <li>
+                      Inovação biométrica por meio do desenvolvimento de softwares abertos (pacotes
+                      R como <code>metan</code>, <code>pliman</code> e <code>plimanshiny</code>).
+                    </li>
+                    <li>
+                      Aplicação de fenotipagem digital de alto rendimento por meio de drones,
+                      Inteligência Artificial e processamento avançado de imagens agrícolas.
+                    </li>
+                    <li>
+                      Transferência de tecnologia e prestação de consultoria especializada a órgãos
+                      agrícolas e empresas do setor.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Estrutura -->
+              <div class="tab-pane fade" id="tab-structure" role="tabpanel">
+                <div class="institucional-card">
+                  <h4 class="mb-3 text-gradient">
+                    <i class="bi bi-diagram-3 me-2"></i>Estrutura Organizacional
+                  </h4>
+                  <p class="text-secondary mb-4" style="line-height: 1.7">
+                    A estrutura organizacional do NEPEM é composta por uma Coordenadoria Geral, uma
+                    Coordenadoria Científica e Assessorias de Apoio, conforme representado no
+                    fluxograma oficial abaixo:
+                  </p>
+                  <div
+                    class="text-center p-3 mb-4 rounded border logo-bg-transparent-light-check"
+                    style="background-color: #f8fafc"
+                  >
+                    <img
+                      src="img/structure.svg"
+                      alt="Fluxograma de Estrutura Organizacional"
+                      class="img-fluid"
+                      style="max-height: 480px; filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05))"
+                    />
+                  </div>
+                  <p class="text-secondary mt-4" style="line-height: 1.7">
+                    A <strong>Coordenadoria Geral</strong> é exercida pelo
+                    <strong>Prof. Tiago Olivoto</strong>, responsável pela supervisão das atividades
+                    científicas, acadêmicas e de extensão do grupo, bem como sua representação junto
+                    a instâncias da UFSC e parceiros externos.
+                  </p>
+                  <p class="text-secondary" style="line-height: 1.7">
+                    A <strong>Coordenadoria Científica</strong> é liderada por estudantes nomeados,
+                    sendo responsável por supervisionar a execução prática dos eixos científicos de
+                    atuação.
+                  </p>
+                  <h5 class="mt-4 mb-3 fw-bold text-gradient">Eixos Científicos de Atuação</h5>
+                  <div class="row g-3">
+                    <div class="col-md-4">
+                      <div class="axis-card p-3 border rounded text-center h-100">
+                        <i class="bi bi-flower1 text-success fs-2 mb-2"></i>
+                        <h6 class="fw-bold mb-2">Melhoramento</h6>
+                        <p class="small text-muted mb-0">
+                          Desenvolvimento de espécies funcionais e genótipos de alta produtividade
+                          (linhaça e girassol).
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="axis-card p-3 border rounded text-center h-100">
+                        <i class="bi bi-clipboard-data text-success fs-2 mb-2"></i>
+                        <h6 class="fw-bold mb-2">Experimentação</h6>
+                        <p class="small text-muted mb-0">
+                          Condução de ensaios agrícolas rigorosos, envirotipagem e biometria
+                          estatística computacional.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="axis-card p-3 border rounded text-center h-100">
+                        <i class="bi bi-cpu text-success fs-2 mb-2"></i>
+                        <h6 class="fw-bold mb-2">Tecnologia</h6>
+                        <p class="small text-muted mb-0">
+                          Fenotipagem de plantas com uso de sensoriamento remoto, inteligência
+                          artificial e visão computacional.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Regimento -->
+              <div class="tab-pane fade" id="tab-regimento" role="tabpanel">
+                <div class="institucional-card">
+                  <h4 class="mb-3 text-gradient">
+                    <i class="bi bi-file-earmark-pdf me-2"></i>Regimento Interno
+                  </h4>
+                  <p class="text-secondary mb-4" style="line-height: 1.7">
+                    O funcionamento científico, administrativo e de parcerias do NEPEM/UFSC é regido
+                    por seu <strong>Regimento Interno oficial</strong>, aprovado pela coordenação e
+                    conselhos competentes. Ele disciplina as atribuições dos membros coordenadores,
+                    a entrada de novos integrantes e as diretrizes gerais de produção.
+                  </p>
+                  <div class="row align-items-center g-4">
+                    <div class="col-md-4 text-center">
+                      <img
+                        src="img/regimento.png"
+                        alt="Capa do Regimento Interno"
+                        class="regimento-cover shadow rounded img-fluid"
+                        style="max-height: 250px"
+                      />
+                    </div>
+                    <div class="col-md-8">
+                      <h5 class="fw-bold text-gradient mb-2">
+                        Consulte ou Baixe o Documento Completo
+                      </h5>
+                      <p class="text-secondary small mb-4">
+                        O arquivo PDF oficial contém todas as cláusulas e o estatuto do núcleo de
+                        pesquisas. Recomenda-se a leitura por todos os novos estudantes e parceiros
+                        institucionais.
+                      </p>
+                      <a href="img/regimento_nepem.pdf" download class="btn btn-nepem-primary">
+                        <i class="bi bi-download me-2"></i>Baixar Regimento Interno (PDF)
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Identidade Visual -->
+              <div class="tab-pane fade" id="tab-visual" role="tabpanel">
+                <div class="institucional-card">
+                  <h4 class="mb-3 text-gradient">
+                    <i class="bi bi-palette me-2"></i>Manual de Identidade Visual
+                  </h4>
+                  <p class="text-secondary mb-4" style="line-height: 1.7">
+                    Este manual apresenta as diretrizes oficiais para o uso correto da marca do
+                    <strong>NEPEM/UFSC</strong>, visando garantir sua consistência e legibilidade em
+                    todas as suas publicações, cartazes, slides e mídias sociais.
+                  </p>
+
+                  <!-- Cores -->
+                  <h5 class="fw-bold text-gradient mb-3">Paleta de Cores Oficial</h5>
+                  <p class="text-secondary small">
+                    A marca é baseada primariamente em tons de verde ecológico, combinados com
+                    preto, branco e as cores acadêmicas oficiais da UFSC.
+                  </p>
+                  <div class="color-swatch-container">
+                    <div class="color-swatch-card">
+                      <div class="color-swatch-box" style="background-color: #1ab281"></div>
+                      <div class="pt-2 fw-semibold">Verde Escuro</div>
+                      <div class="text-muted">#1AB281</div>
+                    </div>
+                    <div class="color-swatch-card">
+                      <div class="color-swatch-box" style="background-color: #95c848"></div>
+                      <div class="pt-2 fw-semibold">Verde Claro</div>
+                      <div class="text-muted">#95C848</div>
+                    </div>
+                    <div class="color-swatch-card">
+                      <div class="color-swatch-box" style="background-color: #003893"></div>
+                      <div class="pt-2 fw-semibold">Azul UFSC</div>
+                      <div class="text-muted">#003893</div>
+                    </div>
+                    <div class="color-swatch-card">
+                      <div class="color-swatch-box" style="background-color: #ff0009"></div>
+                      <div class="pt-2 fw-semibold">Vermelho UFSC</div>
+                      <div class="text-muted">#FF0009</div>
+                    </div>
+                    <div class="color-swatch-card">
+                      <div class="color-swatch-box" style="background-color: #fee300"></div>
+                      <div class="pt-2 fw-semibold">Amarelo UFSC</div>
+                      <div class="text-muted">#FEE300</div>
+                    </div>
+                  </div>
+
+                  <!-- Logotipos para Download -->
+                  <h5 class="fw-bold text-gradient mt-5 mb-3">Versões do Logotipo (Download)</h5>
+                  <div class="table-responsive">
+                    <table class="table align-middle logo-table border text-center">
+                      <thead class="bg-light">
+                        <tr>
+                          <th>Modelo</th>
+                          <th>Visualização</th>
+                          <th>Arquivos para Download</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="logo-table-row">
+                          <td class="fw-bold small text-start">Colorido Principal</td>
+                          <td
+                            class="logo-bg-transparent-light-check logo-bg-transparent-dark-check p-2"
+                          >
+                            <img src="img/logo/logo_main.png" alt="Colored main logo" />
+                          </td>
+                          <td>
+                            <a
+                              href="img/logo/logo_main.png"
+                              download
+                              class="btn btn-sm btn-outline-success me-1"
+                              ><i class="bi bi-file-image"></i> PNG</a
+                            >
+                            <a
+                              href="img/logo/logo_main.svg"
+                              download
+                              class="btn btn-sm btn-outline-success"
+                              ><i class="bi bi-filetype-svg"></i> SVG</a
+                            >
+                          </td>
+                        </tr>
+                        <tr class="logo-table-row">
+                          <td class="fw-bold small text-start">Ícone Isolado</td>
+                          <td
+                            class="logo-bg-transparent-light-check logo-bg-transparent-dark-check p-2"
+                          >
+                            <img
+                              src="img/logo/icone.png"
+                              alt="NEPEM Icon"
+                              style="max-height: 60px"
+                            />
+                          </td>
+                          <td>
+                            <a
+                              href="img/logo/icone.png"
+                              download
+                              class="btn btn-sm btn-outline-success me-1"
+                              ><i class="bi bi-file-image"></i> PNG</a
+                            >
+                            <a
+                              href="img/logo/icone.svg"
+                              download
+                              class="btn btn-sm btn-outline-success"
+                              ><i class="bi bi-filetype-svg"></i> SVG</a
+                            >
+                          </td>
+                        </tr>
+                        <tr class="logo-table-row">
+                          <td class="fw-bold small text-start">Branco (Fundos Escuros)</td>
+                          <td class="p-2" style="background-color: #0f172a">
+                            <img
+                              src="img/logo/logo_white.png"
+                              alt="White logo"
+                              style="filter: none"
+                            />
+                          </td>
+                          <td>
+                            <a
+                              href="img/logo/logo_white.png"
+                              download
+                              class="btn btn-sm btn-outline-success me-1"
+                              ><i class="bi bi-file-image"></i> PNG</a
+                            >
+                            <a
+                              href="img/logo/logo_white.svg"
+                              download
+                              class="btn btn-sm btn-outline-success"
+                              ><i class="bi bi-filetype-svg"></i> SVG</a
+                            >
+                          </td>
+                        </tr>
+                        <tr class="logo-table-row">
+                          <td class="fw-bold small text-start">Preto (Fundos Claros)</td>
+                          <td
+                            class="logo-bg-transparent-light-check logo-bg-transparent-dark-check p-2"
+                          >
+                            <img src="img/logo/logo_black.png" alt="Black logo" />
+                          </td>
+                          <td>
+                            <a
+                              href="img/logo/logo_black.png"
+                              download
+                              class="btn btn-sm btn-outline-success me-1"
+                              ><i class="bi bi-file-image"></i> PNG</a
+                            >
+                            <a
+                              href="img/logo/logo_black.svg"
+                              download
+                              class="btn btn-sm btn-outline-success"
+                              ><i class="bi bi-filetype-svg"></i> SVG</a
+                            >
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!-- Simbologia -->
+                  <h5 class="fw-bold text-gradient mt-5 mb-3">Simbologia & Conceito</h5>
+                  <p class="text-secondary small" style="line-height: 1.7">
+                    A letra <strong>"P"</strong> de pesquisa do logotipo integra a dupla hélice de
+                    DNA (a base genética) fundindo-se a uma planta jovem (o fenótipo gerado). As
+                    folhas representam a fotossíntese e o crescimento, enquanto as raízes simbolizam
+                    a absorção, o apoio mútuo do grupo e a base no solo. A curva inferior em forma
+                    de <strong>épsilon (&epsilon;)</strong> remete ao erro estatístico experimental,
+                    um pilar central na atuação científica do NEPEM.
+                  </p>
+
+                  <!-- Espaço de Proteção -->
+                  <h5 class="fw-bold text-gradient mt-5 mb-3">
+                    Espaço de Proteção e Tamanhos Mínimos
+                  </h5>
+                  <p class="text-secondary small" style="line-height: 1.7">
+                    Para garantir a legibilidade do logotipo, deve-se respeitar uma margem de
+                    segurança ao redor dele e não reduzir o tamanho abaixo de certos limites:
+                  </p>
+                  <ul class="text-secondary small" style="line-height: 1.7">
+                    <li>
+                      <strong>Margem de Segurança:</strong> Reserve um espaço equivalente a 10% da
+                      altura do logotipo ao redor.
+                    </li>
+                    <li>
+                      <strong>Tamanho Mínimo:</strong> O logotipo deve ter no mínimo 3 cm de altura
+                      para impressos e 100 px para uso digital.
+                    </li>
+                  </ul>
+
+                  <!-- Tipografia -->
+                  <h5 class="fw-bold text-gradient mt-5 mb-3">Tipografia</h5>
+                  <p class="text-secondary small" style="line-height: 1.7">
+                    A tipografia é parte fundamental da identidade da marca. As fontes utilizadas
+                    são:
+                  </p>
+                  <ul class="text-secondary small" style="line-height: 1.7">
+                    <li>
+                      <strong>Fonte Primária:</strong> A fonte utilizada no logotipo é `Sans-serif`
+                      (ou outra fonte geométrica sem serifa equivalente).
+                    </li>
+                    <li>
+                      <strong>Fonte Secundária:</strong> Para textos corridos, recomenda-se o uso
+                      das fontes `Inter`, `Arial` ou `Open Sans`.
+                    </li>
+                  </ul>
+
+                  <!-- Uso Incorreto -->
+                  <h5 class="fw-bold text-gradient mt-5 mb-3">Uso Incorreto</h5>
+                  <p class="text-secondary small" style="line-height: 1.7">
+                    Para manter a integridade visual da marca, evite os seguintes usos incorretos:
+                  </p>
+                  <ul class="text-secondary small" style="line-height: 1.7">
+                    <li>Não distorça o logotipo (achatar ou esticar).</li>
+                    <li>Não altere as cores originais.</li>
+                    <li>
+                      Não adicione sombras, bordas ou outros efeitos visuais sobre o vetor da marca.
+                    </li>
+                    <li>
+                      Evite o uso do logotipo colorido em fundos que prejudiquem o contraste e a
+                      legibilidade.
+                    </li>
+                  </ul>
+
+                  <!-- Exemplos de Uso -->
+                  <h5 class="fw-bold text-gradient mt-5 mb-3">Exemplos de uso</h5>
+                  <div
+                    class="text-center p-3 mb-4 rounded border"
+                    style="background-color: var(--bg-tertiary)"
+                  >
+                    <img
+                      src="img/logo/exemplos.png"
+                      alt="Exemplos de uso da marca NEPEM"
+                      class="img-fluid rounded shadow-sm"
+                      style="max-height: 400px; object-fit: contain"
+                    />
+                  </div>
+
+                  <!-- Aplicações Especiais e Contato -->
+                  <h5 class="fw-bold text-gradient mt-5 mb-3">Aplicações Especiais</h5>
+                  <p class="text-secondary small" style="line-height: 1.7">
+                    Em casos como brindes, camisetas e materiais promocionais, siga as mesmas
+                    diretrizes de proporção, cor e tipografia mencionadas acima. Para dúvidas ou
+                    aprovações relacionadas ao uso da identidade visual do NEPEM, entre em contato
+                    por meio do email:
+                    <a href="mailto:contato@nepemufsc.com">contato@nepemufsc.com</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/i18n.js"></script>
-  <script src="js/theme.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-      ThemeManager.init();
-      await I18n.init();
+    <!-- FOOTER -->
+    <footer class="footer-nepem">
+      <div class="container">
+        <div class="footer-bottom">
+          <span><span data-i18n="footer.copyright">© NEPEM/UFSC</span> 2024–2026.</span>
+          <span
+            ><a href="index.html" class="text-secondary"
+              ><i class="bi bi-arrow-left me-1"></i>Voltar ao site</a
+            ></span
+          >
+        </div>
+      </div>
+    </footer>
 
-      // Check query parameter 'tab'
-      const params = new URLSearchParams(window.location.search);
-      const tab = params.get('tab');
-      if (tab) {
-        switchTab(tab);
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/theme.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+        ThemeManager.init();
+        await I18n.init();
+
+        // Check query parameter 'tab'
+        const params = new URLSearchParams(window.location.search);
+        const tab = params.get('tab');
+        if (tab) {
+          switchTab(tab);
+        }
+      });
+
+      function switchTab(tabId) {
+        const tabBtn = document.getElementById(`tab-${tabId}-btn`);
+        if (tabBtn) {
+          // Trigger Bootstrap Tab click
+          bootstrap.Tab.getOrCreateInstance(tabBtn).show();
+        }
       }
-    });
-
-    function switchTab(tabId) {
-      const tabBtn = document.getElementById(`tab-${tabId}-btn`);
-      if (tabBtn) {
-        // Trigger Bootstrap Tab click
-        bootstrap.Tab.getOrCreateInstance(tabBtn).show();
-      }
-    }
-  </script>
-</body>
+    </script>
+  </body>
 </html>

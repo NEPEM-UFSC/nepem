@@ -42,14 +42,7 @@
     "title": "A influência da época de semeadura em caracteres agronômicos e nutracêuticos de linho (Linum usitatissimum, L.) cultivado na região litorânea de Santa Catarina",
     "year": 2024,
     "type": "conference",
-    "authors": [
-      "Assoni C.",
-      "Sousa P.",
-      "Silva J.",
-      "Felipini R.",
-      "Maraschin M.",
-      "Olivoto T."
-    ],
+    "authors": ["Assoni C.", "Sousa P.", "Silva J.", "Felipini R.", "Maraschin M.", "Olivoto T."],
     "doi": "",
     "abstract": ""
   },
@@ -300,13 +293,7 @@
     "title": "Precision of growth estimates and sufficient sample size: can solar radiation level change these factors?",
     "year": 2018,
     "type": "journal",
-    "authors": [
-      "Elli E.",
-      "Olivoto T.",
-      "Schmidt D.",
-      "Caron B.",
-      "Souza V."
-    ],
+    "authors": ["Elli E.", "Olivoto T.", "Schmidt D.", "Caron B.", "Souza V."],
     "doi": "10.2134/agronj2017.05.0297",
     "abstract": ""
   },
@@ -338,13 +325,7 @@
     "title": "Research on microgreens: a bibliometric analysis",
     "year": 2023,
     "type": "journal",
-    "authors": [
-      "Ferreira M.",
-      "Henschel J.",
-      "Olivoto T.",
-      "Batista D.",
-      "Zeist A."
-    ],
+    "authors": ["Ferreira M.", "Henschel J.", "Olivoto T.", "Batista D.", "Zeist A."],
     "doi": "10.1007/s42535-023-00699-x",
     "abstract": "Microgreens are vegetables whose edible parts are harvested at the seedling stage. They are highly nutritious and widely used in sophisticated cuisines. They are considered an emerging food product that have been investigated in the scientific and commercial fields. Scientometrics can be used to study scientific literature in a quantitative manner, identifying emerging trends and the knowledge structure of a certain field of research. The objective of this study was to measure the status quo, id"
   },
@@ -435,14 +416,7 @@
     "title": "Nonlinear growth models: An alternative to ANOVA in tomato trials evaluation",
     "year": 2019,
     "type": "journal",
-    "authors": [
-      "Sari B.",
-      "Lucio A.",
-      "Santana C.",
-      "Olivoto T.",
-      "Diel M.",
-      "Krysczun D."
-    ],
+    "authors": ["Sari B.", "Lucio A.", "Santana C.", "Olivoto T.", "Diel M.", "Krysczun D."],
     "doi": "10.1016/J.EJA.2018.12.012",
     "abstract": "The aim of this work was to use growth models as an alternative analysis of experiments with tomatoes. The data were obtained from field experiments of tomatoes carried out in the 2015/2016 and 2016/2017 growing seasons. Six and nine harvests were carried out in 2015/2016 and 2016/2017, respectively. In each harvest, the number and mass of fruits per plant were assessed. The anova for repeated measures was performed to analysis of the data, and the residuals were assessed. Also for each variable"
   },
@@ -632,11 +606,7 @@
     "title": "Variability and Experimental Desing for Trials with Cucurbita pepo and Capsicum annuum",
     "year": 2017,
     "type": "journal",
-    "authors": [
-      "Lucio A.",
-      "Santos D.",
-      "Olivoto T."
-    ],
+    "authors": ["Lucio A.", "Santos D.", "Olivoto T."],
     "doi": "10.5539/jas.v9n11p58",
     "abstract": "The variability within rows of cultivation may reduce the accuracy of vegetables trails; however, little is known about this variability in protected environments. This study aimed at to assess the variability in greenhouses cultivated with cucurbita pepo and capsicum annuum and to verify the effect of borders use and plot size in minimizing this variability. Data from two uniformity trials each crop were used. For statistical analysis, the total of productivity by plant was used, considering th"
   },
@@ -699,11 +669,7 @@
     "title": "Um método simples e indireto para estimação da área de folha de linho",
     "year": 2023,
     "type": "conference",
-    "authors": [
-      "Machado M.",
-      "Tonet K.",
-      "Olivoto T."
-    ],
+    "authors": ["Machado M.", "Tonet K.", "Olivoto T."],
     "doi": "",
     "abstract": ""
   },
@@ -777,14 +743,7 @@
     "title": "Selection gain and interrelations between agronomic traits in wheat F5 genotypes",
     "year": 2019,
     "type": "journal",
-    "authors": [
-      "Meier C.",
-      "Meira D.",
-      "Marchioro V.",
-      "Olivoto T.",
-      "Klein L.",
-      "de Souza V."
-    ],
+    "authors": ["Meier C.", "Meira D.", "Marchioro V.", "Olivoto T.", "Klein L.", "de Souza V."],
     "doi": "10.1590/0034-737X201966040005",
     "abstract": "This work aimed to estimate the variance components and genetic parameters, the selection gain, and the cause and effect relationships among traits in order to identify important traits for direct and indirect selection of wheat (triticum aestivum l.) lines. Three strategies were used to obtain selection gains: direct and indirect selection, an index based on ranks, and the smith and hazel index. In the 2017 crop season in brazil, 420 wheat lines from the f5 generation were conducted in families"
   },
@@ -816,13 +775,7 @@
     "title": "Genetic parameters and multiple-trait selection in wheat genotypes",
     "year": 2021,
     "type": "journal",
-    "authors": [
-      "Meier C.",
-      "Marchioro V.",
-      "Meira D.",
-      "Olivoto T.",
-      "Klein L."
-    ],
+    "authors": ["Meier C.", "Marchioro V.", "Meira D.", "Olivoto T.", "Klein L."],
     "doi": "10.1590/1983-40632021V5167996",
     "abstract": "Abstract mixed models and multivariate analysis are powerful tools for selecting superior genotypes in plant breeding programs. The blup (best linear unbiased prediction) method has been used to predict genetic values without environmental effects. Furthermore, the fai-blup (ideotype-design index) procedure is especially valuable for plant breeding because of multiple-trait selection. This study aimed to determine the genetic potential of advanced wheat generations using reml/blup in combination"
   },
@@ -832,14 +785,7 @@
     "title": "Correlation and selection gains in F6 wheat genotypes",
     "year": 2022,
     "type": "journal",
-    "authors": [
-      "Meier C.",
-      "Marchioro V.",
-      "Olivoto T.",
-      "Meira D.",
-      "Klein L.",
-      "Souza V."
-    ],
+    "authors": ["Meier C.", "Marchioro V.", "Olivoto T.", "Meira D.", "Klein L.", "Souza V."],
     "doi": "10.1590/0034-737X202269050003",
     "abstract": "Abstract the agronomic traits have complex quantitative inheritance, wheat breeding has a highly cost and time expending to achieve advanced lines, and new cultivars. The objective of this work was to estimate the phenotypic (rp), genotypic (rg) and environmental (re) correlation coefficients and the genetic parameters, as well as to estimate the selection gains between agronomic traits in wheat using multivariate analysis. F6 generation was carried out in a randomized block experimental design,"
   },
@@ -1238,13 +1184,7 @@
     "title": "Photosynthetic photon flux density levels affect morphology and bromatology in Cichorium endivia L. var. latifolia grown in a hydroponic system",
     "year": 2018,
     "type": "journal",
-    "authors": [
-      "Olivoto T.",
-      "Elli E.",
-      "Schmidt D.",
-      "Caron B.",
-      "de Souza V."
-    ],
+    "authors": ["Olivoto T.", "Elli E.", "Schmidt D.", "Caron B.", "de Souza V."],
     "doi": "10.1016/j.scienta.2017.11.031",
     "abstract": "Photosynthetic photon flux density (ppfd) in suboptimal or super-optimal levels can modify the biomass accumulation, bromatological composition and appearance of crops. This study was conducted in a hydroponic system to determine whether ppfd could change physiological and bromatological aspects of escarole (cichorium endivia l. var. latifolia). Three ppfd levels (100 percent, 70 percent and 50 percent of ppfd) were investigated to determine crops responses to this factor. Plants of escarole gro"
   },
@@ -1273,14 +1213,7 @@
     "title": "Mean Performance and Stability in Multi-Environment Trials I: Combining Features of AMMI and BLUP Techniques",
     "year": 2019,
     "type": "journal",
-    "authors": [
-      "Olivoto T.",
-      "Lucio A.",
-      "Silva J.",
-      "Marchioro V.",
-      "Souza V.",
-      "Jost E."
-    ],
+    "authors": ["Olivoto T.", "Lucio A.", "Silva J.", "Marchioro V.", "Souza V.", "Jost E."],
     "doi": "10.2134/agronj2019.03.0220",
     "abstract": "Additive main effect and multiplicative interaction (ammi) and best linear unbiased prediction (blup) are popular methods for analyzing multiâ€environment trials (met). The ammi has nice graphical tools for modeling genotypeâ€vs.â€environment interaction (gei) but fails in some aspects, such as accommodating a linear mixedâ€effect model (lmm) structure. The blup provides reliable estimates but new insights to deal graphically with a random gei structure are needed. This article compares the "
   },
@@ -1290,13 +1223,7 @@
     "title": "Mean Performance and Stability in Multi-Environment Trials II: Selection Based on Multiple Traits",
     "year": 2019,
     "type": "journal",
-    "authors": [
-      "Olivoto T.",
-      "Lucio A.",
-      "Silva J.",
-      "Sari B.",
-      "Diel M."
-    ],
+    "authors": ["Olivoto T.", "Lucio A.", "Silva J.", "Sari B.", "Diel M."],
     "doi": "10.2134/agronj2019.03.0221",
     "abstract": "Modeling the genotype Ã— environment interaction (gei) and quantifying genotypic stability are crucial steps for selecting/recommending genotypes in multiâ€environment trials (mets). The efficiency in selection/recommendation could be greater if based on multiple traits, but identifying genotypes that combine high performance and stability across many traits has been a difficult task. In this study, we propose a multiâ€trait stability index (mtsi) for simultaneous selection considering mean pe"
   },
@@ -1306,10 +1233,7 @@
     "title": "metan: An R package for multi-environment trial analysis",
     "year": 2020,
     "type": "journal",
-    "authors": [
-      "Olivoto T.",
-      "Lucio A."
-    ],
+    "authors": ["Olivoto T.", "Lucio A."],
     "doi": "10.1111/2041-210X.13384",
     "abstract": "Multi-environment trials (met) are crucial steps in plant breeding programs that aim at increasing crop productivity to ensure global food security. The analysis of met data requires the combination of several approaches including data manipulation, visualization and modelling. As new methods are proposed, analysing met data correctly and completely remains a challenge, often intractable with existing tools. Here we describe the metan r package, a collection of functions that implement a workflo"
   },
@@ -1319,10 +1243,7 @@
     "title": "MGIDI: toward an effective multivariate selection in biological experiments",
     "year": 2021,
     "type": "journal",
-    "authors": [
-      "Olivoto T.",
-      "Nardino M."
-    ],
+    "authors": ["Olivoto T.", "Nardino M."],
     "doi": "10.1093/bioinformatics/btaa981",
     "abstract": "Motivation: multivariate data are common in biological experiments and using the information on multiple traits is crucial to make better decisions for treatment recommendations or genotype selection. However, identifying genotypes/treatments that combine high performance across many traits has been a challenger task. Classical linear multi-trait selection indexes are available, but the presence of multicollinearity and the arbitrary choosing of weighting coefficients may erode the genetic gains"
   },
@@ -1361,11 +1282,7 @@
     "title": "Measuring plant disease severity in R: introducing and evaluating the pliman package",
     "year": 2022,
     "type": "journal",
-    "authors": [
-      "Olivoto T.",
-      "Andrade S.",
-      "Del Ponte E."
-    ],
+    "authors": ["Olivoto T.", "Andrade S.", "Del Ponte E."],
     "doi": "10.1007/S40858-021-00487-5",
     "abstract": "Image analysis based on color thresholding is the reference method for measuring severity as percent area affected. It is deemed to produce accurate results, usually considered the â€œtrueâ€ severity value. More than a dozen applications have been used for the task in phytopathometry studies, but none was coded in r language. Here we introduced and evaluated pliman, a suite for the analysis of plant images. In particular, we show functions for computing percent severity based on rgb information"
   },
@@ -1375,13 +1292,7 @@
     "title": "Analise de trilha para caracteres relacionados ao crescimento de mudas de pepineiro",
     "year": 2015,
     "type": "journal",
-    "authors": [
-      "Olivoto T.",
-      "de Souza V.",
-      "Carvalho I.",
-      "Nardino M.",
-      "Follmann D."
-    ],
+    "authors": ["Olivoto T.", "de Souza V.", "Carvalho I.", "Nardino M.", "Follmann D."],
     "doi": "",
     "abstract": "A area foliar expressa import^ancia na determina~ao do potencial produtivo das culturas, sendo determinante na absor~ao de radia~ao fotossinteticamente ativa. O objetivo deste trabalho foi revelar as associa~oes fenotipicas entre caracteres relacionados ao crescimento e seus desdobramentos em efeitos diretos e indiretos visando uma estimativa n~ao destrutiva de pl^antulas de pepineiro hibrido japon^es com maior area foliar. Os experimentos foram realizados no ano agricola de 2014 em frederico we"
   },
@@ -1391,12 +1302,7 @@
     "title": "Àndices FAI-BLUP e MGIDI na seleção de genótipos de linho",
     "year": 2023,
     "type": "conference",
-    "authors": [
-      "Olivoto T.",
-      "Souza P.",
-      "Assoni C.",
-      "Oliveira E."
-    ],
+    "authors": ["Olivoto T.", "Souza P.", "Assoni C.", "Oliveira E."],
     "doi": "",
     "abstract": ""
   },
@@ -1406,12 +1312,7 @@
     "title": "Àndices FAI-BLUP e MGIDI na seleção de genótipos de linho",
     "year": 2023,
     "type": "conference",
-    "authors": [
-      "Olivoto T.",
-      "Souza P.",
-      "Assoni C.",
-      "Oliveira E."
-    ],
+    "authors": ["Olivoto T.", "Souza P.", "Assoni C.", "Oliveira E."],
     "doi": "",
     "abstract": ""
   },
@@ -1421,12 +1322,7 @@
     "title": "MGIDI: a powerful tool to analyze plant multivariate data",
     "year": 2022,
     "type": "journal",
-    "authors": [
-      "Olivoto T.",
-      "Diel M.",
-      "Schmidt D.",
-      "LÃºcio A."
-    ],
+    "authors": ["Olivoto T.", "Diel M.", "Schmidt D.", "LÃºcio A."],
     "doi": "10.1186/s13007-022-00952-5",
     "abstract": "Commonly, several traits are assessed in agronomic experiments to better understand the factors under study. However, it is also common to see that even when several traits are available, researchers opt to follow the easiest way by applying univariate analyses and post-hoc tests for mean comparison for each trait, which arouses the hypothesis that the benefits of a multi-trait framework analysis may have not been fully exploited in this area."
   },
@@ -1490,12 +1386,7 @@
     "title": "Stability Indices to Deciphering the Genotype-by-Environment Interaction (GEI) Effect: An Applicable Review for Use in Plant Breeding Programs",
     "year": 2022,
     "type": "journal",
-    "authors": [
-      "Pour-Aboughadareh A.",
-      "Khalili M.",
-      "Poczai P.",
-      "Olivoto T."
-    ],
+    "authors": ["Pour-Aboughadareh A.", "Khalili M.", "Poczai P.", "Olivoto T."],
     "doi": "10.3390/plants11030414",
     "abstract": "Experiments measuring the interaction between genotypes and environments measure the spatial (e.g., locations) and temporal (e.g., years) separation and/or combination of these factors. The genotype-by-environment interaction (gei) is very important in plant breeding programs. Over the past six decades, the propensity to model the gei led to the development of several models and mathematical methods for deciphering gei in multi-environmental trials (mets) called &ldquo;stability analyses&rdquo;."
   },
@@ -1527,12 +1418,7 @@
     "title": "Multi-trait selection in multi-environments for performance and stability in cassava genotypes",
     "year": 2023,
     "type": "journal",
-    "authors": [
-      "Sampaio Filho J.",
-      "Olivoto T.",
-      "Campos M.",
-      "Oliveira E."
-    ],
+    "authors": ["Sampaio Filho J.", "Olivoto T.", "Campos M.", "Oliveira E."],
     "doi": "10.3389/fpls.2023.1282221",
     "abstract": "Genotype-environment interaction (gei) presents challenges when aiming to select optimal cassava genotypes, often due to biased genetic estimates. Various strategies have been proposed to address the need for simultaneous improvements in multiple traits, while accounting for performance and yield stability. Among these methods are mean performance and stability (mps) and the multi-trait mean performance and stability index (mtmps), both utilizing linear mixed models. This studyâ€™s objective was"
   },
@@ -1542,13 +1428,7 @@
     "title": "Variability, plot size and border effect in lettuce trials in protected environment",
     "year": 2018,
     "type": "journal",
-    "authors": [
-      "Santos D.",
-      "Lucio A.",
-      "Cargnelutti Filho A.",
-      "Lopes S.",
-      "Olivoto T."
-    ],
+    "authors": ["Santos D.", "Lucio A.", "Cargnelutti Filho A.", "Lopes S.", "Olivoto T."],
     "doi": "10.1590/1678-4499.2017165",
     "abstract": "The variability within rows of cultivation may reduce the accuracy of experiments conducted in a complete randomized block design if the rows are considered as blocks, however, little is known about this variability in protected environments. Thus, our aim was to study the variability of the fresh mass in lettuce shoot, growing in protected environment, and to verify the border effect and size of the experimental unit in minimizing the productive variability. Data from two uniformity trials carr"
   },
@@ -1558,13 +1438,7 @@
     "title": "Productive variability, border use and plot size in trials with cherry tomato",
     "year": 2018,
     "type": "journal",
-    "authors": [
-      "Santos D.",
-      "Lucio A.",
-      "Lopes S.",
-      "Cargnelutti Filho A.",
-      "Olivoto T."
-    ],
+    "authors": ["Santos D.", "Lucio A.", "Lopes S.", "Cargnelutti Filho A.", "Olivoto T."],
     "doi": "10.1590/0103-8478cr20170310",
     "abstract": "Knowing the productive variability within protected environments is crucial for choosing the experimental design to be used in that conditions. Thus, the aim of the present study was to assess the variability of fruit production in protected environment cultivated with cherry tomatoes and to verify the border effect and plot size in reducing this variability. To this, data from an uniformity test carried out in a greenhouse with cherry tomato cv. â€˜Lili were used. Total fresh mass of fruits per"
   },
@@ -1574,14 +1448,7 @@
     "title": "Nonlinear Modeling for Analyzing Data from Multiple Harvest Crops",
     "year": 2018,
     "type": "journal",
-    "authors": [
-      "Sari B.",
-      "Olivoto T.",
-      "Diel M.",
-      "Krysczun D.",
-      "Lucio A.",
-      "Savian T."
-    ],
+    "authors": ["Sari B.", "Olivoto T.", "Diel M.", "Krysczun D.", "Lucio A.", "Savian T."],
     "doi": "10.2134/agronj2018.05.0307",
     "abstract": "Nonlinear growth models have been widely used for analyzing production curves with a sigmoidal pattern; however, all benefits that these models provide are not being fully exploited. Our aim here is to provide a stepâ€byâ€step guide on how to choose a nonlinear model with parameters close to being unbiased, and to show how to estimate and interpret the critical points of a model aimed at determining the precocity and concentration of the production. Data on two uniformity trials conducted with"
   },
@@ -1591,14 +1458,7 @@
     "title": "Interference of sample size on multicollinearity diagnosis in path analysis",
     "year": 2018,
     "type": "journal",
-    "authors": [
-      "Sari B.",
-      "Lucio A.",
-      "Olivoto T.",
-      "Krysczun D.",
-      "Tischler A.",
-      "Drebes L."
-    ],
+    "authors": ["Sari B.", "Lucio A.", "Olivoto T.", "Krysczun D.", "Tischler A.", "Drebes L."],
     "doi": "10.1590/S0100-204X2018000600014",
     "abstract": "The objective of this work was to evaluate the interference of sample size on multicollinearity diagnosis in path analysis. From the analyses of productive traits of cherry tomato, two pearson correlation matrices were obtained, one with severe multicollinearity and the other with weak multicollinearity. Sixty-six sample sizes were designed, and from the amplitude of the bootstrap confidence interval, it was observed that sample size interfered on multicollinearity diagnosis. When sample size wa"
   },
@@ -1703,14 +1563,7 @@
     "title": "Modelagem da área foliar de cultivares de linho em diferentes épocas de semeadura utilizando o modelo Logístico",
     "year": 2023,
     "type": "conference",
-    "authors": [
-      "Silva J.",
-      "Passos M.",
-      "Trois A.",
-      "Souza P.",
-      "Bustamante F.",
-      "Olivoto T."
-    ],
+    "authors": ["Silva J.", "Passos M.", "Trois A.", "Souza P.", "Bustamante F.", "Olivoto T."],
     "doi": "",
     "abstract": ""
   },
@@ -1760,12 +1613,7 @@
     "title": "O modelo logístico e seus pontos críticos sugerem diferença no padrão de expansão foliar de cultivares de linho",
     "year": 2022,
     "type": "conference",
-    "authors": [
-      "Sousa P.",
-      "Trois A.",
-      "Bustamante F.",
-      "Olivoto T."
-    ],
+    "authors": ["Sousa P.", "Trois A.", "Bustamante F.", "Olivoto T."],
     "doi": "",
     "abstract": ""
   },
@@ -1848,12 +1696,7 @@
     "title": "Padrão de emissão de folhas de cultivares de linho revelado pelo modelo logístico e seus pontos críticos",
     "year": 2022,
     "type": "conference",
-    "authors": [
-      "Trois A.",
-      "Bustamante F.",
-      "Sousa P.",
-      "Olivoto T."
-    ],
+    "authors": ["Trois A.", "Bustamante F.", "Sousa P.", "Olivoto T."],
     "doi": "",
     "abstract": ""
   },

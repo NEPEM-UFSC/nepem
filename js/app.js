@@ -26,7 +26,7 @@ const App = (() => {
 
   /* --- Smooth scrolling for anchor links --- */
   function setupSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
       link.addEventListener('click', (e) => {
         const targetId = link.getAttribute('href');
         if (targetId === '#') return;
@@ -45,15 +45,18 @@ const App = (() => {
 
   /* --- IntersectionObserver for fade-in animations --- */
   function setupScrollAnimations() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' },
+    );
 
-    document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
+    document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach((el) => {
       observer.observe(el);
     });
   }
@@ -66,10 +69,10 @@ const App = (() => {
       const particle = document.createElement('div');
       particle.className = 'hero-particle';
       particle.style.left = Math.random() * 100 + '%';
-      particle.style.width = (Math.random() * 4 + 2) + 'px';
+      particle.style.width = Math.random() * 4 + 2 + 'px';
       particle.style.height = particle.style.width;
-      particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
-      particle.style.animationDelay = (Math.random() * 10) + 's';
+      particle.style.animationDuration = Math.random() * 15 + 10 + 's';
+      particle.style.animationDelay = Math.random() * 10 + 's';
       particle.style.opacity = Math.random() * 0.5 + 0.1;
       container.appendChild(particle);
     }
@@ -82,18 +85,21 @@ const App = (() => {
 
     if (sections.length === 0 || navLinks.length === 0) return;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          navLinks.forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-          });
-        }
-      });
-    }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            navLinks.forEach((link) => {
+              link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+            });
+          }
+        });
+      },
+      { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' },
+    );
 
-    sections.forEach(section => observer.observe(section));
+    sections.forEach((section) => observer.observe(section));
   }
 
   /* --- Projects --- */
@@ -134,7 +140,7 @@ const App = (() => {
       console.error('Failed to load projects:', e);
     }
     renderProjects();
-    
+
     // Set dynamic 3D badge count
     const badge = document.getElementById('badgeProjectsCount');
     if (badge) {
@@ -151,7 +157,7 @@ const App = (() => {
   function setProjectFilter(filter) {
     projectFilter = filter;
     renderProjects();
-    document.querySelectorAll('#projectFilters .btn-filter').forEach(btn => {
+    document.querySelectorAll('#projectFilters .btn-filter').forEach((btn) => {
       btn.classList.toggle('active', btn.dataset.filter === filter);
     });
   }
@@ -167,14 +173,18 @@ const App = (() => {
         return;
       }
 
-      container.innerHTML = githubRepos.map((repo, i) => {
-        const stagger = `stagger-${(i % 6) + 1}`;
-        const desc = repo.description !== 'null' && repo.description ? repo.description : 'Sem descrição disponível no momento.';
-        const lang = repo.language !== 'null' && repo.language ? repo.language : 'Outro';
-        const stars = repo.stargazers_count || 0;
-        const forks = repo.forks_count || 0;
+      container.innerHTML = githubRepos
+        .map((repo, i) => {
+          const stagger = `stagger-${(i % 6) + 1}`;
+          const desc =
+            repo.description !== 'null' && repo.description
+              ? repo.description
+              : 'Sem descrição disponível no momento.';
+          const lang = repo.language !== 'null' && repo.language ? repo.language : 'Outro';
+          const stars = repo.stargazers_count || 0;
+          const forks = repo.forks_count || 0;
 
-        return `
+          return `
           <div class="col-lg-3 col-md-4 col-sm-6 mb-4 fade-in-up ${stagger}">
             <div class="project-card d-flex flex-column h-100">
               <div class="project-card-image d-flex align-items-center justify-content-center" style="height: 120px; background: rgba(26, 178, 129, 0.04) !important;">
@@ -197,10 +207,11 @@ const App = (() => {
               </div>
             </div>
           </div>`;
-      }).join('');
+        })
+        .join('');
 
       requestAnimationFrame(() => {
-        container.querySelectorAll('.fade-in-up').forEach(el => el.classList.add('visible'));
+        container.querySelectorAll('.fade-in-up').forEach((el) => el.classList.add('visible'));
       });
       return;
     }
@@ -208,7 +219,7 @@ const App = (() => {
     const lang = typeof I18n !== 'undefined' ? I18n.getLang() : 'pt';
     let filtered = projects;
     if (projectFilter !== 'all') {
-      filtered = projects.filter(p => p.tipo === projectFilter);
+      filtered = projects.filter((p) => p.tipo === projectFilter);
     }
 
     if (filtered.length === 0) {
@@ -216,24 +227,39 @@ const App = (() => {
       return;
     }
 
-    container.innerHTML = filtered.map((p, i) => {
-      const desc = typeof p.description === 'object' ? (p.description[lang] || p.description.pt || '') : (p.description || '');
-      const stagger = `stagger-${(i % 6) + 1}`;
-      const imgSrc = p.image || '';
-      const imgHtml = imgSrc
-        ? `<img src="${imgSrc}" alt="${p.title}" loading="lazy" onerror="this.parentElement.innerHTML='<i class=\\'bi bi-folder2-open\\' style=\\'font-size:3rem;color:var(--nepem-green)\\'></i>'">`
-        : `<i class="bi bi-folder2-open" style="font-size:3rem;color:var(--nepem-green)"></i>`;
+    container.innerHTML = filtered
+      .map((p, i) => {
+        const desc =
+          typeof p.description === 'object'
+            ? p.description[lang] || p.description.pt || ''
+            : p.description || '';
+        const stagger = `stagger-${(i % 6) + 1}`;
+        const imgSrc = p.image || '';
+        const imgHtml = imgSrc
+          ? `<img src="${imgSrc}" alt="${p.title}" loading="lazy" onerror="this.parentElement.innerHTML='<i class=\\'bi bi-folder2-open\\' style=\\'font-size:3rem;color:var(--nepem-green)\\'></i>'">`
+          : `<i class="bi bi-folder2-open" style="font-size:3rem;color:var(--nepem-green)"></i>`;
 
-      const links = [];
-      if (p.url) links.push(`<a href="${p.url}" target="_blank"><i class="bi bi-box-arrow-up-right me-1"></i>Site</a>`);
-      if (p.github) links.push(`<a href="${p.github}" target="_blank"><i class="bi bi-github me-1"></i>GitHub</a>`);
-      
-      // If project_number is an HTTP/S link, add it as a button link
-      if (p.project_number && (p.project_number.startsWith('http://') || p.project_number.startsWith('https://'))) {
-        links.push(`<a href="${p.project_number}" target="_blank"><i class="bi bi-info-circle me-1"></i>Página Oficial</a>`);
-      }
+        const links = [];
+        if (p.url)
+          links.push(
+            `<a href="${p.url}" target="_blank"><i class="bi bi-box-arrow-up-right me-1"></i>Site</a>`,
+          );
+        if (p.github)
+          links.push(
+            `<a href="${p.github}" target="_blank"><i class="bi bi-github me-1"></i>GitHub</a>`,
+          );
 
-      return `
+        // If project_number is an HTTP/S link, add it as a button link
+        if (
+          p.project_number &&
+          (p.project_number.startsWith('http://') || p.project_number.startsWith('https://'))
+        ) {
+          links.push(
+            `<a href="${p.project_number}" target="_blank"><i class="bi bi-info-circle me-1"></i>Página Oficial</a>`,
+          );
+        }
+
+        return `
         <div class="col-lg-3 col-md-4 col-sm-6 mb-4 fade-in-up ${stagger}">
           <div class="project-card">
             <div class="project-card-image">${imgHtml}</div>
@@ -242,24 +268,27 @@ const App = (() => {
               <h5>${p.title}</h5>
               
               <!-- If project_number is a simple registration number, display it under title -->
-              ${p.project_number && !(p.project_number.startsWith('http://') || p.project_number.startsWith('https://'))
-                ? `<div class="small text-muted mb-2" style="font-size: 0.78rem;"><i class="bi bi-hash me-1"></i>Reg: ${p.project_number}</div>`
-                : ''
+              ${
+                p.project_number &&
+                !(p.project_number.startsWith('http://') || p.project_number.startsWith('https://'))
+                  ? `<div class="small text-muted mb-2" style="font-size: 0.78rem;"><i class="bi bi-hash me-1"></i>Reg: ${p.project_number}</div>`
+                  : ''
               }
               
               <p>${desc}</p>
               <div class="project-tags">
-                ${(p.tags || []).map(t => `<span class="project-tag">${t}</span>`).join('')}
+                ${(p.tags || []).map((t) => `<span class="project-tag">${t}</span>`).join('')}
               </div>
               ${links.length ? `<div class="project-links">${links.join('')}</div>` : ''}
             </div>
           </div>
         </div>`;
-    }).join('');
+      })
+      .join('');
 
     // Animate
     requestAnimationFrame(() => {
-      container.querySelectorAll('.fade-in-up').forEach(el => el.classList.add('visible'));
+      container.querySelectorAll('.fade-in-up').forEach((el) => el.classList.add('visible'));
     });
   }
 
@@ -279,7 +308,7 @@ const BlogModule = (() => {
       posts = [];
     }
     renderGrid();
-    
+
     // Set dynamic 3D badge count
     const badge = document.getElementById('badgePostsCount');
     if (badge) {
@@ -303,14 +332,17 @@ const BlogModule = (() => {
     // Sort posts by date desc
     const sortedPosts = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    container.innerHTML = sortedPosts.map((post, i) => {
-      const excerpt = post.excerpt || '';
-      const date = post.date || '';
-      const title = post.title || '';
-      const banner = post.banner || 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=600&q=80';
-      const stagger = `stagger-${(i % 6) + 1}`;
+    container.innerHTML = sortedPosts
+      .map((post, i) => {
+        const excerpt = post.excerpt || '';
+        const date = post.date || '';
+        const title = post.title || '';
+        const banner =
+          post.banner ||
+          'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=600&q=80';
+        const stagger = `stagger-${(i % 6) + 1}`;
 
-      return `
+        return `
         <div class="col-md-6 col-lg-4 mb-4 fade-in-up ${stagger} visible">
           <div class="project-card d-flex flex-column h-100" style="cursor: pointer; border-radius: var(--radius-md); overflow: hidden; background: var(--bg-card);" onclick="BlogModule.openPost('${post.id}')">
             <div class="project-card-image p-0" style="height: 180px; overflow: hidden; background: #e2e8f0; position: relative;">
@@ -328,11 +360,12 @@ const BlogModule = (() => {
             </div>
           </div>
         </div>`;
-    }).join('');
+      })
+      .join('');
   }
 
   function openPost(id) {
-    const post = posts.find(p => p.id === id);
+    const post = posts.find((p) => p.id === id);
     if (!post) return;
 
     const modalBody = document.getElementById('blogModalBody');
@@ -369,10 +402,7 @@ const BlogModule = (() => {
   function parseMarkdown(text) {
     if (!text) return '';
 
-    let html = text
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
+    let html = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
     // 1. Headings
     html = html.replace(/^### (.*?)$/gm, '<h5 class="fw-bold mt-4 mb-2 text-gradient">$1</h5>');
@@ -384,31 +414,60 @@ const BlogModule = (() => {
 
     // 3. Lists
     html = html.replace(/^\* (.*?)$/gm, '<li>$1</li>');
-    html = html.replace(/(<li>.*?<\/li>)+/gs, (match) => `<ul class="text-secondary ps-3 my-2" style="list-style-type: disc;">${match}</ul>`);
+    html = html.replace(
+      /(<li>.*?<\/li>)+/gs,
+      (match) =>
+        `<ul class="text-secondary ps-3 my-2" style="list-style-type: disc;">${match}</ul>`,
+    );
 
     // 4. Tables
-    html = html.replace(/\|(.*?)\|\r?\n\|[ -:|]*?\|\r?\n((?:\|.*?\|\r?\n?)*)/g, (match, header, body) => {
-      const headers = header.split('|').map(h => h.trim()).filter(Boolean);
-      const rows = body.trim().split('\n').map(r => r.split('|').map(c => c.trim()).filter(Boolean));
+    html = html.replace(
+      /\|(.*?)\|\r?\n\|[ -:|]*?\|\r?\n((?:\|.*?\|\r?\n?)*)/g,
+      (match, header, body) => {
+        const headers = header
+          .split('|')
+          .map((h) => h.trim())
+          .filter(Boolean);
+        const rows = body
+          .trim()
+          .split('\n')
+          .map((r) =>
+            r
+              .split('|')
+              .map((c) => c.trim())
+              .filter(Boolean),
+          );
 
-      const thHtml = headers.map(h => `<th class="bg-light text-secondary font-semibold p-2 border">${h}</th>`).join('');
-      const trHtml = rows.map(row => {
-        if (row.length === 0) return '';
-        return `<tr>${row.map(cell => `<td class="p-2 border text-secondary">${cell}</td>`).join('')}</tr>`;
-      }).join('');
+        const thHtml = headers
+          .map((h) => `<th class="bg-light text-secondary font-semibold p-2 border">${h}</th>`)
+          .join('');
+        const trHtml = rows
+          .map((row) => {
+            if (row.length === 0) return '';
+            return `<tr>${row.map((cell) => `<td class="p-2 border text-secondary">${cell}</td>`).join('')}</tr>`;
+          })
+          .join('');
 
-      return `<div class="table-responsive my-4"><table class="table border table-hover align-middle"><thead><tr>${thHtml}</tr></thead><tbody>${trHtml}</tbody></table></div>`;
-    });
+        return `<div class="table-responsive my-4"><table class="table border table-hover align-middle"><thead><tr>${thHtml}</tr></thead><tbody>${trHtml}</tbody></table></div>`;
+      },
+    );
 
     // 5. Paragraphs
     const paragraphs = html.split(/\n\n+/);
-    html = paragraphs.map(p => {
-      const trimmed = p.trim();
-      if (trimmed.startsWith('<ul') || trimmed.startsWith('<div class="table-responsive') || trimmed.startsWith('<h5') || trimmed.startsWith('<h6')) {
-        return trimmed;
-      }
-      return `<p class="mb-3">${trimmed.replace(/\n/g, '<br>')}</p>`;
-    }).join('');
+    html = paragraphs
+      .map((p) => {
+        const trimmed = p.trim();
+        if (
+          trimmed.startsWith('<ul') ||
+          trimmed.startsWith('<div class="table-responsive') ||
+          trimmed.startsWith('<h5') ||
+          trimmed.startsWith('<h6')
+        ) {
+          return trimmed;
+        }
+        return `<p class="mb-3">${trimmed.replace(/\n/g, '<br>')}</p>`;
+      })
+      .join('');
 
     return html;
   }
@@ -421,7 +480,7 @@ const ScholarStats = (() => {
   const DEFAULT_STATS = {
     citations: 3680,
     hIndex: 23,
-    worksCount: 135
+    worksCount: 135,
   };
   const ORCID = '0000-0002-0241-9636';
   const API_URL = `https://api.openalex.org/authors/https://orcid.org/0000-0002-0241-9636`;
@@ -463,18 +522,20 @@ const ScholarStats = (() => {
           let citations = DEFAULT_STATS.citations;
           let hIndex = DEFAULT_STATS.hIndex;
 
-          table.forEach(item => {
+          table.forEach((item) => {
             if (item.citations) citations = item.citations.all || citations;
             if (item.h_index) hIndex = item.h_index.all || hIndex;
           });
 
-          const worksCount = (data.scholarData.articles && data.scholarData.articles.length) || DEFAULT_STATS.worksCount;
+          const worksCount =
+            (data.scholarData.articles && data.scholarData.articles.length) ||
+            DEFAULT_STATS.worksCount;
 
           const newStats = {
             citations,
             hIndex,
             worksCount,
-            timestamp: Date.now()
+            timestamp: Date.now(),
           };
 
           localStorage.setItem(STORAGE_KEY, JSON.stringify(newStats));
@@ -496,7 +557,7 @@ const ScholarStats = (() => {
         citations: data.cited_by_count || DEFAULT_STATS.citations,
         hIndex: (data.summary_stats && data.summary_stats.h_index) || DEFAULT_STATS.hIndex,
         worksCount: data.works_count || DEFAULT_STATS.worksCount,
-        timestamp: Date.now()
+        timestamp: Date.now(),
       };
 
       // Save to cache
@@ -505,7 +566,10 @@ const ScholarStats = (() => {
       // Update UI with fresh stats
       updateUI(newStats);
     } catch (e) {
-      console.warn('Could not fetch live citation stats from OpenAlex. Using offline/cached data.', e);
+      console.warn(
+        'Could not fetch live citation stats from OpenAlex. Using offline/cached data.',
+        e,
+      );
     }
   }
 
