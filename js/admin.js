@@ -112,8 +112,8 @@ const AdminModule = (() => {
               <div class="d-inline-flex align-items-center justify-content-center bg-success bg-opacity-10 text-success rounded-circle p-3 mb-2" style="width: 70px; height: 70px;">
                 <i class="bi bi-shield-lock fs-2"></i>
               </div>
-              <h4 class="mt-2 fw-bold">Painel Restrito</h4>
-              <p class="small text-secondary">Insira a senha de administrador para acessar o painel do NEPEM/UFSC.</p>
+              <h4 class="mt-2 fw-bold">Área restrita</h4>
+              <p class="small text-secondary">Informe a senha de administrador para acessar o painel do NEPEM/UFSC.</p>
             </div>
             <form onsubmit="AdminModule.handleLogin(event)">
               <div class="mb-3">
@@ -126,7 +126,7 @@ const AdminModule = (() => {
             <div class="mt-3 text-start small border-top pt-3">
               <span class="text-secondary d-block mb-1">🔑 <strong>Nota de Segurança:</strong></span>
               <span class="text-muted d-block" style="font-size: 0.8rem; line-height: 1.4;">
-                Como este é um site estático, as alterações feitas aqui ficam guardadas apenas no seu navegador local até que você exporte o JSON e o atualize no Git. A senha está protegida por um hash criptográfico seguro.
+                Este painel grava as alterações apenas neste navegador até que você exporte o JSON e publique a atualização no repositório. A senha é validada com hash SHA-256.
               </span>
             </div>
           </div>
