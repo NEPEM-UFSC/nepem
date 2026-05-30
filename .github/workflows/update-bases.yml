@@ -1,0 +1,58 @@
+name: Refresh NEPEM data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * 1'
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    env:
+      SCHOLAR_AUTHOR_ID: QjxIJkcAAAAJ
+      ORCID_ID: 0000-0002-0241-9636
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN_NEPEM: ${{ secrets.GITHUB_TOKEN_NEPEM }}
+      SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+      NEPEMBOT_PAT: ${{ secrets.NEPEMBOT_PAT }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.NEPEMBOT_PAT }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Refresh fallback data
+        run: npm run update:bases
+
+      - name: Configure git identity
+        run: |
+          git config user.name "NEPEMBOT"
+          git config user.email "nepembot@users.noreply.github.com"
+
+      - name: Commit refreshed data
+        env:
+          GITHUB_TOKEN: ${{ secrets.NEPEMBOT_PAT }}
+        run: |
+          if git diff --quiet -- data/fallback-data.json; then
+            echo "No fallback data changes to commit."
+            exit 0
+          fi
+
+          git add data/fallback-data.json
+          git commit -m "chore: refresh fallback data"
+          git push origin HEAD:${GITHUB_REF_NAME}

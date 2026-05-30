@@ -1,11 +1,13 @@
 const fs = require('fs/promises');
 const path = require('path');
+const { execFileSync } = require('child_process');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
 const DATA_DIR = path.join(ROOT_DIR, 'data');
 const MAIN_FILENAME = path.join(DATA_DIR, 'fallback-data.json');
 const TEMP_FILENAME = path.join(DATA_DIR, 'fallback-data-temp.json');
-const KEYS_FILENAME = path.join(ROOT_DIR, 'keys.json');
+const CONFIG_FILENAME = path.join(__dirname, 'update-bases.config.json');
+const ENV_FILENAME = path.resolve(ROOT_DIR, '..', '.env');
 
 function normalizeTitle(title) {
   if (!title || typeof title !== 'string') return '';
@@ -32,35 +34,59 @@ async function fileExists(filePath) {
   }
 }
 
-async function loadKeys() {
-  const envFallback = {
-    github_username: process.env.GITHUB_USERNAME,
-    github_token: process.env.GITHUB_TOKEN,
-    github_username_nepem: process.env.GITHUB_USERNAME_NEPEM,
-    github_token_nepem: process.env.GITHUB_TOKEN_NEPEM,
-    orcid_id: process.env.ORCID_ID,
-    scholar_author_id: process.env.SCHOLAR_AUTHOR_ID,
-    serpapi_api_key: process.env.SERPAPI_API_KEY ? [process.env.SERPAPI_API_KEY] : [],
+function parseEnvFile(content) {
+  const result = {};
+  for (const line of content.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const equalsIndex = trimmed.indexOf('=');
+    if (equalsIndex === -1) continue;
+    const key = trimmed.slice(0, equalsIndex).trim();
+    let value = trimmed.slice(equalsIndex + 1).trim();
+    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+      value = value.slice(1, -1);
+    }
+    result[key] = value;
+  }
+  return result;
+}
+
+async function loadWorkspaceEnv() {
+  if (!(await fileExists(ENV_FILENAME))) return {};
+  return parseEnvFile(await fs.readFile(ENV_FILENAME, 'utf8'));
+}
+
+async function loadConfig() {
+  const workspaceEnv = await loadWorkspaceEnv();
+  const defaults = {
+    github_username: 'NEPEM-UFSC',
+    github_username_nepem: 'NEPEM-UFSC',
+    orcid_id: '0000-0002-0241-9636',
+    scholar_author_id: 'QjxIJkcAAAAJ',
+    github_api_base: 'https://api.github.com',
+    scholar_api_base: 'https://serpapi.com/search.json',
+    orcid_api_base: 'https://pub.orcid.org/v3.0',
   };
 
-  if (await fileExists(KEYS_FILENAME)) {
-    const fileKeys = JSON.parse(await fs.readFile(KEYS_FILENAME, 'utf8'));
-    const apiKeys = Array.isArray(fileKeys.serpapi_api_key)
-      ? fileKeys.serpapi_api_key
-      : (fileKeys.serpapi_api_key ? [fileKeys.serpapi_api_key] : []);
-
+  if (await fileExists(CONFIG_FILENAME)) {
+    const fileConfig = JSON.parse(await fs.readFile(CONFIG_FILENAME, 'utf8'));
     return {
-      github_username: fileKeys.github_username || envFallback.github_username,
-      github_token: fileKeys.github_token || envFallback.github_token,
-      github_username_nepem: fileKeys.github_username_nepem || envFallback.github_username_nepem,
-      github_token_nepem: fileKeys.github_token_nepem || envFallback.github_token_nepem,
-      orcid_id: fileKeys.orcid_id || envFallback.orcid_id,
-      scholar_author_id: fileKeys.scholar_author_id || envFallback.scholar_author_id,
-      serpapi_api_key: apiKeys.length > 0 ? apiKeys : envFallback.serpapi_api_key,
+      ...defaults,
+      ...fileConfig,
+      github_username: workspaceEnv.GITHUB_USERNAME || fileConfig.github_username || defaults.github_username,
+      github_username_nepem: workspaceEnv.GITHUB_USERNAME_NEPEM || fileConfig.github_username_nepem || defaults.github_username_nepem,
+      orcid_id: workspaceEnv.ORCID_ID || fileConfig.orcid_id || defaults.orcid_id,
+      scholar_author_id: workspaceEnv.SCHOLAR_AUTHOR_ID || fileConfig.scholar_author_id || defaults.scholar_author_id,
     };
   }
 
-  return envFallback;
+  return {
+    ...defaults,
+    github_username: workspaceEnv.GITHUB_USERNAME || defaults.github_username,
+    github_username_nepem: workspaceEnv.GITHUB_USERNAME_NEPEM || defaults.github_username_nepem,
+    orcid_id: workspaceEnv.ORCID_ID || defaults.orcid_id,
+    scholar_author_id: workspaceEnv.SCHOLAR_AUTHOR_ID || defaults.scholar_author_id,
+  };
 }
 
 async function fetchJson(url, init, label) {
@@ -203,7 +229,7 @@ async function fetchScholarProfile(authorId, apiKey) {
     hl: 'pt-br',
   });
 
-  const data = await fetchJson(`https://serpapi.com/search.json?${params.toString()}`, {}, 'Scholar profile');
+  const data = await fetchJson(`${process.env.SCHOLAR_API_BASE || 'https://serpapi.com/search.json'}?${params.toString()}`, {}, 'Scholar profile');
   if (data.error) {
     throw new Error(`Scholar profile error: ${data.error}`);
   }
@@ -300,41 +326,87 @@ async function writeAtomicJson(targetPath, data) {
   await fs.rename(tempPath, targetPath);
 }
 
-async function runUpdateBases(options = {}) {
-  const keys = await loadKeys();
-  const apiKeys = Array.isArray(keys.serpapi_api_key) ? keys.serpapi_api_key : [];
-
-  if (!keys.scholar_author_id || apiKeys.length === 0) {
-    throw new Error('Missing scholar_author_id or serpapi_api_key configuration');
+async function loadExistingFallback() {
+  if (!(await fileExists(MAIN_FILENAME))) {
+    return loadFallbackFromGit();
   }
 
-  const githubRepos = [
-    ...(await fetchGithubRepos(keys.github_username_nepem, keys.github_token_nepem)),
-    ...(await fetchGithubRepos(keys.github_username, keys.github_token)),
-  ];
+  try {
+    const parsed = JSON.parse(await fs.readFile(MAIN_FILENAME, 'utf8'));
+    if (Array.isArray(parsed.githubRepos) && parsed.githubRepos.length > 0) {
+      return parsed;
+    }
+    return loadFallbackFromGit() || parsed;
+  } catch {
+    return loadFallbackFromGit();
+  }
+}
 
-  const orcidWorks = await fetchOrcidWorks(keys.orcid_id).catch((error) => {
-    console.warn('[update] ORCID unavailable:', error.message);
-    return [];
-  });
+function loadFallbackFromGit() {
+  try {
+    const output = execFileSync('git', ['show', 'HEAD:data/fallback-data.json'], {
+      cwd: ROOT_DIR,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+    return JSON.parse(output);
+  } catch {
+    return null;
+  }
+}
+
+async function runUpdateBases(options = {}) {
+  const config = await loadConfig();
+  const workspaceEnv = await loadWorkspaceEnv();
+  const apiKeys = workspaceEnv.SERPAPI_API_KEY || process.env.SERPAPI_API_KEY ? [workspaceEnv.SERPAPI_API_KEY || process.env.SERPAPI_API_KEY] : [];
+  const githubTokenNepem = workspaceEnv.GITHUB_TOKEN_NEPEM || process.env.GITHUB_TOKEN_NEPEM || '';
+  const githubToken = workspaceEnv.GITHUB_TOKEN || process.env.GITHUB_TOKEN || '';
+  const scholarAuthorId = config.scholar_author_id || '';
+  const orcidId = config.orcid_id || '';
+  const scholarOnly = ['1', 'true', 'yes'].includes(String(workspaceEnv.SCHOLAR_ONLY || process.env.SCHOLAR_ONLY || '').toLowerCase());
+  const skipGithubSync = scholarOnly || ['1', 'true', 'yes'].includes(String(workspaceEnv.SKIP_GITHUB_SYNC || process.env.SKIP_GITHUB_SYNC || '').toLowerCase());
+  const skipOrcidSync = scholarOnly || ['1', 'true', 'yes'].includes(String(workspaceEnv.SKIP_ORCID_SYNC || process.env.SKIP_ORCID_SYNC || '').toLowerCase());
+  const existingFallback = await loadExistingFallback();
+
+  const githubRepos = skipGithubSync
+    ? (existingFallback?.githubRepos || [])
+    : [
+        ...(await fetchGithubRepos(config.github_username_nepem, githubTokenNepem)),
+        ...(await fetchGithubRepos(config.github_username, githubToken)),
+      ];
+
+  const orcidWorks = skipOrcidSync
+    ? []
+    : await fetchOrcidWorks(orcidId).catch((error) => {
+        console.warn('[update] ORCID unavailable:', error.message);
+        return [];
+      });
 
   let scholarProfile = null;
   let scholarArticles = [];
   let lastError = null;
 
-  for (const apiKey of apiKeys) {
-    try {
-      scholarProfile = await fetchScholarProfile(keys.scholar_author_id, apiKey);
-      scholarArticles = await fetchAllScholarArticles(keys.scholar_author_id, apiKey);
-      lastError = null;
-      break;
-    } catch (error) {
-      lastError = error;
+  if (scholarAuthorId && apiKeys.length > 0) {
+    for (const apiKey of apiKeys) {
+      try {
+        scholarProfile = await fetchScholarProfile(scholarAuthorId, apiKey);
+        scholarArticles = await fetchAllScholarArticles(scholarAuthorId, apiKey);
+        lastError = null;
+        break;
+      } catch (error) {
+        lastError = error;
+      }
     }
+  } else {
+    console.warn('[update] Scholar sync skipped because scholar_author_id or SERPAPI_API_KEY is missing.');
   }
 
   if (!scholarProfile || scholarArticles.length === 0) {
-    throw lastError || new Error('Scholar data unavailable');
+    if (lastError) {
+      console.warn('[update] Scholar sync failed:', lastError.message);
+    }
+    scholarProfile = scholarProfile || { table: [], graph: [] };
+    scholarArticles = scholarArticles || [];
   }
 
   const mergedArticles = mergeOrcidAndScholar(orcidWorks, scholarArticles);

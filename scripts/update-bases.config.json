@@ -1,0 +1,9 @@
+{
+  "github_username": "NEPEM-UFSC",
+  "github_username_nepem": "NEPEM-UFSC",
+  "orcid_id": "0000-0002-0241-9636",
+  "scholar_author_id": "QjxIJkcAAAAJ",
+  "github_api_base": "https://api.github.com",
+  "scholar_api_base": "https://serpapi.com/search.json",
+  "orcid_api_base": "https://pub.orcid.org/v3.0"
+}
