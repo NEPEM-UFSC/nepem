@@ -3,7 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="js/runtime.js?v=2"></script>
+    <script>
+      (() => {
+        const { hostname, protocol, pathname } = window.location;
+        const isLocalHost =
+          protocol === 'file:' ||
+          hostname === 'localhost' ||
+          hostname === '127.0.0.1' ||
+          hostname === '::1' ||
+          hostname.endsWith('.local') ||
+          hostname.endsWith('.localhost') ||
+          hostname.endsWith('.test');
+        const isDev = isLocalHost;
+        const isAdminPath = pathname.endsWith('/admin.html') || pathname === '/admin';
+
+        document.documentElement.classList.toggle('nepem-dev', isDev);
+        document.documentElement.classList.toggle('nepem-prod', !isDev);
+
+        if (!isDev && isAdminPath) {
+          window.location.replace('404.html');
+        }
+
+        window.NEPEM_ENV = { isDev };
+      })();
+    </script>
     <meta name="robots" content="noindex, nofollow" />
     <title>Admin — NEPEM/UFSC</title>
 

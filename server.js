@@ -5,7 +5,6 @@ const { runUpdateBases } = require('./scripts/update-bases');
 
 const ROOT_DIR = __dirname;
 const PORT = Number(process.env.PORT || 8000);
-const IS_DEV = process.env.NODE_ENV !== 'production';
 const JSON_TYPES = new Set(['members', 'publications', 'projects', 'posts']);
 const BLOCKED_PATHS = new Set([
   '/server.py',
@@ -62,10 +61,6 @@ async function main() {
   app.use(express.json({ limit: '10mb' }));
 
   app.use((req, res, next) => {
-    if (!IS_DEV && (req.path === '/admin' || req.path === '/admin.html')) {
-      return res.status(404).sendFile(path.join(ROOT_DIR, '404.html'));
-    }
-
     if (req.path.startsWith('/api/')) {
       setApiHeaders(res);
       if (req.method === 'OPTIONS') {
