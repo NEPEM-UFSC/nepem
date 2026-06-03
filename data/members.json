@@ -401,6 +401,59 @@
       "scholar": ""
     },
     "status": "active",
-    "weight": 50
+    "weight": 1
+  },
+  {
+    "id": "kamilly_siqueira_tonet",
+    "name": "Kamilly Siqueira Tonet",
+    "role": "Iniciação Científica",
+    "group": "Graduando",
+    "bio": {
+      "pt": "",
+      "en": "",
+      "es": ""
+    },
+    "photo": "img/members/member_1775474880796_j_1780512758453.jpg",
+    "email": "kamillytonet@gmail.com",
+    "interests": [
+      "Produção animal",
+      "Manejo Reprodutivo"
+    ],
+    "links": {
+      "lattes": "http://lattes.cnpq.br/6743064422541619",
+      "linkedin": "https://www.linkedin.com/in/kamilly-siqueira-tonet-58243a151/",
+      "github": "",
+      "researchgate": "https://www.researchgate.net/profile/Kamilly-Tonet",
+      "orcid": "",
+      "scholar": ""
+    },
+    "status": "active",
+    "weight": 1
+  },
+  {
+    "id": "luciano_dos_santos_cardoso_junior",
+    "name": "Luciano Dos Santos Cardoso Junior",
+    "role": "Aluno de Graduação",
+    "group": "Ex-alunos",
+    "bio": {
+      "pt": "",
+      "en": "",
+      "es": ""
+    },
+    "photo": "img/members/member_1753125761088_j_1780513009649.jpg",
+    "email": "lucianoufscagve@gmail.com",
+    "interests": [
+      "Sensoriamento Remoto"
+    ],
+    "links": {
+      "lattes": "http://lattes.cnpq.br/0532260360572768",
+      "linkedin": "https://www.linkedin.com/in/luciano-dos-santos-cardoso-junior/",
+      "github": "https://github.com/RithonBR",
+      "researchgate": "",
+      "orcid": "",
+      "scholar": ""
+    },
+    "status": "alumni",
+    "weight": 1
   }
 ]
