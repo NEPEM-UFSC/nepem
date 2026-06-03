@@ -1322,14 +1322,12 @@ const AdminModule = (() => {
     const cleanExt = ".jpg";
     const baseName = fileToProcess.name.toLowerCase().replace(/[^a-z0-9]/g, "_").substring(0, 15);
     const uniqueFilename = `${type}_${baseName}_${Date.now()}${cleanExt}`;
-
-    showToast("Fazendo upload da imagem...");
-
-    let savedPath = null;
+    const subfolder = type === 'member' ? 'members' : 'projects';
+    const savedPath = `img/${subfolder}/${uniqueFilename}`;
 
     // 1. Try local server endpoint first if running locally
     try {
-      const response = await fetch('/api/upload-image', {
+      await fetch('/api/upload-image', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -1338,62 +1336,30 @@ const AdminModule = (() => {
           type: type
         })
       });
-      if (response.ok) {
-        const resData = await response.json();
-        savedPath = resData.path;
-      }
     } catch (e) {
-      console.log("Local upload not available. Checking GitHub Sync...");
+      console.log("Local upload not available.");
     }
 
-    // 2. Try GitHub API direct upload if GitHub Sync is configured
-    if (!savedPath) {
-      const configStr = localStorage.getItem('nepem-github-config');
-      if (configStr) {
-        const config = JSON.parse(configStr);
-        if (config.token && config.owner && config.repo) {
-          try {
-            const rawBase64 = processedBase64.includes(",") ? processedBase64.split(",")[1] : processedBase64;
-            const subfolder = type === 'member' ? 'members' : 'projects';
-            const gitHubPath = `img/${subfolder}/${uniqueFilename}`;
-            const putUrl = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${gitHubPath}`;
-
-            const putRes = await fetch(putUrl, {
-              method: 'PUT',
-              headers: {
-                'Authorization': `token ${config.token}`,
-                'Accept': 'application/vnd.github.v3+json',
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                message: `Upload photo ${uniqueFilename} via Admin Panel`,
-                content: rawBase64,
-                branch: config.branch
-              })
-            });
-
-            if (putRes.ok) {
-              savedPath = `img/${subfolder}/${uniqueFilename}`;
-            }
-          } catch (gitErr) {
-            console.error("GitHub upload failed:", gitErr);
-          }
-        }
-      }
+    // 2. Queue the image to be uploaded to GitHub on Deploy
+    try {
+      const rawBase64 = processedBase64.includes(",") ? processedBase64.split(",")[1] : processedBase64;
+      const pendingImages = JSON.parse(localStorage.getItem('nepem-pending-images') || '[]');
+      pendingImages.push({
+        filename: uniqueFilename,
+        base64: rawBase64,
+        subfolder: subfolder
+      });
+      localStorage.setItem('nepem-pending-images', JSON.stringify(pendingImages));
+    } catch (e) {
+      console.error("Failed to queue image in localStorage:", e);
     }
 
     // 3. Set value of the corresponding text input field
     const inputElId = type === 'member' ? 'memberPhoto' : (type === 'project' ? 'projImage' : 'postBanner');
     const inputEl = document.getElementById(inputElId);
+    if (inputEl) inputEl.value = savedPath;
 
-    if (savedPath) {
-      if (inputEl) inputEl.value = savedPath;
-      showToast(`Imagem salva em ${savedPath}`);
-    } else {
-      // Fallback: use Base64 string directly inside JSON database if both offline & GitHub Sync are missing
-      if (inputEl) inputEl.value = processedBase64;
-      showToast("Imagem vinculada via base64 (plano de backup).");
-    }
+    showToast(`Imagem vinculada (será enviada no deploy): ${savedPath}`);
   }
 
   function resizeImage(fileToProcess) {
@@ -1695,11 +1661,77 @@ const AdminModule = (() => {
 
     if (!confirm("Deseja enviar todas as alterações salvas localmente para o GitHub e iniciar o deploy do site?")) return;
 
-    const types = ['publications', 'members', 'projects', 'posts'];
-    let successCount = 0;
-    
     showToast("Iniciando deploy de todas as alterações...");
 
+    let successImagesCount = 0;
+    let successDataCount = 0;
+
+    // 1. Upload pending images first
+    const pendingImagesStr = localStorage.getItem('nepem-pending-images');
+    if (pendingImagesStr) {
+      try {
+        const pendingImages = JSON.parse(pendingImagesStr);
+        if (pendingImages.length > 0) {
+          showToast(`Enviando ${pendingImages.length} imagem(ns) pendente(s)...`);
+          const failedImages = [];
+          
+          for (const img of pendingImages) {
+            try {
+              const gitHubPath = `img/${img.subfolder}/${img.filename}`;
+              const putUrl = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${gitHubPath}`;
+              
+              // Get current SHA if it exists (highly unlikely for timestamped filenames, but robust)
+              let currentSha = null;
+              const getRes = await fetch(`${putUrl}?ref=${config.branch}`, {
+                headers: { 'Authorization': `token ${config.token}`, 'Accept': 'application/vnd.github.v3+json' }
+              });
+              if (getRes.ok) {
+                const fileInfo = await getRes.json();
+                currentSha = fileInfo.sha;
+              }
+
+              showToast(`Enviando imagem ${img.filename}...`);
+              const putRes = await fetch(putUrl, {
+                method: 'PUT',
+                headers: {
+                  'Authorization': `token ${config.token}`,
+                  'Accept': 'application/vnd.github.v3+json',
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  message: `Upload photo ${img.filename} via Admin Panel Deploy`,
+                  content: img.base64,
+                  sha: currentSha,
+                  branch: config.branch
+                })
+              });
+
+              if (putRes.ok) {
+                successImagesCount++;
+              } else {
+                const errorData = await putRes.json();
+                console.error(`Error uploading image ${img.filename}:`, errorData);
+                failedImages.push(img);
+              }
+            } catch (imgErr) {
+              console.error(`Failed to upload image ${img.filename}:`, imgErr);
+              failedImages.push(img);
+            }
+          }
+
+          if (failedImages.length > 0) {
+            localStorage.setItem('nepem-pending-images', JSON.stringify(failedImages));
+          } else {
+            localStorage.removeItem('nepem-pending-images');
+          }
+        }
+      } catch (e) {
+        console.error("Error processing pending images:", e);
+      }
+    }
+
+    // 2. Deploy JSON files
+    const types = ['publications', 'members', 'projects', 'posts'];
     for (const type of types) {
       try {
         const key = type === 'publications' ? 'nepem-publications-v4' : `nepem-${type}`;
@@ -1713,7 +1745,7 @@ const AdminModule = (() => {
 
         showToast(`Enviando ${type}.json para o GitHub...`);
 
-        // 1. Get current SHA
+        // Get current SHA
         let currentSha = null;
         const getRes = await fetch(`${url}?ref=${config.branch}`, {
           headers: { 'Authorization': `token ${config.token}`, 'Accept': 'application/vnd.github.v3+json' }
@@ -1724,7 +1756,7 @@ const AdminModule = (() => {
           currentSha = fileInfo.sha;
         }
 
-        // 2. Update File
+        // Update File
         const putRes = await fetch(url, {
           method: 'PUT',
           headers: {
@@ -1741,7 +1773,7 @@ const AdminModule = (() => {
         });
 
         if (putRes.ok) {
-          successCount++;
+          successDataCount++;
         } else {
           const errorData = await putRes.json();
           console.error(`Error deploying ${type}:`, errorData);
@@ -1751,9 +1783,9 @@ const AdminModule = (() => {
       }
     }
 
-    if (successCount > 0) {
-      showToast(`Sucesso! Deploy concluído com ${successCount} arquivos atualizados.`);
-      alert(`Deploy enviado com sucesso! O GitHub foi atualizado com ${successCount} arquivos de dados e o Netlify iniciará a publicação em instantes.`);
+    if (successImagesCount > 0 || successDataCount > 0) {
+      showToast(`Sucesso! Deploy concluído.`);
+      alert(`Deploy enviado com sucesso! O GitHub foi atualizado com ${successImagesCount} imagem(ns) e ${successDataCount} arquivo(s) de dados. O Netlify iniciará a publicação em instantes.`);
     } else {
       alert("Nenhum arquivo pôde ser enviado. Verifique se as credenciais do GitHub estão corretas ou se há conexão com a internet.");
     }
