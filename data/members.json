@@ -31,7 +31,7 @@
     "id": "leonardo_campos",
     "name": "Leonardo Talavera Campos",
     "role": "Pós-Doutorando",
-    "group": "Pós-Doutorando",
+    "group": "Estudantes de Pós-Doutorado",
     "bio": {
       "pt": "Engenheiro Agrônomo formado pela UFRGS, Doutor em Ciências pela UFPel em Zootecnia com ênfase em Melhoramento Animal. Mestrado Profissional em Métodos e Gestão em Avaliação pela UFSC e MBA em Data Science e Analytics. Atualmente realiza Estágio de Pós-Doutorado em Recursos Genéticos Vegetais na UFSC/NEPEM.",
       "en": "Agricultural Engineer from UFRGS, PhD in Sciences from UFPel in Animal Science with emphasis on Animal Breeding. Professional Master's in Methods and Management in Evaluation from UFSC and MBA in Data Science and Analytics. Currently doing a Postdoctoral Fellowship in Plant Genetic Resources at UFSC/NEPEM.",
@@ -60,7 +60,7 @@
     "id": "cadu_assoni",
     "name": "Carlos Eduardo Forcelini Assoni",
     "role": "Graduando em Agronomia",
-    "group": "Graduando",
+    "group": "Estudantes de Graduação",
     "bio": {
       "pt": "Graduando em Agronomia na UFSC, com experiência em bioestimulação vegetal, cadeias agrícolas de commodities, consultoria em agronegócio, pesquisas em experimentação e melhoramento vegetal da cultura da linhaça",
       "en": "Undergraduate student in Agronomy at UFSC, with experience in plant biostimulation, agricultural commodity chains, agribusiness consulting, and research in experimentation and plant breeding of flaxseed.",
@@ -89,7 +89,7 @@
     "id": "matheus_lopes",
     "name": "Matheus Lopes",
     "role": "Graduando em Engenharia Agronômica",
-    "group": "Graduando",
+    "group": "Estudantes de Graduação",
     "bio": {
       "pt": "Estudante de Engenharia Agronômica na UFSC. Participa do NEPEM com ênfase em análise estatística aplicada ao setor agrário e do GEAD-UFSC explorando soluções em Geomática e Agricultura de Precisão. Experiência em Python, automação, análise espacial e processamento de imagens.",
       "en": "Agricultural Engineering student at UFSC. Participates in NEPEM with emphasis on statistical analysis applied to agriculture and in GEAD-UFSC exploring solutions in Geomatics and Precision Agriculture. Experience in Python, automation, spatial analysis, and image processing.",
@@ -118,7 +118,7 @@
     "id": "fausto_galhardi",
     "name": "Fausto Galhardi",
     "role": "Graduando em Agronomia",
-    "group": "Graduando",
+    "group": "Estudantes de Graduação",
     "bio": {
       "pt": "",
       "en": "",
@@ -142,7 +142,7 @@
     "id": "daniel_fumio_hada_junior",
     "name": "Daniel Fumio Hada Júnior",
     "role": "Graduando em Agronomia",
-    "group": "Graduando",
+    "group": "Estudantes de Graduação",
     "bio": {
       "pt": "",
       "en": "",
@@ -197,7 +197,7 @@
     "id": "luiz_felipe_inacio",
     "name": "Luiz Felipe Inácio",
     "role": "Estudante de Mestrado",
-    "group": "Mestrando",
+    "group": "Estudantes de Mestrado",
     "bio": {
       "pt": "",
       "en": "",
@@ -224,7 +224,7 @@
     "id": "luiz_paulo_da_silva",
     "name": "Luiz Paulo da Silva",
     "role": "Iniciação Científica",
-    "group": "Graduando",
+    "group": "Estudantes de Graduação",
     "bio": {
       "pt": "",
       "en": "",
@@ -251,7 +251,7 @@
     "id": "marina_mattiello_crestani",
     "name": "Marina Mattiello Crestani",
     "role": "Aluno de Graduação",
-    "group": "Graduando",
+    "group": "Estudantes de Graduação",
     "bio": {
       "pt": "",
       "en": "",
@@ -281,7 +281,7 @@
     "id": "daniel_schmechel_affeldt",
     "name": "Daniel Schmechel Affeldt",
     "role": "Monitor - Bioestatística",
-    "group": "Graduando",
+    "group": "Estudantes de Graduação",
     "bio": {
       "pt": "",
       "en": "",
@@ -308,7 +308,7 @@
     "id": "vanessa_borges",
     "name": "Vanessa Borges",
     "role": "Estudante de Mestrado",
-    "group": "Mestrando",
+    "group": "Estudantes de Mestrado",
     "bio": {
       "pt": "",
       "en": "",
@@ -335,7 +335,7 @@
     "id": "taina_caroline_kuhn",
     "name": "Tainá Caroline Kuhn",
     "role": "Estudante de Doutorado",
-    "group": "Doutorando",
+    "group": "Estudantes de Doutorado",
     "bio": {
       "pt": "",
       "en": "",
@@ -454,6 +454,35 @@
       "scholar": ""
     },
     "status": "alumni",
+    "weight": 1
+  },
+  {
+    "id": "lalesca_dadam_gomes",
+    "name": "Lalesca Dadam Gomes",
+    "role": "Estudante de Agronomia",
+    "group": "Graduando",
+    "bio": {
+      "pt": "",
+      "en": "",
+      "es": ""
+    },
+    "photo": "img/members/member_1729722878770_j_1780515895789.jpg",
+    "email": "glalescadadam@gmail.com",
+    "interests": [
+      "Experimentation with microorganisms",
+      "Statistical Analysis",
+      "R programmer",
+      "High-throughput Phenotyping"
+    ],
+    "links": {
+      "lattes": "https://lattes.cnpq.br/4075327655168322",
+      "linkedin": "linkedin.com/in/lalesca-dadam-gomes-9630b7335",
+      "github": "",
+      "researchgate": "https://www.researchgate.net/profile/Lalesca-Gomes-2",
+      "orcid": "",
+      "scholar": ""
+    },
+    "status": "active",
     "weight": 1
   }
 ]
