@@ -484,5 +484,32 @@
     },
     "status": "active",
     "weight": 1
+  },
+  {
+    "id": "alice_maria_trois",
+    "name": "Alice Maria Trois",
+    "role": "Aluno de Graduação",
+    "group": "Graduando",
+    "bio": {
+      "pt": "",
+      "en": "",
+      "es": ""
+    },
+    "photo": "img/members/member_alice_jpg_1781121834272.jpg",
+    "email": "atrois2003@gmail.com",
+    "interests": [
+      "Melhoramento de Plantas",
+      "Experimentação Agrícol"
+    ],
+    "links": {
+      "lattes": "http://lattes.cnpq.br/5168344220580897",
+      "linkedin": "",
+      "github": "",
+      "researchgate": "https://www.researchgate.net/profile/Alice-Trois",
+      "orcid": "",
+      "scholar": ""
+    },
+    "status": "active",
+    "weight": 1
   }
 ]
