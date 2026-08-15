@@ -1444,19 +1444,7 @@ const AdminModule = (() => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
 
-    // 1. Headings
-    html = html.replace(/^### (.*?)$/gm, '<h5 class="fw-bold mt-4 mb-2 text-gradient">$1</h5>');
-    html = html.replace(/^#### (.*?)$/gm, '<h6 class="fw-bold mt-3 mb-2">$1</h6>');
-
-    // 2. Bold & Italic
-    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-
-    // 3. Lists
-    html = html.replace(/^\* (.*?)$/gm, '<li>$1</li>');
-    html = html.replace(/(<li>.*?<\/li>)+/gs, (match) => `<ul class="text-secondary ps-3 my-2" style="list-style-type: disc;">${match}</ul>`);
-
-    // 4. Tables
+    // 1. Tables (Must be processed before other formatting)
     const tableBlockRegex = /(?:(?:^|\n)\|[^\n]+\|\r?\n\|[-:\s|]+\|\r?\n(?:\|[^\n]+\|\r?\n?)+)/g;
     html = html.replace(tableBlockRegex, (match) => {
       const lines = match.trim().split(/\r?\n/);
@@ -1477,27 +1465,42 @@ const AdminModule = (() => {
       return `<div class="table-responsive my-4"><table class="table border table-hover align-middle mb-0" style="color: var(--text-primary);"><thead><tr>${thHtml}</tr></thead><tbody>${trHtml}</tbody></table></div>`;
     });
 
-    // 5. Links & Attachments: [Texto](URL)
+    // 2. Headings
+    html = html.replace(/^### (.*?)$/gm, '<h5 class="fw-bold mt-4 mb-2 text-gradient">$1</h5>');
+    html = html.replace(/^#### (.*?)$/gm, '<h6 class="fw-bold mt-3 mb-2">$1</h6>');
+
+    // 3. Links & Attachments: [Texto](URL)
     html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, label, url) => {
-      const isFile = url.match(/\.(pdf|docx?|doc|xlsx?|xls|pptx?|ppt|zip|rar|7z|gz|tar|txt|csv|json|png|jpe?g|gif|svg|mp4|mp3)$/i);
+      const isFile = url.match(/\.(pdf|docx?|doc|xlsx?|xls|pptx?|ppt|zip|rar|7z|gz|tar|txt|csv|json|png|jpe?g|gif|svg|mp4|mp3)($|\?)/i) || url.startsWith('files/');
       let icon = 'bi bi-box-arrow-up-right';
-      if (url.match(/\.pdf$/i)) icon = 'bi bi-file-earmark-pdf';
-      else if (url.match(/\.docx?$/i)) icon = 'bi bi-file-earmark-word';
-      else if (url.match(/\.(xlsx?|csv)$/i)) icon = 'bi bi-file-earmark-excel';
-      else if (url.match(/\.pptx?$/i)) icon = 'bi bi-file-earmark-slides';
-      else if (url.match(/\.(zip|rar|7z|gz|tar)$/i)) icon = 'bi bi-file-earmark-zip';
-      else if (url.match(/\.(png|jpe?g|gif|svg)$/i)) icon = 'bi bi-file-earmark-image';
-      else if (url.match(/\.(mp4|mp3)$/i)) icon = 'bi bi-file-earmark-play';
-      else if (isFile) icon = 'bi bi-paperclip';
+      if (url.match(/\.pdf($|\?)/i)) icon = 'bi bi-file-earmark-pdf text-danger';
+      else if (url.match(/\.docx?($|\?)/i)) icon = 'bi bi-file-earmark-word text-primary';
+      else if (url.match(/\.(xlsx?|csv)($|\?)/i)) icon = 'bi bi-file-earmark-excel text-success';
+      else if (url.match(/\.pptx?($|\?)/i)) icon = 'bi bi-file-earmark-slides text-warning';
+      else if (url.match(/\.(zip|rar|7z|gz|tar)($|\?)/i)) icon = 'bi bi-file-earmark-zip text-warning';
+      else if (url.match(/\.(png|jpe?g|gif|svg)($|\?)/i)) icon = 'bi bi-file-earmark-image text-info';
+      else if (url.match(/\.(mp4|mp3)($|\?)/i)) icon = 'bi bi-file-earmark-play text-info';
+      else if (isFile) icon = 'bi bi-paperclip text-primary';
 
       return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-nepem-outline d-inline-flex align-items-center gap-1 my-1 me-1 text-decoration-none fw-semibold"><i class="${icon}"></i> ${label}</a>`;
     });
 
-    // 6. Paragraphs
+    // 4. Bullet Lists (Lines starting with * or -)
+    html = html.replace(/^\s*[\*\-]\s+(.*?)$/gm, '<li>$1</li>');
+    html = html.replace(/(<li>.*?<\/li>(\r?\n)?)+/gs, (match) => `<ul class="text-secondary ps-3 my-2" style="list-style-type: disc;">${match}</ul>`);
+
+    // 5. Bold (**text**)
+    html = html.replace(/\*\*([^\*]+)\*\*/g, '<strong>$1</strong>');
+
+    // 6. Italic (*text* only without multi-line spanning)
+    html = html.replace(/(^|[^\*])\*([^\*\n\s][^\*\n]*?[^\*\n\s]|\S)\*([^\*]|$)/g, '$1<em>$2</em>$3');
+
+    // 7. Paragraphs
     const paragraphs = html.split(/\n\n+/);
     html = paragraphs.map(p => {
       const trimmed = p.trim();
-      if (trimmed.startsWith('<ul') || trimmed.startsWith('<div class="table-responsive') || trimmed.startsWith('<h5') || trimmed.startsWith('<h6')) {
+      if (!trimmed) return '';
+      if (trimmed.startsWith('<ul') || trimmed.startsWith('<div class="table-responsive') || trimmed.startsWith('<h5') || trimmed.startsWith('<h6') || trimmed.startsWith('<table')) {
         return trimmed;
       }
       return `<p class="mb-3">${trimmed.replace(/\n/g, '<br>')}</p>`;

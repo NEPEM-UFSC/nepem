@@ -287,7 +287,90 @@ const App = (() => {
     });
   }
 
-  return { init, setProjectFilter };
+  function getPendingImageData(src) {
+    if (!src) return null;
+    const filename = src.split('/').pop().split('?')[0];
+    try {
+      const pending = JSON.parse(localStorage.getItem('nepem-pending-images') || '[]');
+      const found = pending.find(img => img.filename === filename || (img.filename && src.endsWith(img.filename)));
+      if (found && found.base64) {
+        return found.base64.startsWith('data:') ? found.base64 : `data:image/jpeg;base64,${found.base64}`;
+      }
+    } catch (e) {}
+    return null;
+  }
+
+  function setupSmartDownloads() {
+    document.addEventListener('click', async (e) => {
+      const link = e.target.closest('a[href^="files/"], a[href*="/files/"]');
+      if (!link) return;
+
+      const href = link.getAttribute('href');
+      const filename = href.split('/').pop().split('?')[0];
+
+      // Check if file exists on server
+      try {
+        const check = await fetch(href, { method: 'HEAD' });
+        if (check.ok) return; // Server file exists, proceed normally
+      } catch (err) {}
+
+      // Fallback: check IndexedDB and localStorage
+      let fileData = null;
+      try {
+        if (window.indexedDB) {
+          fileData = await new Promise((resolve) => {
+            const req = indexedDB.open('nepem_files_db', 1);
+            req.onsuccess = (ev) => {
+              const db = ev.target.result;
+              if (db.objectStoreNames.contains('attachments')) {
+                const tx = db.transaction('attachments', 'readonly');
+                const store = tx.objectStore('attachments');
+                const getReq = store.get(filename);
+                getReq.onsuccess = () => resolve(getReq.result);
+                getReq.onerror = () => resolve(null);
+              } else resolve(null);
+            };
+            req.onerror = () => resolve(null);
+          });
+        }
+      } catch (e) {}
+
+      if (!fileData) {
+        try {
+          const pending = JSON.parse(localStorage.getItem('nepem-pending-files') || '[]');
+          const match = pending.find(f => f.filename === filename);
+          if (match) fileData = match;
+        } catch (e) {}
+      }
+
+      if (fileData && fileData.base64) {
+        e.preventDefault();
+        const cleanBase64 = fileData.base64.includes(',') ? fileData.base64.split(',')[1] : fileData.base64;
+        const byteCharacters = atob(cleanBase64);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+          byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        const mime = fileData.mimeType || (filename.endsWith('.pdf') ? 'application/pdf' : 'application/octet-stream');
+        const blob = new Blob([byteArray], { type: mime });
+        const blobUrl = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = filename;
+        a.target = '_blank';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+          document.body.removeChild(a);
+          URL.revokeObjectURL(blobUrl);
+        }, 1500);
+      }
+    });
+  }
+
+  return { init, setProjectFilter, getPendingImageData, setupSmartDownloads };
 })();
 
 /* ========== BLOG MODULE ========== */
@@ -372,27 +455,29 @@ const BlogModule = (() => {
 
       return `
         <div class="col-md-6 col-lg-4 mb-4 fade-in-up ${stagger} visible">
-          <a href="${postUrl}" target="_blank" class="text-decoration-none color-inherit d-block h-100">
-            <div class="project-card d-flex flex-column h-100" style="cursor: pointer; border-radius: var(--radius-md); overflow: hidden; background: var(--bg-card);">
-              <div class="project-card-image p-0" style="height: 180px; overflow: hidden; background: #e2e8f0; position: relative;">
-                <img src="${banner}" 
-                     alt="${title.replace(/"/g, '&quot;')}" 
-                     style="width: 100%; height: 100%; object-fit: cover; max-width: none;"
-                     onerror="const f = App.getPendingImageData('${post.banner}'); if(f) { this.src = f; this.onerror = null; }">
-                <div class="position-absolute bottom-0 start-0 m-3 px-2 py-1 bg-dark text-white rounded text-xs fw-semibold small" style="opacity: 0.85; z-index: 10;">
-                  ${date}
-                </div>
-              </div>
-              <div class="project-card-body p-3 d-flex flex-column flex-grow-1">
-                <h5 class="fw-bold mb-2 text-truncate-2" style="font-size: 1.1rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 3.1rem; color: var(--text-primary);">${title}</h5>
-                <p class="text-secondary small mb-3 flex-grow-1" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.6; height: 4.8rem;">${excerpt}</p>
-                <div class="text-gradient fw-semibold small mt-auto d-flex align-items-center justify-content-between">
-                  <span>Ler post completo <i class="bi bi-arrow-right ms-1"></i></span>
-                  <i class="bi bi-box-arrow-up-right text-secondary small" title="Abre em nova página com link próprio"></i>
-                </div>
+          <div class="project-card d-flex flex-column h-100" style="cursor: pointer; border-radius: var(--radius-md); overflow: hidden; background: var(--bg-card);" onclick="window.open('${postUrl}', '_blank')">
+            <div class="project-card-image p-0" style="height: 180px; overflow: hidden; background: #e2e8f0; position: relative;">
+              <img src="${banner}" 
+                   alt="${title.replace(/"/g, '&quot;')}" 
+                   style="width: 100%; height: 100%; object-fit: cover; max-width: none;"
+                   onerror="const f = App.getPendingImageData('${post.banner}'); if(f) { this.src = f; this.onerror = null; }">
+              <div class="position-absolute bottom-0 start-0 m-3 px-2 py-1 bg-dark text-white rounded text-xs fw-semibold small" style="opacity: 0.85; z-index: 10;">
+                ${date}
               </div>
             </div>
-          </a>
+            <div class="project-card-body p-3 d-flex flex-column flex-grow-1">
+              <h5 class="fw-bold mb-2 text-truncate-2" style="font-size: 1.1rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 3.1rem; color: var(--text-primary);">${title}</h5>
+              <p class="text-secondary small mb-3 flex-grow-1" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.6; height: 4.8rem;">${excerpt}</p>
+              <div class="text-gradient fw-semibold small mt-auto d-flex align-items-center justify-content-between pt-2">
+                <a href="${postUrl}" target="_blank" class="text-decoration-none text-gradient fw-semibold" onclick="event.stopPropagation()">
+                  Ler post completo <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+                <a href="${postUrl}" target="_blank" class="btn btn-xs btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center" style="width: 28px; height: 28px;" title="Abrir post em nova aba" onclick="event.stopPropagation()">
+                  <i class="bi bi-box-arrow-up-right" style="font-size: 0.75rem;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>`;
     }).join('');
   }
@@ -483,19 +568,7 @@ const BlogModule = (() => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
 
-    // 1. Headings
-    html = html.replace(/^### (.*?)$/gm, '<h5 class="fw-bold mt-4 mb-2 text-gradient">$1</h5>');
-    html = html.replace(/^#### (.*?)$/gm, '<h6 class="fw-bold mt-3 mb-2">$1</h6>');
-
-    // 2. Bold & Italic
-    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-
-    // 3. Lists
-    html = html.replace(/^\* (.*?)$/gm, '<li>$1</li>');
-    html = html.replace(/(<li>.*?<\/li>)+/gs, (match) => `<ul class="text-secondary ps-3 my-2" style="list-style-type: disc;">${match}</ul>`);
-
-    // 4. Tables
+    // 1. Tables (Must be processed before other formatting)
     const tableBlockRegex = /(?:(?:^|\n)\|[^\n]+\|\r?\n\|[-:\s|]+\|\r?\n(?:\|[^\n]+\|\r?\n?)+)/g;
     html = html.replace(tableBlockRegex, (match) => {
       const lines = match.trim().split(/\r?\n/);
@@ -516,27 +589,42 @@ const BlogModule = (() => {
       return `<div class="table-responsive my-4"><table class="table border table-hover align-middle mb-0" style="color: var(--text-primary);"><thead><tr>${thHtml}</tr></thead><tbody>${trHtml}</tbody></table></div>`;
     });
 
-    // 5. Links & Attachments: [Texto](URL)
+    // 2. Headings
+    html = html.replace(/^### (.*?)$/gm, '<h5 class="fw-bold mt-4 mb-2 text-gradient">$1</h5>');
+    html = html.replace(/^#### (.*?)$/gm, '<h6 class="fw-bold mt-3 mb-2">$1</h6>');
+
+    // 3. Links & Attachments: [Texto](URL)
     html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, label, url) => {
-      const isFile = url.match(/\.(pdf|docx?|doc|xlsx?|xls|pptx?|ppt|zip|rar|7z|gz|tar|txt|csv|json|png|jpe?g|gif|svg|mp4|mp3)$/i);
+      const isFile = url.match(/\.(pdf|docx?|doc|xlsx?|xls|pptx?|ppt|zip|rar|7z|gz|tar|txt|csv|json|png|jpe?g|gif|svg|mp4|mp3)($|\?)/i) || url.startsWith('files/');
       let icon = 'bi bi-box-arrow-up-right';
-      if (url.match(/\.pdf$/i)) icon = 'bi bi-file-earmark-pdf';
-      else if (url.match(/\.docx?$/i)) icon = 'bi bi-file-earmark-word';
-      else if (url.match(/\.(xlsx?|csv)$/i)) icon = 'bi bi-file-earmark-excel';
-      else if (url.match(/\.pptx?$/i)) icon = 'bi bi-file-earmark-slides';
-      else if (url.match(/\.(zip|rar|7z|gz|tar)$/i)) icon = 'bi bi-file-earmark-zip';
-      else if (url.match(/\.(png|jpe?g|gif|svg)$/i)) icon = 'bi bi-file-earmark-image';
-      else if (url.match(/\.(mp4|mp3)$/i)) icon = 'bi bi-file-earmark-play';
-      else if (isFile) icon = 'bi bi-paperclip';
+      if (url.match(/\.pdf($|\?)/i)) icon = 'bi bi-file-earmark-pdf text-danger';
+      else if (url.match(/\.docx?($|\?)/i)) icon = 'bi bi-file-earmark-word text-primary';
+      else if (url.match(/\.(xlsx?|csv)($|\?)/i)) icon = 'bi bi-file-earmark-excel text-success';
+      else if (url.match(/\.pptx?($|\?)/i)) icon = 'bi bi-file-earmark-slides text-warning';
+      else if (url.match(/\.(zip|rar|7z|gz|tar)($|\?)/i)) icon = 'bi bi-file-earmark-zip text-warning';
+      else if (url.match(/\.(png|jpe?g|gif|svg)($|\?)/i)) icon = 'bi bi-file-earmark-image text-info';
+      else if (url.match(/\.(mp4|mp3)($|\?)/i)) icon = 'bi bi-file-earmark-play text-info';
+      else if (isFile) icon = 'bi bi-paperclip text-primary';
 
       return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-nepem-outline d-inline-flex align-items-center gap-1 my-1 me-1 text-decoration-none fw-semibold"><i class="${icon}"></i> ${label}</a>`;
     });
 
-    // 6. Paragraphs
+    // 4. Bullet Lists (Lines starting with * or -)
+    html = html.replace(/^\s*[\*\-]\s+(.*?)$/gm, '<li>$1</li>');
+    html = html.replace(/(<li>.*?<\/li>(\r?\n)?)+/gs, (match) => `<ul class="text-secondary ps-3 my-2" style="list-style-type: disc;">${match}</ul>`);
+
+    // 5. Bold (**text**)
+    html = html.replace(/\*\*([^\*]+)\*\*/g, '<strong>$1</strong>');
+
+    // 6. Italic (*text* only without multi-line spanning)
+    html = html.replace(/(^|[^\*])\*([^\*\n\s][^\*\n]*?[^\*\n\s]|\S)\*([^\*]|$)/g, '$1<em>$2</em>$3');
+
+    // 7. Paragraphs
     const paragraphs = html.split(/\n\n+/);
     html = paragraphs.map(p => {
       const trimmed = p.trim();
-      if (trimmed.startsWith('<ul') || trimmed.startsWith('<div class="table-responsive') || trimmed.startsWith('<h5') || trimmed.startsWith('<h6')) {
+      if (!trimmed) return '';
+      if (trimmed.startsWith('<ul') || trimmed.startsWith('<div class="table-responsive') || trimmed.startsWith('<h5') || trimmed.startsWith('<h6') || trimmed.startsWith('<table')) {
         return trimmed;
       }
       return `<p class="mb-3">${trimmed.replace(/\n/g, '<br>')}</p>`;
@@ -688,27 +776,32 @@ const ScholarStats = (() => {
     }, 250);
   }
 
-  return { init, getCachedStats, getPendingImageData };
+  return { init, getCachedStats };
 })();
 
 /* --- Global initialization --- */
 document.addEventListener('DOMContentLoaded', async () => {
-  // Init modules
-  ThemeManager.init();
-  await I18n.init();
-  App.init();
-  MembersModule.init();
-  ScholarStats.init();
+  try {
+    // Init modules
+    ThemeManager.init();
+    await I18n.init();
+    App.init();
+    App.setupSmartDownloads();
+    MembersModule.init();
+    ScholarStats.init();
 
-  // Load blog grid if present
-  if (document.getElementById('blogGrid')) {
-    BlogModule.init();
-  }
+    // Load blog grid if present
+    if (document.getElementById('blogGrid')) {
+      BlogModule.init();
+    }
 
-  // Initialize publications module
-  if (document.getElementById('publicationsList')) {
-    PublicationsModule.init({ fullPage: true });
-  } else if (document.getElementById('publicationsPreview')) {
-    PublicationsModule.init({ fullPage: false });
+    // Initialize publications module
+    if (document.getElementById('publicationsList')) {
+      PublicationsModule.init({ fullPage: true });
+    } else if (document.getElementById('publicationsPreview')) {
+      PublicationsModule.init({ fullPage: false });
+    }
+  } catch (e) {
+    console.error("Initialization error:", e);
   }
 });
