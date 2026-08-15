@@ -70,7 +70,7 @@ const AdminModule = (() => {
       if (found && found.base64) {
         return found.base64.startsWith('data:') ? found.base64 : `data:image/jpeg;base64,${found.base64}`;
       }
-    } catch (e) {}
+    } catch (e) { }
     return null;
   }
 
@@ -1563,7 +1563,7 @@ const AdminModule = (() => {
     // 1. Save in IndexedDB
     try {
       await FileStorage.saveFile(uniqueFilename, processedBase64, 'image/jpeg');
-    } catch (err) {}
+    } catch (err) { }
 
     // 2. Try local server endpoint first if running locally
     try {
@@ -1691,7 +1691,7 @@ const AdminModule = (() => {
   const FileStorage = {
     dbName: 'nepem_files_db',
     storeName: 'attachments',
-    
+
     async openDB() {
       return new Promise((resolve, reject) => {
         if (!window.indexedDB) return reject(new Error('IndexedDB not supported'));
@@ -1848,7 +1848,7 @@ const AdminModule = (() => {
 
       showToast(`Arquivo "${sanitizedName}" anexado com sucesso!`);
       alert(`Arquivo "${file.name}" anexado com sucesso!\n\n• Link para download adicionado ao texto da postagem (${relativePath}).\n• O anexo foi registrado na seção "Arquivos & Documentos Anexados" da postagem!\n• Disponível para download imediato e preparado para o Deploy do Site!`);
-      
+
       // Reset input value so re-selecting same file triggers change
       event.target.value = '';
     };
@@ -2139,7 +2139,7 @@ const AdminModule = (() => {
       try {
         const check = await fetch(href, { method: 'HEAD' });
         if (check.ok) return;
-      } catch (err) {}
+      } catch (err) { }
 
       let fileData = await FileStorage.getFile(filename);
       if (!fileData) {
@@ -2450,7 +2450,7 @@ const AdminModule = (() => {
         const key = type === 'publications' ? 'nepem-publications-v4' : `nepem-${type}`;
         const data = localStorage.getItem(key);
         if (!data) continue;
-        
+
         const formattedData = JSON.stringify(JSON.parse(data), null, 2);
         const contentEncoded = btoa(unescape(encodeURIComponent(formattedData)));
         const path = `data/${type}.json`;

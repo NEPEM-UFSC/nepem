@@ -282,19 +282,41 @@ const PostPage = (() => {
       </div>`;
   }
 
-  function copyLink() {
+  async function copyLink() {
     const url = window.location.href;
-    navigator.clipboard.writeText(url).then(() => {
-      alert('Link do post copiado para a área de transferência!');
-    }).catch(() => {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      try {
+        await navigator.clipboard.writeText(url);
+        alert('Link da postagem copiado com sucesso para a área de transferência!');
+        return;
+      } catch (e) {}
+    }
+    
+    // Fallback for HTTP / non-secure contexts
+    try {
+      const tempInput = document.createElement('input');
+      tempInput.value = url;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      alert('Link da postagem copiado com sucesso!');
+    } catch (err) {
       prompt('Copie o link abaixo:', url);
-    });
+    }
   }
 
   function shareWhatsApp() {
-    if (!currentPost) return;
-    const text = encodeURIComponent(`Confira esta notícia do NEPEM/UFSC: "${currentPost.title}"\n${window.location.href}`);
+    const title = currentPost ? currentPost.title : document.title;
+    const text = encodeURIComponent(`Confira esta publicação do NEPEM/UFSC: "${title}"\n${window.location.href}`);
     window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+  }
+
+  function shareTwitter() {
+    const title = currentPost ? currentPost.title : document.title;
+    const text = encodeURIComponent(`Confira: "${title}" — NEPEM/UFSC`);
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
   }
 
   /* ---- SMART ATTACHMENT DOWNLOAD HANDLER (IndexedDB & LocalStorage Fallback) ---- */
@@ -391,5 +413,5 @@ const PostPage = (() => {
     setupSmartDownloads();
   });
 
-  return { copyLink, shareWhatsApp, shareTwitter };
+  return { init, copyLink, shareWhatsApp, shareTwitter };
 })();
