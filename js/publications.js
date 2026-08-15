@@ -26,17 +26,42 @@ const PublicationsModule = (() => {
   }
 
   async function init(options = {}) {
+    let loadedPubs = [];
+
     try {
-      // Always fetch fresh publications database from the server for public pages
-      publications = await (await fetch('data/publications.json?t=' + Date.now())).json();
-      // Fix encoding issues & clean up
-      publications = publications.map(p => ({
-        ...p,
-        title: cleanText(p.title),
-        journal: cleanText(p.journal),
-        doi: p.doi === 'NA' ? '' : p.doi
-      }));
-      // Default sorting is applied after citation maps are loaded
+      const res = await fetch('data/publications.json?t=' + Date.now());
+      if (res.ok) {
+        loadedPubs = await res.json();
+      }
+    } catch (e) {
+      console.warn('Could not fetch data/publications.json:', e);
+    }
+
+    try {
+      const localKey = localStorage.getItem('nepem-publications-v4') ? 'nepem-publications-v4' : 'nepem-publications';
+      const localStr = localStorage.getItem(localKey);
+      if (localStr) {
+        const local = JSON.parse(localStr);
+        if (Array.isArray(local) && local.length > 0) {
+          if (loadedPubs.length === 0) {
+            loadedPubs = local;
+          } else {
+            const existingKeys = new Set(loadedPubs.map(p => p.doi || normalizeTitle(p.title)));
+            local.forEach(p => {
+              const key = p.doi || normalizeTitle(p.title);
+              if (key && !existingKeys.has(key)) loadedPubs.push(p);
+            });
+          }
+        }
+      }
+    } catch (err) {}
+
+    publications = Array.isArray(loadedPubs) ? loadedPubs.map(p => ({
+      ...p,
+      title: cleanText(p.title),
+      journal: cleanText(p.journal),
+      doi: p.doi === 'NA' ? '' : p.doi
+    })) : [];
 
       // Attempt to load rich citation counts from fallback-data.json (Scholar data)
       try {
@@ -157,9 +182,6 @@ const PublicationsModule = (() => {
       } catch (err) {
         // Ignore gracefully if file does not exist
       }
-    } catch (e) {
-      console.error('Failed to load publications:', e);
-    }
 
     // Sort by citations descending by default so preview loads top 6 cited papers
     publications.sort((a, b) => {

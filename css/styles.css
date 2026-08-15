@@ -495,20 +495,23 @@ img {
 
 .btn-nepem-outline {
   background: transparent;
-  color: #ffffff;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  padding: 0.7rem 2rem;
+  color: var(--nepem-green);
+  border: 1.5px solid var(--nepem-green);
+  padding: 0.4rem 1.25rem;
   border-radius: var(--radius-full);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   transition: all var(--transition-base);
+  display: inline-flex;
+  align-items: center;
 }
 
 .btn-nepem-outline:hover {
   border-color: var(--nepem-green);
-  color: var(--nepem-green);
-  background: rgba(26, 178, 129, 0.1);
+  color: #ffffff !important;
+  background: var(--nepem-green);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26, 178, 129, 0.25);
 }
 
 /* ============================================

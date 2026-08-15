@@ -1,10 +1,41 @@
 [
   {
+    "id": "selecao_para_monitor_a_bioestatistica_e_experimentacao_agricola",
+    "title": "Seleção para Monitor(a) Bioestatística e Experimentação Agrícola",
+    "date": "2026-08-15",
+    "excerpt": "Vaga de Monitoria Remunerada (FIT5306): inscrições de 14/08 a 24/08/2026.",
+    "banner": "img/projects/post_monitoria_png_1786813241492.jpg",
+    "content": "O Professor Dr. Tiago Olivoto, matrícula SIAPE 1241962, considerando o disposto na Resolução Normativa Nº 194/CUn/2024, de 12 de julho de 2024, no * [Edital Nº 01/2026 ](files/Edital_Monitoria_2026.2.pdf) de 13 de agosto de 2026 do Departamento de Fitotecnia e nas demais regulamentações pertinentes, torna público os critérios e cronograma para a seleção para preenchimento de uma vaga de monitoria remunerada para a disciplina FIT5306 – BIOESTATÍSTICA E EXPERIMENTAÇÃO AGRÍCOLA.\n\n🎓Se você tem interesse em Bioestatística e domina a análise de dados, esta é a sua oportunidade!\n⚠️ Atenção: É indispensável ter disponibilidade de horário nas terças-feiras, das 10:00 às 17:00.\n\n🗓 Cronograma e Etapas:\n\n| Atividade | Período |\n| --- | --- |\n| Inscrição dos candidatos | De 14/08/2026 a 24/08/2026 |\n| Prova Prática - Sala 221 do Departamento de Fitotecnia | 26/08/2026 (07:30 às 11:30 - 16:30 às 18:00) |\n\nImportante: Não esqueça de trazer seu notebook!\n\nConfira o [Edital completo](files/edital_monitor_bioestatistica_2025_assinado.pdf) para acessar as informações detalhadas sobre os critérios de seleção.\n\nDúvidas? Entre em contato com o Prof. Tiago Olivoto pelo e-mail: tiago.olivoto@ufsc.br\n\n#UFSC #CCA #Fitotecnia #Monitoria #Bioestatística #Agronomia\n",
+    "attachments": [
+      {
+        "name": "Edital completo",
+        "url": "files/edital_monitor_bioestatistica_2025_assinado.pdf"
+      },
+      {
+        "name": "Edital Monitoria 2026.2.pdf",
+        "url": "files/Edital_Monitoria_2026.2.pdf",
+        "type": "pdf"
+      }
+    ]
+  },
+  {
     "id": "welcome_new_site",
     "title": "NEPEM lança seu novo portal institucional",
     "date": "2026-05-27",
     "excerpt": "Completamente reconstruído em HTML5, CSS3 e Vanilla JS, o novo portal do NEPEM/UFSC oferece uma experiência moderna, trilíngue, com área administrativa robusta e visualização de publicações.",
     "banner": "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=1200&q=80",
-    "content": "### Bem-vindos ao novo portal do NEPEM/UFSC! 🚀\n\nTemos o prazer de anunciar o lançamento do novo portal institucional do **Núcleo de Estudos e Pesquisas em Experimentação e Melhoramento Vegetal (NEPEM)** da Universidade Federal de Santa Catarina (UFSC).\n\nO site foi totalmente redesenhado do zero, abandonando a antiga infraestrutura complexa do Hugo Academic por um sistema **100% estático**, rápido e moderno baseado apenas em **HTML5, CSS3 e Javascript puro** com Bootstrap 5.\n\n#### Principais Características do Novo Portal:\n\n* **🌐 Internacionalização Completa:** Suporte nativo em três idiomas: Português 🇧🇷, Inglês 🇺🇸 e Espanhol 🇪🇸.\n* **🎨 Temas Inteligentes:** Alternância de tema claro, escuro ou automático (sincronizado com as preferências do seu sistema operacional).\n* **👥 Gestão de Integrantes:** Listagem de professores, doutorandos, mestrandos, graduandos e alunos graduados (Alumni) com links acadêmicos diretos (Lattes, ORCID, etc.).\n* **📄 Painel de Publicações:** Filtros por tipo de artigo, busca em tempo real e gráficos estatísticos de publicações ao longo dos anos.\n* **🔒 Painel de Administração Integrado:** Área administrativa protegida por senha criptografada para adicionar, editar e exportar publicações, membros, projetos e agora **postagens do blog**!\n\n#### Experimentação de Campo e Melhoramento de Linhaça 🌾\n\nNossos principais focos continuam sendo o melhoramento vegetal e a fenotipagem digital de alto rendimento. Abaixo está uma tabela com os principais eixos tecnológicos aplicados no núcleo:\n\n| Eixo Tecnológico | Descrição Principal | Ferramenta / Softwares |\n| --- | --- | --- |\n| **Melhoramento Genético** | Seleção de genótipos superiores de Linhaça e Girassol | Envirotipagem e Seleção Fenotípica |\n| **Fenotipagem Digital** | Extração automática de dados de plantas com IA | Sensoriamento Remoto, Drones e Câmeras |\n| **Análise Estatística** | Processamento rigoroso de dados experimentais | Pacotes R `metan`, `pliman` e `plimanshiny` |\n\nFique atento às nossas postagens para acompanhar os próximos lançamentos, artigos científicos e novidades do NEPEM! 🧬"
+    "content": "### Bem-vindos ao novo portal do NEPEM/UFSC! 🚀\n\nTemos o prazer de anunciar o lançamento do novo portal institucional do **Núcleo de Estudos e Pesquisas em Experimentação e Melhoramento Vegetal (NEPEM)** da Universidade Federal de Santa Catarina (UFSC).\n\nO site foi totalmente redesenhado do zero, abandonando a antiga infraestrutura complexa por um sistema **100% estático**, rápido e moderno baseado apenas em **HTML5, CSS3 e Javascript puro** com Bootstrap 5.\n\n#### Principais Características do Novo Portal:\n\n* **🌐 Internacionalização Completa:** Suporte nativo em três idiomas: Português 🇧🇷, Inglês 🇺🇸 e Espanhol 🇪🇸.\n* **🎨 Temas Inteligentes:** Alternância de tema claro, escuro ou automático (sincronizado com as preferências do seu sistema operacional).\n* **👥 Gestão de Integrantes:** Listagem de professores, doutorandos, mestrandos, graduandos e alunos graduados (Alumni) com links acadêmicos diretos (Lattes, ORCID, etc.).\n* **📄 Painel de Publicações:** Filtros por tipo de artigo, busca em tempo real e gráficos estatísticos de publicações ao longo dos anos.\n* **🔒 Painel de Administração Integrado:** Área administrativa protegida por senha criptografada para adicionar, editar e exportar publicações, membros, projetos e postagens do blog!\n\n#### Experimentação de Campo e Melhoramento de Linhaça 🌾\n\nNossos principais focos continuam sendo o melhoramento vegetal e a fenotipagem digital de alto rendimento. Abaixo está uma tabela com os principais eixos tecnológicos aplicados no núcleo:\n\n| Eixo Tecnológico | Descrição Principal | Ferramenta / Softwares |\n| --- | --- | --- |\n| **Melhoramento Genético** | Seleção de genótipos superiores de Linhaça e Girassol | Envirotipagem e Seleção Fenotípica |\n| **Fenotipagem Digital** | Extração automática de dados de plantas com IA | Sensoriamento Remoto, Drones e Câmeras |\n| **Análise Estatística** | Processamento rigoroso de dados experimentais | Pacotes R `metan`, `pliman` e `plimanshiny` |\n\n#### Documentos e Anexos da Postagem 📎\n\nVocê pode consultar os documentos oficiais do portal pelos links abaixo:\n\n* [Baixar Apresentação Institucional do NEPEM (PDF)](https://nepem.ufsc.br/docs/apresentacao_nepem.pdf)\n* [Acessar Repositório Oficial do Projeto no GitHub](https://github.com/NEPEM-UFSC)\n\nFique atento às nossas postagens para acompanhar os próximos lançamentos, artigos científicos e novidades do NEPEM! 🧬",
+    "attachments": [
+      {
+        "name": "Apresentação Institucional NEPEM (PDF)",
+        "url": "https://nepem.ufsc.br/docs/apresentacao_nepem.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "Guia de Utilização do Portal (DOCX)",
+        "url": "https://nepem.ufsc.br/docs/guia_portal.docx",
+        "type": "doc"
+      }
+    ]
   }
 ]

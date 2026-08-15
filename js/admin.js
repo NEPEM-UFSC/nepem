@@ -61,6 +61,19 @@ const AdminModule = (() => {
     return intersection / union;
   };
 
+  function getPendingImageData(src) {
+    if (!src) return null;
+    const filename = src.split('/').pop().split('?')[0];
+    try {
+      const pending = JSON.parse(localStorage.getItem('nepem-pending-images') || '[]');
+      const found = pending.find(img => img.filename === filename || (img.filename && src.endsWith(img.filename)));
+      if (found && found.base64) {
+        return found.base64.startsWith('data:') ? found.base64 : `data:image/jpeg;base64,${found.base64}`;
+      }
+    } catch (e) {}
+    return null;
+  }
+
   async function init() {
     // Ensure all animation containers are visible immediately on the admin page
     document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
@@ -124,23 +137,32 @@ const AdminModule = (() => {
   }
 
   async function sha256(message) {
-    const msgBuffer = new TextEncoder().encode(message);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    if (window.crypto && window.crypto.subtle) {
+      try {
+        const msgBuffer = new TextEncoder().encode(message);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+      } catch (err) {
+        console.warn('SubtleCrypto error, falling back:', err);
+      }
+    }
+    return '';
   }
 
   async function handleLogin(e) {
-    e.preventDefault();
-    const pass = document.getElementById('adminPassword').value;
+    if (e && e.preventDefault) e.preventDefault();
+    const passInput = document.getElementById('adminPassword');
+    if (!passInput) return;
+    const pass = passInput.value.trim();
     const hash = await sha256(pass);
     // SHA-256 hash of 'nepem@flax2022'
-    if (hash === '981ce567c534bf51407761e25bdfd0ccb34501730d84cd112f07eb6c13cd9619') {
+    if (hash === '981ce567c534bf51407761e25bdfd0ccb34501730d84cd112f07eb6c13cd9619' || pass === 'nepem@flax2022') {
       localStorage.setItem('nepem-admin-authorized', 'true');
       init();
     } else {
       alert('Senha incorreta! Tente novamente.');
-      document.getElementById('adminPassword').value = '';
+      passInput.value = '';
     }
   }
 
@@ -539,13 +561,15 @@ const AdminModule = (() => {
           <thead class="sticky-top bg-body"><tr><th>Foto</th><th>Nome</th><th>Categoria / Cargo</th><th>Status</th><th>Ordenação</th><th>Ações</th></tr></thead>
           <tbody>
             ${sortedMembers.length === 0 ? '<tr><td colspan="6" class="text-center text-muted py-4">Nenhum membro cadastrado.</td></tr>' : ''}
-            ${sortedMembers.map(m => `
+            ${sortedMembers.map(m => {
+      const photoSrc = getPendingImageData(m.photo) || m.photo || 'img/members/admin.png';
+      return `
               <tr class="member-row" data-search="${(m.name || '').toLowerCase()} ${(m.role || '').toLowerCase()} ${(m.group || '').toLowerCase()}">
                 <td>
-                  <img src="${m.photo || 'img/members/admin.png'}" 
+                  <img src="${photoSrc}" 
                        alt="${m.name}" 
                        style="width: 32px; height: 32px; object-fit: cover; border-radius: 50%;"
-                       onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=1AB281&color=fff&size=64'">
+                       onerror="const f = AdminModule.getPendingImageData('${m.photo}'); if(f && this.src !== f) { this.src = f; } else { this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=1AB281&color=fff&size=64'; }">
                 </td>
                 <td><strong>${m.name}</strong></td>
                 <td>
@@ -564,7 +588,8 @@ const AdminModule = (() => {
                     </button>
                   </div>
                 </td>
-              </tr>`).join('')}
+              </tr>`;
+    }).join('')}
           </tbody>
         </table>
       </div>`;
@@ -594,6 +619,7 @@ const AdminModule = (() => {
     }
 
     editingId = id;
+    const memberPhotoSrc = getPendingImageData(member.photo) || member.photo || '';
 
     area.innerHTML = `
       <div class="admin-form-card mb-4 fade-in-up visible">
@@ -634,8 +660,8 @@ const AdminModule = (() => {
                   <input type="file" accept="image/*" class="d-none" onchange="AdminModule.handlePhotoUpload(event, 'member')">
                 </label>
               </div>
-              <div id="memberPhotoPreview" class="mt-2 text-center" style="display: ${member.photo ? 'block' : 'none'};">
-                <img src="${member.photo || ''}" style="max-height: 80px; border-radius: 8px; border: 1px solid var(--border-color);" id="memberPhotoImg">
+              <div id="memberPhotoPreview" class="mt-2 text-center" style="display: ${memberPhotoSrc ? 'block' : 'none'};">
+                <img src="${memberPhotoSrc}" style="max-height: 80px; border-radius: 8px; border: 1px solid var(--border-color);" id="memberPhotoImg" onerror="const f = AdminModule.getPendingImageData('${member.photo}'); if(f && this.src !== f) { this.src = f; }">
               </div>
             </div>
 
@@ -804,12 +830,13 @@ const AdminModule = (() => {
           : `<code class="small bg-light border text-dark py-1 px-2 rounded">${p.project_number}</code>`
         )
         : '<span class="text-muted small">—</span>';
+      const projImgSrc = getPendingImageData(p.image) || p.image || '';
 
       return `
                 <tr class="project-row" data-search="${(p.title || '').toLowerCase()} ${(p.tags || []).join(' ').toLowerCase()}">
                   <td>
                     ${p.image
-          ? `<img src="${p.image}" alt="${p.title}" style="width: 32px; height: 32px; object-fit: contain;">`
+          ? `<img src="${projImgSrc}" alt="${p.title}" style="width: 32px; height: 32px; object-fit: contain;" onerror="const f = AdminModule.getPendingImageData('${p.image}'); if(f && this.src !== f) { this.src = f; }">`
           : `<i class="bi bi-folder2-open text-success fs-5"></i>`
         }
                   </td>
@@ -858,6 +885,7 @@ const AdminModule = (() => {
     }
 
     editingId = id;
+    const projImgSrc = getPendingImageData(project.image) || project.image || '';
 
     area.innerHTML = `
       <div class="admin-form-card mb-4 fade-in-up visible">
@@ -913,8 +941,8 @@ const AdminModule = (() => {
                   <input type="file" accept="image/*" class="d-none" onchange="AdminModule.handlePhotoUpload(event, 'project')">
                 </label>
               </div>
-              <div id="projImagePreview" class="mt-2 text-center" style="display: ${project.image ? 'block' : 'none'};">
-                <img src="${project.image || ''}" style="max-height: 80px; border-radius: 8px; border: 1px solid var(--border-color);" id="projImageImg">
+              <div id="projImagePreview" class="mt-2 text-center" style="display: ${projImgSrc ? 'block' : 'none'};">
+                <img src="${projImgSrc}" style="max-height: 80px; border-radius: 8px; border: 1px solid var(--border-color);" id="projImageImg" onerror="const f = AdminModule.getPendingImageData('${project.image}'); if(f && this.src !== f) { this.src = f; }">
               </div>
             </div>
 
@@ -1019,18 +1047,23 @@ const AdminModule = (() => {
           <thead class="sticky-top bg-body"><tr><th>Banner</th><th>Data</th><th>Título</th><th>Ações</th></tr></thead>
           <tbody>
             ${sortedPosts.length === 0 ? '<tr><td colspan="4" class="text-center text-muted py-4">Nenhum post cadastrado.</td></tr>' : ''}
-            ${sortedPosts.map(p => `
+            ${sortedPosts.map(p => {
+      const bannerSrc = getPendingImageData(p.banner) || p.banner || 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=64&q=80';
+      return `
               <tr class="post-row" data-search="${(p.title || '').toLowerCase()}">
                 <td>
-                  <img src="${p.banner || 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=64&q=80'}" 
+                  <img src="${bannerSrc}" 
                        alt="${p.title}" 
                        style="width: 50px; height: 35px; object-fit: cover; border-radius: 4px;"
-                       onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(p.title)}&background=1AB281&color=fff&size=64'">
+                       onerror="const f = AdminModule.getPendingImageData('${p.banner}'); if(f && this.src !== f) { this.src = f; } else { this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(p.title)}&background=1AB281&color=fff&size=64'; }">
                 </td>
                 <td><strong>${p.date || 'S/D'}</strong></td>
                 <td><strong class="text-secondary">${p.title || 'Sem Título'}</strong></td>
                 <td>
                   <div class="d-flex gap-1">
+                    <a href="post.html?id=${p.id}" target="_blank" class="btn btn-sm btn-outline-info" title="Ver no site (Link Próprio)">
+                      <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
                     <button class="btn btn-sm btn-outline-primary" onclick="AdminModule.editItem('posts', '${p.id}')" title="Editar">
                       <i class="bi bi-pencil"></i>
                     </button>
@@ -1039,11 +1072,37 @@ const AdminModule = (() => {
                     </button>
                   </div>
                 </td>
-              </tr>`).join('')}
+              </tr>`;
+    }).join('')}
           </tbody>
         </table>
       </div>`;
   }
+
+  let currentPostAttachments = [];
+
+  const EMOJI_CATEGORIES = [
+    {
+      name: '🌾 Agricultura, Plantas & Natureza',
+      emojis: ['🌾', '🌱', '🌽', '🌻', '🌿', '🍀', '🍃', '🌳', '🌲', '🌴', '🌵', '🌷', '🌸', '🌹', '🌺', '🍎', '🍇', '🍓', '🍅', '🥦', '🥕', '🥔', '🥖', '🍞', '☕', '🚜', '🌦️', '☀️', '🌧️', '❄️', '🌈', '💧', '🌍', '🍂', '🍁']
+    },
+    {
+      name: '🔬 Ciência, Pesquisa & Tecnologia',
+      emojis: ['🔬', '🧬', '🧪', '🔭', '📊', '📈', '📉', '💻', '🖥️', '💾', '🤖', '🧠', '⚙️', '💡', '📡', '🛰️', '🎓', '📚', '📖', '🔍', '🔎', '📝', '✏️', '🏷️', '📌', '📍', '📐', '📏', '🧮', '📋', '📑', '📜']
+    },
+    {
+      name: '🚀 Destaques, Símbolos & Status',
+      emojis: ['🚀', '🔥', '⭐', '✨', '💫', '⚡', '💥', '🎯', '🏆', '🥇', '🥈', '🥉', '🏅', '🎖️', '📢', '📣', '🔔', '💡', '🔑', '🗝️', '🔒', '🔓', '🛡️', '✅', '❌', '⚠️', 'ℹ️', '❓', '❗', '💯', '🎉', '🥳', '🟢', '🔴', '🟡', '🔵', '🟣']
+    },
+    {
+      name: '👥 Pessoas, Gestos & Reações',
+      emojis: ['💚', '❤️', '💙', '🤝', '👏', '👍', '👎', '🙌', '✌️', '👌', '👨‍🔬', '👩‍🔬', '👨‍🏫', '👩‍🏫', '👨‍💻', '👩‍💻', '👨‍🌾', '👩‍🌾', '🧑‍🎓', '😊', '😃', '😎', '🤔', '🧐', '🤩', '💼', '🏢', '🏫', '🏛️', '✉️', '📧', '📞']
+    },
+    {
+      name: '📁 Arquivos, Documentos & Mídia',
+      emojis: ['📁', '📂', '📄', '📃', '📑', '📜', '📋', '📅', '🗓️', '📎', '🔗', '📦', '📥', '📤', '💾', '💿', '📸', '🎥', '🎬', '🎙️', '🎧']
+    }
+  ];
 
   function showPostForm(id = null) {
     const area = document.getElementById('postFormArea');
@@ -1051,7 +1110,7 @@ const AdminModule = (() => {
 
     let post = {
       id: '', title: '', date: new Date().toISOString().slice(0, 10),
-      excerpt: '', banner: '', content: ''
+      excerpt: '', banner: '', content: '', attachments: []
     };
 
     if (id) {
@@ -1061,6 +1120,15 @@ const AdminModule = (() => {
     }
 
     editingId = id;
+    currentPostAttachments = Array.isArray(post.attachments) ? [...post.attachments] : [];
+
+    // Auto-extract any existing attachments from content
+    const ext = extractAttachmentsFromContent(post.content);
+    ext.forEach(e => {
+      if (!currentPostAttachments.some(a => a.url === e.url)) currentPostAttachments.push(e);
+    });
+
+    const bannerPreviewSrc = getPendingImageData(post.banner) || post.banner || '';
 
     area.innerHTML = `
       <div class="admin-form-card mb-4 fade-in-up visible">
@@ -1083,14 +1151,38 @@ const AdminModule = (() => {
             <div class="col-md-12">
               <label class="form-label small mb-1">Imagem de Banner (Upload Local ou URL)</label>
               <div class="input-group">
-                <input class="form-control form-control-nepem" id="postBanner" placeholder="Ex: https://images.unsplash.com/..." value="${post.banner || ''}">
+                <input class="form-control form-control-nepem" id="postBanner" placeholder="Ex: img/projects/foto.jpg ou URL" value="${post.banner || ''}">
                 <label class="btn btn-outline-secondary mb-0 d-flex align-items-center" style="cursor: pointer;">
                   <i class="bi bi-image me-1"></i>Buscar
                   <input type="file" accept="image/*" class="d-none" onchange="AdminModule.handlePhotoUpload(event, 'post')">
                 </label>
               </div>
-              <div id="postBannerPreview" class="mt-2 text-center" style="display: ${post.banner ? 'block' : 'none'};">
-                <img src="${post.banner || ''}" style="max-height: 120px; border-radius: 8px; border: 1px solid var(--border-color);" id="postBannerImg">
+              <div id="postBannerPreview" class="mt-2 text-center" style="display: ${bannerPreviewSrc ? 'block' : 'none'};">
+                <img src="${bannerPreviewSrc}" style="max-height: 120px; border-radius: 8px; border: 1px solid var(--border-color);" id="postBannerImg" onerror="const f = AdminModule.getPendingImageData('${post.banner}'); if(f && this.src !== f) { this.src = f; }">
+              </div>
+            </div>
+
+            <!-- Upload File Attachment Box (Saves to files/) -->
+            <div class="col-md-12 mt-3">
+              <label class="form-label small mb-1 fw-bold text-primary">
+                <i class="bi bi-paperclip me-1"></i>Anexar Arquivos & Documentos (Salva na pasta <code class="text-primary">files/</code> e exibe no fim do post)
+              </label>
+              <div class="input-group">
+                <input class="form-control form-control-nepem" id="postFileInputDisplay" placeholder="Selecione um arquivo (PDF, DOCX, XLSX, PPTX, ZIP, RAR, TXT, CSV, MP4...)" readonly>
+                <label class="btn btn-nepem-primary mb-0 d-flex align-items-center gap-1" style="cursor: pointer;">
+                  <i class="bi bi-file-earmark-arrow-up"></i> Buscar Arquivo
+                  <input type="file" id="postFileInput" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.zip,.rar,.7z,.tar,.gz,.txt,.csv,.json,.png,.jpg,.jpeg,.svg,.mp4,.mp3" class="d-none" onchange="AdminModule.handleFileUpload(event)">
+                </label>
+              </div>
+              <div class="form-text text-secondary small">
+                Suporta todos os principais formatos: PDF, Word, Excel, PowerPoint, ZIP, mídias e documentos.
+              </div>
+
+              <!-- Attached files list container -->
+              <div class="mt-2" id="postAttachmentsManager">
+                <div id="postAttachmentsListAdmin" class="d-flex flex-column gap-2 p-2 border rounded" style="background: var(--bg-secondary); min-height: 44px;">
+                  <!-- Rendered dynamically by renderAdminAttachmentsList -->
+                </div>
               </div>
             </div>
 
@@ -1099,23 +1191,36 @@ const AdminModule = (() => {
               <label class="form-label small mb-1 d-block">Conteúdo da Postagem (Formato Markdown)</label>
               
               <!-- Toolbar -->
-              <div class="d-flex flex-wrap gap-2 mb-2 p-2 border rounded bg-secondary-subtle">
+              <div class="d-flex flex-wrap gap-2 mb-2 p-2 border rounded bg-secondary-subtle align-items-center">
                 <button type="button" class="btn btn-sm btn-light border" onclick="AdminModule.insertFormat('bold')" title="Negrito"><i class="bi bi-type-bold"></i></button>
                 <button type="button" class="btn btn-sm btn-light border" onclick="AdminModule.insertFormat('italic')" title="Itálico"><i class="bi bi-type-italic"></i></button>
                 <button type="button" class="btn btn-sm btn-light border" onclick="AdminModule.insertFormat('heading')" title="Título H3"><i class="bi bi-type-h3"></i></button>
-                <button type="button" class="btn btn-sm btn-light border" onclick="AdminModule.insertFormat('link')" title="Inserir Link"><i class="bi bi-link-45deg"></i></button>
-                <button type="button" class="btn btn-sm btn-light border" onclick="AdminModule.insertFormat('table')" title="Inserir Tabela"><i class="bi bi-table"></i></button>
+                <button type="button" class="btn btn-sm btn-light border" onclick="AdminModule.insertFormat('list')" title="Lista com Marcadores (Bullets)"><i class="bi bi-list-ul"></i> Marcadores</button>
+                <button type="button" class="btn btn-sm btn-light border" onclick="AdminModule.insertFormat('link')" title="Inserir Link"><i class="bi bi-link-45deg"></i> Link</button>
+                <button type="button" class="btn btn-sm btn-light border text-primary fw-semibold" onclick="AdminModule.insertFormat('file')" title="Anexar Arquivo (PDF, DOC, ZIP)"><i class="bi bi-paperclip"></i> Anexar Arquivo</button>
+                <button type="button" class="btn btn-sm btn-light border" onclick="AdminModule.insertFormat('table')" title="Inserir Tabela"><i class="bi bi-table"></i> Tabela</button>
                 
-                <!-- Emoji Selector -->
+                <!-- Rich Categorized Emoji Selector -->
                 <div class="dropdown d-inline-block">
-                  <button type="button" class="btn btn-sm btn-light border dropdown-toggle" data-bs-toggle="dropdown" title="Inserir Emoji"><i class="bi bi-emoji-smile"></i></button>
-                  <ul class="dropdown-menu p-2" style="min-width: 180px; max-height: 200px; overflow-y: auto;">
-                    <li class="d-flex flex-wrap gap-1">
-                      ${['🌾', '🌱', '🧬', '📊', '📈', '🎓', '🔬', '💻', '💚', '🚀', '🌻', '💡', '🔥'].map(emoji => `
-                        <button type="button" class="btn btn-sm btn-light p-1" style="font-size: 1.2rem; width: 32px; height: 32px;" onclick="AdminModule.insertFormat('${emoji}')">${emoji}</button>
-                      `).join('')}
-                    </li>
-                  </ul>
+                  <button type="button" class="btn btn-sm btn-light border dropdown-toggle d-flex align-items-center gap-1" data-bs-toggle="dropdown" title="Inserir Emoji">
+                    <i class="bi bi-emoji-smile"></i> Emojis
+                  </button>
+                  <div class="dropdown-menu p-3 shadow-lg border-0" style="min-width: 360px; max-width: 440px; max-height: 380px; overflow-y: auto; background: var(--bg-card); color: var(--text-primary); border-radius: var(--radius-md);">
+                    ${EMOJI_CATEGORIES.map(cat => `
+                      <div class="mb-3">
+                        <div class="small fw-bold text-secondary mb-1 pb-1 border-bottom" style="font-size: 0.78rem;">
+                          ${cat.name}
+                        </div>
+                        <div class="d-flex flex-wrap gap-1">
+                          ${cat.emojis.map(emoji => `
+                            <button type="button" class="btn btn-sm btn-light p-1 rounded" style="font-size: 1.25rem; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; background: var(--bg-secondary); border: 1px solid var(--border-color);" onclick="AdminModule.insertFormat('${emoji}')" title="${emoji}">
+                              ${emoji}
+                            </button>
+                          `).join('')}
+                        </div>
+                      </div>
+                    `).join('')}
+                  </div>
                 </div>
               </div>
 
@@ -1138,8 +1243,38 @@ const AdminModule = (() => {
         </form>
       </div>`;
 
+    renderAdminAttachmentsList();
     updatePostPreview();
     area.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function renderAdminAttachmentsList() {
+    const listEl = document.getElementById('postAttachmentsListAdmin');
+    if (!listEl) return;
+    if (!currentPostAttachments || currentPostAttachments.length === 0) {
+      listEl.innerHTML = `<span class="small text-secondary py-1 text-center d-block"><i class="bi bi-info-circle me-1"></i>Nenhum anexo adicionado ainda. Ao usar "Buscar Arquivo", os anexos aparecerão aqui e serão listados automaticamente na postagem.</span>`;
+      return;
+    }
+    listEl.innerHTML = currentPostAttachments.map((att, idx) => `
+      <div class="d-flex align-items-center justify-content-between p-2 rounded border bg-body">
+        <div class="d-flex align-items-center gap-2 text-truncate" style="max-width: 85%;">
+          <i class="bi bi-file-earmark-arrow-down text-primary fs-5"></i>
+          <span class="small fw-semibold text-truncate">${att.name || 'Arquivo'}</span>
+          <code class="small text-secondary text-truncate" style="font-size: 0.75rem;">${att.url}</code>
+        </div>
+        <button type="button" class="btn btn-sm btn-outline-danger p-1" onclick="AdminModule.removeAttachment(${idx})" title="Remover este anexo">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+    `).join('');
+  }
+
+  function removeAttachment(idx) {
+    if (idx >= 0 && idx < currentPostAttachments.length) {
+      currentPostAttachments.splice(idx, 1);
+      renderAdminAttachmentsList();
+      updatePostPreview();
+    }
   }
 
   function savePost(e) {
@@ -1152,6 +1287,13 @@ const AdminModule = (() => {
     };
 
     const finalId = isEdit ? id : generateId(document.getElementById('postTitle').value.trim()) || 'post_' + Date.now();
+    const contentVal = document.getElementById('postContent').value;
+
+    // Auto-extract any additional attachments from content
+    const ext = extractAttachmentsFromContent(contentVal);
+    ext.forEach(e => {
+      if (!currentPostAttachments.some(a => a.url === e.url)) currentPostAttachments.push(e);
+    });
 
     const post = {
       id: finalId,
@@ -1159,7 +1301,8 @@ const AdminModule = (() => {
       date: document.getElementById('postDate').value,
       excerpt: document.getElementById('postExcerpt').value.trim(),
       banner: document.getElementById('postBanner').value.trim(),
-      content: document.getElementById('postContent').value
+      content: contentVal,
+      attachments: currentPostAttachments
     };
 
     const posts = JSON.parse(localStorage.getItem('nepem-posts') || '[]');
@@ -1201,12 +1344,27 @@ const AdminModule = (() => {
       case 'heading':
         replacement = `\n### ${selectedText || 'Título'}\n`;
         break;
+      case 'list':
+        if (selectedText) {
+          replacement = '\n' + selectedText.split('\n').map(l => l.trim() ? `* ${l.replace(/^[*•\-]\s*/, '')}` : l).join('\n') + '\n';
+        } else {
+          replacement = `\n* Item 1\n* Item 2\n* Item 3\n`;
+        }
+        break;
       case 'link':
-        replacement = `[${selectedText || 'Link'}](https://url.com)`;
+        replacement = `[${selectedText || 'Nome do Link'}](https://url.com)`;
+        break;
+      case 'file':
+        const fileInput = document.getElementById('postFileInput');
+        if (fileInput) {
+          fileInput.click();
+          return;
+        }
+        replacement = `\n* [Baixar ${selectedText || 'Arquivo (PDF)'}](files/seu_arquivo.pdf)\n`;
         break;
       case 'table':
-        replacement = `\n| Coluna 1 | Coluna 2 |\n| --- | --- |\n| Dado 1 | Dado 2 |\n`;
-        break;
+        openTableBuilder();
+        return;
       default: // Emojis
         replacement = tag;
     }
@@ -1219,12 +1377,63 @@ const AdminModule = (() => {
     updatePostPreview();
   }
 
+  function extractAttachmentsFromContent(content) {
+    if (!content) return [];
+    const attachments = [];
+    const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+    let match;
+    while ((match = linkRegex.exec(content)) !== null) {
+      const label = match[1];
+      const url = match[2];
+      const isFile = url.match(/\.(pdf|docx?|doc|xlsx?|xls|pptx?|ppt|zip|rar|7z|gz|tar|txt|csv|json|png|jpe?g|gif|svg|mp4|mp3)($|\?)/i) || url.startsWith('files/');
+      if (isFile) {
+        const cleanName = label.replace(/^Baixar\s+/i, '').trim();
+        attachments.push({
+          name: cleanName || label,
+          url: url
+        });
+      }
+    }
+    return attachments;
+  }
+
   function updatePostPreview() {
     const content = document.getElementById('postContent')?.value || '';
     const previewArea = document.getElementById('postPreviewArea');
-    if (previewArea) {
-      previewArea.innerHTML = parseMarkdown(content) || '<p class="text-muted small">Digite o conteúdo acima para ver a pré-visualização...</p>';
+    if (!previewArea) return;
+
+    let parsed = parseMarkdown(content) || '<p class="text-muted small">Digite o conteúdo acima para ver a pré-visualização...</p>';
+
+    // Render attachments section in preview
+    let allAtts = Array.isArray(currentPostAttachments) ? [...currentPostAttachments] : [];
+    const ext = extractAttachmentsFromContent(content);
+    ext.forEach(e => {
+      if (!allAtts.some(a => a.url === e.url)) allAtts.push(e);
+    });
+
+    if (allAtts.length > 0) {
+      parsed += `
+        <div class="mt-4 pt-3 border-top">
+          <h6 class="fw-bold mb-3 text-primary d-flex align-items-center gap-2">
+            <i class="bi bi-paperclip fs-5"></i> Arquivos & Documentos Anexados (${allAtts.length})
+          </h6>
+          <div class="d-flex flex-column gap-2">
+            ${allAtts.map(att => `
+              <div class="d-flex align-items-center justify-content-between p-2 rounded border bg-body-tertiary">
+                <div class="d-flex align-items-center gap-2 text-truncate">
+                  <i class="bi bi-file-earmark-arrow-down text-primary fs-5"></i>
+                  <span class="small fw-semibold text-truncate">${att.name || 'Arquivo Anexo'}</span>
+                </div>
+                <a href="${att.url}" target="_blank" class="btn btn-sm btn-nepem-outline rounded-pill px-3">
+                  <i class="bi bi-download me-1"></i> Baixar
+                </a>
+              </div>
+            `).join('')}
+          </div>
+        </div>`;
     }
+
+    previewArea.innerHTML = parsed;
   }
 
   function parseMarkdown(text) {
@@ -1248,20 +1457,43 @@ const AdminModule = (() => {
     html = html.replace(/(<li>.*?<\/li>)+/gs, (match) => `<ul class="text-secondary ps-3 my-2" style="list-style-type: disc;">${match}</ul>`);
 
     // 4. Tables
-    html = html.replace(/\|(.*?)\|\r?\n\|[ -:|]*?\|\r?\n((?:\|.*?\|\r?\n?)*)/g, (match, header, body) => {
-      const headers = header.split('|').map(h => h.trim()).filter(Boolean);
-      const rows = body.trim().split('\n').map(r => r.split('|').map(c => c.trim()).filter(Boolean));
+    const tableBlockRegex = /(?:(?:^|\n)\|[^\n]+\|\r?\n\|[-:\s|]+\|\r?\n(?:\|[^\n]+\|\r?\n?)+)/g;
+    html = html.replace(tableBlockRegex, (match) => {
+      const lines = match.trim().split(/\r?\n/);
+      if (lines.length < 2) return match;
 
-      const thHtml = headers.map(h => `<th class="bg-light text-secondary font-semibold p-2 border">${h}</th>`).join('');
-      const trHtml = rows.map(row => {
-        if (row.length === 0) return '';
-        return `<tr>${row.map(cell => `<td class="p-2 border text-secondary">${cell}</td>`).join('')}</tr>`;
+      const headerLine = lines[0];
+      const bodyLines = lines.slice(2);
+
+      const headers = headerLine.split('|').map(h => h.trim()).filter(Boolean);
+      const thHtml = headers.map(h => `<th class="p-3 border fw-bold" style="background: var(--bg-secondary); color: var(--text-primary);">${h}</th>`).join('');
+
+      const trHtml = bodyLines.map(line => {
+        const cells = line.split('|').map(c => c.trim()).filter((_, i, arr) => i > 0 && i < arr.length - 1);
+        if (cells.length === 0) return '';
+        return `<tr>${cells.map(cell => `<td class="p-3 border" style="color: var(--text-primary);">${cell}</td>`).join('')}</tr>`;
       }).join('');
 
-      return `<div class="table-responsive my-4"><table class="table border table-hover align-middle"><thead><tr>${thHtml}</tr></thead><tbody>${trHtml}</tbody></table></div>`;
+      return `<div class="table-responsive my-4"><table class="table border table-hover align-middle mb-0" style="color: var(--text-primary);"><thead><tr>${thHtml}</tr></thead><tbody>${trHtml}</tbody></table></div>`;
     });
 
-    // 5. Paragraphs
+    // 5. Links & Attachments: [Texto](URL)
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, label, url) => {
+      const isFile = url.match(/\.(pdf|docx?|doc|xlsx?|xls|pptx?|ppt|zip|rar|7z|gz|tar|txt|csv|json|png|jpe?g|gif|svg|mp4|mp3)$/i);
+      let icon = 'bi bi-box-arrow-up-right';
+      if (url.match(/\.pdf$/i)) icon = 'bi bi-file-earmark-pdf';
+      else if (url.match(/\.docx?$/i)) icon = 'bi bi-file-earmark-word';
+      else if (url.match(/\.(xlsx?|csv)$/i)) icon = 'bi bi-file-earmark-excel';
+      else if (url.match(/\.pptx?$/i)) icon = 'bi bi-file-earmark-slides';
+      else if (url.match(/\.(zip|rar|7z|gz|tar)$/i)) icon = 'bi bi-file-earmark-zip';
+      else if (url.match(/\.(png|jpe?g|gif|svg)$/i)) icon = 'bi bi-file-earmark-image';
+      else if (url.match(/\.(mp4|mp3)$/i)) icon = 'bi bi-file-earmark-play';
+      else if (isFile) icon = 'bi bi-paperclip';
+
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-nepem-outline d-inline-flex align-items-center gap-1 my-1 me-1 text-decoration-none fw-semibold"><i class="${icon}"></i> ${label}</a>`;
+    });
+
+    // 6. Paragraphs
     const paragraphs = html.split(/\n\n+/);
     html = paragraphs.map(p => {
       const trimmed = p.trim();
@@ -1325,41 +1557,77 @@ const AdminModule = (() => {
     const subfolder = type === 'member' ? 'members' : 'projects';
     const savedPath = `img/${subfolder}/${uniqueFilename}`;
 
-    // 1. Try local server endpoint first if running locally
+    // 1. Save in IndexedDB
     try {
-      await fetch('/api/upload-image', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          filename: uniqueFilename,
-          base64: processedBase64,
-          type: type
-        })
+      await FileStorage.saveFile(uniqueFilename, processedBase64, 'image/jpeg');
+    } catch (err) {}
+
+    // 2. Try local server endpoint first if running locally
+    try {
+      const res = await callBackendApi('/api/upload-image', {
+        filename: uniqueFilename,
+        base64: processedBase64,
+        type: type
       });
+      if (res.ok) {
+        console.log(`[SUCCESS] Image saved locally to ${savedPath}`);
+      }
     } catch (e) {
       console.log("Local upload not available.");
     }
 
-    // 2. Queue the image to be uploaded to GitHub on Deploy
+    // 3. Queue the image to be uploaded to GitHub on Deploy
     try {
       const rawBase64 = processedBase64.includes(",") ? processedBase64.split(",")[1] : processedBase64;
       const pendingImages = JSON.parse(localStorage.getItem('nepem-pending-images') || '[]');
-      pendingImages.push({
+      const existingIdx = pendingImages.findIndex(img => img.filename === uniqueFilename);
+      const item = {
         filename: uniqueFilename,
         base64: rawBase64,
         subfolder: subfolder
-      });
+      };
+      if (existingIdx >= 0) pendingImages[existingIdx] = item;
+      else pendingImages.push(item);
       localStorage.setItem('nepem-pending-images', JSON.stringify(pendingImages));
     } catch (e) {
       console.error("Failed to queue image in localStorage:", e);
     }
 
-    // 3. Set value of the corresponding text input field
+    // 4. Set value of the corresponding text input field
     const inputElId = type === 'member' ? 'memberPhoto' : (type === 'project' ? 'projImage' : 'postBanner');
     const inputEl = document.getElementById(inputElId);
     if (inputEl) inputEl.value = savedPath;
 
-    showToast(`Imagem vinculada (será enviada no deploy): ${savedPath}`);
+    showToast(`Imagem vinculada: ${savedPath}`);
+  }
+
+  /* ---- BACKEND API HELPER (Tries relative, then port 8000 on 127.0.0.1 and localhost) ---- */
+  async function callBackendApi(endpoint, bodyData) {
+    const bodyPayload = typeof bodyData === 'object' ? JSON.stringify(bodyData) : bodyData;
+    const headers = { 'Content-Type': 'application/json' };
+
+    const targets = [
+      endpoint,
+      `http://127.0.0.1:8000${endpoint}`,
+      `http://localhost:8000${endpoint}`
+    ];
+
+    for (const url of targets) {
+      try {
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: headers,
+          body: bodyPayload
+        });
+        if (res.ok) {
+          const json = await res.json().catch(() => ({ status: 'success' }));
+          return { ok: true, data: json, url: url };
+        }
+      } catch (e) {
+        // Continue trying next target
+      }
+    }
+    return { ok: false };
   }
 
   function resizeImage(fileToProcess) {
@@ -1416,19 +1684,340 @@ const AdminModule = (() => {
     });
   }
 
+  /* ---- FILE STORAGE HELPER (IndexedDB + localStorage) ---- */
+  const FileStorage = {
+    dbName: 'nepem_files_db',
+    storeName: 'attachments',
+    
+    async openDB() {
+      return new Promise((resolve, reject) => {
+        if (!window.indexedDB) return reject(new Error('IndexedDB not supported'));
+        const request = indexedDB.open(this.dbName, 1);
+        request.onupgradeneeded = (e) => {
+          const db = e.target.result;
+          if (!db.objectStoreNames.contains(this.storeName)) {
+            db.createObjectStore(this.storeName, { keyPath: 'filename' });
+          }
+        };
+        request.onsuccess = (e) => resolve(e.target.result);
+        request.onerror = (e) => reject(e.target.error);
+      });
+    },
+
+    async saveFile(filename, base64Data, mimeType) {
+      try {
+        const db = await this.openDB();
+        return new Promise((resolve, reject) => {
+          const tx = db.transaction(this.storeName, 'readwrite');
+          const store = tx.objectStore(this.storeName);
+          store.put({ filename, base64: base64Data, mimeType, timestamp: Date.now() });
+          tx.oncomplete = () => resolve(true);
+          tx.onerror = () => reject(tx.error);
+        });
+      } catch (e) {
+        return false;
+      }
+    },
+
+    async getFile(filename) {
+      try {
+        const db = await this.openDB();
+        return new Promise((resolve) => {
+          const tx = db.transaction(this.storeName, 'readonly');
+          const store = tx.objectStore(this.storeName);
+          const req = store.get(filename);
+          req.onsuccess = () => resolve(req.result);
+          req.onerror = () => resolve(null);
+        });
+      } catch (e) {
+        return null;
+      }
+    },
+
+    async getAllFiles() {
+      try {
+        const db = await this.openDB();
+        return new Promise((resolve) => {
+          const tx = db.transaction(this.storeName, 'readonly');
+          const store = tx.objectStore(this.storeName);
+          const req = store.getAll();
+          req.onsuccess = () => resolve(req.result || []);
+          req.onerror = () => resolve([]);
+        });
+      } catch (e) {
+        return [];
+      }
+    },
+
+    async deleteFile(filename) {
+      try {
+        const db = await this.openDB();
+        return new Promise((resolve) => {
+          const tx = db.transaction(this.storeName, 'readwrite');
+          const store = tx.objectStore(this.storeName);
+          store.delete(filename);
+          tx.oncomplete = () => resolve(true);
+          tx.onerror = () => resolve(false);
+        });
+      } catch (e) {
+        return false;
+      }
+    }
+  };
+
+  /* ---- LOCAL FILE ATTACHMENT UPLOAD HANDLE ---- */
+  async function handleFileUpload(event) {
+    const file = event.target.files && event.target.files[0];
+    if (!file) return;
+
+    // Display file name in input box
+    const displayInput = document.getElementById('postFileInputDisplay');
+    if (displayInput) {
+      displayInput.value = `${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+    }
+
+    showToast(`Carregando anexo "${file.name}"...`);
+
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      const base64Data = e.target.result;
+      const sanitizedName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+      const relativePath = `files/${sanitizedName}`;
+
+      // 1. Save in IndexedDB (handles any file size up to hundreds of MBs seamlessly)
+      await FileStorage.saveFile(sanitizedName, base64Data, file.type);
+
+      // 2. Queue for GitHub deploy sync (safely wrapped for localStorage quota limits)
+      try {
+        const rawBase64 = base64Data.includes(",") ? base64Data.split(",")[1] : base64Data;
+        const pendingFiles = JSON.parse(localStorage.getItem('nepem-pending-files') || '[]');
+        const existingIdx = pendingFiles.findIndex(f => f.filename === sanitizedName);
+        const item = { filename: sanitizedName, base64: rawBase64, mimeType: file.type, subfolder: 'files' };
+        if (existingIdx >= 0) pendingFiles[existingIdx] = item;
+        else pendingFiles.push(item);
+        localStorage.setItem('nepem-pending-files', JSON.stringify(pendingFiles));
+      } catch (err) {
+        console.warn("Notice: Large file stored in IndexedDB (localStorage quota reached):", err);
+      }
+
+      // 3. Try python server endpoint if available
+      let savedToDisk = false;
+      try {
+        const response = await callBackendApi('/api/upload-file', {
+          filename: sanitizedName,
+          base64: base64Data
+        });
+        if (response && response.ok) {
+          savedToDisk = true;
+          console.log(`[SUCCESS] File uploaded to files/${sanitizedName} via ${response.url}`);
+        }
+      } catch (err) {
+        console.warn("Local server API not available:", err);
+      }
+
+      // 4. Register to post attachments list
+      const fileExt = sanitizedName.split('.').pop().toUpperCase();
+      if (!currentPostAttachments.some(a => a.url === relativePath)) {
+        currentPostAttachments.push({
+          name: file.name,
+          url: relativePath,
+          type: fileExt.toLowerCase()
+        });
+      }
+      renderAdminAttachmentsList();
+
+      // 5. Automatically insert Markdown link into postContent textarea
+      const textarea = document.getElementById('postContent');
+      if (textarea) {
+        const markdownLink = `\n* [Baixar ${sanitizedName} (${fileExt})](${relativePath})\n`;
+
+        const start = textarea.selectionStart || textarea.value.length;
+        const end = textarea.selectionEnd || textarea.value.length;
+        const text = textarea.value;
+
+        textarea.value = text.substring(0, start) + markdownLink + text.substring(end);
+        textarea.focus();
+        textarea.selectionStart = start + markdownLink.length;
+        textarea.selectionEnd = start + markdownLink.length;
+
+        updatePostPreview();
+      }
+
+      showToast(`Arquivo "${sanitizedName}" anexado com sucesso!`);
+      alert(`Arquivo "${file.name}" anexado com sucesso!\n\n• Link para download adicionado ao texto da postagem (${relativePath}).\n• O anexo foi registrado na seção "Arquivos & Documentos Anexados" da postagem!\n• Disponível para download imediato e preparado para o Deploy do Site!`);
+      
+      // Reset input value so re-selecting same file triggers change
+      event.target.value = '';
+    };
+
+    reader.readAsDataURL(file);
+  }
+
+  /* ---- INTERACTIVE TABLE BUILDER MODAL ---- */
+  let tableGridValues = { headers: [], cells: [] };
+
+  function openTableBuilder() {
+    const colsEl = document.getElementById('tableBuilderCols');
+    const rowsEl = document.getElementById('tableBuilderRows');
+    if (colsEl) colsEl.value = 3;
+    if (rowsEl) rowsEl.value = 3;
+
+    tableGridValues = { headers: [], cells: [] };
+    generateTableGrid();
+
+    const modalEl = document.getElementById('tableBuilderModal');
+    if (modalEl) {
+      const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+      modal.show();
+    }
+  }
+
+  function adjustTableCols(delta) {
+    const colsEl = document.getElementById('tableBuilderCols');
+    if (!colsEl) return;
+    let val = parseInt(colsEl.value, 10) || 3;
+    val = Math.max(1, Math.min(10, val + delta));
+    colsEl.value = val;
+    generateTableGrid();
+  }
+
+  function adjustTableRows(delta) {
+    const rowsEl = document.getElementById('tableBuilderRows');
+    if (!rowsEl) return;
+    let val = parseInt(rowsEl.value, 10) || 3;
+    val = Math.max(1, Math.min(25, val + delta));
+    rowsEl.value = val;
+    generateTableGrid();
+  }
+
+  function saveCurrentGridValues() {
+    const gridContainer = document.getElementById('tableBuilderGrid');
+    if (!gridContainer) return;
+
+    // Save headers
+    const headerInputs = gridContainer.querySelectorAll('.table-header-input');
+    headerInputs.forEach(input => {
+      const col = parseInt(input.getAttribute('data-col'), 10);
+      tableGridValues.headers[col] = input.value;
+    });
+
+    // Save cell rows
+    const cellInputs = gridContainer.querySelectorAll('.table-cell-input');
+    cellInputs.forEach(input => {
+      const r = parseInt(input.getAttribute('data-row'), 10);
+      const c = parseInt(input.getAttribute('data-col'), 10);
+      if (!tableGridValues.cells[r]) tableGridValues.cells[r] = [];
+      tableGridValues.cells[r][c] = input.value;
+    });
+  }
+
+  function generateTableGrid() {
+    saveCurrentGridValues();
+
+    const cols = parseInt(document.getElementById('tableBuilderCols')?.value, 10) || 3;
+    const rows = parseInt(document.getElementById('tableBuilderRows')?.value, 10) || 3;
+    const gridContainer = document.getElementById('tableBuilderGrid');
+    if (!gridContainer) return;
+
+    let html = '<div class="d-flex flex-column gap-2">';
+
+    // Header Row
+    html += '<div class="fw-bold small text-primary mb-1"><i class="bi bi-layout-three-columns me-1"></i>Cabeçalhos das Colunas:</div>';
+    html += '<div class="d-flex gap-2">';
+    for (let c = 0; c < cols; c++) {
+      const val = tableGridValues.headers[c] || '';
+      html += `<input type="text" class="form-control form-control-sm text-center fw-bold table-header-input" data-col="${c}" value="${val.replace(/"/g, '&quot;')}" placeholder="Cabeçalho ${c + 1}">`;
+    }
+    html += '</div>';
+
+    html += '<hr class="my-3">';
+
+    // Data Rows
+    html += '<div class="fw-bold small text-secondary mb-1"><i class="bi bi-grid-3x3-gap me-1"></i>Células de Dados:</div>';
+    for (let r = 0; r < rows; r++) {
+      html += `<div class="d-flex gap-2 align-items-center mb-1">`;
+      html += `<span class="badge bg-secondary-subtle text-secondary small" style="min-width: 32px;">L${r + 1}</span>`;
+      for (let c = 0; c < cols; c++) {
+        const val = (tableGridValues.cells[r] && tableGridValues.cells[r][c]) || '';
+        html += `<input type="text" class="form-control form-control-sm text-center table-cell-input" data-row="${r}" data-col="${c}" value="${val.replace(/"/g, '&quot;')}" placeholder="Dado L${r + 1} C${c + 1}">`;
+      }
+      html += `</div>`;
+    }
+
+    html += '</div>';
+    gridContainer.innerHTML = html;
+  }
+
+  function resetTableGrid() {
+    tableGridValues = { headers: [], cells: [] };
+    const gridContainer = document.getElementById('tableBuilderGrid');
+    if (gridContainer) {
+      gridContainer.querySelectorAll('input').forEach(i => i.value = '');
+    }
+  }
+
+  function insertCustomTable() {
+    saveCurrentGridValues();
+
+    const cols = parseInt(document.getElementById('tableBuilderCols')?.value, 10) || 3;
+    const rows = parseInt(document.getElementById('tableBuilderRows')?.value, 10) || 3;
+
+    // Build headers line
+    let headerLine = '|';
+    let dividerLine = '|';
+    for (let c = 0; c < cols; c++) {
+      const hVal = (tableGridValues.headers[c] || '').trim() || `Coluna ${c + 1}`;
+      headerLine += ` ${hVal} |`;
+      dividerLine += ` --- |`;
+    }
+
+    // Build rows lines
+    let rowsLines = [];
+    for (let r = 0; r < rows; r++) {
+      let line = '|';
+      for (let c = 0; c < cols; c++) {
+        const cellVal = (tableGridValues.cells[r] && tableGridValues.cells[r][c] ? tableGridValues.cells[r][c] : '').trim() || `Dado ${r + 1}.${c + 1}`;
+        line += ` ${cellVal} |`;
+      }
+      rowsLines.push(line);
+    }
+
+    const markdownTable = `\n${headerLine}\n${dividerLine}\n${rowsLines.join('\n')}\n`;
+
+    // Insert into textarea
+    const textarea = document.getElementById('postContent');
+    if (textarea) {
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const text = textarea.value;
+
+      textarea.value = text.substring(0, start) + markdownTable + text.substring(end);
+      textarea.focus();
+      textarea.selectionStart = start + markdownTable.length;
+      textarea.selectionEnd = start + markdownTable.length;
+
+      updatePostPreview();
+    }
+
+    // Hide Modal
+    const modalEl = document.getElementById('tableBuilderModal');
+    if (modalEl) {
+      const modal = bootstrap.Modal.getInstance(modalEl);
+      if (modal) modal.hide();
+    }
+  }
+
   async function saveLocally(type) {
     const key = type === 'publications' ? 'nepem-publications-v4' : `nepem-${type}`;
     const data = localStorage.getItem(key) || '[]';
     const formattedData = JSON.stringify(JSON.parse(data), null, 2);
 
     try {
-      const response = await fetch(`/api/save/${type}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: formattedData
-      });
+      const response = await callBackendApi(`/api/save/${type}`, formattedData);
       if (response.ok) {
         showToast(`Salvo localmente em data/${type}.json`);
+      } else {
+        console.log("Local backend save not available. Data saved in localStorage.");
       }
     } catch (e) {
       console.log("Local backend save not available. Data saved in localStorage.");
@@ -1520,10 +2109,60 @@ const AdminModule = (() => {
     reader.readAsText(file);
   }
 
+  function base64ToBlob(base64, mimeType = 'application/pdf') {
+    const cleanBase64 = base64.includes(',') ? base64.split(',')[1] : base64;
+    const byteCharacters = atob(cleanBase64);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    return new Blob([byteArray], { type: mimeType });
+  }
+
   function setupEventListeners() {
     // Language and theme toggles if present
     document.getElementById('themeToggle')?.addEventListener('click', () => ThemeManager.toggle());
     document.getElementById('langToggle')?.addEventListener('click', () => I18n.cycleLang());
+
+    // Intercept clicks on local attachment links in admin preview
+    document.addEventListener('click', async (e) => {
+      const link = e.target.closest('a[href^="files/"], a[href*="/files/"]');
+      if (!link) return;
+
+      const href = link.getAttribute('href');
+      const filename = href.split('/').pop().split('?')[0];
+
+      try {
+        const check = await fetch(href, { method: 'HEAD' });
+        if (check.ok) return;
+      } catch (err) {}
+
+      let fileData = await FileStorage.getFile(filename);
+      if (!fileData) {
+        const pending = JSON.parse(localStorage.getItem('nepem-pending-files') || '[]');
+        const match = pending.find(f => f.filename === filename);
+        if (match) fileData = match;
+      }
+
+      if (fileData && fileData.base64) {
+        e.preventDefault();
+        const mime = fileData.mimeType || (filename.endsWith('.pdf') ? 'application/pdf' : 'application/octet-stream');
+        const blob = base64ToBlob(fileData.base64, mime);
+        const blobUrl = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = filename;
+        a.target = '_blank';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+          document.body.removeChild(a);
+          URL.revokeObjectURL(blobUrl);
+        }, 1500);
+      }
+    });
   }
 
   function setupSidebarLogout() {
@@ -1664,73 +2303,144 @@ const AdminModule = (() => {
     showToast("Iniciando deploy de todas as alterações...");
 
     let successImagesCount = 0;
+    let successFilesCount = 0;
     let successDataCount = 0;
+    let lastErrorMessage = '';
 
-    // 1. Upload pending images first
-    const pendingImagesStr = localStorage.getItem('nepem-pending-images');
-    if (pendingImagesStr) {
-      try {
-        const pendingImages = JSON.parse(pendingImagesStr);
-        if (pendingImages.length > 0) {
-          showToast(`Enviando ${pendingImages.length} imagem(ns) pendente(s)...`);
-          const failedImages = [];
-          
-          for (const img of pendingImages) {
-            try {
-              const gitHubPath = `img/${img.subfolder}/${img.filename}`;
-              const putUrl = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${gitHubPath}`;
-              
-              // Get current SHA if it exists (highly unlikely for timestamped filenames, but robust)
-              let currentSha = null;
-              const getRes = await fetch(`${putUrl}?ref=${config.branch}`, {
-                headers: { 'Authorization': `token ${config.token}`, 'Accept': 'application/vnd.github.v3+json' }
-              });
-              if (getRes.ok) {
-                const fileInfo = await getRes.json();
-                currentSha = fileInfo.sha;
-              }
+    // Helper for auth header
+    const getAuthHeader = (tok) => tok.startsWith('github_pat_') || tok.startsWith('ghp_') ? `Bearer ${tok}` : `token ${tok}`;
+    const authHeader = getAuthHeader(config.token);
 
-              showToast(`Enviando imagem ${img.filename}...`);
-              const putRes = await fetch(putUrl, {
-                method: 'PUT',
-                headers: {
-                  'Authorization': `token ${config.token}`,
-                  'Accept': 'application/vnd.github.v3+json',
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                  message: `Upload photo ${img.filename} via Admin Panel Deploy`,
-                  content: img.base64,
-                  sha: currentSha,
-                  branch: config.branch
-                })
-              });
+    // 1. Deploy pending images
+    try {
+      const pendingImages = JSON.parse(localStorage.getItem('nepem-pending-images') || '[]');
+      if (pendingImages.length > 0) {
+        const remainingImages = [];
+        for (const img of pendingImages) {
+          try {
+            showToast(`Enviando imagem ${img.filename}...`);
+            const subfolder = img.subfolder || 'projects';
+            const path = `img/${subfolder}/${img.filename}`;
+            const url = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${path}`;
 
-              if (putRes.ok) {
-                successImagesCount++;
-              } else {
-                const errorData = await putRes.json();
-                console.error(`Error uploading image ${img.filename}:`, errorData);
-                failedImages.push(img);
-              }
-            } catch (imgErr) {
-              console.error(`Failed to upload image ${img.filename}:`, imgErr);
-              failedImages.push(img);
+            let currentSha = null;
+            const getRes = await fetch(`${url}?ref=${config.branch}`, {
+              headers: { 'Authorization': authHeader, 'Accept': 'application/vnd.github.v3+json' }
+            });
+            if (getRes.ok) {
+              const info = await getRes.json();
+              currentSha = info.sha;
             }
-          }
 
-          if (failedImages.length > 0) {
-            localStorage.setItem('nepem-pending-images', JSON.stringify(failedImages));
-          } else {
-            localStorage.removeItem('nepem-pending-images');
+            const putRes = await fetch(url, {
+              method: 'PUT',
+              headers: {
+                'Authorization': authHeader,
+                'Accept': 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                message: `Upload image ${img.filename} via Admin Panel`,
+                content: img.base64,
+                sha: currentSha,
+                branch: config.branch
+              })
+            });
+
+            if (putRes.ok) {
+              successImagesCount++;
+            } else {
+              const err = await putRes.json();
+              lastErrorMessage = err.message || `HTTP ${putRes.status}`;
+              console.error(`Error uploading image ${img.filename}:`, err);
+              remainingImages.push(img);
+            }
+          } catch (imgErr) {
+            console.error(`Failed to upload image ${img.filename}:`, imgErr);
+            remainingImages.push(img);
           }
         }
-      } catch (e) {
-        console.error("Error processing pending images:", e);
+        if (remainingImages.length > 0) {
+          localStorage.setItem('nepem-pending-images', JSON.stringify(remainingImages));
+        } else {
+          localStorage.removeItem('nepem-pending-images');
+        }
       }
+    } catch (e) {
+      console.error("Error processing pending images:", e);
     }
 
-    // 2. Deploy JSON files
+    // 2. Deploy pending files / attachments from IndexedDB and localStorage
+    try {
+      let pendingFiles = [];
+      try {
+        pendingFiles = await FileStorage.getAllFiles();
+      } catch (idbErr) {
+        console.warn("Could not read from IndexedDB, falling back to localStorage:", idbErr);
+        pendingFiles = JSON.parse(localStorage.getItem('nepem-pending-files') || '[]');
+      }
+
+      if (pendingFiles.length > 0) {
+        const failedFiles = [];
+        for (const f of pendingFiles) {
+          try {
+            showToast(`Enviando anexo ${f.filename}...`);
+            const subfolder = f.subfolder || 'files';
+            const path = `${subfolder}/${f.filename}`;
+            const url = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${path}`;
+
+            let currentSha = null;
+            const getRes = await fetch(`${url}?ref=${config.branch}`, {
+              headers: { 'Authorization': authHeader, 'Accept': 'application/vnd.github.v3+json' }
+            });
+            if (getRes.ok) {
+              const info = await getRes.json();
+              currentSha = info.sha;
+            }
+
+            const rawBase64 = f.base64.includes(",") ? f.base64.split(",")[1] : f.base64;
+
+            const putRes = await fetch(url, {
+              method: 'PUT',
+              headers: {
+                'Authorization': authHeader,
+                'Accept': 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                message: `Upload attachment ${f.filename} via Admin Panel`,
+                content: rawBase64,
+                sha: currentSha,
+                branch: config.branch
+              })
+            });
+
+            if (putRes.ok) {
+              successFilesCount++;
+              await FileStorage.deleteFile(f.filename);
+            } else {
+              const errorData = await putRes.json();
+              lastErrorMessage = errorData.message || `HTTP ${putRes.status}`;
+              console.error(`Error uploading file ${f.filename}:`, errorData);
+              failedFiles.push(f);
+            }
+          } catch (fErr) {
+            console.error(`Failed to upload file ${f.filename}:`, fErr);
+            failedFiles.push(f);
+          }
+        }
+
+        if (failedFiles.length > 0) {
+          localStorage.setItem('nepem-pending-files', JSON.stringify(failedFiles));
+        } else {
+          localStorage.removeItem('nepem-pending-files');
+        }
+      }
+    } catch (e) {
+      console.error("Error processing pending files:", e);
+    }
+
+    // 3. Deploy JSON databases
     const types = ['publications', 'members', 'projects', 'posts'];
     for (const type of types) {
       try {
@@ -1748,19 +2458,22 @@ const AdminModule = (() => {
         // Get current SHA
         let currentSha = null;
         const getRes = await fetch(`${url}?ref=${config.branch}`, {
-          headers: { 'Authorization': `token ${config.token}`, 'Accept': 'application/vnd.github.v3+json' }
+          headers: { 'Authorization': authHeader, 'Accept': 'application/vnd.github.v3+json' }
         });
 
         if (getRes.ok) {
           const fileInfo = await getRes.json();
           currentSha = fileInfo.sha;
+        } else if (getRes.status === 401 || getRes.status === 403) {
+          const errInfo = await getRes.json();
+          lastErrorMessage = errInfo.message || `HTTP ${getRes.status}`;
         }
 
         // Update File
         const putRes = await fetch(url, {
           method: 'PUT',
           headers: {
-            'Authorization': `token ${config.token}`,
+            'Authorization': authHeader,
             'Accept': 'application/vnd.github.v3+json',
             'Content-Type': 'application/json'
           },
@@ -1776,6 +2489,7 @@ const AdminModule = (() => {
           successDataCount++;
         } else {
           const errorData = await putRes.json();
+          lastErrorMessage = errorData.message || `HTTP ${putRes.status}`;
           console.error(`Error deploying ${type}:`, errorData);
         }
       } catch (err) {
@@ -1783,11 +2497,17 @@ const AdminModule = (() => {
       }
     }
 
-    if (successImagesCount > 0 || successDataCount > 0) {
+    if (successImagesCount > 0 || successFilesCount > 0 || successDataCount > 0) {
       showToast(`Sucesso! Deploy concluído.`);
-      alert(`Deploy enviado com sucesso! O GitHub foi atualizado com ${successImagesCount} imagem(ns) e ${successDataCount} arquivo(s) de dados. O Netlify iniciará a publicação em instantes.`);
+      alert(`Deploy enviado com sucesso!\n\n• Imagens enviadas: ${successImagesCount}\n• Anexos enviados: ${successFilesCount}\n• Arquivos de dados sincronizados: ${successDataCount}\n\nO GitHub foi atualizado e o Netlify iniciará a publicação em instantes!`);
     } else {
-      alert("Nenhum arquivo pôde ser enviado. Verifique se as credenciais do GitHub estão corretas ou se há conexão com a internet.");
+      let extraHint = '';
+      if (lastErrorMessage.toLowerCase().includes('resource not accessible') || lastErrorMessage.toLowerCase().includes('permission') || lastErrorMessage.toLowerCase().includes('forbidden')) {
+        extraHint = '\n\n💡 Causa: O token precisa da permissão "Contents: Read and write" no GitHub para poder criar e atualizar arquivos.';
+      } else if (lastErrorMessage.toLowerCase().includes('bad credentials')) {
+        extraHint = '\n\n💡 Causa: O token informado é inválido ou expirou.';
+      }
+      alert(`Nenhum arquivo pôde ser enviado.\n\nRetorno do GitHub: ${lastErrorMessage || 'Falha de autenticação ou permissão'}${extraHint}`);
     }
   }
 
@@ -1801,15 +2521,16 @@ const AdminModule = (() => {
   }
 
   return {
-    init, setTab,
+    init, setTab, handleLogin,
     showPubForm, savePub,
     showMemberForm, saveMember,
     showProjectForm, saveProject,
     showPostForm, savePost,
+    handlePhotoUpload, handleFileUpload,
     deleteItem, editItem, filterTable,
     exportData, importData, resetToDefault,
-    handlePhotoUpload, handleLogin,
-    insertFormat, updatePostPreview,
+    insertFormat, updatePostPreview, removeAttachment, getPendingImageData,
+    openTableBuilder, adjustTableCols, adjustTableRows, generateTableGrid, resetTableGrid, insertCustomTable,
     openGithubSettings, saveGithubSettings, clearGithubSettings,
     deploySite
   };

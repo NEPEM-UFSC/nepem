@@ -18,13 +18,35 @@ const MembersModule = (() => {
   ];
 
   async function init() {
+    let loadedMembers = [];
+
     try {
-      // Always fetch fresh members database from the server for public pages
-      members = await (await fetch('data/members.json')).json();
+      const res = await fetch('data/members.json?t=' + Date.now());
+      if (res.ok) {
+        loadedMembers = await res.json();
+      }
     } catch (e) {
-      console.error('Failed to load members:', e);
-      members = [];
+      console.warn('Could not fetch data/members.json:', e);
     }
+
+    try {
+      const localStr = localStorage.getItem('nepem-members');
+      if (localStr) {
+        const local = JSON.parse(localStr);
+        if (Array.isArray(local) && local.length > 0) {
+          if (loadedMembers.length === 0) {
+            loadedMembers = local;
+          } else {
+            const existingNames = new Set(loadedMembers.map(m => m.name));
+            local.forEach(m => {
+              if (m.name && !existingNames.has(m.name)) loadedMembers.push(m);
+            });
+          }
+        }
+      }
+    } catch (err) {}
+
+    members = Array.isArray(loadedMembers) ? loadedMembers : [];
     render();
     
     // Set dynamic 3D badge count

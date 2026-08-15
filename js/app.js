@@ -102,37 +102,61 @@ const App = (() => {
   let projectFilter = 'all';
 
   async function loadProjects() {
+    let loadedProjects = [];
+
     try {
-      // Always fetch fresh projects database from the server for public pages
-      projects = await (await fetch('data/projects.json?t=' + Date.now())).json();
-
-      // Dynamic loading of GitHub Repositories from fallback-data.json
-      try {
-        const fallbackResp = await fetch('data/fallback-data.json?t=' + Date.now());
-        if (fallbackResp.ok) {
-          const fallbackData = await fallbackResp.json();
-          if (fallbackData && fallbackData.githubRepos) {
-            githubRepos = fallbackData.githubRepos;
-
-            // Inject a dynamic "Repositórios GitHub" button into filters
-            const filters = document.getElementById('projectFilters');
-            if (filters && !document.getElementById('btnFilterGithub')) {
-              const btn = document.createElement('button');
-              btn.className = 'btn-filter';
-              btn.id = 'btnFilterGithub';
-              btn.dataset.filter = 'GitHub';
-              btn.setAttribute('onclick', "App.setProjectFilter('GitHub')");
-              btn.textContent = 'Repositórios GitHub';
-              filters.appendChild(btn);
-            }
-          }
-        }
-      } catch (err) {
-        // Ignore gracefully if fallback-data.json does not exist yet
+      const res = await fetch('data/projects.json?t=' + Date.now());
+      if (res.ok) {
+        loadedProjects = await res.json();
       }
     } catch (e) {
-      console.error('Failed to load projects:', e);
+      console.warn('Could not fetch data/projects.json:', e);
     }
+
+    try {
+      const localStr = localStorage.getItem('nepem-projects');
+      if (localStr) {
+        const local = JSON.parse(localStr);
+        if (Array.isArray(local) && local.length > 0) {
+          if (loadedProjects.length === 0) {
+            loadedProjects = local;
+          } else {
+            const existingIds = new Set(loadedProjects.map(p => p.id));
+            local.forEach(p => {
+              if (p.id && !existingIds.has(p.id)) loadedProjects.push(p);
+            });
+          }
+        }
+      }
+    } catch (err) {}
+
+    projects = Array.isArray(loadedProjects) ? loadedProjects : [];
+
+    // Dynamic loading of GitHub Repositories from fallback-data.json
+    try {
+      const fallbackResp = await fetch('data/fallback-data.json?t=' + Date.now());
+      if (fallbackResp.ok) {
+        const fallbackData = await fallbackResp.json();
+        if (fallbackData && fallbackData.githubRepos) {
+          githubRepos = fallbackData.githubRepos;
+
+          // Inject a dynamic "Repositórios GitHub" button into filters
+          const filters = document.getElementById('projectFilters');
+          if (filters && !document.getElementById('btnFilterGithub')) {
+            const btn = document.createElement('button');
+            btn.className = 'btn-filter';
+            btn.id = 'btnFilterGithub';
+            btn.dataset.filter = 'GitHub';
+            btn.setAttribute('onclick', "App.setProjectFilter('GitHub')");
+            btn.textContent = 'Repositórios GitHub';
+            filters.appendChild(btn);
+          }
+        }
+      }
+    } catch (err) {
+      // Ignore gracefully if fallback-data.json does not exist yet
+    }
+
     renderProjects();
     
     // Set dynamic 3D badge count
@@ -271,13 +295,35 @@ const BlogModule = (() => {
   let posts = [];
 
   async function init() {
+    let loadedPosts = [];
+
     try {
-      // Always fetch fresh blog posts from the server for public pages
-      posts = await (await fetch('data/posts.json')).json();
+      const res = await fetch('data/posts.json?t=' + Date.now());
+      if (res.ok) {
+        loadedPosts = await res.json();
+      }
     } catch (e) {
-      console.error('Failed to load blog posts:', e);
-      posts = [];
+      console.warn('Could not fetch data/posts.json:', e);
     }
+
+    try {
+      const localStr = localStorage.getItem('nepem-posts');
+      if (localStr) {
+        const local = JSON.parse(localStr);
+        if (Array.isArray(local) && local.length > 0) {
+          if (loadedPosts.length === 0) {
+            loadedPosts = local;
+          } else {
+            const existingIds = new Set(loadedPosts.map(p => p.id));
+            local.forEach(p => {
+              if (p.id && !existingIds.has(p.id)) loadedPosts.push(p);
+            });
+          }
+        }
+      }
+    } catch (err) {}
+
+    posts = Array.isArray(loadedPosts) ? loadedPosts : [];
     renderGrid();
     
     // Set dynamic 3D badge count
@@ -285,6 +331,19 @@ const BlogModule = (() => {
     if (badge) {
       badge.textContent = posts.length;
     }
+  }
+
+  function getPendingImageData(src) {
+    if (!src) return null;
+    const filename = src.split('/').pop().split('?')[0];
+    try {
+      const pending = JSON.parse(localStorage.getItem('nepem-pending-images') || '[]');
+      const found = pending.find(img => img.filename === filename || (img.filename && src.endsWith(img.filename)));
+      if (found && found.base64) {
+        return found.base64.startsWith('data:') ? found.base64 : `data:image/jpeg;base64,${found.base64}`;
+      }
+    } catch (e) {}
+    return null;
   }
 
   function renderGrid() {
@@ -302,31 +361,38 @@ const BlogModule = (() => {
 
     // Sort posts by date desc
     const sortedPosts = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
-
     container.innerHTML = sortedPosts.map((post, i) => {
       const excerpt = post.excerpt || '';
       const date = post.date || '';
       const title = post.title || '';
-      const banner = post.banner || 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=600&q=80';
+      const fallbackImg = getPendingImageData(post.banner) || 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=600&q=80';
+      const banner = post.banner || fallbackImg;
       const stagger = `stagger-${(i % 6) + 1}`;
+      const postUrl = `post.html?id=${post.id}`;
 
       return `
         <div class="col-md-6 col-lg-4 mb-4 fade-in-up ${stagger} visible">
-          <div class="project-card d-flex flex-column h-100" style="cursor: pointer; border-radius: var(--radius-md); overflow: hidden; background: var(--bg-card);" onclick="BlogModule.openPost('${post.id}')">
-            <div class="project-card-image p-0" style="height: 180px; overflow: hidden; background: #e2e8f0; position: relative;">
-              <img src="${banner}" alt="${title.replace(/"/g, '&quot;')}" style="width: 100%; height: 100%; object-fit: cover; max-width: none;">
-              <div class="position-absolute bottom-0 start-0 m-3 px-2 py-1 bg-dark text-white rounded text-xs fw-semibold small" style="opacity: 0.85; z-index: 10;">
-                ${date}
+          <a href="${postUrl}" target="_blank" class="text-decoration-none color-inherit d-block h-100">
+            <div class="project-card d-flex flex-column h-100" style="cursor: pointer; border-radius: var(--radius-md); overflow: hidden; background: var(--bg-card);">
+              <div class="project-card-image p-0" style="height: 180px; overflow: hidden; background: #e2e8f0; position: relative;">
+                <img src="${banner}" 
+                     alt="${title.replace(/"/g, '&quot;')}" 
+                     style="width: 100%; height: 100%; object-fit: cover; max-width: none;"
+                     onerror="const f = App.getPendingImageData('${post.banner}'); if(f) { this.src = f; this.onerror = null; }">
+                <div class="position-absolute bottom-0 start-0 m-3 px-2 py-1 bg-dark text-white rounded text-xs fw-semibold small" style="opacity: 0.85; z-index: 10;">
+                  ${date}
+                </div>
+              </div>
+              <div class="project-card-body p-3 d-flex flex-column flex-grow-1">
+                <h5 class="fw-bold mb-2 text-truncate-2" style="font-size: 1.1rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 3.1rem; color: var(--text-primary);">${title}</h5>
+                <p class="text-secondary small mb-3 flex-grow-1" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.6; height: 4.8rem;">${excerpt}</p>
+                <div class="text-gradient fw-semibold small mt-auto d-flex align-items-center justify-content-between">
+                  <span>Ler post completo <i class="bi bi-arrow-right ms-1"></i></span>
+                  <i class="bi bi-box-arrow-up-right text-secondary small" title="Abre em nova página com link próprio"></i>
+                </div>
               </div>
             </div>
-            <div class="project-card-body p-3 d-flex flex-column flex-grow-1">
-              <h5 class="fw-bold mb-2 text-truncate-2" style="font-size: 1.1rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 3.1rem; color: var(--text-primary);">${title}</h5>
-              <p class="text-secondary small mb-3 flex-grow-1" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.6; height: 4.8rem;">${excerpt}</p>
-              <div class="text-gradient fw-semibold small mt-auto">
-                Ler post completo <i class="bi bi-arrow-right ms-1"></i>
-              </div>
-            </div>
-          </div>
+          </a>
         </div>`;
     }).join('');
   }
@@ -342,25 +408,68 @@ const BlogModule = (() => {
     const title = post.title || '';
     const banner = post.banner || '';
     const content = post.content || '';
+    const postUrl = `post.html?id=${post.id}`;
 
     let bannerHtml = '';
     if (banner) {
       bannerHtml = `
         <div class="mb-4 rounded overflow-hidden" style="max-height: 350px; width: 100%;">
-          <img src="${banner}" alt="${title.replace(/"/g, '&quot;')}" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="${banner}" 
+               alt="${title.replace(/"/g, '&quot;')}" 
+               style="width: 100%; height: 100%; object-fit: cover;"
+               onerror="const f = App.getPendingImageData('${banner}'); if(f) { this.src = f; this.onerror = null; }">
+        </div>`;
+    }
+
+    let attachmentsHtml = '';
+    let attachments = Array.isArray(post.attachments) ? [...post.attachments] : [];
+    
+    // Auto-extract from content if empty or merge any file links from markdown
+    const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+    let match;
+    while ((match = linkRegex.exec(content)) !== null) {
+      const label = match[1];
+      const url = match[2];
+      const isFile = url.match(/\.(pdf|docx?|doc|xlsx?|xls|pptx?|ppt|zip|rar|7z|gz|tar|txt|csv|json|png|jpe?g|gif|svg|mp4|mp3)($|\?)/i) || url.startsWith('files/');
+      if (isFile && !attachments.some(a => a.url === url)) {
+        attachments.push({
+          name: label.replace(/^Baixar\s+/i, '').trim() || label,
+          url: url
+        });
+      }
+    }
+
+    if (attachments.length > 0) {
+      attachmentsHtml = `
+        <div class="mt-4 pt-3 border-top">
+          <h6 class="fw-bold mb-3 text-primary d-flex align-items-center gap-2">
+            <i class="bi bi-paperclip fs-5"></i> Arquivos & Documentos Anexados:
+          </h6>
+          <div class="d-flex flex-column gap-2">
+            ${attachments.map(att => `
+              <a href="${att.url}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-nepem-outline d-inline-flex align-items-center justify-content-between p-2 text-decoration-none">
+                <span><i class="bi bi-file-earmark-arrow-down me-2"></i>${att.name || 'Arquivo Anexo'}</span>
+                <i class="bi bi-download"></i>
+              </a>
+            `).join('')}
+          </div>
         </div>`;
     }
 
     modalBody.innerHTML = `
       ${bannerHtml}
-      <div class="d-flex align-items-center gap-2 mb-2 text-secondary small">
-        <i class="bi bi-calendar3"></i> <span>${date}</span>
+      <div class="d-flex align-items-center justify-content-between gap-2 mb-2 text-secondary small">
+        <div><i class="bi bi-calendar3 me-1"></i><span>${date}</span></div>
+        <a href="${postUrl}" target="_blank" class="btn btn-sm btn-nepem-outline rounded-pill px-3">
+          <i class="bi bi-box-arrow-up-right me-1"></i> Abrir em nova página
+        </a>
       </div>
       <h3 class="fw-bold text-gradient mb-3" style="font-size: 1.8rem; line-height: 1.3;">${title}</h3>
       <hr class="my-3">
       <div class="post-markdown-content text-secondary" style="font-size: 1rem; line-height: 1.8;">
         ${parseMarkdown(content)}
-      </div>`;
+      </div>
+      ${attachmentsHtml}`;
 
     const modal = new bootstrap.Modal(document.getElementById('blogPostModal'));
     modal.show();
@@ -387,20 +496,43 @@ const BlogModule = (() => {
     html = html.replace(/(<li>.*?<\/li>)+/gs, (match) => `<ul class="text-secondary ps-3 my-2" style="list-style-type: disc;">${match}</ul>`);
 
     // 4. Tables
-    html = html.replace(/\|(.*?)\|\r?\n\|[ -:|]*?\|\r?\n((?:\|.*?\|\r?\n?)*)/g, (match, header, body) => {
-      const headers = header.split('|').map(h => h.trim()).filter(Boolean);
-      const rows = body.trim().split('\n').map(r => r.split('|').map(c => c.trim()).filter(Boolean));
+    const tableBlockRegex = /(?:(?:^|\n)\|[^\n]+\|\r?\n\|[-:\s|]+\|\r?\n(?:\|[^\n]+\|\r?\n?)+)/g;
+    html = html.replace(tableBlockRegex, (match) => {
+      const lines = match.trim().split(/\r?\n/);
+      if (lines.length < 2) return match;
 
-      const thHtml = headers.map(h => `<th class="bg-light text-secondary font-semibold p-2 border">${h}</th>`).join('');
-      const trHtml = rows.map(row => {
-        if (row.length === 0) return '';
-        return `<tr>${row.map(cell => `<td class="p-2 border text-secondary">${cell}</td>`).join('')}</tr>`;
+      const headerLine = lines[0];
+      const bodyLines = lines.slice(2);
+
+      const headers = headerLine.split('|').map(h => h.trim()).filter(Boolean);
+      const thHtml = headers.map(h => `<th class="p-3 border fw-bold" style="background: var(--bg-secondary); color: var(--text-primary);">${h}</th>`).join('');
+
+      const trHtml = bodyLines.map(line => {
+        const cells = line.split('|').map(c => c.trim()).filter((_, i, arr) => i > 0 && i < arr.length - 1);
+        if (cells.length === 0) return '';
+        return `<tr>${cells.map(cell => `<td class="p-3 border" style="color: var(--text-primary);">${cell}</td>`).join('')}</tr>`;
       }).join('');
 
-      return `<div class="table-responsive my-4"><table class="table border table-hover align-middle"><thead><tr>${thHtml}</tr></thead><tbody>${trHtml}</tbody></table></div>`;
+      return `<div class="table-responsive my-4"><table class="table border table-hover align-middle mb-0" style="color: var(--text-primary);"><thead><tr>${thHtml}</tr></thead><tbody>${trHtml}</tbody></table></div>`;
     });
 
-    // 5. Paragraphs
+    // 5. Links & Attachments: [Texto](URL)
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, label, url) => {
+      const isFile = url.match(/\.(pdf|docx?|doc|xlsx?|xls|pptx?|ppt|zip|rar|7z|gz|tar|txt|csv|json|png|jpe?g|gif|svg|mp4|mp3)$/i);
+      let icon = 'bi bi-box-arrow-up-right';
+      if (url.match(/\.pdf$/i)) icon = 'bi bi-file-earmark-pdf';
+      else if (url.match(/\.docx?$/i)) icon = 'bi bi-file-earmark-word';
+      else if (url.match(/\.(xlsx?|csv)$/i)) icon = 'bi bi-file-earmark-excel';
+      else if (url.match(/\.pptx?$/i)) icon = 'bi bi-file-earmark-slides';
+      else if (url.match(/\.(zip|rar|7z|gz|tar)$/i)) icon = 'bi bi-file-earmark-zip';
+      else if (url.match(/\.(png|jpe?g|gif|svg)$/i)) icon = 'bi bi-file-earmark-image';
+      else if (url.match(/\.(mp4|mp3)$/i)) icon = 'bi bi-file-earmark-play';
+      else if (isFile) icon = 'bi bi-paperclip';
+
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-nepem-outline d-inline-flex align-items-center gap-1 my-1 me-1 text-decoration-none fw-semibold"><i class="${icon}"></i> ${label}</a>`;
+    });
+
+    // 6. Paragraphs
     const paragraphs = html.split(/\n\n+/);
     html = paragraphs.map(p => {
       const trimmed = p.trim();
@@ -556,7 +688,7 @@ const ScholarStats = (() => {
     }, 250);
   }
 
-  return { init, getCachedStats };
+  return { init, getCachedStats, getPendingImageData };
 })();
 
 /* --- Global initialization --- */

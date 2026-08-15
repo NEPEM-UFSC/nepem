@@ -142,8 +142,9 @@
             </div>
             
             <div class="mb-4">
-              <label class="form-label small">Branch (ramificação principal)</label>
-              <input type="text" id="ghBranch" class="form-control form-control-nepem" placeholder="Ex: main" value="main" required>
+              <label class="form-label small mb-1">Branch Padrão</label>
+              <input type="text" id="ghBranch" class="form-control form-control-nepem" placeholder="Ex: master" value="master" required>
+              <div class="form-text text-secondary small">Normalmente <code class="text-primary">master</code> ou <code class="text-primary">main</code>.</div>
             </div>
 
             <div class="d-flex gap-2 justify-content-end">
@@ -152,6 +153,61 @@
               <button type="submit" class="btn btn-nepem-primary">Salvar Credenciais</button>
             </div>
           </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table Builder Modal -->
+  <div class="modal fade" id="tableBuilderModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content glass-card" style="border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-primary); border-radius: var(--radius-lg);">
+        <div class="modal-header border-bottom" style="border-color: var(--border-color) !important;">
+          <h5 class="modal-title fw-bold text-primary d-flex align-items-center gap-2">
+            <i class="bi bi-table"></i> Inserir Tabela Personalizada
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(var(--text-primary));"></button>
+        </div>
+        <div class="modal-body p-4">
+          <!-- Controls Row: Rows & Columns -->
+          <div class="row g-3 mb-4 p-3 rounded-3" style="background: var(--bg-secondary); border: 1px solid var(--border-color);">
+            <div class="col-md-5">
+              <label class="form-label small fw-semibold mb-1">Número de Colunas</label>
+              <div class="input-group input-group-sm">
+                <button class="btn btn-outline-secondary" type="button" onclick="AdminModule.adjustTableCols(-1)">-</button>
+                <input type="number" id="tableBuilderCols" class="form-control text-center fw-bold" value="3" min="1" max="10" onchange="AdminModule.generateTableGrid()">
+                <button class="btn btn-outline-secondary" type="button" onclick="AdminModule.adjustTableCols(1)">+</button>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <label class="form-label small fw-semibold mb-1">Número de Linhas</label>
+              <div class="input-group input-group-sm">
+                <button class="btn btn-outline-secondary" type="button" onclick="AdminModule.adjustTableRows(-1)">-</button>
+                <input type="number" id="tableBuilderRows" class="form-control text-center fw-bold" value="3" min="1" max="25" onchange="AdminModule.generateTableGrid()">
+                <button class="btn btn-outline-secondary" type="button" onclick="AdminModule.adjustTableRows(1)">+</button>
+              </div>
+            </div>
+            <div class="col-md-2 d-flex align-items-end">
+              <button type="button" class="btn btn-sm btn-outline-danger w-100" onclick="AdminModule.resetTableGrid()" title="Limpar Campos">
+                <i class="bi bi-trash"></i> Limpar
+              </button>
+            </div>
+          </div>
+
+          <label class="form-label small fw-bold text-gradient mb-2 d-block">
+            <i class="bi bi-pencil-square me-1"></i>Digite os valores dos cabeçalhos e células da tabela:
+          </label>
+
+          <!-- Dynamic Grid Container -->
+          <div class="table-responsive p-3 border rounded-3" style="max-height: 380px; overflow: auto; background: var(--bg-primary); border-color: var(--border-color) !important;">
+            <div id="tableBuilderGrid"></div>
+          </div>
+        </div>
+        <div class="modal-footer border-top" style="border-color: var(--border-color) !important;">
+          <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-nepem-primary rounded-pill px-4" onclick="AdminModule.insertCustomTable()">
+            <i class="bi bi-plus-circle me-1"></i> Inserir Tabela no Post
+          </button>
         </div>
       </div>
     </div>

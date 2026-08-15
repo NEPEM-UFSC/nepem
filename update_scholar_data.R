@@ -114,7 +114,7 @@ fetch_github_repos <- function(username, token = NULL) {
   tryCatch({
     resp <- req %>% req_perform()
     repos <- resp %>% resp_body_json()
-    
+
     formatted_repos <- map(repos, ~{
       homepage_url <- .x$homepage
       if (is.null(homepage_url) || homepage_url == "") {
@@ -138,7 +138,7 @@ fetch_github_repos <- function(username, token = NULL) {
     })
     log_info("✓ {length(formatted_repos)} repositórios do GitHub encontrados para {username}.")
     return(formatted_repos)
-    
+
   }, error = function(e) {
     log_error("Erro ao buscar repositórios do GitHub para {username}: {e$message}")
     return(list())
@@ -150,14 +150,14 @@ fetch_orcid_works <- function(orcid_id) {
   if (is.null(orcid_id) || orcid_id == "") return(list())
   log_info("Buscando publicações do ORCID '{orcid_id}'...")
   api_url <- glue("https://pub.orcid.org/v3.0/{orcid_id}/works")
-  
+
   req <- request(api_url) %>%
     req_headers("Accept" = "application/json")
   tryCatch({
     resp <- req %>% req_perform()
     data <- resp %>% resp_body_json()
     groups <- data$group %||% list()
-    data_orcid <- 
+    data_orcid <-
       map(groups, function(x){
         title <- x[["work-summary"]][[1]][["title"]][["title"]][["value"]]
         doi <- NULL
@@ -166,7 +166,7 @@ fetch_orcid_works <- function(orcid_id) {
         year <- x[["work-summary"]][[1]][["publication-date"]][["year"]][["value"]] %||% NULL
         journal_title <- x[["work-summary"]][[1]][["journal-title"]][["value"]] %||% NULL
         ext_ids <- x$"external-ids"$"external-id" %||% list()
-        
+
         if (length(ext_ids) > 0) {
           ext_type <- ext_ids[[1]][["external-id-type"]]
           if (!is.null(ext_type) && ext_type == "doi") {
@@ -177,7 +177,7 @@ fetch_orcid_works <- function(orcid_id) {
             doi_link <- x[["work-summary"]][[1]][["url"]][["value"]]
           }
         }
-        
+
         list(
           title = title,
           doi = doi,
@@ -186,11 +186,11 @@ fetch_orcid_works <- function(orcid_id) {
           journalTitle = journal_title,
           link = link
         )
-      }) |> 
-      compact() 
+      }) |>
+      compact()
     log_info("✓ {length(data_orcid)} publicações encontradas no ORCID.")
     return(data_orcid)
-    
+
   }, error = function(e) {
     log_error("Erro ao buscar dados do ORCID: {e$message}")
     return(list())
@@ -207,15 +207,15 @@ fetch_scholar_profile <- function(author_id, api_key) {
       api_key = api_key,
       hl = "pt-br"
     )
-  
+
   tryCatch({
     resp <- req %>% req_perform()
     data <- resp %>% resp_body_json()
-    
+
     if (!is.null(data$error)) stop(data$error)
-    
+
     raw_table <- data$cited_by$table %||% list()
-    
+
     # Padroniza a tabela
     standardized_table <- map(raw_table, ~{
       if (!is.null(.x$"citações")) {
@@ -234,36 +234,36 @@ fetch_scholar_profile <- function(author_id, api_key) {
         .x
       }
     })
-    
+
     # Padroniza o gráfico
     api_graph <- data$cited_by$graph %||% list()
     api_graph_map <- setNames(map_int(api_graph, "citations"), map_int(api_graph, "year"))
-    
+
     min_api_year <- if(length(api_graph_map) > 0) min(as.integer(names(api_graph_map))) else year(now())
-    
+
     # Anos que faltam desde 2017
     years_to_pad <- (2017:year(now()))
     if (min_api_year > 2017) {
       years_to_pad <- 2017:min_api_year
     }
-    
+
     current_year <- year(now())
     api_years <- as.integer(names(api_graph_map))
     all_years <- unique(c(years_to_pad, api_years))
-    
+
     final_graph_data <- map(all_years, ~{
       list(
         year = .x,
         citations = api_graph_map[as.character(.x)] %||% 0
       )
-    }) %>% 
-      keep(~ .x$year <= current_year) %>% 
+    }) %>%
+      keep(~ .x$year <= current_year) %>%
       .[order(map_int(., "year"))]
-    
+
     profile_data <- list(table = standardized_table, graph = final_graph_data)
     log_info("✓ Perfil do Google Scholar encontrado e padronizado.")
     return(profile_data)
-    
+
   }, error = function(e) {
     log_error("Erro ao buscar perfil do Scholar: {e$message}")
     return(NULL)
@@ -286,27 +286,27 @@ fetch_all_scholar_articles <- function(author_id, api_key) {
         start = start_index,
         num = 100
       )
-    
+
     tryCatch({
       resp <- req %>% req_perform()
       data <- resp %>% resp_body_json()
-      
+
       if (!is.null(data$error)) stop(data$error)
-      
+
       articles_on_page <- data$articles %||% list()
       if (length(articles_on_page) == 0) break
-      
+
       all_articles <- c(all_articles, articles_on_page)
       start_index <- start_index + length(articles_on_page)
-      
+
       if (length(articles_on_page) < 100) break
-      
+
     }, error = function(e) {
       log_error("Erro ao buscar página de publicações do Scholar: {e$message}")
       return(all_articles)
     })
   }
-  
+
   log_info("✓ Total de {length(all_articles)} publicações do Scholar encontradas.")
   return(all_articles)
 }
@@ -332,17 +332,17 @@ analyze_changes <- function(old_data, new_data) {
       modification_notes = c("initial data generation")
     ))
   }
-  
+
   report_lines <- c()
   modification_notes <- c()
-  
+
   # Comparação de Repositórios
   old_repos_list <- old_data$githubRepos %||% list()
   new_repos_list <- new_data$githubRepos %||% list()
-  
+
   old_repos <- map_chr(old_repos_list, ~.x$name %||% "")
   new_repos <- map_chr(new_repos_list, ~.x$name %||% "")
-  
+
   added_repos <- setdiff(new_repos, old_repos)
   if (length(added_repos) > 0) {
     report_lines <- c(report_lines, glue("  [+] Repositórios Adicionados ({length(added_repos)}): {paste(added_repos, collapse = ', ')}"))
@@ -350,11 +350,11 @@ analyze_changes <- function(old_data, new_data) {
       modification_notes <- c(modification_notes, glue("new repository: {repo}"))
     }
   }
-  
+
   # Métricas
   old_m <- extract_metrics(old_data)
   new_m <- extract_metrics(new_data)
-  
+
   if (new_m$citations != old_m$citations) {
     report_lines <- c(report_lines, glue("  [*] Citações: {old_m$citations} -> {new_m$citations}"))
     modification_notes <- c(modification_notes, glue("citations {old_m$citations} to {new_m$citations}"))
@@ -367,16 +367,16 @@ analyze_changes <- function(old_data, new_data) {
     report_lines <- c(report_lines, glue("  [*] Índice-i10: {old_m$i10_index} -> {new_m$i10_index}"))
     modification_notes <- c(modification_notes, glue("i10-index {old_m$i10_index} to {new_m$i10_index}"))
   }
-  
+
   # Artigos e Citações
   old_articles_list <- old_data$scholarData$articles %||% list()
   old_articles <- setNames(old_articles_list, map_chr(old_articles_list, ~normalize_title(.x$title)))
-  
+
   new_articles_list <- new_data$scholarData$articles %||% list()
   new_articles <- setNames(new_articles_list, map_chr(new_articles_list, ~normalize_title(.x$title)))
-  
+
   added_titles <- setdiff(names(new_articles), names(old_articles))
-  
+
   if (length(added_titles) > 0) {
     report_lines <- c(report_lines, glue("\n--- Novas Publicações ({length(added_titles)}) ---"))
     for (norm_title in added_titles) {
@@ -385,18 +385,18 @@ analyze_changes <- function(old_data, new_data) {
       modification_notes <- c(modification_notes, glue("new publication: {str_sub(full_title, 1, 50)}..."))
     }
   }
-  
+
   citation_updates <- c()
   common_titles <- intersect(names(new_articles), names(old_articles))
-  
+
   if(length(common_titles) > 0) {
     for (norm_title in common_titles) {
       old_cites_val <- old_articles[[norm_title]]$cited_by$value
       old_cites <- if (is.null(old_cites_val) || !is.numeric(old_cites_val)) 0 else old_cites_val
-      
+
       new_cites_val <- new_articles[[norm_title]]$cited_by$value
       new_cites <- if (is.null(new_cites_val) || !is.numeric(new_cites_val)) 0 else new_cites_val
-      
+
       if (new_cites > old_cites) {
         title <- new_articles[[norm_title]]$title %||% ""
         line <- glue("    - '{str_sub(title, 1, 50)}...': {old_cites} -> {new_cites} (+{new_cites - old_cites})")
@@ -405,12 +405,12 @@ analyze_changes <- function(old_data, new_data) {
       }
     }
   }
-  
+
   if (length(citation_updates) > 0) {
     report_lines <- c(report_lines, glue("\n--- Atualizações de Citações ({length(citation_updates)}) ---"))
     report_lines <- c(report_lines, citation_updates)
   }
-  
+
   return(list(report_lines = report_lines, modification_notes = modification_notes))
 }
 
@@ -468,7 +468,7 @@ for (i in seq_along(SERPAPI_KEYS)) {
   log_info("Tentando buscar dados do Scholar com a Chave {i}/{length(SERPAPI_KEYS)}...")
   temp_profile <- fetch_scholar_profile(SCHOLAR_AUTHOR_ID, key)
   temp_articles <- fetch_all_scholar_articles(SCHOLAR_AUTHOR_ID, key)
-  
+
   if (!is.null(temp_profile) && !is.null(temp_articles)) {
     log_info("✓ Sucesso com a Chave {i}.")
     scholar_profile <- temp_profile
@@ -511,7 +511,7 @@ if (length(orcid_works) > 0) {
   })
   is_duplicate <- duplicated(map_chr(orcid_works_formatados, "norm_title"))
   orcid_works_unicos <- orcid_works_formatados[!is_duplicate]
-  
+
   tryCatch({
     norm_titles_unicos <- map_chr(orcid_works_unicos, "norm_title")
     merged_articles_map <- setNames(orcid_works_unicos, norm_titles_unicos)
@@ -535,7 +535,7 @@ for (i in seq_along(scholar_articles_raw)) {
     pubname <- str_remove_all(scholar_articles_raw[[norm_title]]$publication, "[^A-Za-z\\s]") |> str_trim()
     scholar_articles_raw[[norm_title]]$journalTitle <- ifelse(is.null(pubname) || pubname == "", "null", pubname)
   }
-  
+
   # Default NULL, empty, or 'null' years to "2000" to sort at the end of the list
   year_val <- scholar_articles_raw[[norm_title]]$year
   if (is.null(year_val) || year_val == "" || year_val == "null" || is.na(year_val)) {
@@ -575,17 +575,17 @@ modification_notes <- analysis$modification_notes
 if (generate_fallback_file(new_data, TEMP_FILENAME)) {
   separator_line <- paste(rep("=", 50), collapse = "")
   log_info(paste0("\n", separator_line, "\nRELATÓRIO DE MUDANÇAS\n", separator_line))
-  
+
   if (length(report_lines) == 0 && (length(modification_notes) == 0 || modification_notes[1] == "initial data generation")) {
     report_lines <- c("  ✓ Nenhuma mudança detectada.")
   }
-  
+
   for (line in report_lines) {
     log_info(line)
   }
-  
+
   log_info(paste0("\n", separator_line))
-  
+
   if (length(report_lines) > 0 && report_lines[1] == "  ✓ Nenhuma mudança detectada.") {
     log_info("  ✓ Nenhuma mudança de métricas detectada. Arquivo já atualizado.")
     try(file_delete(TEMP_FILENAME), silent = TRUE)
@@ -599,3 +599,5 @@ if (generate_fallback_file(new_data, TEMP_FILENAME)) {
 }
 
 log_info("Processo concluído com sucesso!")
+
+servr::httw()
